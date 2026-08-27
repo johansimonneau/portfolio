@@ -1,0 +1,220 @@
+/* ==========================================================================
+   Johan Simonneau — Portfolio
+   pillar.css — composants additionnels pour les pages piliers (SEA, SMA, ...)
+   S'appuie entièrement sur les variables et classes définies dans style.css.
+   Charger APRÈS style.css.
+   ========================================================================== */
+
+/* ---------- Grille définition (2 colonnes) ---------- */
+
+.pillar-grid {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: 1fr;
+}
+
+.pillar-grid-head .section-title {
+  margin-bottom: 0;
+}
+
+.pillar-grid-body p {
+  color: var(--color-ink-soft);
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.pillar-note {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--color-ink-faint);
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.pillar-note a {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+@media (min-width: 800px) {
+  .pillar-grid {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 64px;
+  }
+}
+
+/* ---------- Étapes de méthodologie ---------- */
+
+.pillar-steps {
+  list-style: none;
+  margin-top: 40px;
+}
+
+.pillar-steps li {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 20px;
+  padding: 28px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.pillar-steps li:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pillar-steps-num {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-navy);
+}
+
+.pillar-steps h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.pillar-steps p {
+  font-size: 15px;
+  color: var(--color-ink-soft);
+  margin: 0;
+}
+
+/* ---------- Tags de périmètre (réutilise .hero-pills) ---------- */
+
+.pillar-tags {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.pillar-tags li {
+  cursor: default;
+}
+
+/* ---------- Cartes résultats sans image ---------- */
+
+.project-card--noimg .project-body {
+  padding: 28px;
+}
+
+.project-card--noimg .project-metrics {
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.project-card--noimg .project-metrics span {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--color-ink-soft);
+}
+
+.project-card--noimg .project-metrics strong {
+  font-size: 20px;
+}
+
+/* ---------- Section "pour qui" ---------- */
+
+.pillar-forqui {
+  align-items: start;
+}
+
+.pillar-list {
+  border-top: none;
+  margin-top: 0;
+}
+
+.pillar-list li {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 10px;
+  padding-block: 12px;
+}
+
+.pillar-list li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-mint);
+  transform: translateY(-2px);
+}
+
+@media (min-width: 900px) {
+  .pillar-forqui {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 80px;
+  }
+}
+
+/* ---------- FAQ (accordéon) ---------- */
+
+.pillar-faq {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.pillar-faq details {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  transition: border-color var(--transition);
+}
+
+.pillar-faq details[open] {
+  border-color: var(--color-navy);
+}
+
+.pillar-faq summary {
+  cursor: pointer;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--color-ink);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.pillar-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.pillar-faq summary::after {
+  content: "+";
+  flex-shrink: 0;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--color-navy);
+  transition: transform var(--transition);
+}
+
+.pillar-faq details[open] summary::after {
+  content: "\2212";
+}
+
+.pillar-faq details p {
+  margin: 16px 0 0;
+  font-size: 15px;
+  color: var(--color-ink-soft);
+}
+
+/* ---------- Réduction du mouvement ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .pillar-faq details {
+    transition: none;
+  }
+}
