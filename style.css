@@ -21,17 +21,18 @@
   --color-ink-soft: rgba(31, 31, 31, 0.68);
   --color-ink-faint: rgba(31, 31, 31, 0.4);
   --color-mint: #4ce6b9;
-  --color-navy: #001b48;
+  --color-navy: #1a49ee;
+  --color-navy-deep: #12309f;
   --color-border: rgba(31, 31, 31, 0.1);
 
   /* Typo */
-  --font-serif: "Fraunces", Georgia, serif;
+  --font-serif: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Rythme */
   --container-width: 1180px;
   --gap-section: clamp(64px, 10vw, 128px);
-  --radius: 4px;
+  --radius: 14px;
   --transition: 200ms ease;
 }
 
@@ -77,9 +78,9 @@ ul {
 
 h1, h2, h3 {
   font-family: var(--font-serif);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.15;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 button {
@@ -177,7 +178,7 @@ button {
 }
 
 .btn-primary:hover {
-  background: #002a6b;
+  background: var(--color-navy-deep);
 }
 
 .btn-ghost {
@@ -389,11 +390,11 @@ button {
   position: absolute;
   top: -120px;
   right: -140px;
-  width: 420px;
-  height: 420px;
+  width: 460px;
+  height: 460px;
   border-radius: 50%;
   background: var(--color-mint);
-  opacity: 0.14;
+  opacity: 0.22;
   z-index: -1;
   will-change: transform;
 }
@@ -429,6 +430,7 @@ button {
 
 .hero-title {
   font-size: clamp(40px, 8vw, 76px);
+  font-weight: 700;
   margin-bottom: 20px;
   opacity: 1;
 }
@@ -492,6 +494,7 @@ button {
 
 .hero-stat dd {
   font-family: var(--font-serif);
+  font-weight: 700;
   font-size: clamp(22px, 3vw, 28px);
   color: var(--color-navy);
 }
@@ -635,7 +638,7 @@ button {
 .card:hover {
   border-color: var(--color-navy);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 27, 72, 0.06);
+  box-shadow: 0 8px 24px rgba(26, 73, 238, 0.06);
 }
 
 .card:hover .card-icon {
@@ -787,7 +790,8 @@ button {
 
 .project-metrics strong {
   font-family: var(--font-serif);
-  color: var(--color-navy);
+  font-weight: 700;
+  color: var(--color-mint-text, #0f7a5c);
   font-size: 18px;
   display: block;
 }
@@ -929,12 +933,6 @@ button {
 @media (min-width: 700px) {
   .testimonial-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 900px) {
-  .testimonial-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -1131,5 +1129,5 @@ button {
 }
 
 .btn-ghost::before {
-  background: rgba(0, 27, 72, 0.06);
+  background: rgba(26, 73, 238, 0.06);
 }
