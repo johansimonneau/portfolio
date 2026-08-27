@@ -8,6 +8,17 @@
 
   var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---------- Animation d'entrée du titre hero ---------- */
+
+  var heroTitle = document.querySelector(".hero-title");
+  if (heroTitle && !prefersReducedMotion) {
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () {
+        heroTitle.classList.add("animate-in");
+      });
+    });
+  }
+
   /* ---------- Menu mobile ---------- */
 
   var navToggle = document.getElementById("navToggle");
