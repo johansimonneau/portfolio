@@ -403,6 +403,30 @@ button {
   will-change: transform, opacity;
 }
 
+.hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.hero-pills li {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-navy);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 7px 16px;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.hero-pills li:hover {
+  background: var(--color-mint);
+  border-color: var(--color-mint);
+  transform: translateY(-1px);
+}
+
 .hero-title {
   font-size: clamp(40px, 8vw, 76px);
   margin-bottom: 20px;
@@ -474,7 +498,7 @@ button {
 
 @media (min-width: 600px) {
   .hero-stats {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -483,7 +507,7 @@ button {
 .client-strip {
   padding-block: 40px;
   border-bottom: 1px solid var(--color-border);
-  background: var(--color-bg-alt);
+  background: var(--color-bg);
   overflow: hidden;
 }
 
@@ -536,7 +560,7 @@ button {
 }
 
 .client-logo {
-  height: 28px;
+  height: 38px;
   width: auto;
   flex: 0 0 auto;
   filter: grayscale(100%);
@@ -545,7 +569,7 @@ button {
 }
 
 .client-logo-tall {
-  height: 42px;
+  height: 56px;
 }
 
 .client-marquee-track:hover .client-logo {
@@ -584,11 +608,11 @@ button {
 
 @media (max-width: 599px) {
   .client-logo {
-    height: 22px;
+    height: 28px;
   }
 
   .client-logo-tall {
-    height: 34px;
+    height: 42px;
   }
 }
 
@@ -661,9 +685,15 @@ button {
   border-radius: 50%;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 700px) {
   .card-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .card-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -689,15 +719,31 @@ button {
 }
 
 .project-media {
+  position: relative;
   aspect-ratio: 16 / 10;
   background: var(--color-bg-alt);
   overflow: hidden;
+}
+
+.project-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 55%,
+    var(--color-bg) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
 .project-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
   transition: transform 400ms ease;
 }
 
