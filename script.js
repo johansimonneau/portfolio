@@ -1,10 +1,12 @@
 /* ==========================================================================
    Johan Simonneau — Portfolio
-   script.js — menu mobile + animations au scroll (IntersectionObserver)
+   script.js — navigation, animations au scroll, micro-interactions
    ========================================================================== */
 
 (function () {
   "use strict";
+
+  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- Menu mobile ---------- */
 
@@ -20,7 +22,6 @@
       document.body.style.overflow = isOpen ? "" : "hidden";
     });
 
-    // Ferme le menu quand un lien est cliqué (navigation mobile)
     mainNav.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
         navToggle.setAttribute("aria-expanded", "false");
@@ -31,39 +32,208 @@
     });
   }
 
-  /* ---------- Animations au scroll ---------- */
+  /* ---------- Barre de progression de scroll ---------- */
+
+  var progressBar = document.getElementById("scrollProgress");
+
+  function updateScrollProgress() {
+    if (!progressBar) return;
+    var scrollTop = window.scrollY || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = pct + "%";
+  }
+
+  /* ---------- Header : compact au scroll ---------- */
+
+  var header = document.querySelector(".site-header");
+  var lastScrollY = window.scrollY;
+
+  function updateHeaderState() {
+    if (!header) return;
+    var currentY = window.scrollY;
+    header.classList.toggle("is-scrolled", currentY > 24);
+    lastScrollY = currentY;
+  }
+
+  /* ---------- Parallax léger du hero ---------- */
+
+  var heroBlob = document.querySelector(".hero-blob");
+  var heroInner = document.querySelector(".hero-inner");
+
+  function updateParallax() {
+    if (prefersReducedMotion) return;
+    var y = window.scrollY;
+    if (heroBlob) {
+      heroBlob.style.transform = "translate3d(0, " + y * 0.18 + "px, 0)";
+    }
+    if (heroInner) {
+      var fade = Math.max(0, 1 - y / 500);
+      heroInner.style.opacity = fade.toFixed(3);
+      heroInner.style.transform = "translate3d(0, " + y * 0.08 + "px, 0)";
+    }
+  }
+
+  var ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(function () {
+        updateScrollProgress();
+        updateHeaderState();
+        updateParallax();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- Compteurs animés (hero-stat) ---------- */
+
+  function animateCount(el) {
+    var raw = el.getAttribute("data-count-to");
+    if (!raw) return;
+
+    var match = raw.match(/^([^\d]*)(\d+(?:[.,]\d+)?)(.*)$/);
+    if (!match) return;
+
+    var prefix = match[1];
+    var numStr = match[2];
+    var suffix = match[3];
+    var hasComma = numStr.indexOf(",") !== -1;
+    var target = parseFloat(numStr.replace(",", "."));
+    var decimals = hasComma ? numStr.split(",")[1].length : 0;
+
+    var duration = 1100;
+    var startTime = null;
+
+    function easeOutExpo(t) {
+      return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+    }
+
+    function step(timestamp) {
+      if (startTime === null) startTime = timestamp;
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      var eased = easeOutExpo(progress);
+      var current = target * eased;
+      var display = decimals > 0 ? current.toFixed(decimals).replace(".", ",") : Math.round(current).toString();
+      el.textContent = prefix + display + suffix;
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      } else {
+        el.textContent = prefix + numStr + suffix;
+      }
+    }
+
+    window.requestAnimationFrame(step);
+  }
+
+  /* ---------- Reveal au scroll (différencié par type) ---------- */
 
   var revealEls = document.querySelectorAll("[data-reveal]");
-  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var statEls = document.querySelectorAll("[data-count-to]");
 
   if (prefersReducedMotion || !("IntersectionObserver" in window)) {
-    // Pas d'animation : on affiche tout directement
     revealEls.forEach(function (el) {
       el.classList.add("is-visible");
     });
-    return;
+    statEls.forEach(function (el) {
+      var raw = el.getAttribute("data-count-to");
+      if (raw) el.textContent = raw;
+    });
+  } else {
+    var revealObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var group = entry.target.closest("[data-reveal-group]");
+            var siblings = group ? Array.prototype.slice.call(group.querySelectorAll("[data-reveal]")) : [entry.target];
+            var index = siblings.indexOf(entry.target);
+            var delay = Math.max(0, index) * 90;
+
+            setTimeout(function () {
+              entry.target.classList.add("is-visible");
+            }, delay);
+
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.14, rootMargin: "0px 0px -60px 0px" }
+    );
+
+    revealEls.forEach(function (el) {
+      revealObserver.observe(el);
+    });
+
+    var statObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateCount(entry.target);
+            statObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    statEls.forEach(function (el) {
+      statObserver.observe(el);
+    });
   }
 
-  var observer = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry, index) {
-        if (entry.isIntersecting) {
-          // léger décalage pour un effet de cascade sur les groupes de cartes
-          var delay = (index % 3) * 80;
-          setTimeout(function () {
-            entry.target.classList.add("is-visible");
-          }, delay);
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.12,
-      rootMargin: "0px 0px -40px 0px"
-    }
-  );
+  /* ---------- Tilt discret au survol (project-card, card) ---------- */
 
-  revealEls.forEach(function (el) {
-    observer.observe(el);
-  });
+  if (!prefersReducedMotion && window.matchMedia("(hover: hover)").matches) {
+    var tiltEls = document.querySelectorAll("[data-tilt]");
+
+    tiltEls.forEach(function (el) {
+      var bounds;
+
+      el.addEventListener("pointerenter", function () {
+        bounds = el.getBoundingClientRect();
+      });
+
+      el.addEventListener("pointermove", function (e) {
+        if (!bounds) bounds = el.getBoundingClientRect();
+        var x = (e.clientX - bounds.left) / bounds.width - 0.5;
+        var y = (e.clientY - bounds.top) / bounds.height - 0.5;
+        var rotateX = (-y * 4).toFixed(2);
+        var rotateY = (x * 4).toFixed(2);
+        el.style.transform = "perspective(800px) rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) translateY(-4px)";
+      });
+
+      el.addEventListener("pointerleave", function () {
+        el.style.transform = "";
+      });
+    });
+  }
+
+  /* ---------- Active nav link selon la section visible ---------- */
+
+  var sections = document.querySelectorAll("main section[id]");
+  var navLinks = document.querySelectorAll(".main-nav a[href^='#']");
+
+  if (sections.length && navLinks.length && "IntersectionObserver" in window) {
+    var navObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var id = entry.target.getAttribute("id");
+            navLinks.forEach(function (link) {
+              link.classList.toggle("is-active", link.getAttribute("href") === "#" + id);
+            });
+          }
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+
+    sections.forEach(function (section) {
+      navObserver.observe(section);
+    });
+  }
 })();

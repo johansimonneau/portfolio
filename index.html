@@ -16,7 +16,9 @@
 
 <a class="skip-link" href="#main">Aller au contenu</a>
 
-<header class="site-header" data-reveal>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
   <div class="container header-inner">
     <a href="#top" class="logo">JS<span class="logo-dot">.</span></a>
 
@@ -40,9 +42,10 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
+    <div class="hero-blob" aria-hidden="true"></div>
     <div class="container hero-inner">
       <p class="eyebrow" data-reveal>Consultant Growth &amp; Marketing</p>
-      <h1 class="hero-title" data-reveal>
+      <h1 class="hero-title">
         Johan Simonneau
       </h1>
       <p class="hero-tagline" data-reveal>
@@ -53,20 +56,20 @@
         <a href="#projets" class="btn btn-ghost">Voir les projets</a>
       </div>
 
-      <dl class="hero-stats" data-reveal>
-        <div class="hero-stat">
+      <dl class="hero-stats" data-reveal data-reveal-group>
+        <div class="hero-stat" data-reveal>
           <dt>Expérience</dt>
-          <dd>8 ans</dd>
+          <dd data-count-to="8 ans">0</dd>
         </div>
-        <div class="hero-stat">
+        <div class="hero-stat" data-reveal>
           <dt>Croissance pilotée</dt>
-          <dd>+900%</dd>
+          <dd data-count-to="+900%">0</dd>
         </div>
-        <div class="hero-stat">
+        <div class="hero-stat" data-reveal>
           <dt>ROAS obtenu</dt>
-          <dd>5,9x</dd>
+          <dd data-count-to="5,9x">0</dd>
         </div>
-        <div class="hero-stat">
+        <div class="hero-stat" data-reveal>
           <dt>Basé à</dt>
           <dd>Chambéry — Lyon</dd>
         </div>
@@ -77,14 +80,14 @@
   <!-- SERVICES -->
   <section class="section" id="services">
     <div class="container">
-      <div class="section-head" data-reveal>
+      <div class="section-head" data-reveal="scale">
         <p class="eyebrow">Expertises</p>
         <h2 class="section-title">Ce que je peux piloter pour vous</h2>
         <p class="section-lead">Une vision 360° de l'acquisition : Paid, SEO, Mobile et Analytics — chaque euro investi doit générer un retour clair.</p>
       </div>
 
-      <div class="card-grid">
-        <article class="card" data-reveal>
+      <div class="card-grid" data-reveal-group>
+        <article class="card" data-reveal data-tilt>
           <div class="card-icon" aria-hidden="true">
             <img src="assets/icons/paid-media.svg" alt="" width="28" height="28">
           </div>
@@ -97,7 +100,7 @@
           </ul>
         </article>
 
-        <article class="card" data-reveal>
+        <article class="card" data-reveal data-tilt>
           <div class="card-icon" aria-hidden="true">
             <img src="assets/icons/mobile-growth.svg" alt="" width="28" height="28">
           </div>
@@ -110,7 +113,7 @@
           </ul>
         </article>
 
-        <article class="card" data-reveal>
+        <article class="card" data-reveal data-tilt>
           <div class="card-icon" aria-hidden="true">
             <img src="assets/icons/analytics.svg" alt="" width="28" height="28">
           </div>
@@ -129,15 +132,15 @@
   <!-- PROJETS -->
   <section class="section section-alt" id="projets">
     <div class="container">
-      <div class="section-head" data-reveal>
+      <div class="section-head" data-reveal="scale">
         <p class="eyebrow">Réalisations</p>
         <h2 class="section-title">Des résultats, pas des promesses</h2>
         <p class="section-lead">Une sélection de missions récentes, avec des chiffres avant/après.</p>
       </div>
 
-      <div class="project-grid">
+      <div class="project-grid" data-reveal-group>
 
-        <article class="project-card" data-reveal>
+        <article class="project-card" data-reveal data-tilt>
           <div class="project-media">
             <img src="assets/img/project-tiime.svg" alt="Aperçu du projet Tiime" loading="lazy" width="640" height="420">
           </div>
@@ -152,7 +155,7 @@
           </div>
         </article>
 
-        <article class="project-card" data-reveal>
+        <article class="project-card" data-reveal data-tilt>
           <div class="project-media">
             <img src="assets/img/project-swapn.svg" alt="Aperçu du projet Swapn" loading="lazy" width="640" height="420">
           </div>
@@ -167,7 +170,7 @@
           </div>
         </article>
 
-        <article class="project-card" data-reveal>
+        <article class="project-card" data-reveal data-tilt>
           <div class="project-media">
             <img src="assets/img/project-pentalog.svg" alt="Aperçu du projet Pentalog" loading="lazy" width="640" height="420">
           </div>
@@ -182,7 +185,7 @@
           </div>
         </article>
 
-        <article class="project-card" data-reveal>
+        <article class="project-card" data-reveal data-tilt>
           <div class="project-media">
             <img src="assets/img/project-skillvalue.svg" alt="Aperçu du projet SkillValue" loading="lazy" width="640" height="420">
           </div>
@@ -204,12 +207,12 @@
   <!-- À PROPOS -->
   <section class="section" id="apropos">
     <div class="container about-grid">
-      <div class="about-portrait" data-reveal>
+      <div class="about-portrait" data-reveal="left">
         <div class="portrait-shape" aria-hidden="true"></div>
-        <img src="assets/img/johan-portrait.svg" alt="Portrait de Johan Simonneau" width="480" height="560" loading="lazy">
+        <img src="assets/img/johan-portrait.svg" alt="Portrait de Johan Simonneau, illustration en flat design" width="480" height="560" loading="lazy">
       </div>
 
-      <div class="about-content" data-reveal>
+      <div class="about-content" data-reveal="right">
         <p class="eyebrow">À propos</p>
         <h2 class="section-title">8 ans à faire parler les chiffres</h2>
         <p class="about-text">
@@ -239,13 +242,13 @@
   <!-- TÉMOIGNAGES -->
   <section class="section section-alt" id="temoignages">
     <div class="container">
-      <div class="section-head" data-reveal>
+      <div class="section-head" data-reveal="scale">
         <p class="eyebrow">Témoignages</p>
         <h2 class="section-title">Ce qu'ils en disent</h2>
       </div>
 
-      <div class="testimonial-grid">
-        <article class="testimonial-card" data-reveal>
+      <div class="testimonial-grid" data-reveal-group>
+        <article class="testimonial-card" data-reveal data-tilt>
           <p class="testimonial-quote">
             « J'ai eu la chance de travailler avec Johan sur son acquisition chez Tiime.
             Johan est rassurant, calme et sait trouver les bonnes solutions. Si vous
@@ -260,7 +263,7 @@
           </footer>
         </article>
 
-        <article class="testimonial-card" data-reveal>
+        <article class="testimonial-card" data-reveal data-tilt>
           <p class="testimonial-quote">
             « Johan fait partie de ces personnes qui comprennent très vite, très bien,
             et qui savent mettre en place une vision/stratégie tout en apportant
@@ -275,7 +278,7 @@
           </footer>
         </article>
 
-        <article class="testimonial-card" data-reveal>
+        <article class="testimonial-card" data-reveal data-tilt>
           <p class="testimonial-quote">
             « Ce que j'ai apprécié, c'est sa manière de transformer ses besoins
             marketing en briefs hyper synthétiques et exploitables. Feedbacks clairs,
@@ -295,7 +298,7 @@
 
   <!-- CONTACT -->
   <section class="section contact-section" id="contact">
-    <div class="container contact-inner" data-reveal>
+    <div class="container contact-inner" data-reveal="scale">
       <p class="eyebrow">Contact</p>
       <h2 class="section-title">Parlons de votre croissance</h2>
       <p class="section-lead">Un appel de 30 minutes suffit pour savoir si on peut travailler ensemble.</p>

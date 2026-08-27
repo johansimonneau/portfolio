@@ -197,6 +197,17 @@ button {
 
 /* ---------- 3. Header ---------- */
 
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--color-mint);
+  z-index: 200;
+  transition: width 80ms linear;
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -204,6 +215,15 @@ button {
   background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border);
+  transition: padding var(--transition), box-shadow var(--transition);
+}
+
+.site-header.is-scrolled {
+  box-shadow: 0 8px 24px rgba(31, 31, 31, 0.05);
+}
+
+.site-header.is-scrolled .header-inner {
+  padding-block: 12px;
 }
 
 .header-inner {
@@ -211,6 +231,7 @@ button {
   align-items: center;
   justify-content: space-between;
   padding-block: 18px;
+  transition: padding var(--transition);
 }
 
 .logo {
@@ -218,6 +239,12 @@ button {
   font-size: 22px;
   font-weight: 600;
   color: var(--color-ink);
+  display: inline-flex;
+  transition: transform var(--transition);
+}
+
+.logo:hover {
+  transform: translateY(-1px);
 }
 
 .logo-dot {
@@ -231,14 +258,40 @@ button {
 }
 
 .main-nav a {
+  position: relative;
   font-size: 15px;
   font-weight: 500;
   color: var(--color-ink-soft);
   transition: color var(--transition);
+  padding-bottom: 2px;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 1.5px;
+  background: var(--color-mint);
+  transition: width var(--transition);
 }
 
 .main-nav a:hover {
   color: var(--color-ink);
+}
+
+.main-nav a:hover::after,
+.main-nav a.is-active::after {
+  width: 100%;
+}
+
+.main-nav a.is-active {
+  color: var(--color-ink);
+}
+
+.main-nav a.nav-cta::after {
+  display: none;
 }
 
 .nav-cta {
@@ -322,16 +375,56 @@ button {
 /* ---------- 4. Hero ---------- */
 
 .hero {
+  position: relative;
   padding-block: clamp(72px, 14vw, 160px) var(--gap-section);
+  overflow: clip;
+}
+
+.hero-blob {
+  position: absolute;
+  top: -120px;
+  right: -140px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: var(--color-mint);
+  opacity: 0.14;
+  z-index: -1;
+  will-change: transform;
 }
 
 .hero-inner {
   max-width: 780px;
+  will-change: transform, opacity;
 }
 
 .hero-title {
   font-size: clamp(40px, 8vw, 76px);
   margin-bottom: 20px;
+  animation: heroTitleIn 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-title .hero-title-line {
+  display: inline-block;
+}
+
+@keyframes heroTitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title {
+    animation: none;
+  }
 }
 
 .hero-tagline {
@@ -398,11 +491,17 @@ button {
   box-shadow: 0 8px 24px rgba(0, 27, 72, 0.06);
 }
 
+.card:hover .card-icon {
+  background: var(--color-mint);
+  transform: scale(1.06);
+}
+
 .card-icon {
   width: 52px;
   height: 52px;
   border-radius: var(--radius);
   background: var(--color-bg-alt);
+  transition: background var(--transition), transform var(--transition);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -776,11 +875,114 @@ button {
 
 [data-reveal] {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 600ms ease, transform 600ms ease;
+  transform: translateY(22px);
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1), transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 [data-reveal].is-visible {
   opacity: 1;
   transform: none;
+}
+
+/* Variante : glissement latéral (à propos, portrait) */
+[data-reveal="left"] {
+  transform: translateX(-28px);
+}
+
+[data-reveal="right"] {
+  transform: translateX(28px);
+}
+
+[data-reveal="left"].is-visible,
+[data-reveal="right"].is-visible {
+  transform: none;
+}
+
+/* Variante : léger scale (titres de section) */
+[data-reveal="scale"] {
+  transform: translateY(16px) scale(0.97);
+}
+
+[data-reveal="scale"].is-visible {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    transition: none;
+  }
+}
+
+/* ---------- 12. Tilt & micro-interactions ---------- */
+
+[data-tilt] {
+  transition: transform 260ms ease, box-shadow var(--transition), border-color var(--transition);
+  transform-style: preserve-3d;
+}
+
+/* ---------- 13. Portrait à propos : flottement discret ---------- */
+
+.about-portrait {
+  animation: portraitFloat 6s ease-in-out infinite;
+}
+
+@keyframes portraitFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.about-portrait img {
+  transition: transform 400ms ease;
+}
+
+.about-portrait:hover img {
+  transform: scale(1.015);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-portrait {
+    animation: none;
+  }
+}
+
+/* ---------- 14. Boutons : effet de balayage discret ---------- */
+
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateX(-100%);
+  transition: transform 400ms ease;
+}
+
+.btn:hover::before {
+  transform: translateX(0);
+}
+
+.btn-ghost::before {
+  background: rgba(0, 27, 72, 0.06);
+}
+
+/* ---------- 15. Logo pulse discret sur le point ---------- */
+
+.logo-dot {
+  display: inline-block;
+  animation: dotPulse 2.6s ease-in-out infinite;
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-dot {
+    animation: none;
+  }
 }
