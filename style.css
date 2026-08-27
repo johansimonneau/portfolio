@@ -302,13 +302,15 @@ button {
 
 .nav-cta {
   padding: 9px 18px;
-  border: 1px solid var(--color-ink);
+  background: var(--color-navy);
+  border: 1px solid var(--color-navy);
   border-radius: var(--radius);
-  color: var(--color-ink) !important;
+  color: #fff !important;
 }
 
 .nav-cta:hover {
-  background: var(--color-ink);
+  background: var(--color-navy-deep);
+  border-color: var(--color-navy-deep);
   color: #fff !important;
 }
 
@@ -382,7 +384,7 @@ button {
 
 .hero {
   position: relative;
-  padding-block: clamp(72px, 14vw, 160px) var(--gap-section);
+  padding-block: clamp(56px, 9vw, 108px) var(--gap-section);
   overflow: clip;
 }
 
@@ -395,6 +397,20 @@ button {
   border-radius: 50%;
   background: var(--color-mint);
   opacity: 0.22;
+  z-index: -1;
+  will-change: transform;
+}
+
+.hero-square {
+  position: absolute;
+  bottom: -100px;
+  left: -110px;
+  width: 300px;
+  height: 300px;
+  border-radius: 56px;
+  background: var(--color-navy);
+  opacity: 0.14;
+  transform: rotate(24deg);
   z-index: -1;
   will-change: transform;
 }
@@ -971,6 +987,22 @@ button {
 
 .contact-section .btn-primary:hover {
   background: #3fd1a6;
+}
+
+.btn-ghost-on-dark {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn-ghost-on-dark:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.contact-actions {
+  justify-content: center;
+  margin-top: 8px;
+  margin-bottom: 0;
 }
 
 /* ---------- 10. Footer ---------- */
