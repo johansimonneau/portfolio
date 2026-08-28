@@ -1,0 +1,219 @@
+/* ==========================================================================
+   Johan Simonneau — Portfolio
+   legal.css — pages légales (mentions, confidentialité, CGP)
+   S'appuie entièrement sur les variables et classes définies dans style.css.
+   Charger APRÈS style.css.
+   ========================================================================== */
+
+.legal-hero {
+  padding-block: clamp(56px, 9vw, 96px) 32px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.legal-hero .eyebrow {
+  margin-bottom: 12px;
+}
+
+.legal-hero h1 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: clamp(32px, 5vw, 48px);
+  margin-bottom: 8px;
+}
+
+.legal-updated {
+  font-size: 13px;
+  color: var(--color-ink-faint);
+}
+
+.legal-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  padding-block: clamp(40px, 6vw, 72px);
+}
+
+@media (min-width: 900px) {
+  .legal-layout {
+    grid-template-columns: 240px 1fr;
+    align-items: start;
+  }
+}
+
+.legal-toc {
+  position: sticky;
+  top: 96px;
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .legal-toc {
+    display: block;
+  }
+}
+
+.legal-toc-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-ink-faint);
+  margin-bottom: 14px;
+}
+
+.legal-toc ol {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  counter-reset: toc;
+}
+
+.legal-toc li {
+  counter-increment: toc;
+}
+
+.legal-toc a {
+  display: flex;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--color-ink-soft);
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color var(--transition);
+}
+
+.legal-toc a::before {
+  content: counter(toc, decimal-leading-zero);
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--color-ink-faint);
+  flex-shrink: 0;
+}
+
+.legal-toc a:hover {
+  color: var(--color-navy);
+  text-decoration: none;
+}
+
+.legal-body {
+  max-width: 720px;
+  color: var(--color-ink-soft);
+  font-size: 15.5px;
+  line-height: 1.75;
+}
+
+.legal-body h2 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--color-ink);
+  margin: 48px 0 16px;
+  padding-top: 8px;
+  scroll-margin-top: 96px;
+}
+
+.legal-body section:first-of-type h2 {
+  margin-top: 0;
+}
+
+.legal-body h3 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-ink);
+  margin: 24px 0 8px;
+}
+
+.legal-body p {
+  margin: 0 0 16px;
+}
+
+.legal-body ul,
+.legal-body ol {
+  margin: 0 0 16px;
+  padding-left: 20px;
+}
+
+.legal-body li {
+  margin-bottom: 8px;
+}
+
+.legal-body a {
+  color: var(--color-navy);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.legal-body a:hover {
+  text-decoration: underline;
+}
+
+.legal-body strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0 28px;
+  font-size: 14.5px;
+}
+
+.legal-table th,
+.legal-table td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.legal-table th {
+  width: 220px;
+  font-weight: 600;
+  color: var(--color-ink);
+  background: var(--color-bg-alt);
+}
+
+.legal-callout {
+  background: var(--color-bg-alt);
+  border-left: 3px solid var(--color-navy);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 16px 20px;
+  margin: 0 0 20px;
+  font-size: 14.5px;
+}
+
+.legal-callout p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-crosslinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid var(--color-border);
+}
+
+.legal-crosslinks a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-navy);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+}
+
+.legal-crosslinks a:hover {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
