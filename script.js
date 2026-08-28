@@ -43,6 +43,61 @@
     });
   }
 
+  /* ---------- Mega-menu Services ---------- */
+
+  var servicesTrigger = document.getElementById("servicesTrigger");
+  var servicesMenu = document.getElementById("servicesMenu");
+
+  if (servicesTrigger && servicesMenu) {
+    function closeServicesMenu() {
+      servicesTrigger.setAttribute("aria-expanded", "false");
+      servicesMenu.classList.remove("is-open");
+    }
+
+    function openServicesMenu() {
+      servicesTrigger.setAttribute("aria-expanded", "true");
+      servicesMenu.classList.add("is-open");
+    }
+
+    servicesTrigger.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var isOpen = servicesTrigger.getAttribute("aria-expanded") === "true";
+      if (isOpen) {
+        closeServicesMenu();
+      } else {
+        openServicesMenu();
+      }
+    });
+
+    // Ferme au clic en dehors du menu (desktop)
+    document.addEventListener("click", function (e) {
+      if (!servicesMenu.contains(e.target) && !servicesTrigger.contains(e.target)) {
+        closeServicesMenu();
+      }
+    });
+
+    // Ferme à l'échappement
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        closeServicesMenu();
+        servicesTrigger.focus();
+      }
+    });
+
+    // Un clic sur un lien du mega-menu ferme aussi le menu mobile parent
+    servicesMenu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        closeServicesMenu();
+        if (navToggle && mainNav) {
+          navToggle.setAttribute("aria-expanded", "false");
+          navToggle.setAttribute("aria-label", "Ouvrir le menu");
+          mainNav.classList.remove("is-open");
+          document.body.style.overflow = "";
+        }
+      });
+    });
+  }
+
   /* ---------- Barre de progression de scroll ---------- */
 
   var progressBar = document.getElementById("scrollProgress");

@@ -314,6 +314,153 @@ button {
   color: #fff !important;
 }
 
+/* ---------- Mega-menu Services ---------- */
+
+.has-megamenu {
+  position: relative;
+}
+
+.services-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-ink-soft);
+  transition: color var(--transition);
+  padding-bottom: 2px;
+}
+
+.services-trigger:hover {
+  color: var(--color-ink);
+}
+
+.services-trigger-caret {
+  transition: transform var(--transition);
+  color: var(--color-ink-faint);
+}
+
+.services-trigger[aria-expanded="true"] {
+  color: var(--color-ink);
+}
+
+.services-trigger[aria-expanded="true"] .services-trigger-caret {
+  transform: rotate(180deg);
+  color: var(--color-navy);
+}
+
+.services-menu {
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 0;
+  transform: translateY(-8px);
+  width: min(600px, 90vw);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 48px rgba(31, 31, 31, 0.14);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 220ms ease, transform 220ms ease, visibility 220ms;
+  z-index: 90;
+  overflow: hidden;
+}
+
+.services-menu.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.services-menu-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 28px 28px 8px;
+}
+
+.services-menu-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.services-menu-heading {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-ink-faint);
+  margin-bottom: 10px;
+}
+
+.services-menu-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  margin: 0 -12px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background var(--transition);
+}
+
+.services-menu-item:hover {
+  background: var(--color-bg-alt);
+  text-decoration: none;
+}
+
+.services-menu-item-title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--color-ink);
+}
+
+.services-menu-item:hover .services-menu-item-title {
+  color: var(--color-navy);
+}
+
+.services-menu-item-desc {
+  font-size: 12.5px;
+  color: var(--color-ink-faint);
+  line-height: 1.4;
+}
+
+.services-menu-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 28px;
+  margin-top: 12px;
+  background: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+}
+
+.services-menu-footer p {
+  font-size: 13px;
+  color: var(--color-ink-soft);
+  margin: 0;
+}
+
+.services-menu-cta {
+  padding: 9px 18px;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-menu,
+  .services-trigger-caret {
+    transition: none;
+  }
+}
+
 .nav-toggle {
   display: flex;
   flex-direction: column;
@@ -371,6 +518,52 @@ button {
 
   .main-nav a {
     font-size: 20px;
+  }
+
+  .has-megamenu {
+    width: 100%;
+  }
+
+  .services-trigger {
+    font-size: 20px;
+    color: var(--color-ink-soft);
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .services-menu {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: none;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 260ms ease;
+    margin-top: 12px;
+  }
+
+  .services-menu.is-open {
+    max-height: 900px;
+    transform: none;
+  }
+
+  .services-menu-inner {
+    grid-template-columns: 1fr;
+    padding: 4px 0 0;
+    gap: 20px;
+  }
+
+  .services-menu-footer {
+    margin: 16px 0 0;
+    padding: 16px 0 0;
+    background: transparent;
+    flex-wrap: wrap;
   }
 }
 
@@ -1089,7 +1282,7 @@ button {
 
 @media (min-width: 900px) {
   .footer-inner {
-    grid-template-columns: 1.4fr 1fr 1fr;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
   }
 }
 

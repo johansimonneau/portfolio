@@ -124,9 +124,59 @@
 
     <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
       <ul>
-        <li><a href="/sea">SEA</a></li>
-        <li><a href="/sma" aria-current="page">SMA</a></li>
-        <li><a href="/#services">Services</a></li>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item" aria-current="page">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
         <li><a href="/#temoignages">Témoignages</a></li>
         <li><a href="/#contact" class="nav-cta">Contact</a></li>
       </ul>
@@ -376,6 +426,12 @@
         <li>Entreprises B2B cherchant à générer des leads qualifiés via LinkedIn</li>
         <li>PME qui veulent professionnaliser un SMA géré en interne</li>
       </ul>
+      <div class="pillar-related">
+        <span class="pillar-related-label">Voir aussi</span>
+        <a href="/sea" class="pillar-related-link">SEA →</a>
+        <a href="/analytics" class="pillar-related-link">Analytics →</a>
+        <a href="/cro" class="pillar-related-link">CRO →</a>
+      </div>
     </div>
   </section>
 
@@ -444,11 +500,23 @@
     </div>
 
     <div class="footer-links">
-      <p class="footer-heading">Navigation</p>
+      <p class="footer-heading">Services</p>
       <ul>
         <li><a href="/sea">SEA</a></li>
         <li><a href="/sma">SMA</a></li>
-        <li><a href="/#services">Services</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
         <li><a href="/#temoignages">Témoignages</a></li>
       </ul>
     </div>

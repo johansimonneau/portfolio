@@ -23,6 +23,10 @@
   margin-bottom: 16px;
 }
 
+.pillar-standalone {
+  max-width: 640px;
+}
+
 .pillar-note {
   font-size: 14px;
   font-style: italic;
@@ -209,6 +213,48 @@
   margin: 16px 0 0;
   font-size: 15px;
   color: var(--color-ink-soft);
+}
+
+/* ---------- Voir aussi (maillage interne) ---------- */
+
+.pillar-related {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--color-border);
+}
+
+.pillar-related-label {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-ink-faint);
+  margin-right: 4px;
+}
+
+.pillar-related-link {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-navy);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 7px 14px;
+  text-decoration: none;
+  transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+}
+
+.pillar-related-link:hover {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
 }
 
 /* ---------- Réduction du mouvement ---------- */
