@@ -427,3 +427,52 @@
   color: var(--color-ink-faint);
   margin-top: 10px;
 }
+
+/* ---------- Lecture audio (synthèse vocale du navigateur) ---------- */
+
+.sub-audio {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.sub-audio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-navy);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.sub-audio-btn:hover {
+  border-color: var(--color-navy);
+}
+
+.sub-audio-btn[aria-pressed="true"] {
+  background: var(--color-navy);
+  color: #fff;
+}
+
+.sub-audio-hint {
+  font-size: 12px;
+  color: var(--color-ink-faint);
+}
+
+.sub-audio-icon-pause {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sub-audio-btn {
+    transition: none;
+  }
+}

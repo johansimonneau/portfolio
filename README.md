@@ -61,10 +61,27 @@ Template d'article (à dupliquer depuis `seo-geo-ce-qui-change-vraiment.html`) :
   (+ `FAQPage` si pertinent) au lieu de `Service`.
 - Fil d'Ariane `.sub-breadcrumb` : Accueil / Blog / [Titre].
 - En-tête `.sub-header` avec tag `Blog` (`.sub-pillar-tag`), `<h1>`, accroche
-  (`.sub-hook`), puis `.sub-byline` (auteur · date · temps de lecture).
-- Corps en `.sub-article` : `<h2>`, `.sub-points` pour les listes à puces
-  avec amorce en gras, `.sub-faq` pour les questions/réponses.
+  (`.sub-hook`), puis `.sub-byline` (auteur · date · temps de lecture) et le
+  module `.sub-audio` ("Écouter cet article", synthèse vocale du navigateur,
+  gratuite — voir plus bas).
+- Corps en `.sub-article` : le contenu à lire à voix haute doit être dans un
+  conteneur avec un `id` (ex. `<div id="articleBody">`), qui doit englober
+  `<h2>`, `.sub-points`, `.sub-faq` mais **pas** `.sub-cta` (pour ne pas lire
+  l'appel à l'action). Le `data-audio-target` du bouton doit référencer cet
+  `id`.
 - CTA de fin (`.sub-cta`) + bandeau de liens connexes (`.sub-pillar-band`).
+
+### Module audio ("Écouter cet article")
+
+Utilise l'API native `speechSynthesis` du navigateur (gratuite, aucune clé
+API, aucun compte) — voix moins naturelle qu'un service payant type
+ElevenLabs, mais suffisante et sans coût récurrent. Logique dans `script.js`
+(section "Lecture audio de l'article"), activée automatiquement si un
+`[data-audio-btn]` est présent sur la page ; masquée automatiquement si le
+navigateur ne supporte pas `speechSynthesis` ou si la cible `data-audio-target`
+est introuvable. Attention : les icônes play/pause sont basculées via
+`element.style.display` en JS plutôt que l'attribut HTML `hidden`, qui ne se
+masque pas de façon fiable sur les éléments `<svg>` dans tous les moteurs.
 
 Pour publier un nouvel article : dupliquez le fichier, changez le contenu et
 le JSON-LD, ajoutez une entrée dans `.blog-list` sur `blog.html`, ajoutez le
