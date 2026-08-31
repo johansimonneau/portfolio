@@ -701,10 +701,6 @@ button {
   animation: heroTitleIn 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-.hero-title .hero-title-line {
-  display: inline-block;
-}
-
 @keyframes heroTitleIn {
   0% {
     opacity: 0;

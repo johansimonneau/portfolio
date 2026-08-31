@@ -1,52 +1,92 @@
 # Portfolio — Johan Simonneau
 
-Site HTML/CSS/JS natif (aucune dépendance, aucun build) — une home page et
-deux pages piliers SEO (SEA, SMA) partageant la même identité visuelle.
+Site HTML/CSS/JS natif (aucune dépendance, aucun build, aucun backend) —
+31 pages statiques déployées sur Vercel, partageant la même identité
+visuelle et les mêmes composants CSS.
 
 ## Arborescence
 
 ```
 .
-├── index.html          → Home page
-├── sea.html             → Page pilier "Consultant SEA"
-├── sma.html              → Page pilier "Consultant SMA"
-├── style.css             → Feuille de style principale (variables, composants)
-├── pillar.css             → Composants additionnels pour les pages piliers
-│                            (étapes de méthodologie, FAQ, grille définition…)
-│                            Se charge après style.css et réutilise ses variables.
-├── script.js              → Animations au scroll, menu mobile, compteurs
-├── vercel.json             → Configuration des URLs propres (/sea, /sma)
+├── index.html                    → Home page
+├── 404.html                      → Page d'erreur personnalisée
+├── comment-je-travaille.html     → Méthode de travail (sans tarifs)
+├── diagnostic.html               → Quiz interactif "Score de maturité Growth Marketing"
+├── blog.html                     → Index du blog (/blog)
+├── seo-geo-ce-qui-change-vraiment.html  → 1er article de blog
+│
+├── sea.html, sma.html, seo.html, geo.html,
+│   mobile-marketing.html, analytics.html, cro.html
+│                                  → 7 pages piliers (une par service)
+│
+├── ab-testing-faible-trafic.html, amplitude-mixpanel.html,
+│   analyse-comportementale.html, apple-search-ads.html,
+│   audit-visibilite-ia.html, bing-ads-freelance.html,
+│   consultant-ga4.html, conversion-api-tracking-server-side.html,
+│   donnees-structurees.html, google-ads-petit-budget.html,
+│   google-shopping.html, optimisation-landing-page.html,
+│   tiktok-ads.html, tracking-mobile.html, youtube-ads.html
+│                                  → 15 sous-pages (niveau 2 du maillage interne)
+│
+├── mentions-legales.html, politique-de-confidentialite.html, cgp.html
+│                                  → Pages légales (noindex)
+│
+├── style.css        → Feuille de style principale (variables, composants
+│                       partagés : header, footer, boutons, hero, cartes…)
+├── pillar.css        → Composants des pages piliers (méthodologie, FAQ,
+│                       grille de définition). Charge après style.css.
+├── subpage.css        → Composants des sous-pages/articles de blog (fil
+│                        d'Ariane, en-tête d'article, byline, module audio,
+│                        FAQ). Charge après style.css.
+├── legal.css           → Composants des pages légales et de la 404.
+├── blog.css              → Grille de cartes de l'index du blog.
+├── diagnostic.css         → Composants du quiz interactif.
+├── cookie-consent.css      → Bandeau de consentement cookies.
+│
+├── script.js          → Animations au scroll, menu mobile, mega-menu,
+│                        lien actif dans la nav, lecture audio des articles.
+├── cookie-consent.js   → Bandeau de consentement + Consent Mode Google.
+├── diagnostic.js        → Logique du quiz (calcul du score, résultats,
+│                          lien mailto pré-rempli — 100% côté client).
+│
+├── vercel.json         → URLs propres, en-têtes de sécurité (dont la CSP)
+├── robots.txt / sitemap.xml
+├── .well-known/security.txt   → Contact pour signalement de faille (RFC 9116)
 ├── favicon.ico, favicon-*.png, apple-touch-icon.png
 └── assets/
-    ├── icons/               → Icônes SVG des blocs de services
-    ├── img/
-    │   ├── logo-js.png        → Logo (fond clair, header)
-    │   ├── logo-js-white.png   → Logo (fond sombre, footer)
-    │   ├── johan-portrait-photo.jpg  → Photo utilisée dans "À propos"
-    │   ├── johan-portrait.svg         → Ancienne illustration (non utilisée)
-    │   ├── avatar-*.jpg        → Photos des témoignages
-    │   ├── project-*.jpg        → Captures des études de cas
-    │   └── clients/               → Logos clients (carrousel, niveaux de gris)
+    ├── fonts/            → Poppins + Inter auto-hébergées (sous-ensemble latin)
+    ├── icons/            → Icônes SVG des blocs de services
+    └── img/
+        ├── logo-js.png / logo-js-white.png   → Logo (header / footer)
+        ├── johan-portrait-photo.jpg           → Photo "À propos"
+        ├── avatar-*.jpg                       → Photos des témoignages
+        ├── project-*.jpg                      → Captures des études de cas
+        └── clients/                            → Logos clients (carrousel)
 ```
 
-## Pages piliers (SEA / SMA)
+## Structure des pages
 
-`sea.html` et `sma.html` reprennent exactement les composants visuels de la
-home (`.hero`, `.hero-pills`, `.card`, `.project-card`, header/footer) définis
-dans `style.css`, complétés par `pillar.css` pour les blocs propres aux pages
-piliers : grille de définition à 2 colonnes, étapes de méthodologie
-numérotées, FAQ en accordéon. Toute modification de couleur, typo ou espacement
-dans `style.css` (variables `:root`) se répercute donc automatiquement sur les
-trois pages.
+Toutes les pages partagent le même header (logo, mega-menu Services,
+CTA Contact), le même footer, et le même bloc de scripts Consent Mode/GTM en
+tête de `<head>`. Trois gabarits couvrent l'ensemble du site :
 
-Chaque page pilier embarque un bloc JSON-LD (`schema.org/Service` +
-`schema.org/FAQPage`) pour le référencement. Pensez à mettre à jour ce bloc
-si le contenu de la page change.
+**Pages piliers** (`pillar.css`) — une par service (SEA, SMA, SEO, GEO,
+Mobile Marketing, Analytics, CRO). Structure "landing page" : hero, grille de
+définition, étapes de méthodologie numérotées, FAQ en accordéon. JSON-LD
+`Service` + `FAQPage`.
 
-Pour créer une nouvelle page pilier (SEO, GEO, Mobile, Analytics, CRO…) :
-dupliquez `sea.html`, adaptez le contenu et le JSON-LD, ajoutez le lien dans
-la nav de toutes les pages et dans le bloc `.card-links` de la home si
-pertinent.
+**Sous-pages et articles de blog** (`subpage.css`) — format "article dense"
+volontairement distinct des pages piliers pour éviter la cannibalisation SEO :
+fil d'Ariane, pas de hero plein écran, corps en `<h2>`/listes/FAQ. JSON-LD
+`Article` (sous-pages) ou `BlogPosting` (articles de blog).
+
+**Pages légales** (`legal.css`) — mentions légales, politique de
+confidentialité, CGP, 404. Pas de JSON-LD (sauf 404, en `noindex`).
+
+Pour créer une nouvelle page pilier ou sous-page : dupliquez la page
+existante la plus proche, adaptez le contenu et le JSON-LD, ajoutez le lien
+dans la nav/mega-menu et le footer des autres pages si pertinent, et
+ajoutez l'URL dans `sitemap.xml`.
 
 ## Blog
 
@@ -71,6 +111,11 @@ Template d'article (à dupliquer depuis `seo-geo-ce-qui-change-vraiment.html`) :
   `id`.
 - CTA de fin (`.sub-cta`) + bandeau de liens connexes (`.sub-pillar-band`).
 
+Pour publier un nouvel article : dupliquez le fichier, changez le contenu et
+le JSON-LD, ajoutez une entrée dans `.blog-list` sur `blog.html`, ajoutez le
+lien `/blog` dans le footer si absent (déjà fait sur toutes les pages
+existantes), et ajoutez l'URL dans `sitemap.xml`.
+
 ### Module audio ("Écouter cet article")
 
 Utilise l'API native `speechSynthesis` du navigateur (gratuite, aucune clé
@@ -79,33 +124,83 @@ ElevenLabs, mais suffisante et sans coût récurrent. Logique dans `script.js`
 (section "Lecture audio de l'article"), activée automatiquement si un
 `[data-audio-btn]` est présent sur la page ; masquée automatiquement si le
 navigateur ne supporte pas `speechSynthesis` ou si la cible `data-audio-target`
-est introuvable. Attention : les icônes play/pause sont basculées via
-`element.style.display` en JS plutôt que l'attribut HTML `hidden`, qui ne se
-masque pas de façon fiable sur les éléments `<svg>` dans tous les moteurs.
+est introuvable.
 
-Pour publier un nouvel article : dupliquez le fichier, changez le contenu et
-le JSON-LD, ajoutez une entrée dans `.blog-list` sur `blog.html`, ajoutez le
-lien `/blog` dans le footer si absent (déjà fait sur toutes les pages
-existantes), et ajoutez l'URL dans `sitemap.xml`.
+**Piège CSP à connaître** : les icônes play/pause sont basculées via
+`element.style.display` en JS plutôt que l'attribut HTML `hidden` (qui ne se
+masque pas de façon fiable sur les éléments `<svg>` dans Chromium), et
+plutôt qu'un `style=""` écrit dans du HTML généré (qui violerait la CSP
+`style-src`). Toujours utiliser l'assignation directe `element.style.xxx = ...`
+pour du style dynamique sur ce site — jamais de `style=""` ni de `.hidden`
+sur un `<svg>`.
 
-## URLs propres (`/sea`, `/sma`)
+## Diagnostic interactif (`/diagnostic`)
+
+Quiz en 6 questions (tracking, acquisition payante, SEO, GEO, CRO, pilotage)
+qui calcule un score et une recommandation personnalisée **entièrement côté
+client** (`diagnostic.js`) — aucun backend, conformément au choix
+architectural du site. La transmission du résultat passe par un lien
+`mailto:` pré-rempli avec les réponses (même mécanisme que le formulaire de
+contact), jamais par un service tiers.
+
+Point d'attention si vous modifiez `diagnostic.js` : tout texte inséré dans
+le corps de l'email doit passer par `encodeURIComponent()` sur l'ensemble du
+message (pas de concaténation manuelle de `%0D%0A`) pour éviter qu'un
+caractère comme `&` ne casse le lien `mailto:`.
+
+## Sécurité
+
+`vercel.json` définit une **Content-Security-Policy stricte** sans
+`'unsafe-inline'` : `script-src` n'autorise que `'self'`, les hashes SHA-256
+des deux scripts inline (Consent Mode + boucle de chargement GTM, identiques
+sur les 31 pages) et les domaines Google Tag Manager/Analytics ;
+`style-src`/`img-src`/`font-src` sont limités à `'self'` ; `object-src` et
+`form-action` sont interdits.
+
+**Si vous ajoutez un script inline** (rare — préférez toujours un fichier
+`.js` externe) : son hash SHA-256 doit être ajouté à `script-src` dans
+`vercel.json`, sinon il sera bloqué silencieusement par la CSP. Pour
+calculer un hash : `openssl dgst -sha256 -binary fichier.js | openssl base64`.
+
+Autres en-têtes actifs : `X-Content-Type-Options`, `X-Frame-Options`,
+`Referrer-Policy`, `Permissions-Policy`, `Strict-Transport-Security`.
+`.well-known/security.txt` (RFC 9116) donne un contact pour le signalement
+responsable de failles.
+
+**Pour valider une modification de la CSP avant de pousser** : servez le
+site en local avec un petit serveur qui rejoue les en-têtes de `vercel.json`,
+et vérifiez l'absence d'événements `securitypolicyviolation` (Chromium via
+Playwright, par exemple) sur toutes les pages plutôt que sur un échantillon —
+un hash qui ne correspond plus après une modification de script casse la
+page silencieusement, sans erreur visible à l'œil nu.
+
+## RGPD & cookies
+
+Consentement recueilli via `cookie-consent.js` + Google Consent Mode (refus
+par défaut tant que l'utilisateur n'a pas choisi — voir le script inline en
+tête de `<head>` sur chaque page). Polices auto-hébergées (`assets/fonts/`)
+pour éviter toute transmission de l'IP du visiteur à Google avant
+consentement. Détails complets dans `politique-de-confidentialite.html`.
+
+## URLs propres (`/sea`, `/diagnostic`, etc.)
 
 Le fichier `vercel.json` active `cleanUrls`, qui fait correspondre
-automatiquement `sea.html` → `/sea` et `sma.html` → `/sma` une fois déployé
-sur Vercel (redirection 308 si quelqu'un visite l'URL avec `.html`). Tous les
-liens internes du site utilisent déjà ces chemins propres (`/sea`, `/sma`,
-`/`, `/#contact`…) — pas de configuration supplémentaire nécessaire.
+automatiquement `sea.html` → `/sea` (et ainsi pour toutes les pages) une fois
+déployé sur Vercel (redirection 308 si quelqu'un visite l'URL avec `.html`).
+Tous les liens internes du site utilisent déjà ces chemins propres — pas de
+configuration supplémentaire nécessaire.
 
 **Important : ce comportement ne fonctionne qu'une fois déployé sur Vercel.**
 En ouvrant les fichiers directement dans un navigateur (`file://...`) ou avec
-un simple serveur local, les liens `/sea` et `/sma` ne résoudront pas — utilisez
-`sea.html` / `sma.html` pour un test en local, ou `vercel dev` si la CLI
+un simple serveur local, les liens propres ne résoudront pas — utilisez les
+noms de fichiers `.html` pour un test en local, ou `vercel dev` si la CLI
 Vercel est installée.
 
 ## Aucune installation nécessaire
 
-Pour prévisualiser en local, ouvrez `index.html` dans un navigateur.
-Aucun `npm install`, aucun serveur requis.
+Pour prévisualiser en local, ouvrez `index.html` dans un navigateur, ou
+servez le dossier avec `python3 -m http.server`. Aucun `npm install`, aucun
+serveur applicatif requis.
 
 ---
 
@@ -137,11 +232,11 @@ git push -u origin main
 4. Vercel détecte un site statique : aucune configuration n'est nécessaire
    (laissez "Framework Preset" sur **Other**, "Build Command" et
    "Output Directory" vides). Le fichier `vercel.json` est pris en compte
-   automatiquement.
+   automatiquement (URLs propres + en-têtes de sécurité).
 5. Cliquez sur **Deploy**.
 
-Votre site est en ligne en moins d'une minute, avec `/sea` et `/sma`
-fonctionnels dès le premier déploiement.
+Votre site est en ligne en moins d'une minute, avec toutes les URLs propres
+fonctionnelles dès le premier déploiement.
 
 ### 3. Mises à jour futures
 
@@ -152,6 +247,4 @@ sur Vercel — aucune action manuelle supplémentaire.
 
 Dans le tableau de bord Vercel du projet : **Settings → Domains**, ajoutez
 votre domaine (ex. `johansimonneau.fr`) et suivez les instructions DNS
-affichées (ajout d'un enregistrement chez votre registrar). Une fois
-configuré, `johansimonneau.fr/sea` et `johansimonneau.fr/sma` fonctionneront
-directement.
+affichées (ajout d'un enregistrement chez votre registrar).
