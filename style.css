@@ -1458,3 +1458,10 @@ button {
 .btn-ghost::before {
   background: rgba(26, 73, 238, 0.06);
 }
+
+/* ---------- Utilitaires ---------- */
+
+.gtm-noscript-frame {
+  display: none;
+  visibility: hidden;
+}
