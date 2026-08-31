@@ -3,6 +3,51 @@
    style.css — mobile-first, breakpoint unique à 900px
    ========================================================================== */
 
+/* ---------- 0. Polices auto-hébergées ----------
+   Sous-ensemble latin uniquement (couvre le français). Servies localement
+   plutôt que depuis fonts.googleapis.com/fonts.gstatic.com pour éviter la
+   transmission de l'IP du visiteur à Google avant tout consentement. */
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("assets/fonts/inter-variable-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/poppins-500-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/poppins-600-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/poppins-700-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("assets/fonts/poppins-800-latin.woff2") format("woff2");
+}
+
 /* ---------- 1. Reset & variables ---------- */
 
 *,
