@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PTBVL88D');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A/B Testing à Faible Trafic | Méthode pour PME — Johan Simonneau</title>
+<meta name="description" content="Comment faire de l'A/B testing fiable avec un trafic modéré ? Une méthode adaptée aux PME, sans faux positifs statistiques. Cas client SkillValue.">
+
+<link rel="canonical" href="https://johansimonneau.fr/ab-testing-faible-trafic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A/B Testing à Faible Trafic | Méthode pour PME">
+<meta property="og:description" content="Comment faire de l'A/B testing fiable avec un trafic modéré ? Une méthode adaptée aux PME, sans faux positifs statistiques. Cas client SkillValue.">
+<meta property="og:url" content="https://johansimonneau.fr/ab-testing-faible-trafic">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="cookie-consent.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "serviceType": "A/B Testing à faible trafic",
+      "provider": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr",
+        "sameAs": [
+          "https://www.linkedin.com/in/johansimonneau/"
+        ]
+      },
+      "areaServed": "FR",
+      "description": "Comment faire de l'A/B testing fiable avec un trafic modéré ? Une méthode adaptée aux PME, sans faux positifs statistiques. Cas client SkillValue."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Combien de trafic faut-il vraiment pour faire de l'A/B testing ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'y a pas de seuil universel — l'important est le nombre de conversions par variante, pas seulement le trafic brut."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment éviter les faux positifs sur un petit volume ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En laissant tourner le test plus longtemps, et en évitant de l'arrêter dès qu'un résultat semble favorable dans les premiers jours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il abandonner l'A/B testing si le trafic est trop faible ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, mais la méthode doit s'adapter — privilégier des changements à fort impact et compléter par de l'analyse qualitative."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps dure un test à faible trafic ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Généralement plus long qu'à fort trafic — comptez plusieurs semaines plutôt que quelques jours."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item" aria-current="page">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/cro">CRO</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">A/B Testing à faible trafic</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/cro" class="sub-pillar-tag">CRO</a>
+      <h1>A/B testing à faible trafic : la méthode change, pas l'ambition</h1>
+      <p class="sub-hook">La plupart des guides d'A/B testing sont écrits pour des sites avec des dizaines de milliers de visiteurs par mois. Sur un trafic plus modeste, appliquer la même méthode mène souvent à de fausses conclusions — un test arrêté trop tôt peut désigner un « gagnant » qui n'en est pas un.</p>
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<div class="sub-case">
+  <p class="sub-case-label">Le cas SkillValue</p>
+    <p>SkillValue cherchait à accélérer sa croissance en scalant l'acquisition de leads qualifiés et en optimisant les performances du funnel de conversion. Le dispositif mis en place a intégré un A/B testing structuré et un pilotage data-driven, avec un écosystème de tracking connecté pour fiabiliser chaque décision.</p>
+    <p>Résultat obtenu en priorisant les tests à plus fort impact plutôt qu'en multipliant les micro-optimisations peu concluantes sur un volume de trafic limité :</p>
+  <div class="sub-case-stats">
+      <div class="sub-case-stat"><strong>x10</strong><span>des conversions</span></div>
+      <div class="sub-case-stat"><strong>78%</strong><span>transformation rate</span></div>
+      <div class="sub-case-stat"><strong>4,7</strong><span>en ROI</span></div>
+  </div>
+</div>
+
+<h2>Ce qui change vraiment à faible trafic</h2>
+
+<ul class="sub-points">
+  <li><strong>Moins de tests simultanés, plus de profondeur par test.</strong> Diviser le trafic entre 4 variantes quand le volume est déjà limité rend chaque variante impossible à évaluer sérieusement.</li>
+  <li><strong>Une durée de test plus longue.</strong> Un résultat qui semble significatif après 3 jours peut s'inverser après 3 semaines — la patience compte davantage que sur un gros compte.</li>
+  <li><strong>Prioriser les changements à fort impact.</strong> Un test sur la couleur d'un bouton apporte rarement un signal exploitable à faible volume ; un test sur la proposition de valeur ou le formulaire a plus de chances de produire un effet mesurable.</li>
+  <li><strong>Compléter par de l'analyse qualitative.</strong> Heatmaps, retours utilisateurs, enregistrements de session — des sources d'information qui ne dépendent pas du volume de trafic pour être exploitables.</li>
+</ul>
+
+<h2>Pour quels types d'entreprises</h2>
+
+<ul class="sub-list">
+  <li>PME et startups avec un trafic mensuel modéré, mais qui veulent tout de même piloter leurs décisions par la donnée</li>
+  <li>Sites B2B à cycle de vente long, où le volume de conversions reste naturellement limité</li>
+  <li>Toute entreprise lassée des recommandations génériques pensées pour de gros volumes</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Combien de trafic faut-il vraiment pour faire de l'A/B testing ?</summary>
+    <p>Il n'y a pas de seuil universel — l'important est le nombre de conversions par variante, pas seulement le trafic brut. En dessous de quelques dizaines de conversions par variante, la significativité devient difficile à atteindre rapidement.</p>
+  </details>
+  <details>
+    <summary>Comment éviter les faux positifs sur un petit volume ?</summary>
+    <p>En laissant tourner le test plus longtemps, et en évitant de l'arrêter dès qu'un résultat semble favorable dans les premiers jours.</p>
+  </details>
+  <details>
+    <summary>Faut-il abandonner l'A/B testing si le trafic est trop faible ?</summary>
+    <p>Non, mais la méthode doit s'adapter — privilégier des changements à fort impact et compléter par de l'analyse qualitative.</p>
+  </details>
+  <details>
+    <summary>Combien de temps dure un test à faible trafic ?</summary>
+    <p>Généralement plus long qu'à fort trafic — comptez plusieurs semaines plutôt que quelques jours pour un résultat fiable.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Discutons d'une méthode de test adaptée à votre volume</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Réserver un audit gratuit</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour une vue complète de mon expertise CRO, voir la page <a href="/cro">CRO</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Cette page fait partie de l'expertise CRO.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/cro">CRO →</a>
+      <a href="/analyse-comportementale">Analyse comportementale →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+      </a>
+      <p>Consultant Growth &amp; Marketing — Chambéry / Lyon</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="cookie-consent.js"></script>
+</body>
+</html>

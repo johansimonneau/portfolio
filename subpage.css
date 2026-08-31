@@ -1,0 +1,418 @@
+/* ==========================================================================
+   Johan Simonneau — Portfolio
+   subpage.css — template des sous-pages (niveau 2 du maillage interne)
+   Volontairement distinct du template des pages piliers et de la home
+   pour éviter toute cannibalisation SEO : format "article dense" plutôt
+   que "landing page", pas de hero plein écran, pas de grandes cartes.
+   S'appuie sur les variables définies dans style.css. Charger APRÈS style.css.
+   ========================================================================== */
+
+/* ---------- Fil d'Ariane ---------- */
+
+.sub-breadcrumb {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sub-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+  font-size: 13px;
+  color: var(--color-ink-faint);
+}
+
+.sub-breadcrumb a {
+  color: var(--color-ink-faint);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.sub-breadcrumb a:hover {
+  color: var(--color-navy);
+}
+
+.sub-breadcrumb li[aria-current="page"] {
+  color: var(--color-ink-soft);
+}
+
+.sub-breadcrumb .sep {
+  color: var(--color-border);
+}
+
+/* ---------- Header d'article (remplace le hero plein écran) ---------- */
+
+.sub-header {
+  padding-block: 40px clamp(32px, 5vw, 56px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sub-header-inner {
+  max-width: 760px;
+}
+
+.sub-pillar-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-navy);
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+
+.sub-pillar-tag:hover {
+  border-color: var(--color-navy);
+}
+
+.sub-header h1 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: clamp(28px, 4.4vw, 42px);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  margin-bottom: 18px;
+}
+
+.sub-hook {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--color-ink-soft);
+  max-width: 62ch;
+}
+
+/* ---------- Layout article ---------- */
+
+.sub-article {
+  padding-block: clamp(36px, 6vw, 64px);
+}
+
+.sub-article-inner {
+  max-width: 720px;
+}
+
+.sub-article h2 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--color-ink);
+  margin: 44px 0 16px;
+  scroll-margin-top: 96px;
+}
+
+.sub-article > .sub-article-inner > h2:first-child,
+.sub-article-inner section:first-of-type h2 {
+  margin-top: 0;
+}
+
+.sub-article p {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--color-ink-soft);
+  margin: 0 0 16px;
+}
+
+.sub-article strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.sub-article a {
+  color: var(--color-navy);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.sub-article a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Case study callout (chiffres cas client) ---------- */
+
+.sub-case {
+  background: var(--color-navy);
+  border-radius: var(--radius);
+  padding: 24px 26px;
+  margin: 24px 0 32px;
+  color: #fff;
+}
+
+.sub-case-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-mint);
+  margin-bottom: 10px;
+}
+
+.sub-case p {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 14.5px;
+  margin-bottom: 14px;
+}
+
+.sub-case p:last-of-type {
+  margin-bottom: 16px;
+}
+
+.sub-case-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.sub-case-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.sub-case-stat strong {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--color-mint);
+}
+
+.sub-case-stat span {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.62);
+  margin-top: 2px;
+}
+
+/* ---------- Liste de points structurés (remplace les grandes cartes) ---------- */
+
+.sub-points {
+  list-style: none;
+  margin: 20px 0 28px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sub-points li {
+  padding-left: 22px;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--color-ink-soft);
+}
+
+.sub-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--color-mint);
+}
+
+.sub-points strong {
+  display: block;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--color-ink);
+  font-size: 15.5px;
+  margin-bottom: 3px;
+}
+
+/* ---------- Liste simple (pour qui) ---------- */
+
+.sub-list {
+  margin: 8px 0 28px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sub-list li {
+  padding-left: 20px;
+  position: relative;
+  font-size: 15px;
+  color: var(--color-ink-soft);
+  line-height: 1.6;
+}
+
+.sub-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-navy);
+}
+
+/* ---------- FAQ compacte (accordéon) ---------- */
+
+.sub-faq {
+  margin: 8px 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sub-faq details {
+  border-bottom: 1px solid var(--color-border);
+  padding: 16px 2px;
+}
+
+.sub-faq summary {
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 14.5px;
+  color: var(--color-ink);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.sub-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.sub-faq summary::after {
+  content: "+";
+  flex-shrink: 0;
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-navy);
+}
+
+.sub-faq details[open] summary::after {
+  content: "\2212";
+}
+
+.sub-faq details p {
+  margin: 12px 0 0;
+  font-size: 14.5px;
+}
+
+/* ---------- CTA de fin d'article (discret, pas de bandeau plein écran) ---------- */
+
+.sub-cta {
+  margin-top: 40px;
+  padding: 26px 28px;
+  background: var(--color-bg-alt);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+}
+
+.sub-cta h3 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 19px;
+  color: var(--color-ink);
+  margin-bottom: 14px;
+}
+
+.sub-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+.sub-cta-actions .btn {
+  padding: 11px 22px;
+  font-size: 14px;
+}
+
+.sub-cta-mail {
+  font-size: 13.5px;
+  color: var(--color-ink-faint);
+}
+
+.sub-cta-mail a {
+  color: var(--color-ink-soft);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.sub-cta-mail a:hover {
+  color: var(--color-navy);
+}
+
+.sub-cta-link {
+  margin-top: 14px;
+  font-size: 13.5px;
+  color: var(--color-ink-faint);
+}
+
+/* ---------- Bloc pilier lié (bas de page, avant footer) ---------- */
+
+.sub-pillar-band {
+  background: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+  padding-block: 32px;
+}
+
+.sub-pillar-band-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 720px;
+}
+
+.sub-pillar-band p {
+  font-size: 14px;
+  color: var(--color-ink-soft);
+  margin: 0;
+}
+
+.sub-pillar-band-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sub-pillar-band-links a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-navy);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition);
+}
+
+.sub-pillar-band-links a:hover {
+  background: var(--color-navy);
+  border-color: var(--color-navy);
+  color: #fff;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sub-pillar-band-links a {
+    transition: none;
+  }
+}

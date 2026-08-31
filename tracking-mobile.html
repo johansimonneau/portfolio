@@ -27,11 +27,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mentions légales — Johan Simonneau</title>
-<meta name="description" content="Mentions légales du site johansimonneau.fr — éditeur, hébergeur, propriété intellectuelle.">
-<meta name="robots" content="noindex, follow">
+<title>Tracking Mobile Firebase & Adjust | Attribution App — Johan Simonneau</title>
+<meta name="description" content="Mise en place du tracking mobile (Firebase, Adjust) pour mesurer fiablement l'acquisition et la rétention de votre application, malgré les restrictions iOS.">
 
-<link rel="canonical" href="https://johansimonneau.fr/mentions-legales">
+<link rel="canonical" href="https://johansimonneau.fr/tracking-mobile">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tracking Mobile Firebase & Adjust | Attribution App">
+<meta property="og:description" content="Mise en place du tracking mobile (Firebase, Adjust) pour mesurer fiablement l'acquisition et la rétention de votre application, malgré les restrictions iOS.">
+<meta property="og:url" content="https://johansimonneau.fr/tracking-mobile">
+<meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -44,7 +48,61 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="cookie-consent.css">
-<link rel="stylesheet" href="legal.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Tracking mobile — Firebase & Adjust",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau"
+      },
+      "description": "Mise en place du tracking mobile (Firebase, Adjust) pour mesurer fiablement l'acquisition et la rétention de votre application, malgré les restrictions iOS."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Firebase suffit-il, ou faut-il aussi un MMP comme Adjust ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Firebase couvre le comportement in-app. Un MMP devient nécessaire avec plusieurs canaux publicitaires."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les restrictions iOS rendent-elles le tracking mobile impossible ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, mais elles imposent une configuration plus rigoureuse (SKAdNetwork)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps pour mettre en place ce tracking ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Généralement 2 à 3 semaines selon la complexité de l'application."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ce tracking fonctionne-t-il aussi bien sur Android ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Android est moins contraint par les restrictions de confidentialité qu'iOS."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -82,7 +140,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <span class="services-menu-item-title">SMA</span>
                   <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
                 </a>
-                <a href="/mobile-marketing" class="services-menu-item">
+                <a href="/mobile-marketing" class="services-menu-item" aria-current="page">
                   <span class="services-menu-item-title">Mobile Marketing</span>
                   <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
                 </a>
@@ -128,92 +186,96 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </header>
 
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Tracking mobile</li>
+    </ol>
+  </div>
+</nav>
+
 <main id="main">
 
-  <section class="legal-hero">
-    <div class="container">
-      <p class="eyebrow">Informations légales</p>
-      <h1>Mentions légales</h1>
-      <p class="legal-updated">Dernière mise à jour&nbsp;: 28 août 2026</p>
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/mobile-marketing" class="sub-pillar-tag">Mobile Marketing</a>
+      <h1>Tracking mobile : mesurer fiablement au-delà de l'installation</h1>
+      <p class="sub-hook">Une application qui ne mesure que ses installations passe à côté de l'essentiel — ce qui compte vraiment, c'est ce qui se passe après : rétention, activation, valeur générée. Un tracking mal configuré fausse ces mesures sans que ça se voie immédiatement.</p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container legal-layout">
+  <section class="sub-article">
+    <div class="container sub-article-inner">
 
-      <nav class="legal-toc" aria-label="Sommaire">
-        <p class="legal-toc-label">Sommaire</p>
-        <ol>
-          <li><a href="#editeur">Éditeur du site</a></li>
-          <li><a href="#hebergement">Hébergement</a></li>
-          <li><a href="#propriete">Propriété intellectuelle</a></li>
-          <li><a href="#responsabilite">Limitation de responsabilité</a></li>
-          <li><a href="#liens">Liens hypertextes</a></li>
-          <li><a href="#litiges">Droit applicable &amp; litiges</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ol>
-      </nav>
+<h2>Pourquoi c'est devenu plus complexe</h2>
 
-      <div class="legal-body">
+<p>Depuis les restrictions iOS 14.5+ (App Tracking Transparency), l'attribution mobile classique a perdu une partie de sa fiabilité côté navigateur et app. Les solutions actuelles (SKAdNetwork, tracking probabiliste) demandent une configuration plus fine qu'auparavant pour rester exploitables.</p>
 
-        <section id="editeur">
-          <h2>1. Éditeur du site</h2>
-          <p>Le présent site, accessible à l'adresse <a href="https://johansimonneau.fr">johansimonneau.fr</a>, est édité par&nbsp;:</p>
-          <table class="legal-table">
-            <tr><th>Nom</th><td>Johan Simonneau</td></tr>
-            <tr><th>Statut</th><td>Entrepreneur individuel</td></tr>
-            <tr><th>Activité</th><td>Conseil pour les affaires et autres conseils de gestion (code APE 70.22Z)</td></tr>
-            <tr><th>Adresse</th><td>7 rue de Ligner, 37520 La Riche, France</td></tr>
-            <tr><th>SIREN</th><td>879&nbsp;545&nbsp;564</td></tr>
-            <tr><th>SIRET</th><td>879&nbsp;545&nbsp;564&nbsp;00020</td></tr>
-            <tr><th>N° TVA intracommunautaire</th><td>FR24879545564</td></tr>
-            <tr><th>Email</th><td><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></td></tr>
-          </table>
-          <p><strong>Directeur de la publication&nbsp;:</strong> Johan Simonneau.</p>
-        </section>
+<h2>Ce que couvre la mise en place</h2>
 
-        <section id="hebergement">
-          <h2>2. Hébergement</h2>
-          <p>Le site est hébergé par&nbsp;:</p>
-          <table class="legal-table">
-            <tr><th>Société</th><td>Vercel Inc.</td></tr>
-            <tr><th>Adresse</th><td>440 N Barranca Ave #4133, Covina, CA 91723, États-Unis</td></tr>
-            <tr><th>Site web</th><td><a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a></td></tr>
-          </table>
-        </section>
+<ul class="sub-points">
+  <li><strong>Firebase.</strong> Suivi des événements in-app, des conversions et du comportement utilisateur, avec une intégration native à l'écosystème Google.</li>
+  <li><strong>Adjust (ou équivalent MMP).</strong> Attribution multi-source pour identifier quelle campagne, quel canal a réellement généré chaque installation — indispensable dès que plusieurs canaux d'acquisition sont actifs en parallèle.</li>
+  <li><strong>Configuration SKAdNetwork.</strong> Adaptation aux contraintes de confidentialité iOS pour conserver un niveau d'attribution exploitable.</li>
+  <li><strong>Connexion aux plateformes publicitaires.</strong> Pour que les données de conversion remontent correctement vers Google Ads, Meta, TikTok et alimentent les optimisations d'enchères.</li>
+</ul>
 
-        <section id="propriete">
-          <h2>3. Propriété intellectuelle</h2>
-          <p>L'ensemble des contenus présents sur ce site (textes, illustrations, logo, mise en page, structure) est, sauf mention contraire, la propriété de Johan Simonneau ou fait l'objet d'une autorisation d'utilisation. Toute reproduction, représentation, modification ou exploitation totale ou partielle de ces contenus, par quelque procédé que ce soit, sans autorisation préalable écrite, est interdite et constituerait une contrefaçon sanctionnée par les articles L.335-2 et suivants du Code de la propriété intellectuelle.</p>
-          <p>Les logos des entreprises clientes présentés dans les études de cas restent la propriété exclusive de leurs titulaires respectifs et sont affichés à titre de référence, avec l'accord des intéressés ou dans le cadre d'un usage informatif loyal.</p>
-        </section>
+<h2>Pourquoi ça compte concrètement</h2>
 
-        <section id="responsabilite">
-          <h2>4. Limitation de responsabilité</h2>
-          <p>Johan Simonneau s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site, dont il se réserve le droit de corriger le contenu à tout moment sans préavis. Il ne peut toutefois garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition.</p>
-          <p>En conséquence, Johan Simonneau décline toute responsabilité pour toute imprécision, inexactitude ou omission portant sur des informations disponibles sur le site, ainsi que pour tous dommages résultant d'une intrusion frauduleuse d'un tiers ayant entraîné une modification des informations.</p>
-        </section>
+<p>Sans cette infrastructure, il devient impossible de savoir quel canal d'acquisition ramène des utilisateurs qui restent et génèrent de la valeur, par opposition à ceux qui installent puis désinstallent rapidement. Les décisions de budget se prennent alors sur des données incomplètes.</p>
 
-        <section id="liens">
-          <h2>5. Liens hypertextes</h2>
-          <p>Ce site peut contenir des liens vers d'autres sites (Calendly, LinkedIn, sites de clients cités en référence). Johan Simonneau n'exerce aucun contrôle sur ces sites tiers et décline toute responsabilité quant à leur contenu.</p>
-        </section>
+<h2>Pour quels types d'applications</h2>
 
-        <section id="litiges">
-          <h2>6. Droit applicable &amp; litiges</h2>
-          <p>Les présentes mentions légales sont soumises au droit français. En cas de litige et à défaut de résolution amiable, les tribunaux français seront seuls compétents.</p>
-        </section>
+<ul class="sub-list">
+  <li>Applications avec plusieurs canaux d'acquisition actifs simultanément (Apple Search Ads, Meta, TikTok, Google)</li>
+  <li>Applications en phase de scaling où le pilotage précis du budget devient critique</li>
+  <li>Éditeurs voulant fiabiliser leur mesure de rétention, pas seulement d'acquisition</li>
+</ul>
 
-        <section id="contact">
-          <h2>7. Contact</h2>
-          <p>Pour toute question relative au site ou à son contenu&nbsp;: <a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></p>
-        </section>
+<h2>FAQ</h2>
 
-        <div class="legal-crosslinks">
-          <a href="/politique-de-confidentialite">Politique de confidentialité →</a>
-          <a href="/cgp">Conditions générales de prestation →</a>
+<div class="sub-faq">
+  <details>
+    <summary>Firebase suffit-il, ou faut-il aussi un MMP comme Adjust ?</summary>
+    <p>Firebase couvre bien le comportement in-app. Un MMP devient nécessaire dès que plusieurs canaux publicitaires doivent être comparés entre eux de façon fiable.</p>
+  </details>
+  <details>
+    <summary>Les restrictions iOS rendent-elles le tracking mobile impossible ?</summary>
+    <p>Non, mais elles imposent une configuration plus rigoureuse (SKAdNetwork) et une attribution partiellement probabiliste plutôt que déterministe.</p>
+  </details>
+  <details>
+    <summary>Combien de temps pour mettre en place ce tracking ?</summary>
+    <p>Généralement 2 à 3 semaines selon la complexité de l'application et le nombre de canaux à connecter.</p>
+  </details>
+  <details>
+    <summary>Ce tracking fonctionne-t-il aussi bien sur Android ?</summary>
+    <p>Android est moins contraint par les restrictions de confidentialité qu'iOS, ce qui simplifie une partie de la configuration.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de vérifier si votre tracking mobile actuel est fiable ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre tracking mobile</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
         </div>
+        <p class="sub-cta-link">Pour une vue complète de mon expertise, voir la page <a href="/mobile-marketing">Mobile Marketing</a> et la page <a href="/analytics">Analytics</a>.</p>
+      </div>
 
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Cette page est à cheval sur deux expertises.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/mobile-marketing">Mobile Marketing →</a>
+      <a href="/analytics">Analytics →</a>
+      <a href="/apple-search-ads">Apple Search Ads →</a>
       </div>
     </div>
   </section>

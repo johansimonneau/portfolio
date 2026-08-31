@@ -1,6 +1,30 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PTBVL88D');</script>
+<!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Politique de confidentialité — Johan Simonneau</title>
@@ -19,9 +43,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="cookie-consent.css">
 <link rel="stylesheet" href="legal.css">
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <a class="skip-link" href="#main">Aller au contenu</a>
 
@@ -142,7 +171,7 @@
             <li><strong>Prise de rendez-vous (Calendly)&nbsp;:</strong> si vous réservez un créneau via le lien Calendly, les informations que vous renseignez (nom, email, éventuellement téléphone) sont directement collectées par Calendly, Inc., agissant en tant que sous-traitant indépendant selon sa propre politique de confidentialité.</li>
           </ul>
           <div class="legal-callout">
-            <p>Ce site n'utilise actuellement aucun outil d'analytics ou de mesure d'audience (pas de Google Analytics, ni d'outil équivalent). Aucun cookie de suivi n'est déposé à ce jour. Cette politique sera mise à jour si cela évolue.</p>
+            <p>Ce site utilise Google Tag Manager pour piloter le dépôt de balises de mesure d'audience (Google Analytics 4). Le détail de ces outils, de leurs finalités et de vos droits est précisé aux articles 3, 4 et 6 ci-dessous.</p>
           </div>
         </section>
 
@@ -156,22 +185,29 @@
             <tr><th>Finalité</th><td>Organiser un rendez-vous via Calendly</td></tr>
             <tr><th>Base légale</th><td>Exécution de mesures précontractuelles prises à votre demande (article 6.1.b du RGPD)</td></tr>
           </table>
+          <table class="legal-table">
+            <tr><th>Finalité</th><td>Mesure d'audience et statistiques de fréquentation (Google Analytics 4, via Google Tag Manager)</td></tr>
+            <tr><th>Base légale</th><td>Consentement (article 6.1.a du RGPD) — recueilli via le bandeau de consentement affiché lors de votre première visite</td></tr>
+          </table>
         </section>
 
         <section id="destinataires">
           <h2>4. Destinataires des données</h2>
           <p>Les données transmises par email sont uniquement accessibles par Johan Simonneau. Les données saisies dans Calendly sont traitées par Calendly, Inc., qui peut être amené à transférer certaines données hors de l'Union européenne (États-Unis) dans le cadre de garanties appropriées (clauses contractuelles types). Pour plus de détails, consultez la <a href="https://calendly.com/privacy" target="_blank" rel="noopener">politique de confidentialité de Calendly</a>.</p>
+          <p>Les données de navigation collectées via Google Analytics 4 sont traitées par Google Ireland Limited, susceptible de transférer certaines données vers les États-Unis dans le cadre de garanties appropriées (clauses contractuelles types de la Commission européenne). Pour plus de détails, consultez la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">politique de confidentialité de Google</a>.</p>
           <p>Aucune donnée n'est vendue, louée ou cédée à des tiers à des fins commerciales.</p>
         </section>
 
         <section id="conservation">
           <h2>5. Durée de conservation</h2>
-          <p>Les emails échangés sont conservés dans la messagerie de Johan Simonneau pour la durée nécessaire au traitement de votre demande puis à des fins d'archivage précontractuel ou contractuel, dans la limite des durées légales de prescription applicables. Les données Calendly sont conservées selon la politique propre de Calendly.</p>
+          <p>Les emails échangés sont conservés dans la messagerie de Johan Simonneau pour la durée nécessaire au traitement de votre demande puis à des fins d'archivage précontractuel ou contractuel, dans la limite des durées légales de prescription applicables. Les données Calendly sont conservées selon la politique propre de Calendly. Les données Google Analytics 4 sont conservées 14 mois maximum, conformément à la configuration du compte.</p>
         </section>
 
         <section id="cookies">
           <h2>6. Cookies</h2>
-          <p>Ce site n'utilise pas de cookie de mesure d'audience ou de traçage publicitaire. Le lien vers Calendly, une fois cliqué, peut entraîner le dépôt de cookies techniques par Calendly, régis par sa propre politique.</p>
+          <p>Ce site utilise <strong>Google Tag Manager (GTM)</strong>, un outil qui permet de gérer le déclenchement d'autres balises, notamment <strong>Google Analytics 4 (GA4)</strong> pour mesurer la fréquentation du site (pages consultées, provenance du trafic, durée de visite). GTM lui-même ne dépose pas de cookie&nbsp;; il pilote le déclenchement des balises qui, elles, peuvent en déposer.</p>
+          <p>Ces balises de mesure d'audience ne sont activées qu'après votre consentement, recueilli via le bandeau affiché lors de votre première visite. Vous pouvez à tout moment retirer ce consentement en modifiant vos préférences (voir le lien de gestion des cookies en bas de page) ou en configurant votre navigateur pour bloquer les cookies.</p>
+          <p>Le lien vers Calendly, une fois cliqué, peut entraîner le dépôt de cookies techniques par Calendly, régis par sa propre politique.</p>
         </section>
 
         <section id="droits">
@@ -253,10 +289,12 @@
       <a href="/mentions-legales">Mentions légales</a>
       <a href="/politique-de-confidentialite">Politique de confidentialité</a>
       <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
     </nav>
   </div>
 </footer>
 
 <script src="script.js"></script>
+<script src="cookie-consent.js"></script>
 </body>
 </html>

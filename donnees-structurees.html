@@ -27,11 +27,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mentions légales — Johan Simonneau</title>
-<meta name="description" content="Mentions légales du site johansimonneau.fr — éditeur, hébergeur, propriété intellectuelle.">
-<meta name="robots" content="noindex, follow">
+<title>Données Structurées & Schema.org | Guide Pratique — Johan Simonneau</title>
+<meta name="description" content="Qu'est-ce que le balisage Schema.org / JSON-LD, et pourquoi il aide autant le SEO classique que la visibilité dans les réponses des IA génératives.">
 
-<link rel="canonical" href="https://johansimonneau.fr/mentions-legales">
+<link rel="canonical" href="https://johansimonneau.fr/donnees-structurees">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Données Structurées & Schema.org | Guide Pratique">
+<meta property="og:description" content="Qu'est-ce que le balisage Schema.org / JSON-LD, et pourquoi il aide autant le SEO classique que la visibilité dans les réponses des IA génératives.">
+<meta property="og:url" content="https://johansimonneau.fr/donnees-structurees">
+<meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -44,7 +48,61 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="cookie-consent.css">
-<link rel="stylesheet" href="legal.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Données structurées & Schema.org",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau"
+      },
+      "description": "Qu'est-ce que le balisage Schema.org / JSON-LD, et pourquoi il aide autant le SEO classique que la visibilité dans les réponses des IA génératives."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il des compétences techniques pour ajouter ce balisage ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une intervention technique est nécessaire, mais la structure reste accessible à comprendre."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le balisage garantit-il d'apparaître en résultat enrichi ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, il augmente les chances mais les moteurs décident librement de l'affichage final."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Est-ce risqué d'ajouter un balisage incorrect ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un balisage incohérent avec le contenu réel peut être ignoré, voire pénalisé."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps pour voir un effet ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les résultats enrichis peuvent apparaître en quelques semaines, sans délai garanti."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -90,7 +148,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
               <div class="services-menu-col">
                 <p class="services-menu-heading">Visibilité &amp; performance</p>
-                <a href="/seo" class="services-menu-item">
+                <a href="/seo" class="services-menu-item" aria-current="page">
                   <span class="services-menu-item-title">SEO</span>
                   <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
                 </a>
@@ -128,92 +186,95 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </header>
 
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/seo">SEO</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Données structurées</li>
+    </ol>
+  </div>
+</nav>
+
 <main id="main">
 
-  <section class="legal-hero">
-    <div class="container">
-      <p class="eyebrow">Informations légales</p>
-      <h1>Mentions légales</h1>
-      <p class="legal-updated">Dernière mise à jour&nbsp;: 28 août 2026</p>
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/seo" class="sub-pillar-tag">SEO</a>
+      <h1>Données structurées : le langage commun entre votre site et les moteurs</h1>
+      <p class="sub-hook">Les moteurs de recherche et les IA génératives ne « lisent » pas une page comme un humain — ils s'appuient largement sur des indices structurés pour comprendre de quoi elle parle. Les données structurées (Schema.org, format JSON-LD) sont ce langage commun.</p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container legal-layout">
+  <section class="sub-article">
+    <div class="container sub-article-inner">
 
-      <nav class="legal-toc" aria-label="Sommaire">
-        <p class="legal-toc-label">Sommaire</p>
-        <ol>
-          <li><a href="#editeur">Éditeur du site</a></li>
-          <li><a href="#hebergement">Hébergement</a></li>
-          <li><a href="#propriete">Propriété intellectuelle</a></li>
-          <li><a href="#responsabilite">Limitation de responsabilité</a></li>
-          <li><a href="#liens">Liens hypertextes</a></li>
-          <li><a href="#litiges">Droit applicable &amp; litiges</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ol>
-      </nav>
+<h2>Qu'est-ce que le Schema.org concrètement</h2>
 
-      <div class="legal-body">
+<p>Le Schema.org est un vocabulaire standardisé qui permet de décrire explicitement le contenu d'une page à un moteur de recherche : « ceci est une question et sa réponse », « ceci est un service et son prix », « ceci est un article et son auteur ». Le format JSON-LD est la manière la plus courante de l'implémenter — un bloc de code invisible pour le visiteur, mais lisible par les moteurs.</p>
 
-        <section id="editeur">
-          <h2>1. Éditeur du site</h2>
-          <p>Le présent site, accessible à l'adresse <a href="https://johansimonneau.fr">johansimonneau.fr</a>, est édité par&nbsp;:</p>
-          <table class="legal-table">
-            <tr><th>Nom</th><td>Johan Simonneau</td></tr>
-            <tr><th>Statut</th><td>Entrepreneur individuel</td></tr>
-            <tr><th>Activité</th><td>Conseil pour les affaires et autres conseils de gestion (code APE 70.22Z)</td></tr>
-            <tr><th>Adresse</th><td>7 rue de Ligner, 37520 La Riche, France</td></tr>
-            <tr><th>SIREN</th><td>879&nbsp;545&nbsp;564</td></tr>
-            <tr><th>SIRET</th><td>879&nbsp;545&nbsp;564&nbsp;00020</td></tr>
-            <tr><th>N° TVA intracommunautaire</th><td>FR24879545564</td></tr>
-            <tr><th>Email</th><td><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></td></tr>
-          </table>
-          <p><strong>Directeur de la publication&nbsp;:</strong> Johan Simonneau.</p>
-        </section>
+<h2>Pourquoi ça sert le SEO ET le GEO</h2>
 
-        <section id="hebergement">
-          <h2>2. Hébergement</h2>
-          <p>Le site est hébergé par&nbsp;:</p>
-          <table class="legal-table">
-            <tr><th>Société</th><td>Vercel Inc.</td></tr>
-            <tr><th>Adresse</th><td>440 N Barranca Ave #4133, Covina, CA 91723, États-Unis</td></tr>
-            <tr><th>Site web</th><td><a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a></td></tr>
-          </table>
-        </section>
+<ul class="sub-points">
+  <li><strong>Pour le SEO classique :</strong> ça augmente les chances d'obtenir des résultats enrichis (étoiles d'avis, FAQ dépliable directement dans les résultats de recherche, fil d'Ariane).</li>
+  <li><strong>Pour le GEO :</strong> une page bien balisée est plus facilement comprise et citée par les moteurs de réponse IA, qui s'appuient aussi sur ces indices structurés pour extraire une information fiable.</li>
+</ul>
 
-        <section id="propriete">
-          <h2>3. Propriété intellectuelle</h2>
-          <p>L'ensemble des contenus présents sur ce site (textes, illustrations, logo, mise en page, structure) est, sauf mention contraire, la propriété de Johan Simonneau ou fait l'objet d'une autorisation d'utilisation. Toute reproduction, représentation, modification ou exploitation totale ou partielle de ces contenus, par quelque procédé que ce soit, sans autorisation préalable écrite, est interdite et constituerait une contrefaçon sanctionnée par les articles L.335-2 et suivants du Code de la propriété intellectuelle.</p>
-          <p>Les logos des entreprises clientes présentés dans les études de cas restent la propriété exclusive de leurs titulaires respectifs et sont affichés à titre de référence, avec l'accord des intéressés ou dans le cadre d'un usage informatif loyal.</p>
-        </section>
+<h2>Les types de balisage les plus utiles</h2>
 
-        <section id="responsabilite">
-          <h2>4. Limitation de responsabilité</h2>
-          <p>Johan Simonneau s'efforce d'assurer l'exactitude et la mise à jour des informations diffusées sur ce site, dont il se réserve le droit de corriger le contenu à tout moment sans préavis. Il ne peut toutefois garantir l'exactitude, la précision ou l'exhaustivité des informations mises à disposition.</p>
-          <p>En conséquence, Johan Simonneau décline toute responsabilité pour toute imprécision, inexactitude ou omission portant sur des informations disponibles sur le site, ainsi que pour tous dommages résultant d'une intrusion frauduleuse d'un tiers ayant entraîné une modification des informations.</p>
-        </section>
+<ul class="sub-points">
+  <li><strong>FAQPage.</strong> Pour toute section de questions-réponses — l'un des formats les plus efficaces pour l'extraction par les IA génératives.</li>
+  <li><strong>Service.</strong> Pour décrire une offre de service, son public cible, sa zone géographique.</li>
+  <li><strong>Article.</strong> Pour du contenu éditorial/guide, avec auteur et date de publication.</li>
+  <li><strong>BreadcrumbList.</strong> Pour la structure de navigation, utile à la fois pour le SEO et la compréhension de la hiérarchie du site.</li>
+</ul>
 
-        <section id="liens">
-          <h2>5. Liens hypertextes</h2>
-          <p>Ce site peut contenir des liens vers d'autres sites (Calendly, LinkedIn, sites de clients cités en référence). Johan Simonneau n'exerce aucun contrôle sur ces sites tiers et décline toute responsabilité quant à leur contenu.</p>
-        </section>
+<h2>Un exemple concret</h2>
 
-        <section id="litiges">
-          <h2>6. Droit applicable &amp; litiges</h2>
-          <p>Les présentes mentions légales sont soumises au droit français. En cas de litige et à défaut de résolution amiable, les tribunaux français seront seuls compétents.</p>
-        </section>
+<p>Chaque page de ce site intègre un balisage <strong>Service</strong> et <strong>FAQPage</strong> — c'est ce même principe qui est expliqué ici, appliqué concrètement plutôt que théoriquement.</p>
 
-        <section id="contact">
-          <h2>7. Contact</h2>
-          <p>Pour toute question relative au site ou à son contenu&nbsp;: <a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></p>
-        </section>
+<h2>FAQ</h2>
 
-        <div class="legal-crosslinks">
-          <a href="/politique-de-confidentialite">Politique de confidentialité →</a>
-          <a href="/cgp">Conditions générales de prestation →</a>
+<div class="sub-faq">
+  <details>
+    <summary>Faut-il des compétences techniques pour ajouter ce balisage ?</summary>
+    <p>Une intervention technique est nécessaire pour l'intégrer correctement, mais la structure elle-même reste accessible à comprendre sans expertise développeur poussée.</p>
+  </details>
+  <details>
+    <summary>Le balisage garantit-il d'apparaître en résultat enrichi ?</summary>
+    <p>Non, il augmente les chances mais Google et les moteurs génératifs décident librement de l'affichage final.</p>
+  </details>
+  <details>
+    <summary>Est-ce risqué d'ajouter un balisage incorrect ?</summary>
+    <p>Un balisage qui ne correspond pas au contenu réel de la page peut être ignoré, voire pénalisé si l'écart est jugé trompeur — la cohérence entre balisage et contenu visible est essentielle.</p>
+  </details>
+  <details>
+    <summary>Combien de temps pour voir un effet ?</summary>
+    <p>Les résultats enrichis peuvent apparaître en quelques semaines une fois le balisage indexé, sans délai garanti.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de vérifier si votre site est correctement balisé ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre structuration technique</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
         </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/seo">SEO</a> et la page <a href="/geo">GEO</a>.</p>
+      </div>
 
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Cette page est à cheval sur deux expertises.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/seo">SEO →</a>
+      <a href="/geo">GEO →</a>
+      <a href="/audit-visibilite-ia">Audit visibilité IA →</a>
       </div>
     </div>
   </section>

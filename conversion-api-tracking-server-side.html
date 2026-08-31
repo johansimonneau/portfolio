@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PTBVL88D');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conversion API & Tracking Server-Side | Freelance — Johan Simonneau</title>
+<meta name="description" content="Mise en place de la Conversion API (Meta CAPI) et du tracking server-side pour fiabiliser vos données de conversion malgré les bloqueurs de cookies.">
+
+<link rel="canonical" href="https://johansimonneau.fr/conversion-api-tracking-server-side">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Conversion API & Tracking Server-Side | Freelance">
+<meta property="og:description" content="Mise en place de la Conversion API (Meta CAPI) et du tracking server-side pour fiabiliser vos données de conversion malgré les bloqueurs de cookies.">
+<meta property="og:url" content="https://johansimonneau.fr/conversion-api-tracking-server-side">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="cookie-consent.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "serviceType": "Conversion API & tracking server-side",
+      "provider": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr",
+        "sameAs": [
+          "https://www.linkedin.com/in/johansimonneau/"
+        ]
+      },
+      "areaServed": "FR",
+      "description": "Mise en place de la Conversion API (Meta CAPI) et du tracking server-side pour fiabiliser vos données de conversion malgré les bloqueurs de cookies."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "La Conversion API remplace-t-elle le Pixel Meta classique ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, les deux fonctionnent ensemble."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il des compétences en développement pour la mettre en place ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une intervention technique est nécessaire mais généralement en configuration standard."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Est-ce compatible avec le RGPD ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, à condition de respecter les mêmes règles de consentement que pour le tracking classique."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment savoir si mon tracking actuel a besoin de cette mise à niveau ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un écart entre conversions plateformes et données réelles est un bon indicateur."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item" aria-current="page">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/analytics">Analytics</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Conversion API</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/analytics" class="sub-pillar-tag">Analytics</a>
+      <h1>Conversion API : récupérer les données que le navigateur ne transmet plus</h1>
+      <p class="sub-hook">Les bloqueurs de publicité, les restrictions de cookies tiers et les navigateurs de plus en plus stricts (Safari, Firefox) font perdre une part croissante des données de conversion mesurées côté navigateur. Le tracking server-side permet de compenser une partie de cette perte.</p>
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<h2>Pourquoi c'est devenu nécessaire</h2>
+
+<p>Historiquement, le tracking publicitaire reposait presque entièrement sur des pixels côté navigateur (Meta Pixel, Google Tag). Ces pixels sont de plus en plus souvent bloqués ou limités, ce qui fausse la mesure de performance des campagnes — un problème d'autant plus critique que les plateformes publicitaires utilisent ces données pour optimiser leurs enchères automatiquement.</p>
+
+<div class="sub-case">
+  <p class="sub-case-label">Contexte — Pentalog</p>
+    <p>C'est un enjeu qui a fait partie du travail d'infrastructure data et tracking mené chez Pentalog, dans le cadre d'une stratégie multicanale ayant contribué à :</p>
+  <div class="sub-case-stats">
+      <div class="sub-case-stat"><strong>+62%</strong><span>de conversions</span></div>
+      <div class="sub-case-stat"><strong>-55%</strong><span>de coût par acquisition</span></div>
+  </div>
+</div>
+
+<h2>Ce que couvre la mise en place</h2>
+
+<ul class="sub-points">
+  <li><strong>Conversion API Meta (CAPI).</strong> Transmission des événements de conversion directement depuis votre serveur vers Meta, en complément (pas en remplacement) du Pixel classique.</li>
+  <li><strong>Google Enhanced Conversions.</strong> L'équivalent côté Google Ads, pour fiabiliser les conversions mesurées.</li>
+  <li><strong>Déduplication des événements.</strong> Éviter de compter deux fois une même conversion entre le tracking navigateur et le tracking serveur.</li>
+  <li><strong>Respect du consentement utilisateur.</strong> Le tracking server-side ne dispense pas de la gestion du consentement — il doit rester conforme aux mêmes règles que le tracking classique.</li>
+</ul>
+
+<h2>Pour quels types d'entreprises</h2>
+
+<ul class="sub-list">
+  <li>Entreprises qui investissent significativement en Meta Ads ou Google Ads et constatent un écart entre les conversions mesurées et les conversions réelles (CRM, ventes)</li>
+  <li>Sites avec un fort trafic Safari/iOS, particulièrement impactés par les restrictions de tracking</li>
+  <li>Comptes publicitaires dont la phase d'apprentissage semble anormalement instable</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>La Conversion API remplace-t-elle le Pixel Meta classique ?</summary>
+    <p>Non, les deux fonctionnent ensemble — la CAPI vient compléter les données que le Pixel ne parvient plus à capter seul.</p>
+  </details>
+  <details>
+    <summary>Faut-il des compétences en développement pour la mettre en place ?</summary>
+    <p>Une intervention technique est nécessaire (accès au serveur ou au CMS), mais elle peut être menée en configuration standard sans développement sur-mesure dans la plupart des cas.</p>
+  </details>
+  <details>
+    <summary>Est-ce compatible avec le RGPD ?</summary>
+    <p>Oui, à condition de respecter les mêmes règles de consentement que pour le tracking classique — la CAPI ne contourne pas ces obligations.</p>
+  </details>
+  <details>
+    <summary>Comment savoir si mon tracking actuel a besoin de cette mise à niveau ?</summary>
+    <p>Un écart significatif entre les conversions rapportées par les plateformes publicitaires et vos données réelles (CRM, ventes) est généralement un bon indicateur.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Discutons de la fiabilité de votre tracking publicitaire</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Réserver un audit gratuit</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour une vue complète de mon expertise Analytics, voir la page <a href="/analytics">Analytics</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Cette page centralise un sujet mentionné à la fois sur les pages SEA et SMA.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/analytics">Analytics →</a>
+      <a href="/consultant-ga4">Consultant GA4 →</a>
+      <a href="/sea">SEA →</a>
+      <a href="/sma">SMA →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+      </a>
+      <p>Consultant Growth &amp; Marketing — Chambéry / Lyon</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+<script src="cookie-consent.js"></script>
+</body>
+</html>
