@@ -416,3 +416,14 @@
     transition: none;
   }
 }
+
+/* ---------- Byline article de blog ---------- */
+
+.sub-byline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  font-size: 13px;
+  color: var(--color-ink-faint);
+  margin-top: 10px;
+}

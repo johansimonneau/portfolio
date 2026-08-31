@@ -48,6 +48,29 @@ dupliquez `sea.html`, adaptez le contenu et le JSON-LD, ajoutez le lien dans
 la nav de toutes les pages et dans le bloc `.card-links` de la home si
 pertinent.
 
+## Blog
+
+`blog.html` (page d'index, `/blog`) liste les articles ; chaque article est un
+fichier à la racine (ex. `seo-geo-ce-qui-change-vraiment.html`), au même
+niveau que les autres pages — pas de sous-dossier, pour rester cohérent avec
+le reste du site et éviter de casser les chemins relatifs vers `style.css`,
+`assets/`, etc.
+
+Template d'article (à dupliquer depuis `seo-geo-ce-qui-change-vraiment.html`) :
+- `<head>` : identique aux sous-pages (`subpage.css`), JSON-LD `BlogPosting`
+  (+ `FAQPage` si pertinent) au lieu de `Service`.
+- Fil d'Ariane `.sub-breadcrumb` : Accueil / Blog / [Titre].
+- En-tête `.sub-header` avec tag `Blog` (`.sub-pillar-tag`), `<h1>`, accroche
+  (`.sub-hook`), puis `.sub-byline` (auteur · date · temps de lecture).
+- Corps en `.sub-article` : `<h2>`, `.sub-points` pour les listes à puces
+  avec amorce en gras, `.sub-faq` pour les questions/réponses.
+- CTA de fin (`.sub-cta`) + bandeau de liens connexes (`.sub-pillar-band`).
+
+Pour publier un nouvel article : dupliquez le fichier, changez le contenu et
+le JSON-LD, ajoutez une entrée dans `.blog-list` sur `blog.html`, ajoutez le
+lien `/blog` dans le footer si absent (déjà fait sur toutes les pages
+existantes), et ajoutez l'URL dans `sitemap.xml`.
+
 ## URLs propres (`/sea`, `/sma`)
 
 Le fichier `vercel.json` active `cleanUrls`, qui fait correspondre
