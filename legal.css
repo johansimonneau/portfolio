@@ -217,3 +217,7 @@
   text-decoration: none;
   transform: translateY(-1px);
 }
+
+.legal-body-narrow {
+  max-width: 640px;
+}

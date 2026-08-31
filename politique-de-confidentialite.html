@@ -38,10 +38,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="cookie-consent.css">
 <link rel="stylesheet" href="legal.css">
@@ -49,7 +45,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <a class="skip-link" href="#main">Aller au contenu</a>
@@ -168,6 +164,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>Ce site collecte un minimum de données, dans le cadre strict des échanges que vous initiez volontairement&nbsp;:</p>
           <ul>
             <li><strong>Formulaire de contact (email)&nbsp;:</strong> les liens de contact du site ouvrent directement votre messagerie et transmettent votre message par email. Aucune donnée n'est stockée sur un serveur ou une base de données&nbsp;: l'échange se fait de client email à client email, comme un email classique.</li>
+            <li><strong>Diagnostic Growth Marketing (page /diagnostic)&nbsp;:</strong> vos réponses au quiz sont calculées et affichées uniquement dans votre navigateur — rien n'est transmis ni stocké tant que vous ne cliquez pas sur « Recevoir mon diagnostic par email », qui fonctionne comme le formulaire de contact ci-dessus (ouverture de votre messagerie, aucun stockage serveur).</li>
             <li><strong>Prise de rendez-vous (Calendly)&nbsp;:</strong> si vous réservez un créneau via le lien Calendly, les informations que vous renseignez (nom, email, éventuellement téléphone) sont directement collectées par Calendly, Inc., agissant en tant que sous-traitant indépendant selon sa propre politique de confidentialité.</li>
           </ul>
           <div class="legal-callout">
@@ -247,7 +244,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="container footer-inner">
     <div class="footer-brand">
       <a href="/" class="logo">
-        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
       </a>
       <p>Consultant Growth &amp; Marketing — Chambéry / Lyon</p>
     </div>
@@ -268,6 +265,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="footer-links">
       <p class="footer-heading">Navigation</p>
       <ul>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
         <li><a href="/#projets">Projets</a></li>
         <li><a href="/#apropos">À propos</a></li>
         <li><a href="/#temoignages">Témoignages</a></li>
@@ -294,7 +294,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
-<script src="script.js"></script>
-<script src="cookie-consent.js"></script>
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
 </body>
 </html>

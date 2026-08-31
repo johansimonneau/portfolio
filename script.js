@@ -302,4 +302,68 @@
       navObserver.observe(section);
     });
   }
+
+  /* ---------- Lecture audio de l'article (synthèse vocale du navigateur) ---------- */
+
+  var audioBtn = document.querySelector("[data-audio-btn]");
+
+  if (audioBtn) {
+    var audioWrapper = audioBtn.closest(".sub-audio");
+    var targetId = audioWrapper ? audioWrapper.getAttribute("data-audio-target") : null;
+    var articleBody = targetId ? document.getElementById(targetId) : null;
+
+    if (!("speechSynthesis" in window) || !articleBody) {
+      if (audioWrapper) audioWrapper.style.display = "none";
+    } else {
+      var audioLabel = audioBtn.querySelector("[data-audio-label]");
+      var iconPlay = audioBtn.querySelector(".sub-audio-icon-play");
+      var iconPause = audioBtn.querySelector(".sub-audio-icon-pause");
+
+      var setPlayingState = function (isPlaying) {
+        audioBtn.setAttribute("aria-pressed", isPlaying ? "true" : "false");
+        if (audioLabel) audioLabel.textContent = isPlaying ? "Mettre en pause" : "Écouter cet article";
+        if (iconPlay) iconPlay.style.display = isPlaying ? "none" : "";
+        if (iconPause) iconPause.style.display = isPlaying ? "" : "none";
+      };
+
+      var pickFrenchVoice = function () {
+        var voices = window.speechSynthesis.getVoices();
+        for (var i = 0; i < voices.length; i++) {
+          if (voices[i].lang && voices[i].lang.indexOf("fr") === 0) return voices[i];
+        }
+        return null;
+      };
+
+      audioBtn.addEventListener("click", function () {
+        var synth = window.speechSynthesis;
+
+        if (synth.speaking && !synth.paused) {
+          synth.pause();
+          setPlayingState(false);
+          return;
+        }
+
+        if (synth.paused) {
+          synth.resume();
+          setPlayingState(true);
+          return;
+        }
+
+        var utterance = new SpeechSynthesisUtterance(articleBody.textContent);
+        utterance.lang = "fr-FR";
+        var voice = pickFrenchVoice();
+        if (voice) utterance.voice = voice;
+        utterance.onend = function () { setPlayingState(false); };
+        utterance.onerror = function () { setPlayingState(false); };
+
+        synth.cancel();
+        synth.speak(utterance);
+        setPlayingState(true);
+      });
+
+      window.addEventListener("beforeunload", function () {
+        window.speechSynthesis.cancel();
+      });
+    }
+  }
 })();

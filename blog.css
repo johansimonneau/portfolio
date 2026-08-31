@@ -1,0 +1,57 @@
+/* ==========================================================================
+   Johan Simonneau — Portfolio
+   blog.css — page d'index du blog (/blog)
+   S'appuie sur les variables de style.css et le header d'article de
+   subpage.css. Charger APRÈS style.css et subpage.css.
+   ========================================================================== */
+
+.blog-list {
+  display: grid;
+  gap: 24px;
+  padding-block: clamp(24px, 5vw, 48px) clamp(48px, 8vw, 96px);
+}
+
+.blog-card {
+  display: block;
+  padding: 28px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.blog-card:hover {
+  border-color: var(--color-navy);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(31, 31, 31, 0.06);
+}
+
+.blog-card-tag {
+  display: inline-flex;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  margin-bottom: 10px;
+}
+
+.blog-card h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.blog-card p {
+  color: var(--color-ink-soft);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-card {
+    transition: none;
+  }
+}
