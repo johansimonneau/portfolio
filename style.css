@@ -543,7 +543,15 @@ button {
 
   .main-nav {
     position: fixed;
-    inset: 65px 0 0 0;
+    top: 65px;
+    right: 0;
+    left: 0;
+    /* hauteur explicite plutôt que "bottom: 0" : le site-header a un
+       backdrop-filter, qui crée un containing block pour les descendants
+       en position fixed — "bottom: 0" s'étirerait alors jusqu'au bas du
+       header au lieu du bas de l'écran. */
+    height: calc(100vh - 65px);
+    height: calc(100dvh - 65px);
     background: var(--color-bg);
     transform: translateX(100%);
     transition: transform var(--transition);
