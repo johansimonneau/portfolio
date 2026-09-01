@@ -91,6 +91,20 @@
   max-width: 62ch;
 }
 
+/* ---------- Image de couverture (articles de blog) ---------- */
+
+.sub-cover {
+  padding-top: clamp(24px, 4vw, 40px);
+}
+
+.sub-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+}
+
 /* ---------- Layout article ---------- */
 
 .sub-article {
@@ -135,6 +149,27 @@
 
 .sub-article a:hover {
   text-decoration: underline;
+}
+
+/* ---------- Image ressource (schéma, illustration dans le corps de l'article) ---------- */
+
+.sub-figure {
+  margin: 28px 0 32px;
+}
+
+.sub-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+}
+
+.sub-figure figcaption {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--color-ink-faint);
+  text-align: center;
 }
 
 /* ---------- Case study callout (chiffres cas client) ---------- */
@@ -426,53 +461,4 @@
   font-size: 13px;
   color: var(--color-ink-faint);
   margin-top: 10px;
-}
-
-/* ---------- Lecture audio (synthèse vocale du navigateur) ---------- */
-
-.sub-audio {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.sub-audio-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 9px 16px;
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--color-navy);
-  background: var(--color-bg-alt);
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  transition: background var(--transition), border-color var(--transition);
-}
-
-.sub-audio-btn:hover {
-  border-color: var(--color-navy);
-}
-
-.sub-audio-btn[aria-pressed="true"] {
-  background: var(--color-navy);
-  color: #fff;
-}
-
-.sub-audio-hint {
-  font-size: 12px;
-  color: var(--color-ink-faint);
-}
-
-.sub-audio-icon-pause {
-  display: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .sub-audio-btn {
-    transition: none;
-  }
 }
