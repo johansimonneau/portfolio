@@ -748,7 +748,7 @@ button {
 
 .hero-stat dt {
   font-size: 13px;
-  color: var(--color-ink-faint);
+  color: var(--color-ink-soft);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 6px;
@@ -1270,7 +1270,7 @@ button {
 
 .btn-ghost-on-dark {
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .btn-ghost-on-dark:hover {
@@ -1311,7 +1311,7 @@ button {
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 16px;
 }
 
@@ -1336,7 +1336,7 @@ button {
 .footer-bottom {
   padding-block: 24px;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.5);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -1352,7 +1352,7 @@ button {
 
 .footer-legal a {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
   transition: color var(--transition);
 }
