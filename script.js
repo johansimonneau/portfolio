@@ -8,6 +8,29 @@
 
   var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---------- Liens de contact : sujet + corps pré-remplis ---------- */
+
+  var contactLinks = document.querySelectorAll('a[href^="mailto:johansimonneau.pro@gmail.com"]');
+  if (contactLinks.length) {
+    var contactBody = [
+      "Nom : ",
+      "Prénom : ",
+      "Email : ",
+      "N° téléphone : ",
+      "Demande : ",
+      "URL de la demande : " + window.location.href
+    ].join("\n");
+
+    var contactMailto =
+      "mailto:johansimonneau.pro@gmail.com?subject=" +
+      encodeURIComponent("Demande à partir du Portfolio") +
+      "&body=" + encodeURIComponent(contactBody);
+
+    contactLinks.forEach(function (link) {
+      link.setAttribute("href", contactMailto);
+    });
+  }
+
   /* ---------- Animation d'entrée du titre hero ---------- */
 
   var heroTitle = document.querySelector(".hero-title");

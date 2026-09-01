@@ -134,8 +134,19 @@ Inter, motif "blob + carré arrondi" du hero) exportée en PNG. Pour en
 générer une : construisez la page dans un fichier HTML autonome, servez-la
 avec un petit serveur local (les polices `@font-face` ne se chargent pas en
 `file://`), puis capturez-la avec Playwright à la taille cible
-(`page.screenshot()`). Voir `blog-seo-geo-hero.png` et
-`blog-seo-geo-flow.png` comme référence.
+(`page.screenshot()`).
+
+**Variez le format d'un article à l'autre** — ne reproduisez pas
+systématiquement la même composition (ex. "deux cartes + VS", "deux lignes
+de pastilles reliées par des flèches"). Piochez selon ce que l'article
+illustre le mieux : deux cartes comparatives, un schéma de flux en
+pastilles, un graphique en barres, un mockup illustratif (ex. une barre de
+recherche + un encart mis en avant), une frise, un tableau simplifié…
+L'objectif est qu'un lecteur qui enchaîne plusieurs articles ne voie pas
+toujours le même gabarit. Voir `blog-seo-geo-hero.png` / `blog-seo-geo-
+flow.png` (cartes comparatives + flux en pastilles) et `blog-ai-overviews-
+hero.png` / `blog-ai-overviews-flow.png` (mockup de résultat de recherche +
+graphique en barres) comme deux références de styles différents.
 
 **Piège CSP à connaître** (utile pour tout élément affiché/masqué
 dynamiquement en JS sur ce site) : basculez toujours la visibilité via
