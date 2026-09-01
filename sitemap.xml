@@ -44,7 +44,7 @@
   </url>
   <url>
     <loc>https://johansimonneau.fr/blog</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -53,6 +53,12 @@
     <lastmod>2026-09-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://johansimonneau.fr/ai-overviews-google-trafic-seo</loc>
+    <lastmod>2026-09-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://johansimonneau.fr/seo-geo-ce-qui-change-vraiment</loc>

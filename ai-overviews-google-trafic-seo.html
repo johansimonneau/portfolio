@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Overviews de Google : l'impact réel sur votre trafic SEO | Blog — Johan Simonneau</title>
+<meta name="description" content="Ce que les AI Overviews de Google changent vraiment pour votre trafic SEO, ce qui reste vrai, et comment mesurer leur impact concrètement.">
+
+<link rel="canonical" href="https://johansimonneau.fr/ai-overviews-google-trafic-seo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Overviews de Google : l'impact réel sur votre trafic SEO">
+<meta property="og:description" content="Ce que les AI Overviews de Google changent vraiment pour votre trafic SEO, ce qui reste vrai, et comment mesurer leur impact concrètement.">
+<meta property="og:url" content="https://johansimonneau.fr/ai-overviews-google-trafic-seo">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-ai-overviews-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-ai-overviews-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "AI Overviews de Google : l'impact réel sur votre trafic SEO (et comment le mesurer)",
+      "image": "https://johansimonneau.fr/assets/img/blog-ai-overviews-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-09-07",
+      "dateModified": "2026-09-07",
+      "description": "Ce que les AI Overviews de Google changent vraiment pour votre trafic SEO, ce qui reste vrai, et comment mesurer leur impact concrètement.",
+      "mainEntityOfPage": "https://johansimonneau.fr/ai-overviews-google-trafic-seo"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il arrêter d'investir en SEO à cause des AI Overviews ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Être bien indexé et bien structuré reste la condition pour exister dans les résultats, IA ou pas. Ce qui change, c'est la manière de mesurer le succès — plus seulement en position, mais aussi en visibilité de marque."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment savoir si mes pages apparaissent dans les AI Overviews ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google Search Console ne le montre pas directement. Le signal le plus fiable reste indirect : surveiller les requêtes où les impressions restent stables ou augmentent pendant que le taux de clic baisse."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les AI Overviews touchent-ils toutes les requêtes ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, surtout les requêtes informationnelles larges. Les requêtes transactionnelles et de marque sont, pour l'instant, beaucoup moins concernées."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">AI Overviews</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>AI Overviews de Google : l'impact réel sur votre trafic SEO (et comment le mesurer)</h1>
+      <p class="sub-hook">Depuis que Google a généralisé les AI Overviews sur la majorité des requêtes informationnelles, une inquiétude revient dans presque tous mes audits SEO&nbsp;: « Est-ce que je suis en train de perdre du trafic sans m'en rendre compte&nbsp;? ». La réponse honnête&nbsp;: ça dépend de vos requêtes, et c'est mesurable — à condition de regarder les bons indicateurs.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>7 septembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-ai-overviews-hero.png" alt="Illustration d'une page de résultats de recherche : un encadré AI Overview surligné apparaît juste sous la barre de recherche, au-dessus des résultats organiques classiques, grisés et repoussés plus bas" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Je passe une bonne partie de mes journées entre audits SEO et campagnes d'acquisition. Depuis quelques mois, une question revient systématiquement en début de mission&nbsp;: « Et pour les AI Overviews, on fait quoi&nbsp;? ». Voici comment je fais le tri entre ce qui reste vrai et ce qui change vraiment.</p>
+
+<h2>Ce qui ne change pas</h2>
+
+<p>Un AI Overview ne remplace pas un audit technique. Pour être cité, il faut d'abord être indexé, crawlable, et répondre clairement à une intention de recherche — exactement les fondamentaux qui faisaient un bon contenu SEO avant l'arrivée de l'IA générative dans les résultats. Le <a href="/donnees-structurees">balisage structuré</a> (Schema.org) continue de jouer le même rôle&nbsp;: aider Google, et un modèle de langage, à extraire une information fiable sans ambiguïté. Une page mal structurée ou mal crawlable n'a aucune chance d'être citée, IA ou pas — un <a href="/seo">audit SEO</a> reste un audit SEO.</p>
+
+<h2>Ce qui change vraiment</h2>
+
+<ul class="sub-points">
+  <li><strong>La première position ne garantit plus le clic.</strong> Sur une requête informationnelle où un AI Overview s'affiche, l'utilisateur obtient souvent sa réponse sans dérouler la page. Être premier reste utile pour la visibilité de marque et les requêtes transactionnelles, mais le clic n'est plus automatique.</li>
+  <li><strong>Ce n'est pas toujours la page n°1 qui est citée.</strong> L'IA générative sélectionne le passage qui répond le plus clairement à la question, pas nécessairement la page la mieux classée. Une page en position 4 ou 5 avec une réponse limpide peut être citée avant le n°1 qui noie sa réponse dans trois paragraphes d'introduction.</li>
+  <li><strong>La mesure change de nature.</strong> Search Console ne distingue pas les impressions liées à un AI Overview de celles d'un résultat classique. Le signal le plus fiable reste indirect&nbsp;: une divergence croissante entre impressions stables (ou en hausse) et clics en baisse sur une requête donnée trahit souvent un AI Overview qui capte l'attention avant le clic.</li>
+  <li><strong>L'exposition varie énormément selon le type de requête.</strong> Les requêtes informationnelles larges (« qu'est-ce que… », « comment… ») sont les plus concernées. Les requêtes transactionnelles et de marque restent, pour l'instant, largement épargnées.</li>
+</ul>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-ai-overviews-flow.png" alt="Graphique en barres comparant des impressions stables à des clics en baisse, avec la mention 'écart qui se creuse'" width="900" height="340" loading="lazy">
+  <figcaption>Le signal le plus fiable n'est pas votre trafic global, mais l'écart entre impressions stables et clics en baisse, requête par requête.</figcaption>
+</figure>
+
+<h2>Un exemple qui illustre bien la différence</h2>
+
+<p>Dans les audits que je mène, le cas le plus parlant n'est pas une chute de trafic généralisée — c'est une chute concentrée sur une poignée de requêtes informationnelles, pendant que les requêtes transactionnelles et de marque restent stables. Sans regarder requête par requête, ce signal se noie dans la moyenne du site et peut passer inaperçu pendant des mois, jusqu'à ce que le trafic global commence enfin à en pâtir visiblement.</p>
+
+<h2>Ce que ça change concrètement pour votre stratégie SEO</h2>
+
+<ul class="sub-points">
+  <li><strong>Segmentez votre suivi par intention de requête.</strong> Ne pilotez plus le SEO uniquement à la vue d'ensemble&nbsp;: informationnel, transactionnel et marque ne réagissent pas de la même façon aux AI Overviews.</li>
+  <li><strong>Écrivez la réponse avant l'argumentaire.</strong> Une phrase déclarative et complète qui répond à la question dès le premier paragraphe — le contexte et la nuance peuvent venir après. C'est ce qui maximise vos chances d'être le passage cité.</li>
+  <li><strong>Diversifiez ce qui alimente votre acquisition.</strong> Un site trop dépendant du SEO informationnel pur est plus exposé à cette bascule. Le paid, l'email et la notoriété de marque amortissent la variation.</li>
+  <li><strong>Suivez l'écart impressions/clics par requête</strong>, pas seulement le trafic global. C'est le signal le plus tôt disponible, bien avant que la baisse ne soit visible dans vos chiffres agrégés.</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Faut-il arrêter d'investir en SEO à cause des AI Overviews ?</summary>
+    <p>Non. Être bien indexé et bien structuré reste la condition pour exister dans les résultats, IA ou pas. Ce qui change, c'est la manière de mesurer le succès — plus seulement en position, mais aussi en visibilité de marque.</p>
+  </details>
+  <details>
+    <summary>Comment savoir si mes pages apparaissent dans les AI Overviews ?</summary>
+    <p>Google Search Console ne le montre pas directement. Le signal le plus fiable reste indirect : surveiller les requêtes où les impressions restent stables ou augmentent pendant que le taux de clic baisse.</p>
+  </details>
+  <details>
+    <summary>Les AI Overviews touchent-ils toutes les requêtes ?</summary>
+    <p>Non, surtout les requêtes informationnelles larges. Les requêtes transactionnelles et de marque sont, pour l'instant, beaucoup moins concernées.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'y voir clair sur l'impact réel sur votre trafic ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre visibilité SEO</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/seo">SEO</a>, la page <a href="/analytics">Analytics</a>, et l'<a href="/audit-visibilite-ia">audit de visibilité IA</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/seo">SEO →</a>
+      <a href="/geo">GEO →</a>
+      <a href="/analytics">Analytics →</a>
+      <a href="/audit-visibilite-ia">Audit visibilité IA →</a>
+      <a href="/seo-geo-ce-qui-change-vraiment">SEO vs GEO →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Growth Marketing basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
