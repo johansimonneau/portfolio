@@ -136,13 +136,10 @@
   /* ---------- Header : compact au scroll ---------- */
 
   var header = document.querySelector(".site-header");
-  var lastScrollY = window.scrollY;
 
   function updateHeaderState() {
     if (!header) return;
-    var currentY = window.scrollY;
-    header.classList.toggle("is-scrolled", currentY > 24);
-    lastScrollY = currentY;
+    header.classList.toggle("is-scrolled", window.scrollY > 24);
   }
 
   /* ---------- Parallax léger du hero ---------- */

@@ -32,7 +32,8 @@ visuelle et les mêmes composants CSS.
 │                                  → Pages légales (noindex)
 │
 ├── style.css        → Feuille de style principale (variables, composants
-│                       partagés : header, footer, boutons, hero, cartes…)
+│                       partagés : header, footer, boutons, hero, cartes,
+│                       bandeau de consentement cookies…)
 ├── pillar.css        → Composants des pages piliers (méthodologie, FAQ,
 │                       grille de définition). Charge après style.css.
 ├── subpage.css        → Composants des sous-pages/articles de blog (fil
@@ -41,11 +42,12 @@ visuelle et les mêmes composants CSS.
 ├── legal.css           → Composants des pages légales et de la 404.
 ├── blog.css              → Grille de cartes de l'index du blog.
 ├── diagnostic.css         → Composants du quiz interactif.
-├── cookie-consent.css      → Bandeau de consentement cookies.
 │
 ├── script.js          → Animations au scroll, menu mobile, mega-menu,
 │                        lien actif dans la nav.
-├── cookie-consent.js   → Bandeau de consentement + Consent Mode Google.
+├── cookie-consent.js   → Bandeau de consentement + Consent Mode Google +
+│                         chargement différé de Google Tag Manager (voir
+│                         section Sécurité/Performance ci-dessous).
 ├── diagnostic.js        → Logique du quiz (calcul du score, résultats,
 │                          lien mailto pré-rempli — 100% côté client).
 │
@@ -202,6 +204,16 @@ par défaut tant que l'utilisateur n'a pas choisi — voir le script inline en
 tête de `<head>` sur chaque page). Polices auto-hébergées (`assets/fonts/`)
 pour éviter toute transmission de l'IP du visiteur à Google avant
 consentement. Détails complets dans `politique-de-confidentialite.html`.
+
+**Google Tag Manager n'est chargé qu'après consentement** (accepté lors
+d'une visite précédente, ou au clic sur "Accepter" dans le bandeau) —
+`cookie-consent.js` injecte le script `gtm.js` dynamiquement plutôt que de
+le charger sans condition dans le `<head>` de chaque page. Avantage double :
+aucun octet téléchargé pour rien tant que le visiteur n'a pas consenti (ou a
+refusé), et un gain de performance mesurable (le script GTM pesait à lui
+seul plus de 100 Ko côté transfert). Le `<head>` ne garde que le script
+inline de configuration du Consent Mode (`gtag('consent', 'default', ...)`),
+qui doit s'exécuter avant tout le reste.
 
 ## URLs propres (`/sea`, `/diagnostic`, etc.)
 
