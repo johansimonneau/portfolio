@@ -3,10 +3,28 @@
    cookie-consent.js — bandeau de consentement cookies (RGPD / CNIL)
    Fonctionne avec le Consent Mode Google initialisé dans le <head> de
    chaque page (gtag('consent', 'default', {...denied...})).
+   Charge aussi Google Tag Manager, mais seulement une fois le consentement
+   déjà donné (visite précédente) ou au moment où il est donné — jamais
+   avant, pour ne pas télécharger ce script pour rien tant que le
+   visiteur n'a pas encore choisi (ou a refusé).
    ========================================================================== */
 
 (function () {
   "use strict";
+
+  var GTM_ID = "GTM-PTBVL88D";
+  var gtmLoaded = false;
+
+  function loadGTM() {
+    if (gtmLoaded) return;
+    gtmLoaded = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtm.js?id=" + GTM_ID;
+    document.head.appendChild(script);
+  }
 
   var STORAGE_KEY = "cookie_consent";
   var existing = null;
@@ -54,11 +72,23 @@
   }
 
   function init() {
-    if (existing === "accepted" || existing === "declined") {
-      // Choix déjà fait : rien à afficher au chargement. Le consentement
-      // "accepted" a déjà été appliqué au Consent Mode par le script
-      // inline du <head>. Le lien "Gérer mes cookies" du footer permet
-      // de rouvrir le bandeau à tout moment (voir bindReopenLink).
+    if (existing === "accepted") {
+      // Consentement déjà donné lors d'une visite précédente : on charge
+      // GTM, mais après l'événement "load" pour ne pas retarder le rendu
+      // initial de la page.
+      if (document.readyState === "complete") {
+        loadGTM();
+      } else {
+        window.addEventListener("load", loadGTM);
+      }
+      bindReopenLink();
+      return;
+    }
+
+    if (existing === "declined") {
+      // Choix déjà fait, refusé : rien à afficher ni à charger au
+      // chargement. Le lien "Gérer mes cookies" du footer permet de
+      // rouvrir le bandeau à tout moment (voir bindReopenLink).
       bindReopenLink();
       return;
     }
@@ -79,6 +109,7 @@
     document.getElementById("cookieAccept").addEventListener("click", function () {
       storeChoice("accepted");
       updateConsent(true);
+      loadGTM();
       hideBanner(banner);
     });
 
