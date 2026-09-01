@@ -36,15 +36,15 @@ visuelle et les mêmes composants CSS.
 ├── pillar.css        → Composants des pages piliers (méthodologie, FAQ,
 │                       grille de définition). Charge après style.css.
 ├── subpage.css        → Composants des sous-pages/articles de blog (fil
-│                        d'Ariane, en-tête d'article, byline, module audio,
-│                        FAQ). Charge après style.css.
+│                        d'Ariane, en-tête d'article, byline, FAQ). Charge
+│                        après style.css.
 ├── legal.css           → Composants des pages légales et de la 404.
 ├── blog.css              → Grille de cartes de l'index du blog.
 ├── diagnostic.css         → Composants du quiz interactif.
 ├── cookie-consent.css      → Bandeau de consentement cookies.
 │
 ├── script.js          → Animations au scroll, menu mobile, mega-menu,
-│                        lien actif dans la nav, lecture audio des articles.
+│                        lien actif dans la nav.
 ├── cookie-consent.js   → Bandeau de consentement + Consent Mode Google.
 ├── diagnostic.js        → Logique du quiz (calcul du score, résultats,
 │                          lien mailto pré-rempli — 100% côté client).
@@ -58,9 +58,13 @@ visuelle et les mêmes composants CSS.
     ├── icons/            → Icônes SVG des blocs de services
     └── img/
         ├── logo-js.png / logo-js-white.png   → Logo (header / footer)
+        ├── og-default.png                     → Image de partage par défaut (og:image /
+        │                                         twitter:image sitewide), générée à partir
+        │                                         du logo — voir section Blog
         ├── johan-portrait-photo.jpg           → Photo "À propos"
         ├── avatar-*.jpg                       → Photos des témoignages
         ├── project-*.jpg                      → Captures des études de cas
+        ├── blog-*.png                         → Illustrations des articles de blog
         └── clients/                            → Logos clients (carrousel)
 ```
 
@@ -101,14 +105,11 @@ Template d'article (à dupliquer depuis `seo-geo-ce-qui-change-vraiment.html`) :
   (+ `FAQPage` si pertinent) au lieu de `Service`.
 - Fil d'Ariane `.sub-breadcrumb` : Accueil / Blog / [Titre].
 - En-tête `.sub-header` avec tag `Blog` (`.sub-pillar-tag`), `<h1>`, accroche
-  (`.sub-hook`), puis `.sub-byline` (auteur · date · temps de lecture) et le
-  module `.sub-audio` ("Écouter cet article", synthèse vocale du navigateur,
-  gratuite — voir plus bas).
-- Corps en `.sub-article` : le contenu à lire à voix haute doit être dans un
-  conteneur avec un `id` (ex. `<div id="articleBody">`), qui doit englober
-  `<h2>`, `.sub-points`, `.sub-faq` mais **pas** `.sub-cta` (pour ne pas lire
-  l'appel à l'action). Le `data-audio-target` du bouton doit référencer cet
-  `id`.
+  (`.sub-hook`), puis `.sub-byline` (auteur · date · temps de lecture).
+- Image de couverture `.sub-cover` juste après l'en-tête (voir "Images des
+  articles de blog" ci-dessous).
+- Corps en `.sub-article` : `<h2>`, `.sub-points` pour les listes à puces
+  avec amorce en gras, `.sub-faq` pour les questions/réponses.
 - CTA de fin (`.sub-cta`) + bandeau de liens connexes (`.sub-pillar-band`).
 
 Pour publier un nouvel article : dupliquez le fichier, changez le contenu et
@@ -116,23 +117,32 @@ le JSON-LD, ajoutez une entrée dans `.blog-list` sur `blog.html`, ajoutez le
 lien `/blog` dans le footer si absent (déjà fait sur toutes les pages
 existantes), et ajoutez l'URL dans `sitemap.xml`.
 
-### Module audio ("Écouter cet article")
+### Images des articles de blog
 
-Utilise l'API native `speechSynthesis` du navigateur (gratuite, aucune clé
-API, aucun compte) — voix moins naturelle qu'un service payant type
-ElevenLabs, mais suffisante et sans coût récurrent. Logique dans `script.js`
-(section "Lecture audio de l'article"), activée automatiquement si un
-`[data-audio-btn]` est présent sur la page ; masquée automatiquement si le
-navigateur ne supporte pas `speechSynthesis` ou si la cible `data-audio-target`
-est introuvable.
+Chaque article a une image de couverture (`.sub-cover`, 1200×630, juste après
+l'en-tête) en lien avec son sujet, et peut inclure une ou deux images
+ressource dans le corps du texte (`.sub-figure`, avec `<figcaption>`) —
+typiquement un schéma qui illustre un point de l'article. L'image de
+couverture sert aussi d'`og:image`/`twitter:image` propre à l'article (au
+lieu de `og-default.png`), pour un partage plus parlant sur les réseaux.
 
-**Piège CSP à connaître** : les icônes play/pause sont basculées via
-`element.style.display` en JS plutôt que l'attribut HTML `hidden` (qui ne se
-masque pas de façon fiable sur les éléments `<svg>` dans Chromium), et
-plutôt qu'un `style=""` écrit dans du HTML généré (qui violerait la CSP
-`style-src`). Toujours utiliser l'assignation directe `element.style.xxx = ...`
-pour du style dynamique sur ce site — jamais de `style=""` ni de `.hidden`
-sur un `<svg>`.
+Le site n'utilise aucune photo ou image tierce pour ces illustrations : la
+CSP (`img-src 'self'`) n'autorise que des images auto-hébergées, donc tout
+visuel est une composition HTML/CSS maison (mêmes variables de style que le
+reste du site : couleurs `--color-navy`/`--color-mint`, polices Poppins/
+Inter, motif "blob + carré arrondi" du hero) exportée en PNG. Pour en
+générer une : construisez la page dans un fichier HTML autonome, servez-la
+avec un petit serveur local (les polices `@font-face` ne se chargent pas en
+`file://`), puis capturez-la avec Playwright à la taille cible
+(`page.screenshot()`). Voir `blog-seo-geo-hero.png` et
+`blog-seo-geo-flow.png` comme référence.
+
+**Piège CSP à connaître** (utile pour tout élément affiché/masqué
+dynamiquement en JS sur ce site) : basculez toujours la visibilité via
+l'assignation directe `element.style.xxx = ...`, jamais via un `style=""`
+écrit dans du HTML généré (violerait la CSP `style-src`), ni via l'attribut
+HTML `hidden` sur un `<svg>` (ne se masque pas de façon fiable dans
+Chromium).
 
 ## Diagnostic interactif (`/diagnostic`)
 
