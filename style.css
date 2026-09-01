@@ -632,7 +632,7 @@ button {
 
 .hero {
   position: relative;
-  padding-block: clamp(56px, 9vw, 108px) var(--gap-section);
+  padding-block: clamp(20px, 3vw, 36px) clamp(24px, 3.6vw, 40px);
   overflow: clip;
 }
 
@@ -672,7 +672,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 28px;
+  margin-bottom: 14px;
 }
 
 .hero-pills li {
@@ -693,9 +693,10 @@ button {
 }
 
 .hero-title {
-  font-size: clamp(40px, 8vw, 76px);
+  font-size: clamp(30px, 4vw, 46px);
   font-weight: 700;
-  margin-bottom: 20px;
+  line-height: 1.12;
+  margin-bottom: 10px;
   opacity: 1;
 }
 
@@ -723,25 +724,26 @@ button {
 }
 
 .hero-tagline {
-  font-size: clamp(18px, 2.4vw, 22px);
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.55;
   color: var(--color-ink-soft);
-  max-width: 46ch;
-  margin-bottom: 36px;
+  max-width: 56ch;
+  margin-bottom: 18px;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin-bottom: 64px;
+  margin-bottom: 24px;
 }
 
 .hero-stats {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 16px;
   border-top: 1px solid var(--color-border);
-  padding-top: 32px;
+  padding-top: 16px;
 }
 
 .hero-stat dt {
