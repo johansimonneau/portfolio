@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Overviews : vos recherches de marque, de 26 % à 82 % en un mois | Blog — Johan Simonneau</title>
+<meta name="description" content="AI Overviews est passé de 26 % à 82 % des recherches de marque en septembre 2026, selon Ahrefs et DemandSphere. Ce que ce basculement change pour votre visibilité.">
+
+<link rel="canonical" href="https://johansimonneau.fr/ai-overviews-explosion-recherches-marque">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Overviews : vos recherches de marque, de 26 % à 82 % en un mois">
+<meta property="og:description" content="AI Overviews est passé de 26 % à 82 % des recherches de marque en septembre 2026, selon Ahrefs et DemandSphere. Ce que ce basculement change pour votre visibilité.">
+<meta property="og:url" content="https://johansimonneau.fr/ai-overviews-explosion-recherches-marque">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-ai-overviews-explosion-recherches-marque-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-ai-overviews-explosion-recherches-marque-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://johansimonneau.fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://johansimonneau.fr/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AI Overviews : vos recherches de marque, de 26 % à 82 % en un mois",
+          "item": "https://johansimonneau.fr/ai-overviews-explosion-recherches-marque"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "AI Overviews : vos recherches de marque, de 26 % à 82 % en un mois",
+      "image": "https://johansimonneau.fr/assets/img/blog-ai-overviews-explosion-recherches-marque-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-10-06",
+      "dateModified": "2026-10-06",
+      "description": "AI Overviews est passé de 26 % à 82 % des recherches de marque en septembre 2026, selon Ahrefs et DemandSphere. Ce que ce basculement change pour votre visibilité.",
+      "mainEntityOfPage": "https://johansimonneau.fr/ai-overviews-explosion-recherches-marque"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Est-ce une annonce officielle de Google ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Google n'a publié aucun chiffre officiel sur cette hausse. La mesure vient de deux analyses tierces indépendantes, DemandSphere (tracking quotidien d'un panel de mots-clés de marque) et Ahrefs (crawl de 232,8 millions de résultats de recherche desktop US), qui convergent toutes les deux autour de 82 % fin septembre 2026."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Est-ce que ça concerne toutes les recherches, ou seulement les recherches de marque ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Spécifiquement les recherches de marque (branded queries) — une requête contenant un nom de marque, comme \"Nom de l'entreprise avis\" ou \"Nom de l'entreprise tarifs\". Le taux d'apparition des AI Overviews sur les requêtes génériques (non liées à une marque précise) suit une dynamique différente, non couverte par cette mesure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que faire en priorité face à ce changement ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tester manuellement vos requêtes de marque les plus fréquentes en navigation privée pour voir si un AI Overview apparaît et si votre marque y est citée comme source, pas seulement si vous êtes premier résultat organique. Répéter ce test chaque semaine plutôt qu'une seule fois, la donnée montrant que la situation peut évoluer vite."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">AI Overviews : l'explosion de septembre</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>AI Overviews : vos recherches de marque, de 26 % à 82 % en un mois</h1>
+      <p class="sub-hook">En septembre 2026, la part des recherches de marque qui déclenchent un AI Overview est passée de 26&nbsp;% à plus de 82&nbsp;% en quelques semaines, selon deux analyses indépendantes. Ce n'est plus une tendance de fond à surveiller de loin&nbsp;: c'est un basculement déjà arrivé. Ce qu'il faut vérifier maintenant sur votre propre marque.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>6 octobre 2026</span>
+        <span>·</span>
+        <span>5 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-ai-overviews-explosion-recherches-marque-hero.png" alt="Comparaison : 26 % des recherches de marque avec un AI Overview début septembre 2026, contre 82 % fin septembre 2026" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Un AI Overview de Google qui apparaît sur un quart des recherches de votre marque, c'est gênant mais gérable. Un AI Overview qui apparaît sur quatre recherches de marque sur cinq, c'est un changement de nature&nbsp;: la page de résultats classique n'est plus le point de contact par défaut entre un internaute et votre marque, le résumé généré par l'IA l'est. C'est exactement ce qui s'est produit en quelques semaines en septembre 2026, et la bascule n'a fait l'objet d'aucune annonce officielle de Google&nbsp;— elle a été mesurée, documentée et recoupée par deux acteurs indépendants de l'écosystème SEO.</p>
+
+<h2>Ce que montrent les deux sources</h2>
+
+<p>DemandSphere, qui suit quotidiennement l'apparition des AI Overviews sur un panel de mots-clés de marque via sa plateforme DemandMetrics, a mesuré une moyenne de 26,9&nbsp;% sur la période du 1er au 5&nbsp;septembre 2026. Le niveau est resté globalement stable (entre 27&nbsp;% et 35&nbsp;%) jusqu'à la fin du mois, puis a brutalement décollé&nbsp;: 69,21&nbsp;% le 26&nbsp;septembre, un pic à 90,48&nbsp;% le 27&nbsp;septembre, puis une stabilisation à 80,23&nbsp;% et 82,06&nbsp;% les 28 et 29&nbsp;septembre.</p>
+
+<p>De son côté, Ahrefs a analysé 232,8&nbsp;millions de résultats de recherche desktop US sur juillet-septembre 2026 et a mesuré, pour sa part, 82,91&nbsp;% des mots-clés de marque suivis avec un AI Overview au 29&nbsp;septembre — un chiffre quasiment identique à celui de DemandSphere, obtenu par une méthodologie complètement différente (crawl à grande échelle plutôt que panel suivi quotidiennement). C'est cette convergence entre deux sources indépendantes, avec des méthodes de mesure distinctes, qui transforme ce qui aurait pu être l'anomalie d'un seul outil en un signal solide.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-ai-overviews-explosion-recherches-marque-resource.png" alt="Chronologie de la hausse des AI Overviews sur les recherches de marque en septembre 2026 : environ 27 % début septembre, bascule à 69-90 % les 26-27 septembre, stabilisation à 80-82 % fin septembre." width="900" height="300" loading="lazy">
+  <figcaption>DemandSphere et Ahrefs mesurent, par deux méthodes différentes, le même ordre de grandeur final fin septembre 2026.</figcaption>
+</figure>
+
+<h2>Ce qu'on sait, et ce qu'on ne sait pas</h2>
+
+<p>Important à préciser&nbsp;: Google n'a publié aucun communiqué officiel chiffrant cette hausse. Ce n'est pas une annonce produit, c'est une mesure tierce — ce qui ne la rend pas moins fiable, mais qui change la nature de l'information&nbsp;: on observe un effet, pas une cause confirmée. Les hypothèses les plus plausibles évoquées par les deux études portent sur un déploiement élargi des derniers modèles Gemini dans les AI Overviews et AI Mode, mais aucune des deux sources ne peut l'affirmer avec certitude, et ni l'une ni l'autre n'a prétendu le contraire.</p>
+
+<p>Ce qui est en revanche solidement établi, c'est la mesure elle-même&nbsp;: la méthodologie DemandSphere (panel suivi quotidiennement, toutes régions et appareils confondus) et celle d'Ahrefs (crawl massif sur trois mois) sont publiques et documentées, et elles aboutissent au même ordre de grandeur final à un point d'écart près.</p>
+
+<h2>Ce que ça change concrètement pour une recherche de marque</h2>
+
+<ul class="sub-points">
+  <li><strong>Être premier résultat organique ne garantit plus le clic.</strong> Quand un AI Overview s'affiche au-dessus des résultats classiques sur quatre recherches de marque sur cinq, le premier lien bleu n'est plus le premier point de contact par défaut&nbsp;— le résumé généré par l'IA l'est.</li>
+  <li><strong>Être cité dans l'AI Overview devient une métrique à part entière.</strong> DemandSphere précise que sa mesure porte sur la présence d'un AI Overview, pas sur le fait que la marque y soit citée comme source&nbsp;— ce sont deux informations différentes, et la seconde est la plus actionnable des deux pour une stratégie de visibilité.</li>
+  <li><strong>La discipline GEO n'est plus optionnelle sur les requêtes de marque.</strong> Un travail d'optimisation pour être cité par les moteurs de réponse IA, qui pouvait sembler prospectif il y a encore quelques mois, s'applique désormais à la majorité des recherches que les internautes font déjà sur votre propre nom.</li>
+</ul>
+
+<h2>Comment vérifier où en est votre propre marque</h2>
+
+<ul class="sub-points">
+  <li><strong>Testez manuellement vos 10 à 15 requêtes de marque les plus fréquentes</strong> en navigation privée&nbsp;: nom de marque seul, nom de marque + avis, nom de marque + produit ou service phare.</li>
+  <li><strong>Notez, pour chacune, deux informations distinctes</strong>&nbsp;: un AI Overview apparaît-il, et si oui, votre marque y est-elle citée comme source&nbsp;?</li>
+  <li><strong>Répétez ce relevé chaque semaine</strong>, pas une seule fois&nbsp;: la bascule de fin septembre montre qu'une situation stable depuis des semaines peut évoluer en quelques jours.</li>
+  <li><strong>Croisez avec votre trafic organique sur ces mêmes requêtes</strong> dans Search Console, pour objectiver si l'apparition d'un AI Overview a mesurablement affecté vos clics, plutôt que de le supposer.</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Est-ce une annonce officielle de Google ?</summary>
+    <p>Non. Google n'a publié aucun chiffre officiel sur cette hausse. La mesure vient de deux analyses tierces indépendantes, DemandSphere et Ahrefs, qui convergent toutes les deux autour de 82&nbsp;% fin septembre 2026.</p>
+  </details>
+  <details>
+    <summary>Est-ce que ça concerne toutes les recherches, ou seulement les recherches de marque ?</summary>
+    <p>Spécifiquement les recherches de marque (branded queries) — une requête contenant un nom de marque. Le taux d'apparition des AI Overviews sur les requêtes génériques suit une dynamique différente, non couverte par cette mesure.</p>
+  </details>
+  <details>
+    <summary>Que faire en priorité face à ce changement ?</summary>
+    <p>Tester manuellement vos requêtes de marque les plus fréquentes en navigation privée pour voir si un AI Overview apparaît et si votre marque y est citée comme source, pas seulement si vous êtes premier résultat organique. Répéter ce test chaque semaine plutôt qu'une seule fois.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de vérifier votre visibilité dans les AI Overviews ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur ma visibilité IA</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, la page <a href="/audit-visibilite-ia">Audit visibilité IA</a>, et le <a href="/barometre-ia-growth-marketing">Baromètre IA &amp; Growth Marketing</a>.</p>
+        <p class="sub-cta-link">À lire aussi : <a href="/ai-overviews-google-trafic-seo">AI Overviews de Google : l'impact réel sur votre trafic SEO</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/audit-visibilite-ia">Audit visibilité IA →</a>
+      <a href="/barometre-ia-growth-marketing">Baromètre IA →</a>
+      <a href="/seo">SEO →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
