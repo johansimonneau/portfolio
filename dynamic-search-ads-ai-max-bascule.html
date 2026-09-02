@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dynamic Search Ads : la bascule forcée vers AI Max, et ce qu'il faut vérifier | Blog — Johan Simonneau</title>
+<meta name="description" content="Google bascule de force les campagnes Dynamic Search Ads vers AI Max. Le calendrier confirmé, ce que ça change, et ce qu'il faut vérifier sur vos comptes.">
+
+<link rel="canonical" href="https://johansimonneau.fr/dynamic-search-ads-ai-max-bascule">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dynamic Search Ads : la bascule forcée vers AI Max, et ce qu'il faut vérifier">
+<meta property="og:description" content="Google bascule de force les campagnes Dynamic Search Ads vers AI Max. Le calendrier confirmé, ce que ça change, et ce qu'il faut vérifier sur vos comptes.">
+<meta property="og:url" content="https://johansimonneau.fr/dynamic-search-ads-ai-max-bascule">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-dsa-ai-max-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-dsa-ai-max-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://johansimonneau.fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://johansimonneau.fr/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Dynamic Search Ads : la bascule forcée vers AI Max",
+          "item": "https://johansimonneau.fr/dynamic-search-ads-ai-max-bascule"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Dynamic Search Ads : la bascule forcée vers AI Max, et ce qu'il faut vérifier",
+      "image": "https://johansimonneau.fr/assets/img/blog-dsa-ai-max-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-10-02",
+      "dateModified": "2026-10-02",
+      "description": "Google bascule de force les campagnes Dynamic Search Ads vers AI Max. Le calendrier confirmé, ce que ça change, et ce qu'il faut vérifier sur vos comptes.",
+      "mainEntityOfPage": "https://johansimonneau.fr/dynamic-search-ads-ai-max-bascule"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Mes campagnes Dynamic Search Ads vont-elles disparaître du jour au lendemain ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Google a repoussé l'échéance du sunset complet à février 2027 après les retours des annonceurs, qui demandaient plus de temps. Mais depuis septembre 2026, il n'est déjà plus possible de créer une nouvelle campagne DSA, et les campagnes existantes basculent progressivement vers AI Max."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les campagnes en correspondance large sont-elles concernées aussi ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. La bascule concerne trois cas : les campagnes Dynamic Search Ads, celles utilisant la correspondance large au niveau campagne, et celles avec les éléments créés automatiquement (Automatically Created Assets)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que change concrètement AI Max par rapport à une campagne DSA classique ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI Max combine la correspondance par recherche, la personnalisation du texte des annonces et l'expansion d'URL finale dans un seul système piloté par l'IA. Google indique un gain moyen de 7 % de conversions ou de valeur de conversion à CPA ou ROAS similaire en utilisant l'ensemble de ces fonctionnalités plutôt que la correspondance par recherche seule — un chiffre communiqué par l'éditeur, à vérifier sur vos propres comptes."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Dynamic Search Ads → AI Max</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Dynamic Search Ads : la bascule forcée vers AI Max, et ce qu'il faut vérifier</h1>
+      <p class="sub-hook">Google l'a confirmé sur son propre blog&nbsp;: les campagnes Dynamic Search Ads basculent automatiquement vers AI Max, et il n'est déjà plus possible d'en créer de nouvelles. Si vous gérez des campagnes Google Ads, voici ce qui a changé, le calendrier réel, et ce qu'il faut vérifier avant que ça ne se fasse sans vous.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>2 octobre 2026</span>
+        <span>·</span>
+        <span>5 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-dsa-ai-max-hero.png" alt="Illustration montrant la bascule d'une campagne Dynamic Search Ads, grisée, vers AI Max for Search, mise en avant" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>C'est le genre d'annonce qui passe facilement inaperçue dans un changelog, alors qu'elle touche directement des campagnes en cours&nbsp;: Google a confirmé sur son <a href="https://blog.google/products/ads-commerce/dsa-upgrade-to-ai-max-2026/" target="_blank" rel="noopener">blog officiel</a> que les campagnes Dynamic Search Ads (DSA) basculent automatiquement vers AI Max for Search — le même type d'automatisation déjà à l'œuvre sur <a href="/performance-max-boite-noire-publicitaire">Performance Max</a>. Ce n'est pas une option à activer&nbsp;: c'est une migration forcée, déjà en cours.</p>
+
+<h2>Ce qui vient de changer</h2>
+
+<p>Google avait annoncé dès avril 2026 qu'AI Max for Search sortait de bêta. Depuis septembre 2026, trois types de campagnes sont concernés par la bascule automatique&nbsp;: les campagnes Dynamic Search Ads, celles qui utilisent la correspondance large (broad match) au niveau campagne, et celles qui s'appuient sur les éléments créés automatiquement (Automatically Created Assets). Point le plus concret pour qui gère des comptes au quotidien&nbsp;: il n'est déjà plus possible de créer une nouvelle campagne DSA, que ce soit depuis l'interface Google Ads, Google Ads Editor ou l'API Ads.</p>
+
+<h2>Le calendrier confirmé par Google</h2>
+
+<p>Le déploiement se fait en plusieurs phases, et l'échéance finale a déjà bougé une fois.</p>
+
+<ul class="sub-points">
+  <li><strong>Phase 1 (jusqu'à août 2026).</strong> Déploiement des outils de migration permettant de transférer les données d'une campagne DSA vers AI Max sans tout reconstruire depuis zéro.</li>
+  <li><strong>Phase 2 (depuis septembre 2026).</strong> Création de nouvelles campagnes DSA désactivée sur les trois interfaces (Google Ads, Ads Editor, API). Les campagnes existantes éligibles basculent vers le nouveau cadre.</li>
+  <li><strong>Sunset complet repoussé à février 2027.</strong> L'échéance initiale, fixée à septembre 2026, a été reportée après que Google a reçu des retours d'annonceurs qui avaient besoin de plus de temps pour achever leur transition.</li>
+</ul>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-dsa-ai-max-resource.png" alt="Frise chronologique : Phase 1 en août 2026 (outils de migration), Phase 2 en septembre 2026 (création DSA désactivée), sunset complet reporté à février 2027" width="900" height="340" loading="lazy">
+  <figcaption>Le sunset complet, initialement prévu en septembre 2026, a été repoussé à février 2027 après les retours des annonceurs.</figcaption>
+</figure>
+
+<h2>Ce qu'AI Max change concrètement</h2>
+
+<ul class="sub-points">
+  <li><strong>Un système unique plutôt que des réglages séparés.</strong> AI Max combine dans un seul mécanisme piloté par l'IA la correspondance par recherche (search term matching), la personnalisation du texte des annonces, et l'expansion d'URL finale — jusque-là gérés plus séparément en DSA classique.</li>
+  <li><strong>Un gain de performance annoncé par Google lui-même.</strong> L'éditeur indique un gain moyen de 7&nbsp;% de conversions ou de valeur de conversion, à CPA ou ROAS similaire, en utilisant l'ensemble des fonctionnalités d'AI Max plutôt que la correspondance par recherche seule. C'est un chiffre communiqué par Google — à vérifier sur vos propres comptes plutôt qu'à prendre comme une garantie.</li>
+  <li><strong>Moins de contrôle manuel sur le ciblage.</strong> Comme pour Performance Max avant lui, le passage à AI Max déplace une partie des décisions de ciblage vers l'algorithme — ce qui rend le reporting et la lecture des rapports de termes de recherche d'autant plus importants pour garder un œil sur ce qui se passe réellement.</li>
+</ul>
+
+<h2>Ce qu'il faut vérifier sur vos comptes dès maintenant</h2>
+
+<ul class="sub-points">
+  <li><strong>Identifiez vos campagnes concernées.</strong> Repérez dans votre compte les campagnes DSA actives, les campagnes Search en correspondance large au niveau campagne, et celles avec éléments créés automatiquement — ce sont les trois profils touchés par la bascule.</li>
+  <li><strong>Vérifiez l'état de la migration campagne par campagne.</strong> Une campagne déjà basculée a une structure différente de son équivalent DSA d'origine&nbsp;: contrôlez que le ciblage et les exclusions n'ont pas été perdus dans le processus.</li>
+  <li><strong>Surveillez le rapport de termes de recherche de près</strong> dans les semaines qui suivent une bascule&nbsp;: c'est le signal le plus rapide pour détecter un ciblage qui dérive.</li>
+  <li><strong>N'attendez pas février 2027 pour vous en préoccuper.</strong> La fenêtre de transition existe précisément pour éviter une bascule subie en urgence — autant s'en servir maintenant que la découvrir au dernier moment.</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Mes campagnes Dynamic Search Ads vont-elles disparaître du jour au lendemain ?</summary>
+    <p>Non. Google a repoussé l'échéance du sunset complet à février 2027 après les retours des annonceurs, qui demandaient plus de temps. Mais depuis septembre 2026, il n'est déjà plus possible de créer une nouvelle campagne DSA, et les campagnes existantes basculent progressivement vers AI Max.</p>
+  </details>
+  <details>
+    <summary>Les campagnes en correspondance large sont-elles concernées aussi ?</summary>
+    <p>Oui. La bascule concerne trois cas : les campagnes Dynamic Search Ads, celles utilisant la correspondance large au niveau campagne, et celles avec les éléments créés automatiquement (Automatically Created Assets).</p>
+  </details>
+  <details>
+    <summary>Que change concrètement AI Max par rapport à une campagne DSA classique ?</summary>
+    <p>AI Max combine la correspondance par recherche, la personnalisation du texte des annonces et l'expansion d'URL finale dans un seul système piloté par l'IA. Google indique un gain moyen de 7 % de conversions ou de valeur de conversion à CPA ou ROAS similaire en utilisant l'ensemble de ces fonctionnalités plutôt que la correspondance par recherche seule — un chiffre communiqué par l'éditeur, à vérifier sur vos propres comptes.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'y voir clair sur vos campagnes Google Ads ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre compte Google Ads</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/sea">SEA</a> et la page <a href="/analytics">Analytics</a>.</p>
+        <p class="sub-cta-link">À lire aussi : <a href="/performance-max-boite-noire-publicitaire">Performance Max : reprendre la main sur une boîte noire publicitaire</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/sea">SEA →</a>
+      <a href="/analytics">Analytics →</a>
+      <a href="/performance-max-boite-noire-publicitaire">Performance Max →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
