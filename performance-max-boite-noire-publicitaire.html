@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Performance Max : reprendre la main sur une boîte noire publicitaire | Blog — Johan Simonneau</title>
+<meta name="description" content="Performance Max automatise tout, y compris vos angles morts. Ce qui reste pilotable, ce qui ne l'est pas, et comment garder le contrôle sur vos campagnes.">
+
+<link rel="canonical" href="https://johansimonneau.fr/performance-max-boite-noire-publicitaire">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Performance Max : reprendre la main sur une boîte noire publicitaire">
+<meta property="og:description" content="Performance Max automatise tout, y compris vos angles morts. Ce qui reste pilotable, ce qui ne l'est pas, et comment garder le contrôle sur vos campagnes.">
+<meta property="og:url" content="https://johansimonneau.fr/performance-max-boite-noire-publicitaire">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-performance-max-boite-noire-publicitaire-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-performance-max-boite-noire-publicitaire-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Performance Max : reprendre la main sur une boîte noire publicitaire",
+      "image": "https://johansimonneau.fr/assets/img/blog-performance-max-boite-noire-publicitaire-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-09-11",
+      "dateModified": "2026-09-11",
+      "description": "Performance Max automatise tout, y compris vos angles morts. Ce qui reste pilotable, ce qui ne l'est pas, et comment garder le contrôle sur vos campagnes.",
+      "mainEntityOfPage": "https://johansimonneau.fr/performance-max-boite-noire-publicitaire"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Performance Max remplace-t-il toutes les autres campagnes Google Ads ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Les campagnes Search classiques restent utiles pour un contrôle fin sur des mots-clés spécifiques à forte valeur, en particulier en B2B. PMax s'ajoute, il ne remplace pas systématiquement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment savoir si Performance Max cannibalise mon trafic de marque ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Comparez les clics de marque dans le rapport de termes de recherche (quand disponible) ou le rapport d'exclusion de marque à votre trafic organique de marque dans Search Console : une baisse simultanée de l'un et hausse de l'autre est un signal clair."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il donner beaucoup d'assets à Performance Max pour qu'il fonctionne bien ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La quantité compte moins que la qualité et la variété des angles. Un jeu de 5 à 8 assets bien différenciés, avec un vrai contraste de messages, performe mieux qu'une vingtaine de variations proches les unes des autres."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Performance Max</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Performance Max : reprendre la main sur une boîte noire publicitaire</h1>
+      <p class="sub-hook">Performance Max promet de la performance sans effort de pilotage&nbsp;: un budget, des assets, et l'algorithme fait le reste. Dans les faits, c'est surtout une boîte noire qui peut très bien fonctionner&nbsp;— ou consommer un budget sur les mauvais signaux sans que rien ne l'indique. Voici ce qui reste entre vos mains.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>11 septembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-performance-max-boite-noire-publicitaire-hero.png" alt="Illustration comparant le pilotage manuel des campagnes (contrôle total) à Performance Max (automatisé mais opaque)" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Performance Max (PMax) est devenu, en quelques années, le format par défaut que Google pousse pour la majorité des annonceurs. La promesse est simple&nbsp;: un seul budget, tous les canaux (Search, Display, YouTube, Gmail, Maps, Shopping), et un algorithme qui optimise les enchères en temps réel. Dans mes audits, c'est souvent la campagne la plus rentable du compte&nbsp;— et aussi la plus difficile à expliquer quand elle ne l'est pas.</p>
+
+<h2>Ce qui ne change pas</h2>
+
+<p>Un algorithme de <a href="/sea">Google Ads</a>, aussi sophistiqué soit-il, reste dépendant de la qualité de ce qu'on lui donne à optimiser. Une page de destination lente ou peu convaincante continue de plomber le taux de conversion, quel que soit le format de campagne. Un tracking de conversion imprécis continue d'envoyer de mauvais signaux à l'algorithme — avec PMax, l'effet est même amplifié, puisque l'IA optimise directement sur ces signaux sans intervention humaine pour les corriger en cours de route.</p>
+
+<h2>Ce qui change vraiment avec Performance Max</h2>
+
+<ul class="sub-points">
+  <li><strong>Vous ne choisissez plus les canaux, seulement les objectifs.</strong> Impossible de dire &laquo;&nbsp;plus de Display, moins de Shopping&nbsp;&raquo; comme sur des campagnes séparées&nbsp;: l'algorithme répartit lui-même le budget selon ce qui convertit, sans distinction visible par canal dans les rapports standards.</li>
+  <li><strong>Le reporting devient granulaire uniquement si vous le demandez.</strong> Les rapports de composants d'assets (par visuel, par titre) existent mais ne sont pas actifs par défaut&nbsp;— sans eux, impossible de savoir quel asset tire la performance et lequel la plombe.</li>
+  <li><strong>Les signaux d'audience ne sont que des suggestions.</strong> Contrairement aux campagnes classiques, les listes d'audience fournies dans PMax ne ciblent pas strictement&nbsp;: elles orientent l'algorithme en début de campagne, qui peut ensuite s'en éloigner librement s'il trouve mieux ailleurs.</li>
+  <li><strong>La cannibalisation avec le SEO ou les campagnes de marque est fréquente et invisible.</strong> PMax peut capter des clics sur des requêtes de marque que vous auriez eues gratuitement en organique, sans qu'aucun rapport ne le signale explicitement&nbsp;— il faut croiser avec Search Console pour le voir.</li>
+</ul>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-performance-max-boite-noire-publicitaire-resource.png" alt="L'algorithme choisit les canaux et les enchères, mais la matière première — assets, signaux, exclusions — reste entièrement de votre ressort." width="900" height="340" loading="lazy">
+  <figcaption>L'algorithme choisit les canaux et les enchères, mais la matière première — assets, signaux, exclusions — reste entièrement de votre ressort.</figcaption>
+</figure>
+
+<h2>Un exemple qui illustre bien la différence</h2>
+
+<p>Sur un compte que j'ai audité récemment, PMax affichait un excellent ROAS global&nbsp;— de quoi satisfaire n'importe quel tableau de bord. En creusant le rapport d'exclusion de marque, plus de 30&nbsp;% du budget partait en réalité sur des recherches de marque que le site captait déjà gratuitement en première position organique. Le ROAS affiché était réel, mais l'incrémentalité — le chiffre d'affaires réellement généré en plus — était bien plus faible que ce que le tableau de bord laissait penser.</p>
+
+<h2>Ce qu'il faut faire concrètement pour garder la main</h2>
+
+<ul class="sub-points">
+  <li><strong>Excluez systématiquement votre trafic de marque</strong> via les listes d'exclusion de mots-clés de marque, disponibles depuis 2023 — sans ça, PMax se sert en priorité sur ce qui convertit le plus facilement, votre propre nom.</li>
+  <li><strong>Activez le rapport d'assets par composant</strong> dès le lancement, pas après trois mois&nbsp;: c'est la seule fenêtre qui montre quel visuel ou quel titre porte réellement la campagne.</li>
+  <li><strong>Fournissez des signaux d'audience précis dès le départ</strong> (audiences personnalisées, clients existants) — l'algorithme part plus vite dans la bonne direction, même s'il finit par s'en détacher.</li>
+  <li><strong>Comparez le ROAS PMax à un scénario sans PMax</strong> sur une période test, en coupant temporairement la campagne sur un segment, pour mesurer l'incrémentalité réelle plutôt que le chiffre brut du tableau de bord.</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Performance Max remplace-t-il toutes les autres campagnes Google Ads ?</summary>
+    <p>Non. Les campagnes Search classiques restent utiles pour un contrôle fin sur des mots-clés spécifiques à forte valeur, en particulier en B2B. PMax s'ajoute, il ne remplace pas systématiquement.</p>
+  </details>
+  <details>
+    <summary>Comment savoir si Performance Max cannibalise mon trafic de marque ?</summary>
+    <p>Comparez les clics de marque dans le rapport de termes de recherche (quand disponible) ou le rapport d'exclusion de marque à votre trafic organique de marque dans Search Console : une baisse simultanée de l'un et hausse de l'autre est un signal clair.</p>
+  </details>
+  <details>
+    <summary>Faut-il donner beaucoup d'assets à Performance Max pour qu'il fonctionne bien ?</summary>
+    <p>La quantité compte moins que la qualité et la variété des angles. Un jeu de 5 à 8 assets bien différenciés, avec un vrai contraste de messages, performe mieux qu'une vingtaine de variations proches les unes des autres.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un audit de vos campagnes Performance Max ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre stratégie SEA</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/sea">SEA</a>, la page <a href="/google-ads-petit-budget">Google Ads petit budget</a>, et la page <a href="/analytics">Analytics</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/sea">SEA →</a>
+      <a href="/google-ads-petit-budget">Budget SEA limité →</a>
+      <a href="/analytics">Analytics →</a>
+      <a href="/conversion-api-tracking-server-side">Conversion API →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Growth Marketing basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>

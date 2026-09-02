@@ -44,7 +44,7 @@
   </url>
   <url>
     <loc>https://johansimonneau.fr/blog</loc>
-    <lastmod>2026-09-07</lastmod>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -63,6 +63,12 @@
   <url>
     <loc>https://johansimonneau.fr/seo-geo-ce-qui-change-vraiment</loc>
     <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://johansimonneau.fr/performance-max-boite-noire-publicitaire</loc>
+    <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
