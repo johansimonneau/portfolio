@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RGPD et marketing digital : ce qu'on a le droit de tracker en 2026 | Blog — Johan Simonneau</title>
+<meta name="description" content="Entre consentement, données first-party et tracking server-side, les règles du jeu du marketing digital conforme au RGPD ont évolué. Ce qui est autorisé, ce qui ne l'est plus.">
+
+<link rel="canonical" href="https://johansimonneau.fr/rgpd-marketing-digital-tracking-2026">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RGPD et marketing digital : ce qu'on a le droit de tracker en 2026">
+<meta property="og:description" content="Entre consentement, données first-party et tracking server-side, les règles du jeu du marketing digital conforme au RGPD ont évolué. Ce qui est autorisé, ce qui ne l'est plus.">
+<meta property="og:url" content="https://johansimonneau.fr/rgpd-marketing-digital-tracking-2026">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-rgpd-marketing-digital-tracking-2026-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-rgpd-marketing-digital-tracking-2026-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "RGPD et marketing digital : ce qu'on a le droit de tracker en 2026",
+      "image": "https://johansimonneau.fr/assets/img/blog-rgpd-marketing-digital-tracking-2026-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-11-22",
+      "dateModified": "2026-11-22",
+      "description": "Entre consentement, données first-party et tracking server-side, les règles du jeu du marketing digital conforme au RGPD ont évolué. Ce qui est autorisé, ce qui ne l'est plus.",
+      "mainEntityOfPage": "https://johansimonneau.fr/rgpd-marketing-digital-tracking-2026"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Le tracking server-side dispense-t-il du consentement RGPD ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Le tracking server-side change la façon dont la donnée est collectée et transmise techniquement, mais ne modifie en rien l'obligation de recueillir un consentement valide en amont."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que risque un site qui charge ses scripts de tracking avant consentement ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un risque de sanction de la CNIL, dont le montant dépend de la gravité et de la récurrence du manquement, ainsi qu'une perte de confiance si le manquement est rendu public."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le RGPD s'applique-t-il à un site qui ne vise que la France ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, le RGPD s'applique dès qu'un site collecte des données de résidents européens, indépendamment du pays d'hébergement du site ou de la localisation de l'entreprise qui l'exploite."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">RGPD marketing</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>RGPD et marketing digital : ce qu'on a le droit de tracker en 2026</h1>
+      <p class="sub-hook">Le RGPD n'a rien d'un frein théorique&nbsp;: dans les audits que je mène, une part significative des sites tracke encore des données sans base légale valide, souvent par méconnaissance plutôt que par mauvaise foi. Faire le point sur ce qui est réellement autorisé évite des mois de correction a posteriori.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>22 novembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-rgpd-marketing-digital-tracking-2026-hero.png" alt="Illustration mettant en avant les trois bases légales possibles pour justifier un tracking marketing conforme au RGPD" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Le cadre RGPD n'a pas changé dans son principe depuis son entrée en vigueur, mais son application au marketing digital continue d'évoluer&nbsp;— entre recommandations affinées de la CNIL, disparition progressive des cookies tiers et essor du tracking server-side. Ce qui était toléré il y a quelques années ne l'est plus systématiquement aujourd'hui.</p>
+
+<h2>Ce qui ne change pas</h2>
+
+<p>Le principe de base reste identique&nbsp;: tout traitement de données personnelles doit reposer sur une base légale valide, et le consentement, quand c'est la base retenue, doit être libre, spécifique et aussi facile à refuser qu'à accepter. Cette exigence s'applique directement à la mise en place d'un outil comme la <a href="/conversion-api-tracking-server-side">Conversion API</a>&nbsp;— le tracking server-side ne dispense pas du consentement, il change seulement où et comment la donnée est traitée après collecte.</p>
+
+<h2>Ce qui change vraiment en 2026</h2>
+
+<ul class="sub-points">
+  <li><strong>La disparition progressive des cookies tiers pousse vers le first-party.</strong> Les navigateurs restreignent de plus en plus le tracking cross-site, ce qui renforce mécaniquement l'intérêt — et la nécessité de conformité — des données collectées en direct par le site lui-même.</li>
+  <li><strong>Le tracking server-side ne contourne pas le RGPD.</strong> Déplacer la collecte côté serveur améliore la fiabilité de la mesure, mais ne dispense en rien du recueil du consentement en amont&nbsp;— une confusion fréquente qui expose à un risque de non-conformité.</li>
+  <li><strong>Les recommandations CNIL sur les bannières se sont durcies.</strong> Un bouton "Tout refuser" doit être aussi visible et accessible qu'un bouton "Tout accepter", sur la même couche de la bannière, sans étape supplémentaire cachée.</li>
+  <li><strong>Le registre des traitements est de plus en plus contrôlé.</strong> Au-delà de la bannière visible, la documentation interne des traitements de données devient un point de contrôle fréquent lors des audits.</li>
+</ul>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-rgpd-marketing-digital-tracking-2026-resource.png" alt="Les points de contrôle les plus fréquemment manquants lors d'un audit de conformité RGPD du tracking marketing." width="900" height="340" loading="lazy">
+  <figcaption>Les points de contrôle les plus fréquemment manquants lors d'un audit de conformité RGPD du tracking marketing.</figcaption>
+</figure>
+
+<h2>Un exemple qui illustre bien la différence</h2>
+
+<p>Lors d'un audit technique, un site chargeait son tag Google Tag Manager de façon inconditionnelle dès l'arrivée du visiteur, avant tout recueil de consentement — une non-conformité fréquente et invisible sans audit dédié. Le passage à un chargement différé, déclenché uniquement après acceptation explicite ou visite précédente enregistrée, a résolu le problème sans dégrader la qualité de la mesure une fois le consentement obtenu.</p>
+
+<h2>Ce qu'il faut faire concrètement</h2>
+
+<ul class="sub-points">
+  <li><strong>Auditez le chargement de vos scripts tiers</strong>&nbsp;: aucun script de tracking ne doit se charger avant un consentement explicite ou une visite précédente déjà enregistrée.</li>
+  <li><strong>Identifiez la base légale de chaque outil utilisé</strong>&nbsp;: consentement, intérêt légitime ou exécution contractuelle, sans zone grise.</li>
+  <li><strong>Vérifiez que le refus est aussi simple que l'acceptation</strong> dans votre bannière de consentement, conformément aux recommandations actuelles de la CNIL.</li>
+  <li><strong>Tenez un registre des traitements à jour</strong>, au-delà de la seule bannière visible par les visiteurs.</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Le tracking server-side dispense-t-il du consentement RGPD ?</summary>
+    <p>Non. Le tracking server-side change la façon dont la donnée est collectée et transmise techniquement, mais ne modifie en rien l'obligation de recueillir un consentement valide en amont.</p>
+  </details>
+  <details>
+    <summary>Que risque un site qui charge ses scripts de tracking avant consentement ?</summary>
+    <p>Un risque de sanction de la CNIL, dont le montant dépend de la gravité et de la récurrence du manquement, ainsi qu'une perte de confiance si le manquement est rendu public.</p>
+  </details>
+  <details>
+    <summary>Le RGPD s'applique-t-il à un site qui ne vise que la France ?</summary>
+    <p>Oui, le RGPD s'applique dès qu'un site collecte des données de résidents européens, indépendamment du pays d'hébergement du site ou de la localisation de l'entreprise qui l'exploite.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de vérifier la conformité RGPD de votre tracking ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Demander un audit de conformité</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/politique-de-confidentialite">Politique de confidentialité</a>, la page <a href="/analytics">Analytics</a>, et la page <a href="/conversion-api-tracking-server-side">Conversion API</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/politique-de-confidentialite">Politique de confidentialité →</a>
+      <a href="/analytics">Analytics →</a>
+      <a href="/conversion-api-tracking-server-side">Conversion API →</a>
+      <a href="/consultant-ga4">Consultant GA4 →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Growth Marketing basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
