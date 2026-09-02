@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mixpanel vs GA4 : quand l'analytics produit devient nécessaire | Blog — Johan Simonneau</title>
+<meta name="description" content="GA4 couvre bien le marketing digital mais atteint vite ses limites pour analyser un produit. Quand basculer vers un outil d'analytics produit comme Mixpanel, et pourquoi.">
+
+<link rel="canonical" href="https://johansimonneau.fr/mixpanel-vs-ga4-analytics-produit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mixpanel vs GA4 : quand l'analytics produit devient nécessaire">
+<meta property="og:description" content="GA4 couvre bien le marketing digital mais atteint vite ses limites pour analyser un produit. Quand basculer vers un outil d'analytics produit comme Mixpanel, et pourquoi.">
+<meta property="og:url" content="https://johansimonneau.fr/mixpanel-vs-ga4-analytics-produit">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-mixpanel-vs-ga4-analytics-produit-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-mixpanel-vs-ga4-analytics-produit-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Mixpanel vs GA4 : quand l'analytics produit devient nécessaire",
+      "image": "https://johansimonneau.fr/assets/img/blog-mixpanel-vs-ga4-analytics-produit-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-11-14",
+      "dateModified": "2026-11-14",
+      "description": "GA4 couvre bien le marketing digital mais atteint vite ses limites pour analyser un produit. Quand basculer vers un outil d'analytics produit comme Mixpanel, et pourquoi.",
+      "mainEntityOfPage": "https://johansimonneau.fr/mixpanel-vs-ga4-analytics-produit"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Peut-on remplacer complètement GA4 par Mixpanel ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ce n'est généralement pas recommandé. GA4 reste pertinent pour l'analyse marketing et l'attribution des canaux d'acquisition, un périmètre où Mixpanel n'est pas construit pour exceller."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "À partir de quel volume d'utilisateurs Mixpanel devient-il pertinent ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'y a pas de seuil universel, mais l'investissement se justifie surtout quand les questions produit deviennent plus fines que ce que GA4 peut mesurer nativement — rétention par fonctionnalité, parcours détaillé."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le tracking GA4 existant peut-il être réutilisé pour Mixpanel ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Partiellement dans sa logique, mais un plan de tracking événementiel dédié et plus détaillé est généralement nécessaire pour tirer parti des fonctionnalités spécifiques de Mixpanel."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Mixpanel vs GA4</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Mixpanel vs GA4 : quand l'analytics produit devient nécessaire</h1>
+      <p class="sub-hook">GA4 répond bien aux besoins d'analyse marketing&nbsp;— acquisition, canaux, conversions. Dès qu'il s'agit d'analyser en profondeur le comportement des utilisateurs à l'intérieur d'un produit digital, ses limites deviennent vite un frein. C'est précisément le terrain sur lequel un outil comme Mixpanel prend le relais.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>14 novembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-mixpanel-vs-ga4-analytics-produit-hero.png" alt="Illustration comparant GA4, orienté marketing et acquisition, à Mixpanel, orienté analyse du parcours produit" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>GA4 et Mixpanel ne répondent pas aux mêmes questions, même s'ils mesurent tous les deux des événements utilisateur. Confondre les deux outils, ou attendre de GA4 des analyses qu'il n'est pas construit pour produire, est une source fréquente de frustration dans les équipes produit.</p>
+
+<h2>Ce qui ne change pas</h2>
+
+<p>Dans les deux cas, la fiabilité de l'analyse dépend directement de la qualité du plan de tracking mis en place en amont. La logique reste la même que pour <a href="/analytics">Analytics</a> en général&nbsp;: un outil puissant sur des données mal structurées produit des conclusions fausses, quel que soit le nom de l'outil utilisé.</p>
+
+<h2>Ce qui change vraiment entre les deux outils</h2>
+
+<ul class="sub-points">
+  <li><strong>GA4 raisonne en sessions et en canaux, Mixpanel en utilisateurs et en événements.</strong> GA4 excelle pour comprendre d'où vient le trafic et comment il convertit&nbsp;; Mixpanel excelle pour comprendre ce qu'un utilisateur fait précisément, dans quel ordre, sur quelle durée.</li>
+  <li><strong>L'analyse de cohortes est native sur Mixpanel, limitée sur GA4.</strong> Comparer le comportement d'utilisateurs inscrits en janvier à ceux inscrits en mars, sur plusieurs dimensions croisées, est un usage courant sur Mixpanel et laborieux sur GA4.</li>
+  <li><strong>La rétention par fonctionnalité est un point fort de Mixpanel.</strong> Savoir quelle fonctionnalité précise retient réellement les utilisateurs, au-delà de la rétention globale du produit, est une analyse que GA4 ne propose pas nativement.</li>
+  <li><strong>Le coût et la complexité de mise en place sont plus élevés sur Mixpanel.</strong> L'outil demande un plan de tracking événementiel plus rigoureux et un budget dédié, ce qui ne se justifie qu'à partir d'un volume d'utilisateurs suffisant.</li>
+</ul>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-mixpanel-vs-ga4-analytics-produit-resource.png" alt="Le passage à un outil d'analytics produit dédié devient pertinent quand les questions posées dépassent ce que GA4 peut mesurer nativement." width="900" height="300" loading="lazy">
+  <figcaption>Le passage à un outil d'analytics produit dédié devient pertinent quand les questions posées dépassent ce que GA4 peut mesurer nativement.</figcaption>
+</figure>
+
+<h2>Un exemple qui illustre bien la différence</h2>
+
+<p>Pour un client SaaS qui s'appuyait uniquement sur GA4, l'équipe produit ne parvenait pas à identifier pourquoi une partie des nouveaux inscrits abandonnait avant d'atteindre la première valeur du produit. La mise en place d'un tracking événementiel dédié dans Mixpanel a permis d'isoler précisément l'étape de blocage dans le parcours d'onboarding, une analyse que la structure de GA4 ne permettait pas d'obtenir avec la même précision.</p>
+
+<h2>Ce qu'il faut faire concrètement</h2>
+
+<ul class="sub-points">
+  <li><strong>Gardez GA4 pour tout ce qui touche à l'acquisition et aux canaux marketing</strong>&nbsp;— ce n'est pas l'outil à remplacer sur ce périmètre.</li>
+  <li><strong>Envisagez un outil d'analytics produit dès que les questions posées dépassent GA4</strong>&nbsp;: rétention par fonctionnalité, parcours détaillé, cohortes croisées.</li>
+  <li><strong>Construisez un plan de tracking événementiel rigoureux avant d'implémenter Mixpanel</strong>, plutôt que de dupliquer telle quelle la configuration GA4 existante.</li>
+  <li><strong>Faites coexister les deux outils plutôt que de choisir</strong>&nbsp;: ils répondent à des questions différentes et se complètent plus qu'ils ne se concurrencent.</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Peut-on remplacer complètement GA4 par Mixpanel ?</summary>
+    <p>Ce n'est généralement pas recommandé. GA4 reste pertinent pour l'analyse marketing et l'attribution des canaux d'acquisition, un périmètre où Mixpanel n'est pas construit pour exceller.</p>
+  </details>
+  <details>
+    <summary>À partir de quel volume d'utilisateurs Mixpanel devient-il pertinent ?</summary>
+    <p>Il n'y a pas de seuil universel, mais l'investissement se justifie surtout quand les questions produit deviennent plus fines que ce que GA4 peut mesurer nativement — rétention par fonctionnalité, parcours détaillé.</p>
+  </details>
+  <details>
+    <summary>Le tracking GA4 existant peut-il être réutilisé pour Mixpanel ?</summary>
+    <p>Partiellement dans sa logique, mais un plan de tracking événementiel dédié et plus détaillé est généralement nécessaire pour tirer parti des fonctionnalités spécifiques de Mixpanel.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de clarifier votre stratégie d'analytics produit ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre tracking</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/amplitude-mixpanel">Amplitude / Mixpanel</a>, la page <a href="/analytics">Analytics</a>, et la page <a href="/consultant-ga4">Consultant GA4</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/amplitude-mixpanel">Amplitude / Mixpanel →</a>
+      <a href="/analytics">Analytics →</a>
+      <a href="/consultant-ga4">Consultant GA4 →</a>
+      <a href="/conversion-api-tracking-server-side">Conversion API →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Growth Marketing basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
