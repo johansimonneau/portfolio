@@ -182,7 +182,7 @@
   </url>
   <url>
     <loc>https://johansimonneau.fr/blog</loc>
-    <lastmod>2026-10-13</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -627,6 +627,12 @@
   <url>
     <loc>https://johansimonneau.fr/black-friday-2026-calendrier-preparation-google-ads</loc>
     <lastmod>2026-11-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://johansimonneau.fr/apple-search-ads-acquisition-mobile</loc>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
