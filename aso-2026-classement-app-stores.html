@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASO en 2026 : ce qui fait vraiment monter une app dans les stores | Blog — Johan Simonneau</title>
+<meta name="description" content="L'App Store Optimization ne se résume pas aux mots-clés du titre. Ce qui pèse réellement dans le classement App Store et Google Play, et ce qui est devenu accessoire.">
+
+<link rel="canonical" href="https://johansimonneau.fr/aso-2026-classement-app-stores">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ASO en 2026 : ce qui fait vraiment monter une app dans les stores">
+<meta property="og:description" content="L'App Store Optimization ne se résume pas aux mots-clés du titre. Ce qui pèse réellement dans le classement App Store et Google Play, et ce qui est devenu accessoire.">
+<meta property="og:url" content="https://johansimonneau.fr/aso-2026-classement-app-stores">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-aso-2026-classement-app-stores-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-aso-2026-classement-app-stores-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "ASO en 2026 : ce qui fait vraiment monter une app dans les stores",
+      "image": "https://johansimonneau.fr/assets/img/blog-aso-2026-classement-app-stores-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-09-19",
+      "dateModified": "2026-09-19",
+      "description": "L'App Store Optimization ne se résume pas aux mots-clés du titre. Ce qui pèse réellement dans le classement App Store et Google Play, et ce qui est devenu accessoire.",
+      "mainEntityOfPage": "https://johansimonneau.fr/aso-2026-classement-app-stores"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Les mots-clés dans le titre de l'app comptent-ils encore en 2026 ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, ils restent la condition d'indexation de base : sans le bon mot-clé dans les champs indexables, votre app n'apparaît simplement pas sur la requête concernée. Mais ils ne suffisent plus à eux seuls à faire monter le classement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour voir l'effet d'une amélioration ASO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les effets sur le taux de conversion (test A/B des visuels) sont visibles en quelques jours. L'effet sur le classement organique, lié aux signaux comportementaux cumulés, prend généralement plusieurs semaines."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il un budget publicitaire pour améliorer son ASO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, l'ASO organique fonctionne indépendamment du paid. Cela dit, des campagnes Apple Search Ads bien ciblées peuvent accélérer le volume de données de conversion utile pour identifier les mots-clés et visuels les plus performants."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">ASO</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>ASO en 2026 : ce qui fait vraiment monter une app dans les stores</h1>
+      <p class="sub-hook">L'ASO a la réputation d'être un jeu de mots-clés dans le titre et la description. C'est de moins en moins vrai&nbsp;: les deux stores pondèrent de plus en plus les signaux de comportement (taux de conversion de la fiche, rétention) au détriment du texte pur. Voici ce qui compte vraiment aujourd'hui.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>19 septembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-aso-2026-classement-app-stores-hero.png" alt="Illustration comparant le levier historique des mots-clés ASO au levier comportemental (conversion, rétention) qui pèse le plus aujourd'hui" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Dans les missions ASO que je mène, la première question qu'on me pose est presque toujours&nbsp;: &laquo;&nbsp;quels mots-clés faut-il mettre dans le titre&nbsp;?&nbsp;&raquo;. C'est une vraie question, mais ce n'est plus la première à se poser. Les algorithmes de classement de l'App Store et de Google Play ont évolué vers des signaux de comportement bien plus difficiles à manipuler que le texte d'une fiche.</p>
+
+<h2>Ce qui ne change pas</h2>
+
+<p>Le champ mots-clés reste indexé et continue de déterminer sur quelles requêtes votre app peut apparaître&nbsp;: aucun signal comportemental ne compense l'absence du bon mot-clé dans les champs indexables (titre, sous-titre sur iOS, champ dédié keywords). C'est la condition d'entrée, pas le facteur de classement final. De la même façon, des visuels de mauvaise qualité (icône peu lisible, captures d'écran datées) continuent de plomber le taux de clic avant même que l'algorithme n'entre en jeu.</p>
+
+<h2>Ce qui change vraiment</h2>
+
+<ul class="sub-points">
+  <li><strong>Le taux de conversion de la fiche pèse plus lourd que la densité de mots-clés.</strong> Une fiche qui convertit bien (visiteurs de la fiche → installations) envoie un signal de pertinence à l'algorithme, qui la remonte sur les requêtes pour lesquelles elle convertit le mieux — même sans optimisation textuelle poussée.</li>
+  <li><strong>La rétention post-installation est devenue un signal de classement.</strong> Une app massivement désinstallée dans les 48 heures envoie un signal négatif qui peut faire chuter son classement, même avec un bon volume de téléchargements initial.</li>
+  <li><strong>Les avis récents comptent plus que le nombre total.</strong> Un historique de 10&nbsp;000 avis à 4,5 étoiles ne protège plus une app dont les 50 derniers avis sont mauvais&nbsp;: les stores pondèrent la fraîcheur du signal de satisfaction.</li>
+  <li><strong>La fréquence des mises à jour influence la confiance algorithmique.</strong> Une app mise à jour régulièrement (corrections, nouvelles fonctionnalités) est perçue comme activement maintenue, ce qui joue en sa faveur face à une app à l'abandon apparent.</li>
+</ul>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-aso-2026-classement-app-stores-resource.png" alt="Les stores mesurent de plus en plus ce qui se passe après le clic — conversion et rétention — plutôt que seulement le texte de la fiche." width="900" height="340" loading="lazy">
+  <figcaption>Les stores mesurent de plus en plus ce qui se passe après le clic — conversion et rétention — plutôt que seulement le texte de la fiche.</figcaption>
+</figure>
+
+<h2>Un exemple qui illustre bien la différence</h2>
+
+<p>Sur une app que j'ai accompagnée, un simple test A/B des captures d'écran de la fiche App Store — sans toucher un seul mot-clé — a fait passer le taux de conversion de 28&nbsp;% à 41&nbsp;%. Le classement organique sur les mots-clés principaux a progressé dans les semaines suivantes, sans aucune autre action ASO. La fiche n'avait pas changé de contenu textuel&nbsp;; elle convertissait simplement mieux, et l'algorithme l'a récompensée pour ça.</p>
+
+<h2>Ce qu'il faut faire concrètement</h2>
+
+<ul class="sub-points">
+  <li><strong>Testez vos visuels avant vos mots-clés.</strong> Les outils de test A/B natifs (Google Play Experiments, Product Page Optimization sur iOS) permettent de mesurer l'impact d'une icône ou de captures d'écran sur le taux de conversion, sans risque pour votre classement actuel.</li>
+  <li><strong>Surveillez la rétention à J1</strong> comme un indicateur d'alerte précoce&nbsp;: une chute soudaine signale souvent un problème d'onboarding ou de bug récent qui va, avec un peu de délai, se répercuter sur le classement.</li>
+  <li><strong>Répondez aux avis récents</strong>, en particulier les négatifs&nbsp;: au-delà de l'image, une réponse rapide peut inciter l'utilisateur à mettre à jour son avis, ce qui améliore directement le signal de fraîcheur.</li>
+  <li><strong>Planifiez des mises à jour régulières</strong>, même mineures, plutôt que d'attendre d'avoir une refonte complète à publier.</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Les mots-clés dans le titre de l'app comptent-ils encore en 2026 ?</summary>
+    <p>Oui, ils restent la condition d'indexation de base : sans le bon mot-clé dans les champs indexables, votre app n'apparaît simplement pas sur la requête concernée. Mais ils ne suffisent plus à eux seuls à faire monter le classement.</p>
+  </details>
+  <details>
+    <summary>Combien de temps faut-il pour voir l'effet d'une amélioration ASO ?</summary>
+    <p>Les effets sur le taux de conversion (test A/B des visuels) sont visibles en quelques jours. L'effet sur le classement organique, lié aux signaux comportementaux cumulés, prend généralement plusieurs semaines.</p>
+  </details>
+  <details>
+    <summary>Faut-il un budget publicitaire pour améliorer son ASO ?</summary>
+    <p>Non, l'ASO organique fonctionne indépendamment du paid. Cela dit, des campagnes Apple Search Ads bien ciblées peuvent accélérer le volume de données de conversion utile pour identifier les mots-clés et visuels les plus performants.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un audit ASO de votre application ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre stratégie mobile</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/mobile-marketing">Mobile Marketing</a>, la page <a href="/tracking-mobile">Tracking mobile</a>, et la page <a href="/apple-search-ads">Apple Search Ads</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/mobile-marketing">Mobile Marketing →</a>
+      <a href="/tracking-mobile">Tracking mobile →</a>
+      <a href="/apple-search-ads">Apple Search Ads →</a>
+      <a href="/cro">CRO →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Growth Marketing basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
