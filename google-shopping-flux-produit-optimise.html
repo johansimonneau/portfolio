@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Shopping : structurer un flux produit qui convertit | Blog — Johan Simonneau</title>
+<meta name="description" content="Un flux produit mal structuré plombe vos campagnes Shopping avant même la première enchère. Ce qui compte vraiment dans un flux, au-delà du prix et du titre.">
+
+<link rel="canonical" href="https://johansimonneau.fr/google-shopping-flux-produit-optimise">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Shopping : structurer un flux produit qui convertit">
+<meta property="og:description" content="Un flux produit mal structuré plombe vos campagnes Shopping avant même la première enchère. Ce qui compte vraiment dans un flux, au-delà du prix et du titre.">
+<meta property="og:url" content="https://johansimonneau.fr/google-shopping-flux-produit-optimise">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-google-shopping-flux-produit-optimise-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-google-shopping-flux-produit-optimise-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Google Shopping : structurer un flux produit qui convertit",
+      "image": "https://johansimonneau.fr/assets/img/blog-google-shopping-flux-produit-optimise-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-10-05",
+      "dateModified": "2026-10-05",
+      "description": "Un flux produit mal structuré plombe vos campagnes Shopping avant même la première enchère. Ce qui compte vraiment dans un flux, au-delà du prix et du titre.",
+      "mainEntityOfPage": "https://johansimonneau.fr/google-shopping-flux-produit-optimise"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il un outil spécifique pour gérer un flux Google Shopping ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pour un petit catalogue, un flux généré manuellement ou via un plugin e-commerce standard suffit. Au-delà de quelques centaines de références, un outil de gestion de flux dédié devient utile pour automatiser l'optimisation des titres et attributs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "À quelle fréquence faut-il mettre à jour son flux produit ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les prix et la disponibilité devraient idéalement être synchronisés plusieurs fois par jour. Le contenu (titres, attributs, images) peut être revu moins souvent, mais mérite un audit trimestriel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les avis produits sont-ils obligatoires pour bien performer sur Shopping ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, mais ils deviennent un facteur différenciant croissant. Un produit sans avis peut toujours bien performer si le reste du flux (titre, attributs, prix) est solide."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Google Shopping</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Google Shopping : structurer un flux produit qui convertit</h1>
+      <p class="sub-hook">Sur Google Shopping, l'enchère la plus intelligente ne compense jamais un flux produit mal structuré. C'est la donnée du flux — titre, catégorie, attributs — qui détermine sur quelles requêtes votre produit apparaît, bien avant que la stratégie d'enchères n'entre en jeu.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>5 octobre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-google-shopping-flux-produit-optimise-hero.png" alt="Illustration comparant un flux produit basique peu renseigné à un flux produit optimisé avec attributs complets" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Dans les audits <a href="/google-shopping">Google Shopping</a> que je mène, le budget publicitaire n'est presque jamais le premier problème. Le flux produit — ce fichier qui décrit chaque article à Google — l'est. Un flux pauvre en attributs limite mécaniquement le nombre de requêtes sur lesquelles vos produits peuvent apparaître, quel que soit le budget engagé derrière.</p>
+
+<h2>Ce qui ne change pas</h2>
+
+<p>La structure de base d'un flux Google Shopping reste la même depuis des années&nbsp;: un fichier avec les champs obligatoires (identifiant, titre, description, prix, disponibilité, lien, image). Les règles de conformité de Google (pas de majuscules abusives, pas de texte promotionnel dans le titre) n'ont pas changé non plus&nbsp;— un flux non conforme continue de faire rejeter des produits, avec le même type d'erreurs qu'il y a cinq ans.</p>
+
+<h2>Ce qui change vraiment</h2>
+
+<ul class="sub-points">
+  <li><strong>L'ordre des mots dans le titre compte plus que leur simple présence.</strong> Google accorde plus de poids aux premiers mots d'un titre&nbsp;: placer la marque, le type de produit et l'attribut différenciant (taille, couleur) dans les 5 premiers mots améliore la correspondance avec les requêtes.</li>
+  <li><strong>Les attributs spécifiques sont devenus quasi obligatoires pour être compétitif.</strong> Couleur, matière, genre, tranche d'âge&nbsp;: chaque attribut renseigné ouvre de nouvelles requêtes de filtre que les acheteurs utilisent de plus en plus (&laquo;&nbsp;robe bleue coton femme&nbsp;&raquo;).</li>
+  <li><strong>La fraîcheur des données pèse directement sur la diffusion.</strong> Un flux mis à jour une fois par semaine, avec des stocks ou des prix décalés, envoie un signal de fiabilité dégradé qui peut limiter la diffusion — au-delà du simple risque de rejet pour rupture de stock.</li>
+  <li><strong>Les avis produits et la note vendeur influencent de plus en plus le classement.</strong> À budget et pertinence équivalents, un produit avec des avis visibles et une bonne note vendeur est favorisé face à un produit sans aucun signal de confiance.</li>
+</ul>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-google-shopping-flux-produit-optimise-resource.png" alt="Le classement Shopping se joue d'abord sur la richesse et la précision des données du flux, avant même la stratégie d'enchères." width="900" height="340" loading="lazy">
+  <figcaption>Le classement Shopping se joue d'abord sur la richesse et la précision des données du flux, avant même la stratégie d'enchères.</figcaption>
+</figure>
+
+<h2>Un exemple qui illustre bien la différence</h2>
+
+<p>Sur un catalogue e-commerce que j'ai audité, les titres produits reprenaient simplement le nom interne du fournisseur — sans marque ni attribut visible. La réécriture systématique des 400 titres (marque + type + attribut clé, dans cet ordre) a fait passer le nombre d'impressions Shopping de +65&nbsp;% en trois semaines, sans aucun changement de budget ni d'enchère. Le flux, pas la stratégie média, était le goulot d'étranglement.</p>
+
+<h2>Ce qu'il faut faire concrètement</h2>
+
+<ul class="sub-points">
+  <li><strong>Auditez vos 20 produits les plus vendus en premier</strong>&nbsp;: vérifiez que le titre suit l'ordre marque / type / attribut clé, et que tous les attributs Google pertinents sont renseignés.</li>
+  <li><strong>Automatisez la synchronisation des stocks et prix</strong> plutôt qu'une mise à jour manuelle hebdomadaire — un flux via API ou plugin e-commerce à jour plusieurs fois par jour limite le risque de rejet et de mauvais signal.</li>
+  <li><strong>Utilisez le rapport de diagnostic du Merchant Center</strong> régulièrement, pas seulement au moment de la mise en ligne&nbsp;: les erreurs de conformité s'accumulent avec le catalogue qui évolue.</li>
+  <li><strong>Activez la collecte d'avis produits</strong> si ce n'est pas déjà fait&nbsp;— c'est un signal de plus en plus déterminant à budget équivalent.</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Faut-il un outil spécifique pour gérer un flux Google Shopping ?</summary>
+    <p>Pour un petit catalogue, un flux généré manuellement ou via un plugin e-commerce standard suffit. Au-delà de quelques centaines de références, un outil de gestion de flux dédié devient utile pour automatiser l'optimisation des titres et attributs.</p>
+  </details>
+  <details>
+    <summary>À quelle fréquence faut-il mettre à jour son flux produit ?</summary>
+    <p>Les prix et la disponibilité devraient idéalement être synchronisés plusieurs fois par jour. Le contenu (titres, attributs, images) peut être revu moins souvent, mais mérite un audit trimestriel.</p>
+  </details>
+  <details>
+    <summary>Les avis produits sont-ils obligatoires pour bien performer sur Shopping ?</summary>
+    <p>Non, mais ils deviennent un facteur différenciant croissant. Un produit sans avis peut toujours bien performer si le reste du flux (titre, attributs, prix) est solide.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un audit de votre flux Google Shopping ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre stratégie SEA</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/google-shopping">Google Shopping</a>, la page <a href="/sea">SEA</a>, et la page <a href="/donnees-structurees">Données structurées</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/google-shopping">Google Shopping →</a>
+      <a href="/sea">SEA →</a>
+      <a href="/donnees-structurees">Données structurées →</a>
+      <a href="/optimisation-landing-page">Optimisation landing page →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Growth Marketing basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
