@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GA4 : les 5 erreurs de configuration qui faussent vos données | Blog — Johan Simonneau</title>
+<meta name="description" content="GA4 est souvent installé, rarement bien configuré. Les 5 erreurs les plus fréquentes que je trouve en audit, et comment les corriger.">
+
+<link rel="canonical" href="https://johansimonneau.fr/ga4-erreurs-configuration-courantes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GA4 : les 5 erreurs de configuration qui faussent vos données">
+<meta property="og:description" content="GA4 est souvent installé, rarement bien configuré. Les 5 erreurs les plus fréquentes que je trouve en audit, et comment les corriger.">
+<meta property="og:url" content="https://johansimonneau.fr/ga4-erreurs-configuration-courantes">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-ga4-erreurs-configuration-courantes-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-ga4-erreurs-configuration-courantes-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "GA4 : les 5 erreurs de configuration qui faussent vos données",
+      "image": "https://johansimonneau.fr/assets/img/blog-ga4-erreurs-configuration-courantes-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-10-25",
+      "dateModified": "2026-10-25",
+      "description": "GA4 est souvent installé, rarement bien configuré. Les 5 erreurs les plus fréquentes que je trouve en audit, et comment les corriger.",
+      "mainEntityOfPage": "https://johansimonneau.fr/ga4-erreurs-configuration-courantes"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment savoir si mon compte GA4 est mal configuré ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le signe le plus fréquent est un écart entre les chiffres GA4 et une autre source de vérité (CRM, plateforme e-commerce, plateforme publicitaire). Un audit dédié permet de vérifier systématiquement les points de configuration sensibles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on corriger ces erreurs sans perdre l'historique de données ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Certaines corrections (filtrage, événements) s'appliquent immédiatement sans affecter l'historique. D'autres, comme la fenêtre de rétention, ne sont pas rétroactives : les données déjà supprimées restent perdues."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il un compte Google Analytics 360 pour éviter ces erreurs ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, la version gratuite de GA4 permet de corriger la quasi-totalité de ces erreurs de configuration. La version payante apporte surtout plus de volume de données et de fonctionnalités avancées, pas une meilleure fiabilité de base."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Erreurs GA4</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>GA4 : les 5 erreurs de configuration qui faussent vos données</h1>
+      <p class="sub-hook">Sur la quasi-totalité des comptes GA4 que j'audite pour la première fois, je trouve au moins une erreur de configuration qui fausse les chiffres présentés en tableau de bord. La plupart ne sont pas visibles sans creuser&nbsp;— elles font juste dire aux données quelque chose de faux, avec assurance.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>25 octobre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-ga4-erreurs-configuration-courantes-hero.png" alt="Illustration mettant en avant la proportion de comptes GA4 comportant au moins une erreur de configuration" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Dans mes audits <a href="/consultant-ga4">GA4</a>, je ne pars presque jamais du principe que les données affichées sont fiables&nbsp;— je pars du principe qu'il faut le vérifier. GA4 est un outil puissant, mais sa configuration par défaut n'est presque jamais suffisante pour un usage professionnel sérieux.</p>
+
+<h2>Ce qui ne change pas</h2>
+
+<p>La logique de mesure de GA4 reste basée sur les événements depuis son lancement&nbsp;: chaque interaction (clic, vue de page, achat) est un événement, avec des paramètres associés. Cette architecture n'a pas changé, seule sa configuration précise détermine si les données remontées sont exploitables ou trompeuses.</p>
+
+<h2>Les 5 erreurs les plus fréquentes</h2>
+
+<ul class="sub-points">
+  <li><strong>Le trafic interne (équipe, agence) n'est pas filtré.</strong> Sans règle de filtrage basée sur l'adresse IP ou un paramètre dédié, chaque visite de l'équipe sur le site pollue les statistiques de trafic et de conversion, parfois de façon significative sur un petit site.</li>
+  <li><strong>Les événements de conversion sont mal définis ou dupliqués.</strong> Un événement marqué comme conversion à la fois automatiquement (par défaut GA4) et manuellement peut se compter deux fois, gonflant artificiellement le taux de conversion apparent.</li>
+  <li><strong>Le regroupement de canaux par défaut n'est pas ajusté aux spécificités du site.</strong> Sans règle personnalisée, certaines sources de trafic (newsletter mal taguée, réseaux sociaux) tombent dans des catégories génériques comme &laquo;&nbsp;Direct&nbsp;&raquo; ou &laquo;&nbsp;Non attribué&nbsp;&raquo;, rendant l'analyse par canal inexploitable.</li>
+  <li><strong>La fenêtre de rétention des données est laissée au minimum par défaut.</strong> GA4 conserve les données au niveau événement pendant une durée limitée par défaut&nbsp;— une fois ce délai passé, certaines analyses rétrospectives deviennent impossibles si le paramètre n'a pas été étendu dès le départ.</li>
+  <li><strong>Le suivi cross-domain n'est pas configuré sur les sites multi-domaines.</strong> Un parcours qui passe par exemple d'un site vitrine à une plateforme de paiement sur un domaine différent est comptabilisé comme deux sessions distinctes sans cette configuration, cassant l'attribution du parcours complet.</li>
+</ul>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-ga4-erreurs-configuration-courantes-resource.png" alt="Ces cinq erreurs, souvent invisibles sans audit dédié, faussent silencieusement les décisions prises sur la base des tableaux de bord." width="900" height="340" loading="lazy">
+  <figcaption>Ces cinq erreurs, souvent invisibles sans audit dédié, faussent silencieusement les décisions prises sur la base des tableaux de bord.</figcaption>
+</figure>
+
+<h2>Un exemple qui illustre bien la différence</h2>
+
+<p>Sur un compte audité récemment, l'absence de filtrage du trafic interne faisait apparaître un taux de conversion global artificiellement dopé&nbsp;: l'équipe elle-même, qui visitait le site plusieurs fois par jour pour vérifier son fonctionnement, générait un volume de sessions non converties qui, une fois retiré, changeait le taux de conversion réel de près de 2 points. Une décision budgétaire basée sur ce chiffre faussé aurait mal évalué la vraie performance du site.</p>
+
+<h2>Ce qu'il faut faire concrètement</h2>
+
+<ul class="sub-points">
+  <li><strong>Configurez un filtre de trafic interne</strong> dès l'installation, basé sur l'IP du bureau ou un paramètre d'URL dédié pour le télétravail.</li>
+  <li><strong>Auditez la liste des événements marqués comme conversion</strong> une fois par trimestre, pour repérer les doublons ou les événements devenus obsolètes.</li>
+  <li><strong>Personnalisez le regroupement de canaux</strong> pour refléter vos sources de trafic réelles, en particulier si vous utilisez des paramètres UTM sur vos campagnes.</li>
+  <li><strong>Étendez la fenêtre de rétention des données</strong> au maximum disponible dès la configuration initiale — c'est un paramètre qu'on ne peut pas rattraper rétroactivement.</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Comment savoir si mon compte GA4 est mal configuré ?</summary>
+    <p>Le signe le plus fréquent est un écart entre les chiffres GA4 et une autre source de vérité (CRM, plateforme e-commerce, plateforme publicitaire). Un audit dédié permet de vérifier systématiquement les points de configuration sensibles.</p>
+  </details>
+  <details>
+    <summary>Peut-on corriger ces erreurs sans perdre l'historique de données ?</summary>
+    <p>Certaines corrections (filtrage, événements) s'appliquent immédiatement sans affecter l'historique. D'autres, comme la fenêtre de rétention, ne sont pas rétroactives : les données déjà supprimées restent perdues.</p>
+  </details>
+  <details>
+    <summary>Faut-il un compte Google Analytics 360 pour éviter ces erreurs ?</summary>
+    <p>Non, la version gratuite de GA4 permet de corriger la quasi-totalité de ces erreurs de configuration. La version payante apporte surtout plus de volume de données et de fonctionnalités avancées, pas une meilleure fiabilité de base.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de vérifier la fiabilité de vos données GA4 ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Demander un audit GA4</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/consultant-ga4">Consultant GA4</a>, la page <a href="/analytics">Analytics</a>, et la page <a href="/conversion-api-tracking-server-side">Conversion API</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/consultant-ga4">Consultant GA4 →</a>
+      <a href="/analytics">Analytics →</a>
+      <a href="/conversion-api-tracking-server-side">Conversion API →</a>
+      <a href="/amplitude-mixpanel">Mixpanel →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Growth Marketing basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
