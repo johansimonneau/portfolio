@@ -4,6 +4,13 @@ Site HTML/CSS/JS natif (aucune dépendance, aucun build, aucun backend) —
 31 pages statiques déployées sur Vercel, partageant la même identité
 visuelle et les mêmes composants CSS.
 
+## Licence
+
+Tous droits réservés — voir [`LICENSE`](./LICENSE). Ce dépôt est public à
+des fins de consultation et de démonstration (portfolio professionnel) ;
+aucune réutilisation du code, des contenus ou du design n'est autorisée
+sans accord écrit préalable.
+
 ## Arborescence
 
 ```
