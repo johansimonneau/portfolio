@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le guide complet GEO pour ranker numéro 1 dans les LLMs | Blog — Johan Simonneau</title>
+<meta name="description" content="SEO vs GEO, comment les LLMs choisissent leurs sources, les stratégies qui marchent vraiment et une checklist actionnable : le guide complet pour être cité par ChatGPT, Perplexity et Claude.">
+
+<link rel="canonical" href="https://johansimonneau.fr/guide-complet-geo-ranker-llm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Le guide complet GEO pour ranker numéro 1 dans les LLMs">
+<meta property="og:description" content="SEO vs GEO, comment les LLMs choisissent leurs sources, les stratégies qui marchent vraiment et une checklist actionnable : le guide complet pour être cité par ChatGPT, Perplexity et Claude.">
+<meta property="og:url" content="https://johansimonneau.fr/guide-complet-geo-ranker-llm">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-guide-complet-geo-ranker-llm-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-guide-complet-geo-ranker-llm-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Le guide complet GEO pour ranker numéro 1 dans les LLMs",
+      "image": "https://johansimonneau.fr/assets/img/blog-guide-complet-geo-ranker-llm-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-09-03",
+      "dateModified": "2026-09-03",
+      "description": "SEO vs GEO, comment les LLMs choisissent leurs sources, les stratégies qui marchent vraiment et une checklist actionnable : le guide complet pour être cité par ChatGPT, Perplexity et Claude.",
+      "mainEntityOfPage": "https://johansimonneau.fr/guide-complet-geo-ranker-llm"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Le GEO remplace-t-il le SEO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Le GEO étend le SEO, il ne le remplace pas. Les fondamentaux restent les mêmes — contenu de qualité, structure claire, autorité, crédibilité — mais l'objectif change : viser une citation dans une réponse générée plutôt qu'une position dans une liste de résultats. Un contenu bien optimisé pour le GEO performe généralement aussi mieux en SEO classique."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour voir un effet sur sa visibilité dans les IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'existe pas de délai garanti, mais dans les audits que je mène, un effet mesurable apparaît généralement après plusieurs semaines à quelques mois de contenu retravaillé selon les critères GEO — le temps que les moteurs génératifs recrawlent et réindexent les pages concernées."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment savoir si mes contenus sont déjà cités par les IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le test le plus direct est manuel : pose à ChatGPT, Perplexity et Claude les questions que se posent réellement tes clients, et regarde si ton site apparaît parmi les sources citées. En complément, surveille le trafic référé par ces plateformes dans GA4 et l'évolution des recherches de marque dans Search Console, un signal indirect de visibilité IA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il une stratégie différente pour chaque IA (ChatGPT, Perplexity, Claude) ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les principes de base sont communs, mais chaque moteur a ses préférences propres — Perplexity privilégie fortement la fraîcheur et les sources spécialisées, ChatGPT récompense l'exhaustivité et l'autorité, Claude la clarté structurelle. Une stratégie qui combine ces trois exigences couvre l'essentiel plutôt que de viser un seul moteur en particulier."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Guide GEO</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Le guide complet GEO pour ranker numéro 1 dans les LLMs</h1>
+      <p class="sub-hook">Tes concurrents ne sont plus seulement devant toi sur Google. Ils sont cités par ChatGPT, Perplexity et Claude avant toi.&nbsp;Ce guide réunit tout ce qu'il faut savoir pour comprendre le GEO (Generative Engine Optimization) et commencer à optimiser tes contenus pour être la source que l'IA choisit de citer&nbsp;— pas seulement une page de plus dans une liste de résultats.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>3 septembre 2026</span>
+        <span>·</span>
+        <span>12 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-guide-complet-geo-ranker-llm-hero.png" alt="Illustration mettant en avant le chiffre clé : seulement 2 à 3 sources citées dans une réponse générée par une IA" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<h2>Pourquoi le GEO est devenu incontournable</h2>
+
+<p>Les moteurs génératifs sont sortis du statut de gadget. ChatGPT, Perplexity, Claude et Gemini cumulent aujourd'hui des centaines de millions d'utilisateurs actifs, et une part croissante des recherches d'information passe directement par ces interfaces plutôt que par une page de résultats classique. Ce n'est plus un canal marginal&nbsp;: c'est un canal d'acquisition à part entière, avec ses propres règles.</p>
+
+<p>Ce que ça change concrètement&nbsp;: quand un prospect demande à ChatGPT «&nbsp;quel est le meilleur outil pour X&nbsp;» ou «&nbsp;comment faire Y&nbsp;», il ne voit pas une liste de dix liens bleus à comparer. Il voit une réponse unique, avec deux ou trois sources citées. Si ton contenu ne fait pas partie de ces sources, tu n'existes tout simplement pas dans ce canal — quelle que soit la qualité de ton offre.</p>
+
+<p>La bonne nouvelle&nbsp;: le GEO (Generative Engine Optimization) est encore jeune. Les règles ne sont pas figées, et la concurrence sur ce terrain reste très inférieure à celle qu'on trouve sur Google. Les sites qui structurent leurs contenus pour les LLMs maintenant prennent une avance que les retardataires auront du mal à rattraper — un peu comme en SEO il y a quinze ans, où les premiers à comprendre les règles ont construit des positions qui tiennent encore aujourd'hui.</p>
+
+<h2>SEO vs GEO : ce qui change concrètement</h2>
+
+<p>Le SEO et le GEO poursuivent le même objectif&nbsp;— rendre un contenu visible au moment où quelqu'un cherche une information — mais la mécanique derrière est radicalement différente.</p>
+
+<ul class="sub-points">
+  <li><strong>Ce qui est optimisé.</strong> En SEO, on optimise pour qu'un algorithme de classement place une page dans une liste. En GEO, on optimise pour qu'un modèle de langage comprenne, extraie et cite un passage précis dans une réponse qu'il génère.</li>
+  <li><strong>L'objectif final.</strong> En SEO, on vise une position — top 3, top 10. En GEO, on vise une citation&nbsp;: être la source que l'IA choisit de référencer. Il n'y a pas de position 4 dans une réponse Perplexity.</li>
+  <li><strong>Le signal de succès.</strong> En SEO, c'est le clic. En GEO, c'est la mention — et être cité sans clic direct reste une victoire, parce que ça construit une autorité perçue qui a son propre effet sur la marque, indépendamment du trafic généré.</li>
+  <li><strong>La forme du contenu.</strong> Les LLMs découpent les pages en passages (chunks), les convertissent en représentations numériques, puis récupèrent les passages les plus pertinents pour assembler une réponse. Un paragraphe qui garde tout son sens lu isolément, hors de son contexte d'origine, a beaucoup plus de chances d'être sélectionné qu'un paragraphe qui dépend de ce qui le précède.</li>
+</ul>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-guide-complet-geo-ranker-llm-seovsgeo.png" alt="Illustration comparant le SEO, qui vise une position dans une liste de résultats, au GEO, qui vise une citation dans une réponse générée par une IA" width="1200" height="630" loading="lazy">
+  <figcaption>Le SEO vise une position dans une liste. Le GEO vise une citation dans une réponse — deux mécaniques différentes, un même objectif de visibilité.</figcaption>
+</figure>
+
+<p>Le GEO ne remplace pas le SEO, il l'étend. Les fondamentaux restent les mêmes&nbsp;: contenu de qualité, structure claire, autorité, crédibilité. C'est l'application qui change — et un contenu bien pensé pour le GEO a toutes les chances de mieux performer aussi en SEO classique, les deux logiques se renforcent plutôt qu'elles ne s'opposent.</p>
+
+<h2>Comment les LLMs choisissent leurs sources</h2>
+
+<p>Contrairement à un moteur de recherche classique, un LLM ne se contente pas d'afficher une liste de résultats classés. Il synthétise l'information de plusieurs sources pour générer une réponse unique. Le mécanisme derrière s'appelle le RAG (Retrieval-Augmented Generation)&nbsp;: le modèle reçoit la question, lance des sous-requêtes, récupère les passages les plus pertinents sur le web, puis assemble une réponse cohérente en citant ses sources.</p>
+
+<p>Ce mécanisme repose sur quatre critères de sélection récurrents, observés sur l'ensemble des moteurs génératifs&nbsp;:</p>
+
+<ul class="sub-points">
+  <li><strong>E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness).</strong> Les IA privilégient les sources qui prouvent qu'elles savent de quoi elles parlent&nbsp;: biographies d'auteurs identifiables, données chiffrées, études de cas, sources citées.</li>
+  <li><strong>Structure et clarté.</strong> Un contenu organisé avec une hiérarchie de titres logique (H1, H2, H3), des paragraphes courts et des réponses directes est beaucoup plus facile à extraire pour un modèle. Les IA ne cherchent pas&nbsp;: elles veulent trouver la réponse immédiatement.</li>
+  <li><strong>Fraîcheur.</strong> Les moteurs génératifs, Perplexity en particulier, privilégient les contenus récents. Un article mis à jour régulièrement avec des données actuelles est souvent préféré à un contenu plus complet mais daté.</li>
+  <li><strong>Citabilité.</strong> Le contenu doit pouvoir être extrait et réutilisé tel quel dans une réponse. Les formats Q&amp;A, les définitions claires, les comparatifs structurés et les listes avec des données factuelles sont les formats les plus souvent cités.</li>
+</ul>
+
+<h2>Les 5 stratégies prouvées pour être cité par les IA</h2>
+
+<p>Une étude de référence sur le GEO, menée par des chercheurs de Princeton et de Georgia Tech et présentée à la conférence ACM SIGKDD 2024, a mesuré l'impact réel de différentes optimisations sur la visibilité d'un contenu dans les réponses génératives. Voici les cinq stratégies qui en ressortent, classées par impact.</p>
+
+<ul class="sub-points">
+  <li><strong>Ajouter des statistiques concrètes.</strong> Remplacer les formulations qualitatives («&nbsp;une croissance significative&nbsp;») par des données chiffrées précises («&nbsp;une hausse de 37&nbsp;% en 90 jours&nbsp;»). Les LLMs privilégient nettement les contenus factuels et quantifiés — c'est la stratégie individuelle la plus efficace mesurée par l'étude.</li>
+  <li><strong>Citer des sources crédibles.</strong> Intégrer plusieurs citations par tranche de mille mots, provenant de sources reconnues (études publiées, rapports sectoriels, institutions). Cela renforce la fiabilité perçue et donne au modèle un signal de confiance explicite.</li>
+  <li><strong>Optimiser la fluidité rédactionnelle.</strong> Des phrases claires, grammaticalement correctes, logiquement enchaînées. C'est le facteur le plus sous-estimé&nbsp;: l'étude montre qu'il améliore la visibilité de façon significative à lui seul, indépendamment du fond.</li>
+  <li><strong>Inclure des citations d'experts.</strong> Ajouter des citations d'autorités reconnues dans le domaine traité. Les LLMs traitent une citation comme une information vérifiée provenant d'une source légitime, ce qui pèse dans la sélection.</li>
+  <li><strong>Utiliser un vocabulaire technique précis.</strong> Intégrer les termes spécifiques du domaine plutôt que de les simplifier à outrance — pour le marketing digital&nbsp;: «&nbsp;cannibalisation&nbsp;», «&nbsp;cocon sémantique&nbsp;», «&nbsp;intention de recherche&nbsp;». Le vocabulaire technique améliore la découvrabilité sur les requêtes spécialisées.</li>
+</ul>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-guide-complet-geo-ranker-llm-strategies.png" alt="Graphique en barres comparant la visibilité d'un contenu optimisé selon les critères GEO à celle d'un contenu non optimisé" width="900" height="340" loading="lazy">
+  <figcaption>L'étude Princeton / Georgia Tech (KDD 2024) mesure un net gain de visibilité pour un contenu combinant fluidité rédactionnelle et données chiffrées, face à un contenu non optimisé.</figcaption>
+</figure>
+
+<p>Le point le plus utile de cette étude&nbsp;: combiner fluidité et statistiques surpasse chacune des stratégies prises isolément. Elles ne sont pas mutuellement exclusives, c'est en les cumulant qu'on obtient le meilleur résultat. À l'inverse, le bourrage de mots-clés — la vieille technique SEO — produit l'effet inverse en GEO&nbsp;: les moteurs génératifs pénalisent la densité artificielle de mots-clés plutôt que de la récompenser.</p>
+
+<h2>Chaque LLM a ses préférences</h2>
+
+<p>Tous les moteurs génératifs ne citent pas de la même façon. Une stratégie pensée exclusivement pour ChatGPT avec un contenu très exhaustif passera à côté de Perplexity, qui privilégie des contenus récents et pointus.</p>
+
+<ul class="sub-points">
+  <li><strong>ChatGPT</strong> privilégie la richesse, l'autorité et l'exhaustivité. Il favorise les contenus à fort signal E-E-A-T&nbsp;: auteurs identifiés, données originales, contenu structuré qui répond à des intentions multiples en une seule page.</li>
+  <li><strong>Perplexity</strong> fonctionne en «&nbsp;citation-first&nbsp;»&nbsp;: il cite ses sources dans la quasi-totalité de ses réponses, avec une préférence marquée pour la fraîcheur et l'autorité de domaine — papiers académiques, rapports officiels, sources spécialisées. Un contenu niche et récent y devance souvent un contenu généraliste plus ancien.</li>
+  <li><strong>Claude</strong> privilégie la clarté, la profondeur et la structure. Un contenu bien organisé, avec une hiérarchie logique et des réponses précises, a davantage de chances d'y être retenu.</li>
+  <li><strong>Gemini</strong>, intégré à l'écosystème Google, s'appuie sur les mêmes signaux que la recherche classique&nbsp;: E-E-A-T, données structurées, Core Web Vitals. Un travail SEO solide y profite directement.</li>
+</ul>
+
+<p>La stratégie la plus robuste combine ces quatre exigences plutôt que d'en viser une seule&nbsp;: un contenu riche et autorité, récent et bien sourcé, clair et structuré, techniquement solide. C'est cette combinaison qui couvre l'ensemble des moteurs plutôt qu'un seul d'entre eux.</p>
+
+<h2>Comment auditer et optimiser concrètement ta visibilité IA</h2>
+
+<p>Avant d'optimiser quoi que ce soit, il faut savoir où on part. Dans les audits que je mène, la méthode reste la même quel que soit le secteur&nbsp;: poser aux IA génératives les questions que se posent réellement les clients — pas des requêtes génériques sur la marque, mais les vraies questions métier qui précèdent une décision d'achat — et noter systématiquement si le site apparaît parmi les sources citées, sur quelle formulation, et pour quel moteur.</p>
+
+<p>Cette cartographie initiale révèle presque toujours le même schéma&nbsp;: une poignée de pages déjà bien positionnées en SEO classique sont proches d'être citées mais leur structure les en empêche — réponse enterrée après plusieurs paragraphes d'introduction, absence de données chiffrées, aucune source citée pour appuyer les affirmations. Ce sont les corrections les plus rentables à faire en premier, avant même de produire du contenu nouveau.</p>
+
+<p>Le détail de cette méthode d'audit — comment formuler les questions test, quels outils utiliser pour suivre l'évolution dans le temps, comment prioriser les pages à corriger — fait l'objet d'un accompagnement dédié&nbsp;: voir la page <a href="/audit-visibilite-ia">Audit visibilité IA</a>. La suite ci-dessous reprend l'essentiel à appliquer une fois cet audit fait.</p>
+
+<h2>Checklist GEO : les actions à appliquer maintenant</h2>
+
+<p><strong>Structure</strong></p>
+<ul class="sub-points">
+  <li>Une hiérarchie de titres stricte (H1, H2, H3) sans sauter de niveau.</li>
+  <li>Des paragraphes courts (2 à 4 lignes), qui gardent leur sens lus isolément.</li>
+  <li>Des formats Q&amp;A pour capter les requêtes conversationnelles.</li>
+</ul>
+
+<p><strong>Contenu</strong></p>
+<ul class="sub-points">
+  <li>Des données chiffrées à la place des formulations vagues.</li>
+  <li>Plusieurs sources crédibles citées par tranche de mille mots.</li>
+  <li>Des citations d'experts du domaine traité.</li>
+  <li>Un vocabulaire technique assumé, sans simplification excessive.</li>
+  <li>La réponse dès les premières lignes — ne jamais l'enterrer après l'introduction.</li>
+</ul>
+
+<p><strong>Technique</strong></p>
+<ul class="sub-points">
+  <li>Un robots.txt qui n'exclut pas les crawlers IA (GPTBot, PerplexityBot, etc.).</li>
+  <li>Des données structurées Schema.org pertinentes (FAQPage, HowTo, Article, Product).</li>
+  <li>Des Core Web Vitals soignés&nbsp;: un site lent est un site invisible, pour les bots IA aussi.</li>
+</ul>
+
+<p><strong>Autorité</strong></p>
+<ul class="sub-points">
+  <li>Des biographies d'auteurs claires et complètes.</li>
+  <li>Des études de cas, témoignages et données originales publiées.</li>
+  <li>Des mentions obtenues depuis des sources tierces reconnues.</li>
+</ul>
+
+<p><strong>Fraîcheur et mesure</strong></p>
+<ul class="sub-points">
+  <li>Une mise à jour des contenus stratégiques au moins tous les trimestres, datée visiblement.</li>
+  <li>Un test manuel régulier&nbsp;: poser les questions de tes clients à ChatGPT, Perplexity et Claude.</li>
+  <li>Un suivi du trafic référé par les IA dans GA4 et des requêtes de marque dans Search Console.</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Le GEO remplace-t-il le SEO ?</summary>
+    <p>Non. Le GEO étend le SEO, il ne le remplace pas. Les fondamentaux restent les mêmes — contenu de qualité, structure claire, autorité, crédibilité — mais l'objectif change : viser une citation dans une réponse générée plutôt qu'une position dans une liste de résultats. Un contenu bien optimisé pour le GEO performe généralement aussi mieux en SEO classique.</p>
+  </details>
+  <details>
+    <summary>Combien de temps faut-il pour voir un effet sur sa visibilité dans les IA ?</summary>
+    <p>Il n'existe pas de délai garanti, mais dans les audits que je mène, un effet mesurable apparaît généralement après plusieurs semaines à quelques mois de contenu retravaillé selon les critères GEO — le temps que les moteurs génératifs recrawlent et réindexent les pages concernées.</p>
+  </details>
+  <details>
+    <summary>Comment savoir si mes contenus sont déjà cités par les IA ?</summary>
+    <p>Le test le plus direct est manuel : pose à ChatGPT, Perplexity et Claude les questions que se posent réellement tes clients, et regarde si ton site apparaît parmi les sources citées. En complément, surveille le trafic référé par ces plateformes dans GA4 et l'évolution des recherches de marque dans Search Console, un signal indirect de visibilité IA.</p>
+  </details>
+  <details>
+    <summary>Faut-il une stratégie différente pour chaque IA (ChatGPT, Perplexity, Claude) ?</summary>
+    <p>Les principes de base sont communs, mais chaque moteur a ses préférences propres — Perplexity privilégie fortement la fraîcheur et les sources spécialisées, ChatGPT récompense l'exhaustivité et l'autorité, Claude la clarté structurelle. Une stratégie qui combine ces trois exigences couvre l'essentiel plutôt que de viser un seul moteur en particulier.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un audit de ta visibilité dans les IA génératives ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Demander un audit GEO</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, la page <a href="/audit-visibilite-ia">Audit visibilité IA</a>, et l'article <a href="/seo-geo-ce-qui-change-vraiment">SEO vs GEO : ce qui change vraiment</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/audit-visibilite-ia">Audit visibilité IA →</a>
+      <a href="/seo-geo-ce-qui-change-vraiment">SEO vs GEO →</a>
+      <a href="/donnees-structurees">Données structurées →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Growth Marketing basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+</body>
+</html>
