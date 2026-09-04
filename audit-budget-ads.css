@@ -34,39 +34,231 @@
   margin-bottom: 16px;
 }
 
-.benchmark-table-wrap {
-  overflow-x: auto;
-  margin-bottom: 14px;
+/* KPI hero row */
+
+.bm-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
 }
 
-.benchmark-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
+.bm-kpi {
+  background: var(--color-bg-alt);
+  border-radius: var(--radius);
+  padding: 20px 22px;
 }
 
-.benchmark-table th,
-.benchmark-table td {
-  text-align: left;
-  padding: 10px 14px;
-  border-bottom: 1px solid var(--color-border);
-  white-space: nowrap;
-}
-
-.benchmark-table th {
+.bm-kpi-label {
   font-family: var(--font-sans);
   font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--color-ink-faint);
+  margin-bottom: 8px;
+}
+
+.bm-kpi-value {
+  font-family: var(--font-serif);
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-size: clamp(26px, 3.4vw, 32px);
+  color: var(--color-navy);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.bm-kpi-trend {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.bm-kpi-trend.is-bad {
+  color: #b45309;
+}
+
+.bm-kpi-trend.is-good {
+  color: #15803d;
+}
+
+.bm-kpi-trend.is-neutral {
   color: var(--color-ink-faint);
 }
 
-.benchmark-table tr.is-total td {
+@media (max-width: 680px) {
+  .bm-kpis {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Bar charts */
+
+.bm-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.bm-bar-row {
+  display: grid;
+  grid-template-columns: 150px 1fr 110px;
+  align-items: center;
+  gap: 14px;
+}
+
+.bm-bar-label {
+  font-size: 13.5px;
+  color: var(--color-ink-soft);
+}
+
+.bm-bar-track {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.bm-bar-fill {
+  display: block;
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: var(--color-navy);
+  transition: width 500ms ease;
+}
+
+.bm-bar-value {
+  font-family: var(--font-sans);
   font-weight: 700;
+  font-size: 13.5px;
+  color: var(--color-ink);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.bm-bar-value em {
+  display: block;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 11.5px;
+  margin-top: 2px;
+}
+
+.bm-bar-value em.is-bad {
+  color: #b45309;
+}
+
+.bm-bar-value em.is-good {
+  color: #15803d;
+}
+
+@media (max-width: 599px) {
+  .bm-bar-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .bm-bar-value {
+    text-align: left;
+  }
+}
+
+/* Callout (single, lighter than leak-aside) */
+
+.bm-callout {
+  background: var(--color-bg-alt);
+  border-left: 3px solid var(--color-mint);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 14px 18px;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+.bm-callout.is-warning {
+  border-left-color: #d97706;
+}
+
+/* ROAS cards */
+
+.bm-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+}
+
+.bm-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 18px;
+  text-align: center;
+}
+
+.bm-card-value {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 24px;
   color: var(--color-navy);
-  border-top: 1.5px solid var(--color-ink);
-  border-bottom: none;
+  margin-bottom: 6px;
+}
+
+.bm-card-label {
+  font-size: 13px;
+  color: var(--color-ink);
+  margin-bottom: 6px;
+}
+
+.bm-card-source {
+  font-size: 11px;
+  color: var(--color-ink-faint);
+  margin-bottom: 0;
+}
+
+/* Stat card grid (remplace les callouts empilés) */
+
+.bm-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.bm-stat-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.bm-stat-card-title {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-navy);
+  margin-bottom: 12px;
+}
+
+.bm-stat-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bm-stat-card li {
+  font-size: 13px;
+  color: var(--color-ink-soft);
+  padding: 7px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.bm-stat-card li:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.bm-stat-card li span {
+  color: var(--color-ink-faint);
 }
 
 .benchmark-note {
