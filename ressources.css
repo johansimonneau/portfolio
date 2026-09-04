@@ -1,0 +1,133 @@
+/* ==========================================================================
+   Johan Simonneau — Portfolio
+   ressources.css — page d'index des ressources (/ressources).
+   S'appuie sur les variables de style.css et le header d'article de
+   subpage.css. Charger APRÈS style.css et subpage.css.
+   ========================================================================== */
+
+.ressources-section {
+  padding-block: clamp(24px, 5vw, 40px) clamp(48px, 8vw, 88px);
+}
+
+.ressources-kicker {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  margin-bottom: 14px;
+}
+
+.ressources-guides {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: clamp(40px, 6vw, 64px);
+}
+
+@media (max-width: 780px) {
+  .ressources-guides {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ressources-guide-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.ressources-guide-card:hover {
+  border-color: var(--color-navy);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(31, 31, 31, 0.08);
+}
+
+.ressources-guide-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 630;
+  object-fit: cover;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ressources-guide-card-body {
+  padding: 24px;
+}
+
+.ressources-guide-tag {
+  display: inline-flex;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  margin-bottom: 10px;
+}
+
+.ressources-guide-card h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.ressources-guide-card p {
+  color: var(--color-ink-soft);
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.ressources-other {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 780px) {
+  .ressources-other {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ressources-other-card {
+  display: block;
+  padding: 28px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.ressources-other-card:hover {
+  border-color: var(--color-navy);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(31, 31, 31, 0.06);
+}
+
+.ressources-other-card h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.ressources-other-card p {
+  color: var(--color-ink-soft);
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ressources-guide-card,
+  .ressources-other-card {
+    transition: none;
+  }
+}
