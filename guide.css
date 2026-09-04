@@ -4,6 +4,169 @@
    Charge après style.css et subpage.css, uniquement sur cette page.
    ========================================================================== */
 
+/* ---------- Hero ---------- */
+
+.guide-hero {
+  position: relative;
+  background: var(--color-navy);
+  overflow: clip;
+  padding-block: clamp(56px, 8vw, 96px);
+}
+
+.guide-hero-blob {
+  position: absolute;
+  top: -180px;
+  right: -160px;
+  width: 560px;
+  height: 560px;
+  border-radius: 50%;
+  background: var(--color-mint);
+  opacity: 0.22;
+}
+
+.guide-hero-square {
+  position: absolute;
+  bottom: -120px;
+  left: -100px;
+  width: 320px;
+  height: 320px;
+  border-radius: 60px;
+  background: #fff;
+  opacity: 0.08;
+  transform: rotate(24deg);
+}
+
+.guide-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 56px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .guide-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.guide-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 7px 16px;
+  margin-bottom: 22px;
+}
+
+.guide-hero-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 4.6vw, 52px);
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 18px;
+}
+
+.guide-hero-tagline {
+  font-size: clamp(15px, 1.6vw, 17.5px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 52ch;
+  margin-bottom: 30px;
+}
+
+.guide-hero-actions {
+  margin-bottom: 34px;
+}
+
+.guide-hero-actions .btn-primary {
+  background: var(--color-mint);
+  color: #0a1a4d;
+}
+
+.guide-hero-actions .btn-primary:hover {
+  background: #fff;
+}
+
+.guide-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  padding-top: 22px;
+}
+
+@media (max-width: 480px) {
+  .guide-hero-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+.guide-hero-stats dt {
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 6px;
+}
+
+.guide-hero-stats dd {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(20px, 2.6vw, 26px);
+  color: #fff;
+}
+
+.guide-hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.guide-hero-visual::before {
+  content: "";
+  position: absolute;
+  inset: -8%;
+  background: radial-gradient(closest-side, rgba(76, 230, 185, 0.28), transparent 70%);
+  z-index: 0;
+}
+
+.guide-hero-visual img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  max-width: 480px;
+  aspect-ratio: 1200 / 630;
+  border-radius: 18px;
+  transform: rotate(3deg);
+  box-shadow: 0 40px 80px rgba(6, 12, 40, 0.45);
+  transition: transform var(--transition);
+}
+
+.guide-hero-visual:hover img {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+@media (max-width: 900px) {
+  .guide-hero-visual img {
+    max-width: 360px;
+  }
+}
+
 .guide-layout {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -15,14 +178,6 @@
   .guide-layout {
     grid-template-columns: 1fr;
   }
-}
-
-.guide-cover {
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
-  margin-bottom: 28px;
-  box-shadow: 0 24px 48px rgba(31, 31, 31, 0.08);
 }
 
 .guide-benefits-title {

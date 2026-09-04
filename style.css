@@ -501,6 +501,14 @@ button {
   flex-shrink: 0;
 }
 
+.services-menu--single {
+  width: min(320px, 90vw);
+}
+
+.services-menu--single .services-menu-inner {
+  grid-template-columns: 1fr;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .services-menu,
   .services-trigger-caret {

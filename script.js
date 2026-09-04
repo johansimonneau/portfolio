@@ -108,58 +108,75 @@
     });
   }
 
-  /* ---------- Mega-menu Services ---------- */
+  /* ---------- Mega-menus (Services, Ressources) ---------- */
 
-  var servicesTrigger = document.getElementById("servicesTrigger");
-  var servicesMenu = document.getElementById("servicesMenu");
+  var menuPairs = [];
+  document.querySelectorAll(".services-trigger").forEach(function (trigger) {
+    var targetId = trigger.getAttribute("aria-controls");
+    var menu = targetId ? document.getElementById(targetId) : null;
+    if (menu) {
+      menuPairs.push({ trigger: trigger, menu: menu });
+    }
+  });
 
-  if (servicesTrigger && servicesMenu) {
-    function closeServicesMenu() {
-      servicesTrigger.setAttribute("aria-expanded", "false");
-      servicesMenu.classList.remove("is-open");
+  if (menuPairs.length) {
+    function closeAllMenus() {
+      menuPairs.forEach(function (pair) {
+        pair.trigger.setAttribute("aria-expanded", "false");
+        pair.menu.classList.remove("is-open");
+      });
     }
 
-    function openServicesMenu() {
-      servicesTrigger.setAttribute("aria-expanded", "true");
-      servicesMenu.classList.add("is-open");
-    }
-
-    servicesTrigger.addEventListener("click", function (e) {
-      e.stopPropagation();
-      var isOpen = servicesTrigger.getAttribute("aria-expanded") === "true";
-      if (isOpen) {
-        closeServicesMenu();
-      } else {
-        openServicesMenu();
-      }
-    });
-
-    // Ferme au clic en dehors du menu (desktop)
-    document.addEventListener("click", function (e) {
-      if (!servicesMenu.contains(e.target) && !servicesTrigger.contains(e.target)) {
-        closeServicesMenu();
-      }
-    });
-
-    // Ferme à l'échappement
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") {
-        closeServicesMenu();
-        servicesTrigger.focus();
-      }
-    });
-
-    // Un clic sur un lien du mega-menu ferme aussi le menu mobile parent
-    servicesMenu.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        closeServicesMenu();
-        if (navToggle && mainNav) {
-          navToggle.setAttribute("aria-expanded", "false");
-          navToggle.setAttribute("aria-label", "Ouvrir le menu");
-          mainNav.classList.remove("is-open");
-          document.body.style.overflow = "";
+    menuPairs.forEach(function (pair) {
+      pair.trigger.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var isOpen = pair.trigger.getAttribute("aria-expanded") === "true";
+        closeAllMenus();
+        if (!isOpen) {
+          pair.trigger.setAttribute("aria-expanded", "true");
+          pair.menu.classList.add("is-open");
         }
       });
+
+      // Un clic sur un lien du mega-menu ferme aussi le menu mobile parent
+      pair.menu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          closeAllMenus();
+          if (navToggle && mainNav) {
+            navToggle.setAttribute("aria-expanded", "false");
+            navToggle.setAttribute("aria-label", "Ouvrir le menu");
+            mainNav.classList.remove("is-open");
+            document.body.style.overflow = "";
+          }
+        });
+      });
+    });
+
+    // Ferme au clic en dehors de tout menu (desktop)
+    document.addEventListener("click", function (e) {
+      var clickedInsideAny = false;
+      for (var i = 0; i < menuPairs.length; i++) {
+        if (menuPairs[i].menu.contains(e.target) || menuPairs[i].trigger.contains(e.target)) {
+          clickedInsideAny = true;
+          break;
+        }
+      }
+      if (!clickedInsideAny) closeAllMenus();
+    });
+
+    // Ferme à l'échappement, rend le focus au déclencheur ouvert
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        var openTrigger = null;
+        for (var j = 0; j < menuPairs.length; j++) {
+          if (menuPairs[j].trigger.getAttribute("aria-expanded") === "true") {
+            openTrigger = menuPairs[j].trigger;
+            break;
+          }
+        }
+        closeAllMenus();
+        if (openTrigger) openTrigger.focus();
+      }
     });
   }
 
