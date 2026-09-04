@@ -92,15 +92,24 @@
       })
     })
       .then(function (response) {
-        if (!response.ok) throw new Error("network");
-        return response.json();
+        return response.text().then(function (raw) {
+          // Log brut pour diagnostiquer depuis la console navigateur si besoin.
+          console.log("FormSubmit — statut " + response.status + " :", raw);
+          var data = null;
+          try { data = JSON.parse(raw); } catch (e) { /* réponse non-JSON */ }
+          var explicitlyFailed = data && (data.success === false || data.success === "false");
+          if (!response.ok || !data || explicitlyFailed) {
+            throw new Error("formsubmit-failed");
+          }
+        });
       })
       .then(function () {
         setLoading(false);
         form.hidden = true;
         successEl.hidden = false;
       })
-      .catch(function () {
+      .catch(function (err) {
+        console.error("Échec de l'envoi du formulaire guide :", err);
         setLoading(false);
         showError("L'envoi a échoué. Réessayez, ou écrivez-moi directement à johansimonneau.pro@gmail.com.");
       });
