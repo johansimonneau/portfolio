@@ -21,15 +21,9 @@
 
 .ressources-guides {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
   margin-bottom: clamp(40px, 6vw, 64px);
-}
-
-@media (max-width: 780px) {
-  .ressources-guides {
-    grid-template-columns: 1fr;
-  }
 }
 
 .ressources-guide-card {

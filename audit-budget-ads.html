@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide gratuit : arrêtez de perdre de l'argent en Google Ads et Meta Ads | Johan Simonneau</title>
+<meta name="description" content="7 fuites de budget fréquentes en Google Ads et Meta Ads, un auto-diagnostic noté en 2 minutes et 3 prompts Claude prêts à l'emploi pour les détecter vous-même. Guide gratuit.">
+
+<link rel="canonical" href="https://johansimonneau.fr/audit-budget-ads">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Guide gratuit : arrêtez de perdre de l'argent en Google Ads et Meta Ads">
+<meta property="og:description" content="7 fuites de budget fréquentes, un auto-diagnostic noté et 3 prompts Claude pour les détecter vous-même.">
+<meta property="og:url" content="https://johansimonneau.fr/audit-budget-ads">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/audit-budget-ads-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/audit-budget-ads-cover.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+<link rel="stylesheet" href="guide.css">
+<link rel="stylesheet" href="audit-budget-ads.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Arrêtez de perdre de l'argent en Google Ads et Meta Ads",
+      "url": "https://johansimonneau.fr/audit-budget-ads",
+      "description": "7 fuites de budget fréquentes en Google Ads et Meta Ads, un auto-diagnostic noté et 3 prompts Claude pour les détecter vous-même."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Ce guide est-il vraiment gratuit ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, entièrement. L'article, l'auto-diagnostic et les 3 prompts sont accessibles directement sur cette page, sans email ni inscription."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il un abonnement Claude payant pour utiliser ces prompts ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Un compte Claude gratuit suffit pour coller vos exports et obtenir une analyse."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Fuites de budget Ads</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="guide-hero">
+    <div class="guide-hero-blob" aria-hidden="true"></div>
+    <div class="guide-hero-square" aria-hidden="true"></div>
+    <div class="container guide-hero-inner">
+      <div>
+        <p class="guide-hero-eyebrow" data-reveal>Guide gratuit</p>
+        <h1 class="guide-hero-title" data-reveal>Arrêtez de perdre de l'argent en Google Ads et Meta Ads</h1>
+        <p class="guide-hero-tagline" data-reveal>7 fuites de budget qui reviennent sans cesse sur les comptes Google Ads et Meta Ads, un auto-diagnostic noté pour situer le vôtre, et 3 prompts Claude prêts à l'emploi pour les détecter par vous-même.</p>
+        <div class="guide-hero-actions" data-reveal>
+          <a href="#fuites" class="btn btn-primary btn-large">Voir les 7 fuites</a>
+        </div>
+        <dl class="guide-hero-stats" data-reveal>
+          <div>
+            <dt>Fuites</dt>
+            <dd>7</dd>
+          </div>
+          <div>
+            <dt>Questions</dt>
+            <dd>10</dd>
+          </div>
+          <div>
+            <dt>Prix</dt>
+            <dd>Gratuit</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="guide-hero-visual" data-reveal="right">
+        <img src="assets/img/audit-budget-ads-cover.png" alt="Couverture du guide arrêtez de perdre de l'argent en Google Ads et Meta Ads" width="1200" height="630" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="fuites">
+    <div class="container sub-article-inner">
+
+      <div class="leak-intro">
+        <p class="leak-intro-label">Ce que révèle un audit de compte</p>
+        <p>Ces sept fuites reviennent sans cesse quand on regarde un compte Google Ads ou Meta Ads dans le détail — rarement une seule à la fois, presque toujours plusieurs en même temps. Chacune correspond à du budget qui part chaque mois sans générer ni vente, ni lead, ni appel.</p>
+      </div>
+
+      <div class="leak-block">
+        <p class="leak-number">Fuite 1</p>
+        <h2>Tracking cassé ou incomplet</h2>
+        <p>Si votre tracking est mal configuré, Google optimise vos enchères sur des données fausses. C'est comme conduire avec un GPS qui indique la mauvaise route.</p>
+        <div class="leak-aside">
+          <p class="leak-aside-label">Les erreurs de tracking les plus courantes</p>
+          <ul>
+            <li>Événements mal configurés dans GTM (ex&nbsp;: un achat compté comme une vue de page)</li>
+            <li>Pas d'Enhanced Conversions activé → perte de 15 à 30% de données (bloqueurs de cookies)</li>
+            <li>Pas de suivi des appels téléphoniques → la moitié de vos conversions sont invisibles</li>
+            <li>GA4 mal lié à Google Ads → les conversions ne remontent pas</li>
+          </ul>
+        </div>
+        <p class="leak-rule">Comment détecter</p>
+        <p>Google Ads → Objectifs → Récapitulatif → Diagnostic. Des alertes jaunes ou rouges signalent un problème de tracking.</p>
+        <p>La règle en 2026&nbsp;: GA4 lié, Enhanced Conversions activé, balise Google Ads installée, événements de conversion vérifiés. Sans ça, le Smart Bidding travaille avec des données partielles — voir la page <a href="/analytics">Analytics</a> pour la mise en place.</p>
+      </div>
+
+      <div class="leak-block">
+        <p class="leak-number">Fuite 2</p>
+        <h2>Landing pages non optimisées (le "panier percé")</h2>
+        <p>Vous payez pour amener du trafic sur une page qui ne convertit pas.</p>
+        <div class="leak-aside">
+          <ul>
+            <li>Pas de numéro de téléphone visible</li>
+            <li>Formulaire trop long (plus de 3-4 champs)</li>
+            <li>Pas de preuve sociale (avis, logos clients)</li>
+            <li>Le message de la pub ne correspond pas au message de la page</li>
+          </ul>
+        </div>
+        <p class="leak-rule">La règle</p>
+        <p>Avant de dépenser 1€ en pub, vérifiez que votre page de conversion tient debout. Le meilleur ciblage du monde ne compense pas un site qui ne rassure pas — voir la page <a href="/cro">CRO</a>.</p>
+      </div>
+
+      <div class="leak-block">
+        <p class="leak-number">Fuite 3</p>
+        <h2>Pas de mots-clés négatifs (ou pas assez)</h2>
+        <p>Google affiche vos annonces sur des requêtes qui n'ont rien à voir avec votre offre. Vous payez des clics de curieux, de chercheurs d'emploi, de gens qui veulent du gratuit.</p>
+        <div class="leak-aside">
+          <p class="leak-aside-label">Ce que disent les données</p>
+          <ul>
+            <li>Les comptes qui utilisent des négatifs ont un taux de conversion <strong>3x supérieur</strong> aux autres (WordStream, fév. 2026)</li>
+            <li><strong>25% des annonceurs</strong> n'ont ajouté aucun mot-clé négatif à leur compte (WordStream, sur 15 666 comptes)</li>
+            <li>Les négatifs réduisent le budget gaspillé de <strong>25 à 40%</strong> en moyenne (WordStream)</li>
+            <li>Depuis mars 2025, Google permet jusqu'à <strong>10 000 négatifs</strong> par campagne PMAX (100x plus qu'avant)</li>
+          </ul>
+        </div>
+        <p class="leak-rule">Comment détecter</p>
+        <p>Google Ads → Insights et rapports → Termes de recherche, sur les 30 derniers jours. Des requêtes avec "gratuit", "emploi", "avis", "tuto", "comment faire", "pas cher" — c'est du budget qui fuit.</p>
+        <p>La différence entre un ROAS de 2x et un ROAS de 10x se joue souvent là&nbsp;: des listes de négatifs par catégorie (emploi, gratuit, DIY, concurrents, hors-zone), auditées chaque semaine.</p>
+      </div>
+
+      <div class="leak-block">
+        <p class="leak-number">Fuite 4</p>
+        <h2>Performance Max cannibalise votre Search</h2>
+        <p>PMAX est censé optimiser sur tous les canaux Google. En réalité, il chevauche très souvent les campagnes Search existantes.</p>
+        <div class="leak-aside is-warning">
+          <p class="leak-aside-label">Les chiffres clés PMAX en 2026</p>
+          <ul>
+            <li><strong>91,45%</strong> des comptes ont un chevauchement de mots-clés entre Search et PMAX (Optmyzr, 503 comptes)</li>
+            <li>Dans les cas de chevauchement, le <strong>Search surperforme PMAX</strong> presque 2x plus souvent</li>
+            <li>L'adoption de PMAX est passée de 60% à <strong>71%</strong> des annonceurs en un an</li>
+            <li>Les négatifs PMAX ne s'appliquent qu'au Search et au Shopping — <strong>40 à 70%</strong> du budget PMAX (Display, YouTube, Discover) reste incontrôlable</li>
+          </ul>
+        </div>
+        <p>Concrètement, PMAX réattribue des conversions que le Search aurait captées de toute façon — en particulier sur les mots-clés de marque. Le ROAS PMAX a l'air bon, mais c'est un trompe-l'œil.</p>
+        <p class="leak-rule">Comment détecter</p>
+        <p>Depuis novembre 2025, Google a ajouté le reporting par canal dans PMAX&nbsp;: campagne PMAX → Performance par canal. Plus de 40% du budget en Display et Discover signale des impressions financées, pas des conversions.</p>
+        <p class="leak-rule">Ce qu'il faut faire</p>
+        <p>Activer les exclusions de marque dans PMAX (obligatoire depuis fin 2025), ajouter des négatifs au niveau campagne, comparer le ROAS PMAX par canal au ROAS Search pur.</p>
+      </div>
+
+      <div class="leak-block">
+        <p class="leak-number">Fuite 5</p>
+        <h2>Mono-canal (Google seul ou Meta seul)</h2>
+        <p>Si tout le budget est sur Google, la hausse des CPC (autour de +27% en un an en e-commerce) se subit sans plan B.</p>
+        <div class="leak-aside">
+          <p class="leak-aside-label">Pourquoi le multi-leviers change tout</p>
+          <ul>
+            <li><strong>Google Ads</strong> = intention (le prospect cherche activement) → fort taux de conversion, CPC élevé</li>
+            <li><strong>Meta Ads</strong> = découverte (le prospect scrolle) → CPC plus bas, conversion plus longue</li>
+            <li><strong>Bing Ads</strong> = 10 à 15% de trafic additionnel, souvent à CPC nettement moins cher que Google</li>
+            <li><strong>Pinterest Ads</strong> = inspiration (mode, déco, food) → trafic qualifié ultra-niché</li>
+          </ul>
+        </div>
+        <p class="leak-rule">Le piège de l'attribution</p>
+        <p>Un prospect voit une pub Meta → il tape le nom de la marque sur Google → il convertit via Google Ads. Couper Meta fait baisser les conversions Google quelques semaines plus tard. Les deux canaux se nourrissent mutuellement — voir les pages <a href="/sea">SEA</a> et <a href="/sma">SMA</a>.</p>
+      </div>
+
+      <div class="leak-block">
+        <p class="leak-number">Fuite 6</p>
+        <h2>Audiences mal configurées dans Performance Max</h2>
+        <p>Les "signaux d'audience" dans PMAX sont censés guider l'algorithme vers les meilleurs clients. La plupart des annonceurs laissent cette section vide.</p>
+        <p>Sans signaux précis, Google tâtonne pendant 2 à 4 semaines au lieu de cibler les bons profils — du budget d'apprentissage qui pourrait être largement réduit.</p>
+        <p class="leak-rule">Ce qu'il faut faire</p>
+        <p>Uploader la liste clients (Customer Match, le signal le plus puissant), ajouter des audiences d'intention personnalisées, exclure les audiences à faible ROAS, éviter de dupliquer les groupes d'assets (les performances convergent vers la même moyenne).</p>
+      </div>
+
+      <div class="leak-block">
+        <p class="leak-number">Fuite 7</p>
+        <h2>Pilotage au ROAS global au lieu du ROAS par segment</h2>
+        <p>Un ROAS global à 4x rassure. Mais derrière ce chiffre unique se cachent souvent des écarts énormes&nbsp;: les best-sellers qui font x10, des produits qui font x0,5, du retargeting sur clients existants qui gonfle la moyenne, et des nouveaux clients qui coûtent 3x plus cher que ce qu'on croit.</p>
+        <p class="leak-rule">Comment détecter</p>
+        <p>Segmenter le reporting par&nbsp;: nouveaux clients vs existants, catégories de produits, zones géographiques, types de campagnes.</p>
+        <div class="leak-aside">
+          <p class="leak-aside-label">La règle d'or</p>
+          <p>Piloter par la marge, pas par le ROAS global. Un ROAS de 3x sur un produit à 60% de marge est meilleur qu'un ROAS de 5x sur un produit à 10% de marge. Sans ce calcul, l'optimisation vise le mauvais objectif.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section-alt" id="diagnostic">
+    <div class="container sub-article-inner">
+      <p class="guide-benefits-title section-title-tight">Faites votre auto-diagnostic</p>
+      <p class="sub-hook section-hook-spaced">10 questions, 2 minutes, un verdict clair. Répondez Oui ou Non à chaque ligne.</p>
+
+      <div class="audit-quiz" id="auditQuiz">
+        <div data-quiz-list></div>
+        <button type="button" class="btn btn-primary audit-quiz-submit" data-quiz-submit disabled>Voir mon résultat</button>
+        <p class="audit-quiz-hint" data-quiz-hint></p>
+      </div>
+
+      <div class="audit-result" id="auditResult"></div>
+    </div>
+  </section>
+
+  <section class="section" id="prompts">
+    <div class="container sub-article-inner">
+      <p class="guide-benefits-title section-title-tight">Utilisez ces 3 prompts Claude pour diagnostiquer vos Ads vous-même</p>
+      <p class="sub-hook section-hook-spaced">Copiez-collez ces prompts dans <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a> avec vos propres données. Gratuit, pas besoin d'abonnement payant.</p>
+
+      <div class="prompt-card">
+        <p class="prompt-card-title">Prompt 1 — Trouver vos mots-clés parasites</p>
+        <p class="prompt-card-when"><strong>Quand l'utiliser&nbsp;:</strong> pour savoir combien de votre budget part en requêtes inutiles.</p>
+        <ol class="prompt-card-steps">
+          <li>Google Ads → Insights et rapports → Termes de recherche</li>
+          <li>Sélectionnez les 30 derniers jours</li>
+          <li>Exportez en CSV</li>
+          <li>Collez le CSV dans Claude avec le prompt ci-dessous</li>
+        </ol>
+        <div class="prompt-block-wrap">
+          <button type="button" class="prompt-copy-btn" data-copy-prompt="prompt1">Copier</button>
+          <pre class="prompt-block" id="prompt1">Je vais te donner la liste de mes termes de recherche Google Ads des 30 derniers jours.
+
+Analyse-les et identifie :
+1. Les termes qui n'ont aucun rapport avec mon activité (requêtes parasites)
+2. Les termes avec "gratuit", "emploi", "avis", "tuto", "comment", "pas cher" ou similaire
+3. Les termes qui ont généré des clics mais 0 conversion
+4. Les termes de marque (mon nom) qui gonflent artificiellement mon ROAS
+
+Pour chaque catégorie, donne-moi :
+- La liste des termes à ajouter en négatifs
+- Une estimation du budget que je pourrais économiser
+- Un classement par impact (les plus coûteux d'abord)
+
+Mon activité : [DÉCRIVEZ VOTRE ACTIVITÉ EN 2 LIGNES]
+Mon budget mensuel Google Ads : [MONTANT]
+
+Voici mes termes de recherche :
+[COLLEZ VOTRE EXPORT CSV ICI]</pre>
+        </div>
+        <p class="prompt-card-result">Résultat attendu&nbsp;: une liste de mots-clés négatifs à ajouter immédiatement, classée par impact budgétaire. Les comptes qui utilisent des négatifs convertissent 3x mieux (WordStream, 2026).</p>
+      </div>
+
+      <div class="prompt-card">
+        <p class="prompt-card-title">Prompt 2 — Détecter la cannibalisation PMAX / Search</p>
+        <p class="prompt-card-when"><strong>Quand l'utiliser&nbsp;:</strong> si vous avez des campagnes Search ET Performance Max en parallèle et voulez savoir si PMAX vole des conversions au Search.</p>
+        <ol class="prompt-card-steps">
+          <li>Exportez les données de vos campagnes Search (impressions, clics, coût, conversions, ROAS)</li>
+          <li>PMAX → Performance par canal → exportez</li>
+          <li>Collez les deux dans Claude</li>
+        </ol>
+        <div class="prompt-block-wrap">
+          <button type="button" class="prompt-copy-btn" data-copy-prompt="prompt2">Copier</button>
+          <pre class="prompt-block" id="prompt2">Je gère des campagnes Google Ads avec du Search ET du Performance Max.
+
+Voici les données de mes campagnes Search :
+[COLLEZ VOS DONNÉES SEARCH]
+
+Voici les données de mon Performance Max par canal :
+[COLLEZ VOS DONNÉES PMAX PAR CANAL : Search, Shopping, Display, YouTube, Discover]
+
+Analyse et dis-moi :
+1. Quel % du budget PMAX part en Display/Discover (potentiellement gaspillé)
+2. Y a-t-il un chevauchement entre les requêtes Search et PMAX Search
+3. Est-ce que PMAX "vole" des conversions au Search (cannibalisation)
+4. Quelle serait la meilleure répartition de budget pour mon cas
+5. Les 3 actions correctives prioritaires
+
+Mon secteur : [VOTRE SECTEUR]
+Mon budget total : [MONTANT]</pre>
+        </div>
+        <p class="prompt-card-result">Pourquoi c'est important&nbsp;: 91% des comptes ont un chevauchement PMAX/Search, et le Search surperforme PMAX presque 2x plus souvent dans ces cas (Optmyzr, 2025).</p>
+      </div>
+
+      <div class="prompt-card">
+        <p class="prompt-card-title">Prompt 3 — Construire votre stratégie multi-leviers</p>
+        <p class="prompt-card-when"><strong>Quand l'utiliser&nbsp;:</strong> pour savoir si diversifier vos canaux a du sens et comment répartir votre budget.</p>
+        <div class="prompt-block-wrap">
+          <button type="button" class="prompt-copy-btn" data-copy-prompt="prompt3">Copier</button>
+          <pre class="prompt-block" id="prompt3">Je dépense actuellement [MONTANT]€/mois en publicité en ligne.
+
+Actuellement je suis sur : [Google Ads seul / Meta Ads seul / les deux / autre]
+
+Mon activité : [DÉCRIVEZ EN 3 LIGNES]
+Mon panier moyen : [MONTANT]€
+Ma marge brute : [POURCENTAGE]%
+Mon objectif : [ventes en ligne / leads / trafic en magasin]
+Mon secteur : [e-commerce / services B2B / professions libérales / rénovation / autre]
+
+En te basant sur des benchmarks Google Ads récents (CPC moyen tous secteurs autour de 4,50€, CPC e-commerce autour de 3,70€, ROAS médian e-commerce autour de 3,5x) :
+
+Recommande-moi :
+1. La répartition idéale de mon budget entre Google, Meta, et éventuellement Bing/Pinterest
+2. Les types de campagnes à lancer sur chaque canal
+3. Le ROAS/CPA que je devrais attendre par canal selon mon secteur
+4. Un plan de test sur 3 mois
+5. Les 3 premières actions à faire cette semaine</pre>
+        </div>
+        <p class="prompt-card-result">Résultat attendu&nbsp;: un plan multi-leviers personnalisé avec répartition budgétaire, objectifs par canal et calendrier d'actions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container sub-article-inner">
+      <div class="sub-faq">
+        <h2>FAQ</h2>
+        <details>
+          <summary>Ce guide est-il vraiment gratuit ?</summary>
+          <p>Oui, entièrement. L'article, l'auto-diagnostic et les 3 prompts sont accessibles directement sur cette page, sans email ni inscription.</p>
+        </details>
+        <details>
+          <summary>Faut-il un abonnement Claude payant pour utiliser ces prompts ?</summary>
+          <p>Non. Un compte Claude gratuit suffit pour coller vos exports et obtenir une analyse.</p>
+        </details>
+      </div>
+
+      <div class="sub-cta">
+        <h3>Envie qu'un œil externe passe votre compte au crible ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Demander un audit Ads</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/sea">SEA</a>, la page <a href="/sma">SMA</a>, et la page <a href="/cro">CRO</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/sea">SEA →</a>
+      <a href="/sma">SMA →</a>
+      <a href="/cro">CRO →</a>
+      <a href="/analytics">Analytics →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Growth Marketing basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script src="audit-budget-ads.js" defer></script>
+</body>
+</html>
