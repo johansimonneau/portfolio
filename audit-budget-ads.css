@@ -1,0 +1,423 @@
+/* ==========================================================================
+   Johan Simonneau — Portfolio
+   audit-budget-ads.css — page ressource "Arrêtez de perdre de l'argent en
+   Google Ads et Meta Ads" (article + auto-diagnostic + prompts Claude).
+   S'appuie sur guide-hero (guide.css) et les variables de style.css /
+   subpage.css. Charger APRÈS style.css, subpage.css et guide.css.
+   ========================================================================== */
+
+.section-title-tight {
+  margin-bottom: 4px;
+}
+
+.section-hook-spaced {
+  margin-bottom: 28px;
+}
+
+/* ---------- Article : les 7 fuites ---------- */
+
+.leak-intro {
+  background: var(--color-navy);
+  border-radius: var(--radius);
+  padding: 24px 26px;
+  margin: 0 0 40px;
+  color: #fff;
+}
+
+.leak-intro-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-mint);
+  margin-bottom: 10px;
+}
+
+.leak-intro p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+.leak-intro strong {
+  color: #fff;
+}
+
+.leak-block {
+  padding-block: 28px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.leak-block:first-of-type {
+  padding-top: 0;
+}
+
+.leak-block:last-of-type {
+  border-bottom: none;
+}
+
+.leak-number {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-navy);
+  margin-bottom: 8px;
+}
+
+.leak-block h2 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: clamp(20px, 3vw, 26px);
+  margin-bottom: 14px;
+}
+
+.leak-block p {
+  margin-bottom: 14px;
+}
+
+.leak-aside {
+  background: var(--color-bg-alt);
+  border-left: 3px solid var(--color-mint);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+
+.leak-aside.is-warning {
+  border-left-color: #d97706;
+}
+
+.leak-aside-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-navy-deep);
+  margin-bottom: 10px;
+}
+
+.leak-aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.leak-aside li {
+  font-size: 14.5px;
+  color: var(--color-ink-soft);
+  padding: 5px 0;
+}
+
+.leak-aside p {
+  font-size: 14.5px;
+  margin-bottom: 0;
+}
+
+.leak-rule {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-ink);
+  margin-bottom: 4px;
+}
+
+/* ---------- Auto-diagnostic ---------- */
+
+.audit-quiz {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: clamp(20px, 4vw, 32px);
+}
+
+.audit-quiz-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.audit-quiz-item:last-child {
+  border-bottom: none;
+}
+
+.audit-quiz-question {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.audit-quiz-toggle {
+  display: flex;
+  flex-shrink: 0;
+  gap: 6px;
+}
+
+.audit-quiz-toggle button {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-ink-soft);
+  background: var(--color-bg);
+  transition: border-color var(--transition), background var(--transition), color var(--transition);
+}
+
+.audit-quiz-toggle button:hover {
+  border-color: var(--color-navy);
+}
+
+.audit-quiz-toggle button.is-selected[data-value="oui"] {
+  border-color: #b91c1c;
+  background: #b91c1c;
+  color: #fff;
+}
+
+.audit-quiz-toggle button.is-selected[data-value="non"] {
+  border-color: var(--color-navy);
+  background: var(--color-navy);
+  color: #fff;
+}
+
+.audit-quiz-submit {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.audit-quiz-hint {
+  text-align: center;
+  font-size: 13px;
+  color: var(--color-ink-faint);
+  margin-top: 10px;
+}
+
+.audit-result {
+  display: none;
+  border-radius: var(--radius);
+  padding: clamp(24px, 5vw, 36px);
+  text-align: center;
+  border: 1.5px solid var(--color-border);
+}
+
+.audit-result.is-visible {
+  display: block;
+}
+
+.audit-result-score {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: clamp(40px, 8vw, 56px);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.audit-result-score-label {
+  font-size: 13px;
+  color: var(--color-ink-faint);
+  margin-bottom: 20px;
+}
+
+.audit-result-band {
+  display: inline-flex;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 999px;
+  padding: 6px 16px;
+  margin-bottom: 16px;
+}
+
+.audit-result[data-band="ok"] .audit-result-score,
+.audit-result[data-band="ok"] .audit-result-band { color: #15803d; }
+.audit-result[data-band="ok"] .audit-result-band { background: rgba(21, 128, 61, 0.1); }
+
+.audit-result[data-band="fuites"] .audit-result-score,
+.audit-result[data-band="fuites"] .audit-result-band { color: #b45309; }
+.audit-result[data-band="fuites"] .audit-result-band { background: rgba(180, 83, 9, 0.1); }
+
+.audit-result[data-band="serieux"] .audit-result-score,
+.audit-result[data-band="serieux"] .audit-result-band { color: #b91c1c; }
+.audit-result[data-band="serieux"] .audit-result-band { background: rgba(185, 28, 28, 0.1); }
+
+.audit-result[data-band="urgent"] .audit-result-score,
+.audit-result[data-band="urgent"] .audit-result-band { color: #7f1d1d; }
+.audit-result[data-band="urgent"] .audit-result-band { background: rgba(127, 29, 29, 0.14); }
+
+.audit-result-verdict {
+  max-width: 46ch;
+  margin-inline: auto;
+  margin-bottom: 12px;
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+.audit-result-detail {
+  max-width: 50ch;
+  margin-inline: auto;
+  margin-bottom: 24px;
+  color: var(--color-ink-soft);
+  font-size: 14.5px;
+}
+
+.audit-result-actions {
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.audit-restart {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-ink-faint);
+}
+
+.audit-restart:hover {
+  color: var(--color-navy);
+}
+
+/* ---------- Prompts Claude ---------- */
+
+.prompt-card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: clamp(20px, 4vw, 28px);
+  margin-bottom: 24px;
+}
+
+.prompt-card-title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.prompt-card-when {
+  font-size: 14px;
+  color: var(--color-ink-soft);
+  margin-bottom: 14px;
+}
+
+.prompt-card-when strong {
+  color: var(--color-ink);
+}
+
+.prompt-card-steps {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+  margin: 0 0 16px;
+}
+
+.prompt-card-steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: var(--color-ink-soft);
+}
+
+.prompt-card-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--color-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.prompt-block-wrap {
+  position: relative;
+}
+
+.prompt-block {
+  background: #1f1f1f;
+  color: #f4f4f2;
+  border-radius: 12px;
+  padding: 52px 20px 18px;
+  font-family: "Inter", monospace;
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  margin: 0;
+}
+
+.prompt-copy-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  color: #f4f4f2;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 6px 14px;
+  transition: background var(--transition);
+}
+
+.prompt-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.prompt-copy-btn.is-copied {
+  background: var(--color-mint);
+  color: #0a1a4d;
+  border-color: var(--color-mint);
+}
+
+.prompt-card-result {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: var(--color-bg-alt);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--color-ink-soft);
+}
+
+@media (max-width: 599px) {
+  .audit-quiz-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .audit-quiz-toggle {
+    width: 100%;
+  }
+
+  .audit-quiz-toggle button {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .audit-quiz-toggle button,
+  .prompt-copy-btn {
+    transition: none;
+  }
+}
