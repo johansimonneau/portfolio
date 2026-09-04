@@ -628,6 +628,78 @@ button {
   }
 }
 
+/* ---------- 3bis. Bandeau promo (page d'accueil) ---------- */
+
+.promo-banner {
+  background: var(--color-navy);
+  color: #fff;
+}
+
+.promo-banner-inner {
+  width: 100%;
+  max-width: var(--container-width);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 11px 44px 11px 16px;
+  position: relative;
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+.promo-banner strong {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+
+.promo-banner-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+.promo-banner-cta:hover {
+  color: var(--color-mint);
+}
+
+.promo-banner-close {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background var(--transition), color var(--transition);
+}
+
+.promo-banner-close:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+}
+
+.promo-banner-close svg {
+  width: 14px;
+  height: 14px;
+}
+
 /* ---------- 4. Hero ---------- */
 
 .hero {

@@ -31,6 +31,48 @@
     });
   }
 
+  /* ---------- Bandeau promo (page d'accueil uniquement) ---------- */
+
+  var isHome = window.location.pathname === "/" || window.location.pathname === "/index.html";
+  var siteHeader = document.querySelector(".site-header");
+
+  if (isHome && siteHeader) {
+    var BANNER_STORAGE_KEY = "promo_banner_guide_claude_seo";
+    var alreadyDismissed = false;
+    try {
+      alreadyDismissed = localStorage.getItem(BANNER_STORAGE_KEY) === "dismissed";
+    } catch (e) {
+      // localStorage indisponible : le bandeau s'affichera à chaque visite.
+    }
+
+    if (!alreadyDismissed) {
+      var banner = document.createElement("div");
+      banner.className = "promo-banner";
+      banner.id = "promoBanner";
+      banner.setAttribute("role", "region");
+      banner.setAttribute("aria-label", "Guide gratuit");
+      banner.innerHTML =
+        '<div class="promo-banner-inner">' +
+        '<span><strong>Nouveau —</strong> le guide gratuit « 20 prompts Claude pour structurer votre SEO ».</span>' +
+        '<a href="/guide-prompts-claude-seo" class="promo-banner-cta">Voir le guide →</a>' +
+        '<button type="button" class="promo-banner-close" id="promoBannerClose" aria-label="Fermer ce message">' +
+        '<svg viewBox="0 0 14 14" fill="none"><path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>' +
+        "</button>" +
+        "</div>";
+
+      siteHeader.parentNode.insertBefore(banner, siteHeader);
+
+      document.getElementById("promoBannerClose").addEventListener("click", function () {
+        banner.remove();
+        try {
+          localStorage.setItem(BANNER_STORAGE_KEY, "dismissed");
+        } catch (e) {
+          /* pas de stockage possible, le bandeau réapparaîtra à la prochaine visite */
+        }
+      });
+    }
+  }
+
   /* ---------- Animation d'entrée du titre hero ---------- */
 
   var heroTitle = document.querySelector(".hero-title");
