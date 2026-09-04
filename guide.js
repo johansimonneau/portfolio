@@ -1,9 +1,11 @@
 /* ==========================================================================
    Johan Simonneau — Portfolio
    guide.js — formulaire de la page ressource "20 prompts Claude pour le
-   SEO". Aucun backend : les coordonnées sont transmises via un lien mailto
-   pré-rempli (même mécanisme que le reste du site), puis le lien de
-   téléchargement du PDF est révélé.
+   SEO". Aucun backend propre : les coordonnées sont envoyées via l'API
+   AJAX gratuite FormSubmit (https://formsubmit.co), qui relaie directement
+   un email à johansimonneau.pro@gmail.com sans dépendre du client mail du
+   visiteur. Le lien de téléchargement du PDF est révélé une fois l'envoi
+   confirmé.
    ========================================================================== */
 
 (function () {
@@ -12,13 +14,17 @@
   var form = document.getElementById("guideForm");
   if (!form) return;
 
+  var FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/johansimonneau.pro@gmail.com";
+
   var prenomInput = document.getElementById("guidePrenom");
   var nomInput = document.getElementById("guideNom");
   var emailInput = document.getElementById("guideEmail");
+  var honeyInput = document.getElementById("guideHoney");
   var submitBtn = document.getElementById("guideSubmit");
   var errorEl = document.getElementById("guideError");
   var successEl = document.getElementById("guideSuccess");
 
+  var SUBMIT_LABEL_DEFAULT = submitBtn.textContent;
   var EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   function showError(message) {
@@ -31,6 +37,11 @@
     errorEl.textContent = "";
     prenomInput.classList.remove("has-error");
     emailInput.classList.remove("has-error");
+  }
+
+  function setLoading(isLoading) {
+    submitBtn.disabled = isLoading;
+    submitBtn.textContent = isLoading ? "Envoi en cours…" : SUBMIT_LABEL_DEFAULT;
   }
 
   submitBtn.addEventListener("click", function () {
@@ -54,23 +65,44 @@
       return;
     }
 
-    var bodyLines = [
-      "Prénom : " + prenom,
-      "Nom : " + nom,
-      "Email : " + email,
-      "",
-      "A demandé le guide \"20 prompts Claude pour structurer votre SEO\".",
-      "URL de la demande : " + window.location.href
-    ].join("\n");
+    if (honeyInput && honeyInput.value) {
+      // Piège anti-spam rempli par un bot : on fait semblant que ça a marché.
+      form.hidden = true;
+      successEl.hidden = false;
+      return;
+    }
 
-    var mailtoLink =
-      "mailto:johansimonneau.pro@gmail.com?subject=" +
-      encodeURIComponent("Téléchargement du guide Claude SEO") +
-      "&body=" + encodeURIComponent(bodyLines);
+    setLoading(true);
 
-    window.location.href = mailtoLink;
-
-    form.hidden = true;
-    successEl.hidden = false;
+    fetch(FORMSUBMIT_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        Prénom: prenom,
+        Nom: nom,
+        Email: email,
+        Demande: "Téléchargement du guide \"20 prompts Claude pour structurer votre SEO\"",
+        "Page": window.location.href,
+        _subject: "Téléchargement du guide Claude SEO",
+        _captcha: "false",
+        _template: "table"
+      })
+    })
+      .then(function (response) {
+        if (!response.ok) throw new Error("network");
+        return response.json();
+      })
+      .then(function () {
+        setLoading(false);
+        form.hidden = true;
+        successEl.hidden = false;
+      })
+      .catch(function () {
+        setLoading(false);
+        showError("L'envoi a échoué. Réessayez, ou écrivez-moi directement à johansimonneau.pro@gmail.com.");
+      });
   });
 })();

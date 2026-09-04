@@ -249,6 +249,15 @@
   margin-bottom: 14px;
 }
 
+.guide-honey {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 .guide-field label {
   display: block;
   font-family: "Poppins", sans-serif;
