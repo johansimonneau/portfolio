@@ -9,6 +9,19 @@
 (function () {
   "use strict";
 
+  // ---------- Barres des benchmarks ----------
+  document.querySelectorAll("[data-bar-chart]").forEach(function (chart) {
+    var max = parseFloat(chart.getAttribute("data-bar-max")) || 100;
+    chart.querySelectorAll("[data-bar-value]").forEach(function (row) {
+      var value = parseFloat(row.getAttribute("data-bar-value"));
+      var fill = row.querySelector(".bm-bar-fill");
+      if (fill && !isNaN(value)) {
+        var percent = Math.min(100, Math.round((value / max) * 100));
+        fill.style.width = percent + "%";
+      }
+    });
+  });
+
   var quiz = document.getElementById("auditQuiz");
   if (quiz) {
     var QUESTIONS = [
