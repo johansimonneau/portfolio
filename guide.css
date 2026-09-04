@@ -1,0 +1,184 @@
+/* ==========================================================================
+   Johan Simonneau — Portfolio
+   guide.css — page ressource "20 prompts Claude pour le SEO" (lead magnet).
+   Charge après style.css et subpage.css, uniquement sur cette page.
+   ========================================================================== */
+
+.guide-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .guide-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.guide-cover {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  margin-bottom: 28px;
+  box-shadow: 0 24px 48px rgba(31, 31, 31, 0.08);
+}
+
+.guide-benefits-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+}
+
+.guide-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 8px;
+}
+
+.guide-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.98rem;
+  color: var(--color-ink-soft);
+}
+
+.guide-benefits li:last-child {
+  border-bottom: none;
+}
+
+.guide-benefits .icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(26, 73, 238, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+.guide-benefits .icon svg {
+  width: 12px;
+  height: 12px;
+}
+
+.guide-form-card {
+  position: sticky;
+  top: 96px;
+  background: #fff;
+  border: 1.5px solid var(--color-border);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: 0 24px 48px rgba(31, 31, 31, 0.06);
+}
+
+.guide-form-card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 6px;
+}
+
+.guide-form-card .guide-form-sub {
+  font-size: 0.92rem;
+  color: var(--color-ink-soft);
+  margin-bottom: 22px;
+}
+
+.guide-field {
+  margin-bottom: 14px;
+}
+
+.guide-field label {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 0.82rem;
+  margin-bottom: 6px;
+}
+
+.guide-field input {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 10px;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  background: var(--color-bg-alt);
+  transition: border-color 160ms ease;
+}
+
+.guide-field input:focus {
+  outline: none;
+  border-color: var(--color-navy);
+  background: #fff;
+}
+
+.guide-field input.has-error {
+  border-color: #b91c1c;
+}
+
+.guide-form button[type="button"] {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.guide-error {
+  color: #b91c1c;
+  font-size: 0.85rem;
+  margin-top: 10px;
+}
+
+.guide-privacy {
+  font-size: 0.78rem;
+  color: var(--color-ink-faint);
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+.guide-privacy a {
+  color: var(--color-ink-faint);
+  text-decoration: underline;
+}
+
+.guide-success {
+  text-align: center;
+}
+
+.guide-success .icon-check {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(76, 230, 185, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.guide-success h2 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.guide-success p {
+  font-size: 0.92rem;
+  color: var(--color-ink-soft);
+  margin-bottom: 20px;
+}
+
+.guide-success .btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
