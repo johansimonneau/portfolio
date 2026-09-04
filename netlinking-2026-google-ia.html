@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netlinking en 2026 : ce qui compte encore pour Google et pour les IA | Blog — Johan Simonneau</title>
+<meta name="description" content="Le netlinking a beaucoup changé depuis les années de l'achat de liens massif. Ce qui reste efficace pour Google, et ce qui commence à compter pour les IA génératives.">
+
+<link rel="canonical" href="https://johansimonneau.fr/netlinking-2026-google-ia">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Netlinking en 2026 : ce qui compte encore pour Google et pour les IA">
+<meta property="og:description" content="Le netlinking a beaucoup changé depuis les années de l'achat de liens massif. Ce qui reste efficace pour Google, et ce qui commence à compter pour les IA génératives.">
+<meta property="og:url" content="https://johansimonneau.fr/netlinking-2026-google-ia">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-netlinking-2026-google-ia-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-netlinking-2026-google-ia-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Netlinking en 2026 : ce qui compte encore pour Google et pour les IA",
+      "image": "https://johansimonneau.fr/assets/img/blog-netlinking-2026-google-ia-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-10-17",
+      "dateModified": "2026-10-17",
+      "description": "Le netlinking a beaucoup changé depuis les années de l'achat de liens massif. Ce qui reste efficace pour Google, et ce qui commence à compter pour les IA génératives.",
+      "mainEntityOfPage": "https://johansimonneau.fr/netlinking-2026-google-ia"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Acheter des liens est-il toujours risqué en 2026 ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, l'achat de liens en masse reste une pratique risquée qui peut entraîner une pénalité algorithmique ou manuelle. Les relations presse et le contenu qui génère des liens naturels restent des approches plus sûres et plus durables."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de liens faut-il pour améliorer son positionnement ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'y a pas de nombre magique : la pertinence et le contexte comptent plus que le volume. Quelques liens de qualité, thématiquement pertinents, valent mieux que des dizaines de liens génériques."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les mentions de marque sans lien ont-elles un vrai impact SEO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les signaux semblent aller dans ce sens, en particulier pour les IA génératives qui associent la fréquence des mentions à la notoriété d'une source. L'impact reste toutefois moins direct et moins mesurable qu'un lien classique."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Netlinking</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Netlinking en 2026 : ce qui compte encore pour Google et pour les IA</h1>
+      <p class="sub-hook">Le netlinking reste l'un des sujets SEO les plus mal compris&nbsp;: entre les pratiques d'achat de liens massif d'il y a dix ans et le netlinking d'aujourd'hui, presque rien n'est comparable. Voici ce qui compte réellement, pour Google comme pour les IA génératives qui commencent à s'appuyer sur des signaux proches.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>17 octobre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-netlinking-2026-google-ia-hero.png" alt="Illustration d'une recherche mettant en avant un encart sur le netlinking, au-dessus de résultats secondaires grisés" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Dans les audits <a href="/seo">SEO</a> que je mène, le netlinking reste souvent la partie la plus mal comprise par les clients&nbsp;: certains pensent encore qu'acheter 50 liens sur des annuaires suffit à faire remonter un site, d'autres ont abandonné l'idée même de netlinking après un échec passé. Les deux postures ratent ce qui compte réellement aujourd'hui.</p>
+
+<h2>Ce qui ne change pas</h2>
+
+<p>Un lien reste, fondamentalement, un vote de confiance d'un site vers un autre&nbsp;— c'est le principe qui fonde l'algorithme de Google depuis toujours. Le <a href="/donnees-structurees">balisage structuré</a> ne remplace pas ce signal, il le complète en clarifiant le contenu autour duquel les liens s'organisent. Un lien depuis un site sans aucun rapport thématique avec le vôtre continue de valoir peu, voire de faire courir un risque si le profil de liens semble artificiel.</p>
+
+<h2>Ce qui change vraiment</h2>
+
+<ul class="sub-points">
+  <li><strong>Le contexte éditorial pèse plus que le simple fait d'avoir un lien.</strong> Un lien intégré naturellement dans un article pertinent, avec une ancre descriptive, vaut nettement plus qu'un lien isolé dans un pied de page ou une liste de partenaires sans contexte.</li>
+  <li><strong>La mention de marque sans lien devient un signal reconnu.</strong> Google et les IA génératives semblent de plus en plus capables d'associer une mention de marque non liée à un signal de notoriété&nbsp;— être cité, même sans lien cliquable, contribue à la perception de légitimité.</li>
+  <li><strong>La diversité prime sur le volume.</strong> Un profil de 20 liens provenant de 20 domaines différents, thématiquement variés mais pertinents, est plus sain qu'un profil de 100 liens provenant de 5 réseaux de sites liés entre eux.</li>
+  <li><strong>Les IA génératives semblent privilégier des sources jugées faisant autorité</strong>, un statut qui se construit en partie par les mêmes signaux que le netlinking classique&nbsp;: être cité par d'autres sources reconnues du secteur renforce la probabilité d'être soi-même repris.</li>
+</ul>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-netlinking-2026-google-ia-resource.png" alt="Un lien pertinent, en contexte, sur un site thématiquement proche, pèse plus qu'un grand nombre de liens génériques ou achetés." width="900" height="340" loading="lazy">
+  <figcaption>Un lien pertinent, en contexte, sur un site thématiquement proche, pèse plus qu'un grand nombre de liens génériques ou achetés.</figcaption>
+</figure>
+
+<h2>Un exemple qui illustre bien la différence</h2>
+
+<p>Sur un site que j'accompagne, une seule mention dans un article de presse spécialisée du secteur — avec un lien contextuel vers une page produit précise — a eu plus d'impact sur le positionnement de cette page que les 30 liens d'annuaires génériques accumulés les années précédentes. Le trafic de référence généré était minime, mais l'effet sur le classement organique, mesuré sur les semaines suivantes, était net.</p>
+
+<h2>Ce qu'il faut faire concrètement</h2>
+
+<ul class="sub-points">
+  <li><strong>Priorisez les relations presse et les mentions expertes</strong> (interviews, citations dans des articles sectoriels) plutôt que l'achat de liens génériques&nbsp;— l'effort est plus long mais le signal est plus robuste et plus durable.</li>
+  <li><strong>Auditez votre profil de liens existant</strong> pour identifier et désavouer les liens clairement toxiques (réseaux privés de blogs, annuaires sans valeur) qui pourraient nuire plus qu'aider.</li>
+  <li><strong>Créez du contenu qui donne une vraie raison de citer votre site</strong> (données originales, étude de cas chiffrée) plutôt que du contenu générique qui ne motive aucun lien naturel.</li>
+  <li><strong>Surveillez les mentions de marque non liées</strong> via une alerte simple, et proposez poliment l'ajout d'un lien quand c'est pertinent — beaucoup de sites acceptent volontiers.</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Acheter des liens est-il toujours risqué en 2026 ?</summary>
+    <p>Oui, l'achat de liens en masse reste une pratique risquée qui peut entraîner une pénalité algorithmique ou manuelle. Les relations presse et le contenu qui génère des liens naturels restent des approches plus sûres et plus durables.</p>
+  </details>
+  <details>
+    <summary>Combien de liens faut-il pour améliorer son positionnement ?</summary>
+    <p>Il n'y a pas de nombre magique : la pertinence et le contexte comptent plus que le volume. Quelques liens de qualité, thématiquement pertinents, valent mieux que des dizaines de liens génériques.</p>
+  </details>
+  <details>
+    <summary>Les mentions de marque sans lien ont-elles un vrai impact SEO ?</summary>
+    <p>Les signaux semblent aller dans ce sens, en particulier pour les IA génératives qui associent la fréquence des mentions à la notoriété d'une source. L'impact reste toutefois moins direct et moins mesurable qu'un lien classique.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de construire une stratégie de netlinking pertinente ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre stratégie SEO</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/seo">SEO</a>, la page <a href="/donnees-structurees">Données structurées</a>, et la page <a href="/geo">GEO</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/seo">SEO →</a>
+      <a href="/donnees-structurees">Données structurées →</a>
+      <a href="/geo">GEO →</a>
+      <a href="/audit-visibilite-ia">Audit visibilité IA →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Growth Marketing basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>

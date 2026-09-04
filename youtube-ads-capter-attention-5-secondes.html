@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YouTube Ads : capter l'attention dans les 5 premières secondes | Blog — Johan Simonneau</title>
+<meta name="description" content="Sur YouTube Ads, la majorité des spectateurs décident de rester ou de passer l'annonce en moins de 5 secondes. Ce qui fonctionne réellement pour capter l'attention dès le début.">
+
+<link rel="canonical" href="https://johansimonneau.fr/youtube-ads-capter-attention-5-secondes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YouTube Ads : capter l'attention dans les 5 premières secondes">
+<meta property="og:description" content="Sur YouTube Ads, la majorité des spectateurs décident de rester ou de passer l'annonce en moins de 5 secondes. Ce qui fonctionne réellement pour capter l'attention dès le début.">
+<meta property="og:url" content="https://johansimonneau.fr/youtube-ads-capter-attention-5-secondes">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-youtube-ads-capter-attention-5-secondes-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-youtube-ads-capter-attention-5-secondes-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "YouTube Ads : capter l'attention dans les 5 premières secondes",
+      "image": "https://johansimonneau.fr/assets/img/blog-youtube-ads-capter-attention-5-secondes-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-11-06",
+      "dateModified": "2026-11-06",
+      "description": "Sur YouTube Ads, la majorité des spectateurs décident de rester ou de passer l'annonce en moins de 5 secondes. Ce qui fonctionne réellement pour capter l'attention dès le début.",
+      "mainEntityOfPage": "https://johansimonneau.fr/youtube-ads-capter-attention-5-secondes"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il refaire toute la créa pour l'adapter à YouTube Ads ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas nécessairement. Réorganiser l'ordre des séquences existantes pour avancer le message clé suffit souvent à améliorer significativement la performance, sans nouveau tournage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le format bumper (6 secondes) est-il plus efficace que le format skippable ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ils répondent à des objectifs différents. Le bumper renforce la notoriété avec un message très court et non skippable ; le format skippable permet un message plus développé pour les spectateurs qui restent volontairement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment savoir si une créa capte suffisamment l'attention au début ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le taux de vue à 25 % de la durée totale et le taux de skip avant 5 secondes sont les deux indicateurs les plus révélateurs, disponibles directement dans les rapports Google Ads."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">YouTube Ads</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>YouTube Ads : capter l'attention dans les 5 premières secondes</h1>
+      <p class="sub-hook">Sur une annonce skippable, la décision de rester ou de passer se prend presque instantanément. Une créa qui garde son message principal pour la fin, comme le ferait un spot TV classique, perd la majorité de son audience avant même d'avoir eu l'occasion de le délivrer.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>6 novembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-youtube-ads-capter-attention-5-secondes-hero.png" alt="Mockup illustrant le moment décisif des 5 premières secondes d'une publicité YouTube skippable" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>YouTube Ads récompense une structure créative très différente de celle d'un spot publicitaire télévisé, alors que beaucoup d'annonceurs continuent de recycler leurs créas TV telles quelles. Le problème n'est pas la qualité de production, c'est l'ordre dans lequel l'information est délivrée.</p>
+
+<h2>Ce qui ne change pas</h2>
+
+<p>Le principe reste identique à celui de n'importe quel format publicitaire vidéo&nbsp;: une créa qui ne suscite aucune émotion ni curiosité ne performe pas, quel que soit le placement média. Ce que la logique de <a href="/sma">social media advertising</a> ne change pas non plus, c'est l'importance d'un ciblage cohérent avec le message&nbsp;— une créa parfaite montrée à la mauvaise audience reste inefficace.</p>
+
+<h2>Ce qui change vraiment sur YouTube Ads</h2>
+
+<ul class="sub-points">
+  <li><strong>Le message principal doit apparaître dans les 5 premières secondes</strong>, pas être révélé progressivement. Sur un format skippable, une part importante des spectateurs qui décident de passer l'annonce le font avant la fin de cette fenêtre.</li>
+  <li><strong>La marque doit être visible tôt, pas uniquement à la fin.</strong> Une identification tardive prive l'annonce d'une partie de son effet, même auprès des spectateurs qui passent l'annonce avant la fin.</li>
+  <li><strong>Le son ne peut pas porter tout le message.</strong> Une part significative du trafic mobile visionne sans le son activé au premier instant&nbsp;; le message clé doit rester compréhensible visuellement, via du texte ou une image forte.</li>
+  <li><strong>Le format vertical ou carré n'est plus une option secondaire.</strong> Sur mobile et sur Shorts, une créa pensée uniquement pour le format horizontal perd une partie de son impact, voire de sa lisibilité.</li>
+</ul>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-youtube-ads-capter-attention-5-secondes-resource.png" alt="Sur YouTube Ads, le message principal doit ouvrir la vidéo — l'inverse de la structure narrative d'un spot TV classique." width="900" height="340" loading="lazy">
+  <figcaption>Sur YouTube Ads, le message principal doit ouvrir la vidéo — l'inverse de la structure narrative d'un spot TV classique.</figcaption>
+</figure>
+
+<h2>Un exemple qui illustre bien la différence</h2>
+
+<p>Pour un annonceur qui réutilisait sa créa TV de 30 secondes sur YouTube Ads sans adaptation, restructurer uniquement les 5 premières secondes — en avançant le message clé et le logo, sans retourner le reste de la production — a suffi à faire baisser sensiblement le taux de skip et à améliorer le coût par vue complète, sans nécessiter de nouveau tournage.</p>
+
+<h2>Ce qu'il faut faire concrètement</h2>
+
+<ul class="sub-points">
+  <li><strong>Réordonnez vos créas existantes</strong> avant d'en produire de nouvelles&nbsp;: avancer le message clé dans les 5 premières secondes suffit souvent à améliorer nettement la performance.</li>
+  <li><strong>Ajoutez du texte incrusté sur les moments clés</strong> pour que le message reste compréhensible sans le son.</li>
+  <li><strong>Produisez au minimum une variante verticale</strong> pour les placements mobile et Shorts plutôt qu'un simple recadrage du format horizontal.</li>
+  <li><strong>Testez plusieurs ouvertures de créa</strong> sur le même contenu principal — c'est souvent la variable la plus rentable à tester en premier.</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Faut-il refaire toute la créa pour l'adapter à YouTube Ads ?</summary>
+    <p>Pas nécessairement. Réorganiser l'ordre des séquences existantes pour avancer le message clé suffit souvent à améliorer significativement la performance, sans nouveau tournage.</p>
+  </details>
+  <details>
+    <summary>Le format bumper (6 secondes) est-il plus efficace que le format skippable ?</summary>
+    <p>Ils répondent à des objectifs différents. Le bumper renforce la notoriété avec un message très court et non skippable ; le format skippable permet un message plus développé pour les spectateurs qui restent volontairement.</p>
+  </details>
+  <details>
+    <summary>Comment savoir si une créa capte suffisamment l'attention au début ?</summary>
+    <p>Le taux de vue à 25 % de la durée totale et le taux de skip avant 5 secondes sont les deux indicateurs les plus révélateurs, disponibles directement dans les rapports Google Ads.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'optimiser vos campagnes YouTube Ads ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre stratégie vidéo</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/youtube-ads">YouTube Ads</a>, la page <a href="/sma">SMA</a>, et la page <a href="/cro">CRO</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/youtube-ads">YouTube Ads →</a>
+      <a href="/sma">SMA →</a>
+      <a href="/cro">CRO →</a>
+      <a href="/sea">SEA →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Growth Marketing basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>

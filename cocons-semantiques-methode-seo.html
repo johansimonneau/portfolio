@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cocons sémantiques : la méthode pour structurer un site qui se positionne | Blog — Johan Simonneau</title>
+<meta name="description" content="Un site sans architecture sémantique claire dilue son autorité sur chaque sujet. La méthode des cocons sémantiques, expliquée simplement, avec ses limites.">
+
+<link rel="canonical" href="https://johansimonneau.fr/cocons-semantiques-methode-seo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cocons sémantiques : la méthode pour structurer un site qui se positionne">
+<meta property="og:description" content="Un site sans architecture sémantique claire dilue son autorité sur chaque sujet. La méthode des cocons sémantiques, expliquée simplement, avec ses limites.">
+<meta property="og:url" content="https://johansimonneau.fr/cocons-semantiques-methode-seo">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-cocons-semantiques-methode-seo-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-cocons-semantiques-methode-seo-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Cocons sémantiques : la méthode pour structurer un site qui se positionne",
+      "image": "https://johansimonneau.fr/assets/img/blog-cocons-semantiques-methode-seo-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-10-21",
+      "dateModified": "2026-10-21",
+      "description": "Un site sans architecture sémantique claire dilue son autorité sur chaque sujet. La méthode des cocons sémantiques, expliquée simplement, avec ses limites.",
+      "mainEntityOfPage": "https://johansimonneau.fr/cocons-semantiques-methode-seo"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Un cocon sémantique nécessite-t-il beaucoup de pages ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas nécessairement au démarrage : un cocon peut commencer avec une page pilier et 3 à 4 pages satellites bien choisies, et s'enrichir progressivement plutôt que d'être créé d'un coup."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le maillage interne suffit-il sans netlinking externe ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le maillage interne structure l'autorité déjà présente sur le site, mais ne la crée pas. Le netlinking externe reste nécessaire pour apporter de nouveaux signaux de confiance depuis l'extérieur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment savoir si deux pages se cannibalisent au sein d'un cocon ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vérifiez dans Search Console si les deux pages apparaissent sur les mêmes requêtes avec des positions qui s'alternent dans le temps — c'est souvent le signe d'une cannibalisation à corriger en différenciant mieux leur angle."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Cocons sémantiques</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Cocons sémantiques : la méthode pour structurer un site qui se positionne</h1>
+      <p class="sub-hook">Un site avec 50 pages qui traitent chacune un sujet différent, sans hiérarchie ni maillage logique entre elles, a beaucoup plus de mal à se positionner qu'un site organisé en cocons sémantiques clairs. Ce n'est pas une question de quantité de contenu&nbsp;— c'est une question de structure.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>21 octobre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-cocons-semantiques-methode-seo-hero.png" alt="Illustration comparant des pages isolées sans hiérarchie à un cocon sémantique organisé autour d'une page pilier" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Dans les audits <a href="/seo">SEO</a> que je mène, je trouve régulièrement des sites avec un volume de contenu correct mais un positionnement décevant&nbsp;: le problème n'est pas la quantité, c'est l'absence de structure entre les pages. La méthode des cocons sémantiques, popularisée en France par Laurent Bourrelly, reste une des façons les plus efficaces de corriger ce problème.</p>
+
+<h2>Ce qui ne change pas</h2>
+
+<p>Le principe reste identique depuis que la méthode existe&nbsp;: organiser un site autour de pages piliers larges, elles-mêmes alimentées par des pages satellites plus précises, reliées par un maillage interne cohérent et non aléatoire. Ce n'est pas un algorithme spécifique de Google qui récompense les cocons&nbsp;— c'est une logique de clarté qui aide autant les moteurs que les visiteurs à comprendre la structure du site.</p>
+
+<h2>Ce qui change vraiment dans la mise en pratique</h2>
+
+<ul class="sub-points">
+  <li><strong>Le maillage interne doit rester cohérent avec l'intention de recherche</strong>, pas simplement dense. Lier deux pages parce qu'elles partagent un mot-clé, sans lien logique pour le lecteur, envoie un signal plus faible qu'un lien qui répond à une vraie continuité de lecture.</li>
+  <li><strong>Les pages satellites doivent rester suffisamment différenciées entre elles.</strong> Un piège fréquent&nbsp;: créer plusieurs pages satellites qui traitent en réalité la même intention de recherche sous des angles trop proches, ce qui dilue l'autorité au lieu de la concentrer.</li>
+  <li><strong>La page pilier doit rester la porte d'entrée principale du maillage externe.</strong> Les liens entrants (netlinking, mentions) doivent être orientés en priorité vers la page pilier, qui redistribue ensuite l'autorité vers les pages satellites via le maillage interne.</li>
+  <li><strong>La structure sert aussi la lisibilité pour les IA génératives.</strong> Un site organisé clairement en thèmes facilite l'extraction d'une réponse cohérente par un modèle de langage, qui peut plus facilement identifier quelle page fait référence sur quel sous-sujet.</li>
+</ul>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-cocons-semantiques-methode-seo-resource.png" alt="Le cocon sémantique concentre l'autorité d'un thème sur une page pilier, alimentée par des pages satellites reliées entre elles." width="900" height="300" loading="lazy">
+  <figcaption>Le cocon sémantique concentre l'autorité d'un thème sur une page pilier, alimentée par des pages satellites reliées entre elles.</figcaption>
+</figure>
+
+<h2>Un exemple qui illustre bien la différence</h2>
+
+<p>Sur ce site même, l'organisation en 7 pages piliers (SEA, SMA, SEO, GEO, Mobile Marketing, Analytics, CRO) et 15 sous-pages spécifiques, reliées entre elles par un maillage explicite, suit exactement cette logique&nbsp;: chaque sous-page comme celle-ci renvoie vers sa page pilier de rattachement, et vers les sous-pages connexes qui répondent à des questions proches mais distinctes — plutôt que de créer une page isolée de plus, sans place claire dans la structure globale.</p>
+
+<h2>Ce qu'il faut faire concrètement</h2>
+
+<ul class="sub-points">
+  <li><strong>Cartographiez vos pages existantes par thème</strong> avant de créer du nouveau contenu&nbsp;: identifiez les pages piliers naturelles et les pages satellites qui devraient s'y rattacher.</li>
+  <li><strong>Vérifiez qu'aucune page satellite ne cannibalise sa page pilier</strong> sur la même intention de recherche — chaque page doit répondre à une intention suffisamment distincte.</li>
+  <li><strong>Ajoutez des liens contextuels dans le corps du texte</strong>, pas seulement dans un bloc de liens en bas de page&nbsp;: un lien en contexte, avec une ancre descriptive, a plus de valeur qu'un lien générique.</li>
+  <li><strong>Orientez le netlinking externe vers les pages piliers</strong> en priorité, pour maximiser la redistribution d'autorité vers l'ensemble du cocon.</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Un cocon sémantique nécessite-t-il beaucoup de pages ?</summary>
+    <p>Pas nécessairement au démarrage : un cocon peut commencer avec une page pilier et 3 à 4 pages satellites bien choisies, et s'enrichir progressivement plutôt que d'être créé d'un coup.</p>
+  </details>
+  <details>
+    <summary>Le maillage interne suffit-il sans netlinking externe ?</summary>
+    <p>Le maillage interne structure l'autorité déjà présente sur le site, mais ne la crée pas. Le netlinking externe reste nécessaire pour apporter de nouveaux signaux de confiance depuis l'extérieur.</p>
+  </details>
+  <details>
+    <summary>Comment savoir si deux pages se cannibalisent au sein d'un cocon ?</summary>
+    <p>Vérifiez dans Search Console si les deux pages apparaissent sur les mêmes requêtes avec des positions qui s'alternent dans le temps — c'est souvent le signe d'une cannibalisation à corriger en différenciant mieux leur angle.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de structurer l'architecture SEO de votre site ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre stratégie SEO</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/seo">SEO</a>, la page <a href="/donnees-structurees">Données structurées</a>, et la page <a href="/netlinking-2026-google-ia">Netlinking en 2026</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/seo">SEO →</a>
+      <a href="/donnees-structurees">Données structurées →</a>
+      <a href="/geo">GEO →</a>
+      <a href="/comment-je-travaille">Comment je travaille →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Growth Marketing basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>

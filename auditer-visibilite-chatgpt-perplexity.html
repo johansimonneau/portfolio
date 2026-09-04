@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Auditer sa visibilité dans ChatGPT et Perplexity : la méthode | Blog — Johan Simonneau</title>
+<meta name="description" content="Aucun outil ne mesure directement votre visibilité dans les IA génératives. Voici la méthode manuelle mais fiable pour l'auditer, question par question.">
+
+<link rel="canonical" href="https://johansimonneau.fr/auditer-visibilite-chatgpt-perplexity">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Auditer sa visibilité dans ChatGPT et Perplexity : la méthode">
+<meta property="og:description" content="Aucun outil ne mesure directement votre visibilité dans les IA génératives. Voici la méthode manuelle mais fiable pour l'auditer, question par question.">
+<meta property="og:url" content="https://johansimonneau.fr/auditer-visibilite-chatgpt-perplexity">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-auditer-visibilite-chatgpt-perplexity-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-auditer-visibilite-chatgpt-perplexity-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Auditer sa visibilité dans ChatGPT et Perplexity : la méthode",
+      "image": "https://johansimonneau.fr/assets/img/blog-auditer-visibilite-chatgpt-perplexity-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-09-27",
+      "dateModified": "2026-09-27",
+      "description": "Aucun outil ne mesure directement votre visibilité dans les IA génératives. Voici la méthode manuelle mais fiable pour l'auditer, question par question.",
+      "mainEntityOfPage": "https://johansimonneau.fr/auditer-visibilite-chatgpt-perplexity"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Existe-t-il un outil automatique pour mesurer sa visibilité dans les IA génératives ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Des outils commencent à émerger, mais aucun ne remplace encore une vérification manuelle rigoureuse à ce jour — les résultats automatisés restent partiels et peu fiables pour un audit sérieux."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps prend un audit de visibilité IA complet ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pour une liste de 20 à 30 questions testées sur 3 IA avec répétition, comptez une bonne journée de travail méthodique — c'est plus long qu'un audit SEO classique, faute d'outillage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Un audit de visibilité IA remplace-t-il un audit SEO classique ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, il vient en complément. Les deux partagent une partie de la méthode (partir des questions réelles) mais mesurent des choses différentes."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Audit visibilité IA</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Auditer sa visibilité dans ChatGPT et Perplexity : la méthode</h1>
+      <p class="sub-hook">&laquo;&nbsp;Est-ce que ChatGPT parle de nous&nbsp;?&nbsp;&raquo; revient dans presque toutes mes premières réunions clients depuis un an. La réponse honnête&nbsp;: aucun outil ne le mesure de façon fiable et automatisée à ce jour. Mais on peut l'auditer manuellement, avec méthode&nbsp;— voici comment je procède.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>27 septembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-auditer-visibilite-chatgpt-perplexity-hero.png" alt="Illustration comparant le fait de supposer sa visibilité IA à celui de la vérifier méthodiquement question par question" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Contrairement au SEO classique, il n'existe à ce jour aucun &laquo;&nbsp;Search Console&nbsp;&raquo; officiel pour ChatGPT, Perplexity ou Claude. Aucune plateforme ne vous dit combien de fois votre marque a été citée, sur quelles questions, ni face à quels concurrents. La seule méthode fiable, pour l'instant, reste manuelle&nbsp;— mais elle peut être rigoureuse et reproductible.</p>
+
+<h2>Ce qui ne change pas</h2>
+
+<p>La logique d'audit reste la même que pour un audit SEO classique&nbsp;: partir des questions réelles que se posent vos clients potentiels, pas de mots-clés abstraits. Un <a href="/audit-visibilite-ia">audit de visibilité IA</a> commence toujours par la même question qu'un audit SEO&nbsp;: quelles sont les 20 à 30 questions qu'un prospect poserait avant de vous choisir&nbsp;? Sans cette base, l'audit part dans tous les sens.</p>
+
+<h2>Ce qui change vraiment dans la méthode</h2>
+
+<ul class="sub-points">
+  <li><strong>Il faut interroger plusieurs IA, pas une seule.</strong> ChatGPT, Perplexity et Claude ne s'appuient pas sur les mêmes sources ni les mêmes mécanismes de citation&nbsp;— être cité sur l'un ne garantit rien sur les autres. Un audit sérieux couvre au moins ces trois.</li>
+  <li><strong>La réponse varie d'une session à l'autre.</strong> Contrairement à une position Google relativement stable dans la journée, une même question posée deux fois à quelques minutes d'intervalle peut donner une réponse différente&nbsp;— il faut répéter chaque question plusieurs fois pour dégager une tendance plutôt qu'un instantané.</li>
+  <li><strong>La citation n'est pas binaire.</strong> Entre &laquo;&nbsp;jamais mentionné&nbsp;&raquo;, &laquo;&nbsp;mentionné en exemple secondaire&nbsp;&raquo; et &laquo;&nbsp;cité comme référence principale&nbsp;&raquo;, il y a une gradation à noter précisément, pas juste une case cochée.</li>
+  <li><strong>Le concurrent cité compte autant que l'absence de citation.</strong> Savoir qui apparaît à votre place — et pourquoi sa page répond mieux à la question — est souvent plus actionnable que le simple constat d'invisibilité.</li>
+</ul>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-auditer-visibilite-chatgpt-perplexity-resource.png" alt="L'audit de visibilité IA n'a rien de magique : c'est une méthode répétable, question par question, comparée dans le temps." width="900" height="300" loading="lazy">
+  <figcaption>L'audit de visibilité IA n'a rien de magique : c'est une méthode répétable, question par question, comparée dans le temps.</figcaption>
+</figure>
+
+<h2>Un exemple qui illustre bien la différence</h2>
+
+<p>Dans un audit récent, le cas le plus fréquent n'était pas &laquo;&nbsp;notre marque n'apparaît jamais&nbsp;&raquo;&nbsp;— c'était &laquo;&nbsp;notre marque apparaît, mais on cite systématiquement notre concurrent numéro trois sur Google, jamais le numéro un&nbsp;&raquo;. En creusant, ce concurrent avait une page qui répondait en une phrase claire et datée à la question, quand le leader du marché noyait la même réponse dans une page produit générique sans angle éditorial.</p>
+
+<h2>Ce qu'il faut faire concrètement</h2>
+
+<ul class="sub-points">
+  <li><strong>Construisez une liste de 20 à 30 questions réelles</strong>, formulées comme un client les taperait, pas comme des mots-clés SEO classiques.</li>
+  <li><strong>Posez chaque question 2 à 3 fois</strong>, à des moments différents, sur chaque IA testée, pour repérer une tendance plutôt qu'un cas isolé.</li>
+  <li><strong>Notez systématiquement</strong>&nbsp;: citation ou non, position dans la réponse, concurrent cité à votre place le cas échéant, et source apparente si elle est indiquée.</li>
+  <li><strong>Répétez l'audit tous les trimestres</strong>&nbsp;: les modèles et leurs sources évoluent vite, un audit unique se périme en quelques mois.</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Existe-t-il un outil automatique pour mesurer sa visibilité dans les IA génératives ?</summary>
+    <p>Des outils commencent à émerger, mais aucun ne remplace encore une vérification manuelle rigoureuse à ce jour — les résultats automatisés restent partiels et peu fiables pour un audit sérieux.</p>
+  </details>
+  <details>
+    <summary>Combien de temps prend un audit de visibilité IA complet ?</summary>
+    <p>Pour une liste de 20 à 30 questions testées sur 3 IA avec répétition, comptez une bonne journée de travail méthodique — c'est plus long qu'un audit SEO classique, faute d'outillage.</p>
+  </details>
+  <details>
+    <summary>Un audit de visibilité IA remplace-t-il un audit SEO classique ?</summary>
+    <p>Non, il vient en complément. Les deux partagent une partie de la méthode (partir des questions réelles) mais mesurent des choses différentes.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de savoir où vous en êtes sur ChatGPT et Perplexity ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Demander un audit de visibilité IA</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/audit-visibilite-ia">Audit visibilité IA</a>, la page <a href="/geo">GEO</a>, et l'article <a href="/seo-geo-ce-qui-change-vraiment">SEO vs GEO</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/audit-visibilite-ia">Audit visibilité IA →</a>
+      <a href="/seo">SEO →</a>
+      <a href="/seo-geo-ce-qui-change-vraiment">SEO vs GEO →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Growth Marketing basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+        <li><a href="/#projets">Projets</a></li>
+        <li><a href="/#apropos">À propos</a></li>
+        <li><a href="/#temoignages">Témoignages</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
