@@ -14,6 +14,111 @@
   margin-bottom: 28px;
 }
 
+/* ---------- Benchmarks 2026 ---------- */
+
+.benchmark-block {
+  margin-bottom: 40px;
+}
+
+.benchmark-block h3 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 19px;
+  margin-bottom: 6px;
+}
+
+.benchmark-source {
+  font-size: 13px;
+  color: var(--color-ink-faint);
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.benchmark-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 14px;
+}
+
+.benchmark-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.benchmark-table th,
+.benchmark-table td {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.benchmark-table th {
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-faint);
+}
+
+.benchmark-table tr.is-total td {
+  font-weight: 700;
+  color: var(--color-navy);
+  border-top: 1.5px solid var(--color-ink);
+  border-bottom: none;
+}
+
+.benchmark-note {
+  font-size: 13.5px;
+  color: var(--color-ink-faint);
+  margin-bottom: 0;
+}
+
+.benchmark-sources-title {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-navy);
+  margin-top: 32px;
+  margin-bottom: 10px;
+}
+
+.benchmark-sources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benchmark-sources-list li {
+  font-size: 13.5px;
+  color: var(--color-ink-faint);
+  padding: 5px 0;
+}
+
+.benchmark-sources-list a {
+  color: var(--color-navy);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.benchmark-sources-list a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 599px) {
+  .benchmark-table {
+    font-size: 13px;
+  }
+
+  .benchmark-table th,
+  .benchmark-table td {
+    padding: 8px 10px;
+  }
+}
+
 /* ---------- Article : les 7 fuites ---------- */
 
 .leak-intro {
