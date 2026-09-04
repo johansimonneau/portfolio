@@ -2,11 +2,14 @@
    Johan Simonneau — Portfolio
    guide.js — formulaire partagé par les pages ressource "guide" (Claude &
    SEO, GEO...). Aucun backend propre : les coordonnées sont envoyées via
-   l'API AJAX gratuite FormSubmit (https://formsubmit.co), qui relaie
-   directement un email à johansimonneau.pro@gmail.com sans dépendre du
-   client mail du visiteur. Le lien de téléchargement du PDF est révélé
-   une fois l'envoi confirmé. Le nom du guide est lu depuis l'attribut
-   data-guide-name du formulaire pour rester générique d'une page à l'autre.
+   l'API Web3Forms (https://web3forms.com), qui relaie directement un
+   email à johansimonneau.pro@gmail.com sans dépendre du client mail du
+   visiteur. La clé d'accès est publique par conception (documentation
+   Web3Forms) : elle identifie seulement la boîte mail de destination, elle
+   ne donne aucun accès en lecture. Le lien de téléchargement du PDF est
+   révélé une fois l'envoi confirmé. Le nom du guide est lu depuis
+   l'attribut data-guide-name du formulaire pour rester générique d'une
+   page à l'autre.
    ========================================================================== */
 
 (function () {
@@ -15,7 +18,8 @@
   var form = document.getElementById("guideForm");
   if (!form) return;
 
-  var FORMSUBMIT_ENDPOINT = "https://formsubmit.co/ajax/johansimonneau.pro@gmail.com";
+  var WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+  var WEB3FORMS_ACCESS_KEY = "d5498fee-c4ba-4887-aeb1-70ee410fd1a1";
   var GUIDE_NAME = form.getAttribute("data-guide-name") || "un guide";
 
   var prenomInput = document.getElementById("guidePrenom");
@@ -76,32 +80,28 @@
 
     setLoading(true);
 
-    fetch(FORMSUBMIT_ENDPOINT, {
+    fetch(WEB3FORMS_ENDPOINT, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
       body: JSON.stringify({
+        access_key: WEB3FORMS_ACCESS_KEY,
+        subject: "Téléchargement du guide \"" + GUIDE_NAME + "\"",
+        from_name: prenom + (nom ? " " + nom : ""),
+        Guide: GUIDE_NAME,
         Prénom: prenom,
         Nom: nom,
-        Email: email,
-        Demande: "Téléchargement du guide \"" + GUIDE_NAME + "\"",
-        "Page": window.location.href,
-        _subject: "Téléchargement du guide \"" + GUIDE_NAME + "\"",
-        _captcha: "false",
-        _template: "table"
+        email: email,
+        Page: window.location.href
       })
     })
       .then(function (response) {
-        return response.text().then(function (raw) {
-          // Log brut pour diagnostiquer depuis la console navigateur si besoin.
-          console.log("FormSubmit — statut " + response.status + " :", raw);
-          var data = null;
-          try { data = JSON.parse(raw); } catch (e) { /* réponse non-JSON */ }
-          var explicitlyFailed = data && (data.success === false || data.success === "false");
-          if (!response.ok || !data || explicitlyFailed) {
-            throw new Error("formsubmit-failed");
+        return response.json().then(function (data) {
+          console.log("Web3Forms — statut " + response.status + " :", data);
+          if (!response.ok || !data || data.success !== true) {
+            throw new Error("web3forms-failed");
           }
         });
       })
