@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Johan Simonneau — Portfolio
+   a-propos.css — page /a-propos. S'appuie sur .about-grid (style.css),
+   legal.css (hero) et les variables de style.css / subpage.css.
+   ========================================================================== */
+
+.about-quote {
+  background: var(--color-bg-alt);
+  border-left: 3px solid var(--color-mint);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 20px 24px;
+  margin: 20px 0 28px;
+  font-size: 15.5px;
+  color: var(--color-ink);
+  font-style: italic;
+}
+
+.about-quote p {
+  margin-bottom: 0;
+}
+
+.about-sectors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0 28px;
+}
+
+.about-sector-tag {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-navy);
+  background: rgba(26, 73, 238, 0.08);
+  border-radius: 999px;
+  padding: 7px 16px;
+}
+
+.about-traits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 16px 0 8px;
+}
+
+.about-trait {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.about-trait h3 {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.about-trait p {
+  font-size: 13.5px;
+  color: var(--color-ink-soft);
+  margin-bottom: 0;
+}
+
+.about-certs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.about-certs span {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-ink-soft);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 6px 14px;
+}
