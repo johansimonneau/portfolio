@@ -225,6 +225,46 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
         <p><strong>Pas d'engagement minimum.</strong> Certaines missions démarrent sur un audit ponctuel, d'autres sur un accompagnement mensuel récurrent — tout dépend de votre situation de départ et de vos objectifs. On en discute directement au moment du devis.</p>
       </div>
 
+      <div class="tjm-sim" id="tjmSim">
+        <h2>Estimez votre TJM effectif</h2>
+        <p class="tjm-sim-intro">Une estimation indicative en quelques clics — le tarif définitif reste toujours confirmé au moment du devis.</p>
+
+        <div class="tjm-sim-group">
+          <p class="tjm-sim-label">Durée d'engagement</p>
+          <div class="tjm-sim-toggle" data-sim-group="duree">
+            <button type="button" data-value="0" class="is-selected">Ponctuel (&lt; 1 mois)</button>
+            <button type="button" data-value="5">1 à 3 mois</button>
+            <button type="button" data-value="8">3 à 6 mois</button>
+            <button type="button" data-value="10">6 mois et +</button>
+          </div>
+        </div>
+
+        <div class="tjm-sim-group">
+          <p class="tjm-sim-label">Volume de jours par mois</p>
+          <div class="tjm-sim-toggle" data-sim-group="volume">
+            <button type="button" data-value="0" class="is-selected">1 à 4 jours</button>
+            <button type="button" data-value="4">5 à 8 jours</button>
+            <button type="button" data-value="8">9 jours et +</button>
+          </div>
+        </div>
+
+        <div class="tjm-sim-group">
+          <p class="tjm-sim-label">Leviers combinés</p>
+          <div class="tjm-sim-toggle" data-sim-group="leviers">
+            <button type="button" data-value="0" class="is-selected">1 levier</button>
+            <button type="button" data-value="5">2 leviers</button>
+            <button type="button" data-value="10">3 leviers et +</button>
+          </div>
+        </div>
+
+        <div class="tjm-sim-result">
+          <p class="tjm-sim-result-value"><span id="tjmSimValue">550</span>€<span class="unit"> / jour</span></p>
+          <p class="tjm-sim-result-detail" id="tjmSimDetail">Tarif de référence — aucune dégressivité appliquée.</p>
+        </div>
+
+        <p class="tjm-sim-disclaimer">Estimation indicative, dégressivité plafonnée à -25% au total. Le tarif définitif est confirmé lors du devis, selon le contexte réel de votre mission.</p>
+      </div>
+
     </div>
   </section>
 
@@ -316,6 +356,7 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
 
 <script src="script.js" defer></script>
 <script src="cookie-consent.js" defer></script>
+<script src="tarifs.js" defer></script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
 </html>
