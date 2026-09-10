@@ -43,6 +43,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://johansimonneau.fr/sim-lab</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://johansimonneau.fr/guide-prompts-claude-seo</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>

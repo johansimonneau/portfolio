@@ -20,14 +20,14 @@ gtag('consent', 'default', {
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ressources gratuites : guides, diagnostic et blog | Johan Simonneau</title>
-<meta name="description" content="Guides téléchargeables, diagnostic de maturité Growth Marketing et articles de blog : toutes les ressources gratuites pour muscler votre acquisition, votre SEO et votre visibilité IA.">
+<title>SIM Lab : les expériences growth en direct sur johansimonneau.fr | Johan Simonneau</title>
+<meta name="description" content="Le SIM Lab de Johan Simonneau : hypothèses, tests A/B et résultats réels, menés en direct sur ce site plutôt que théorisés.">
 
-<link rel="canonical" href="https://johansimonneau.fr/ressources">
+<link rel="canonical" href="https://johansimonneau.fr/sim-lab">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Ressources gratuites : guides, diagnostic et blog">
-<meta property="og:description" content="Guides téléchargeables, diagnostic de maturité Growth Marketing et articles de blog : toutes les ressources gratuites pour muscler votre acquisition, votre SEO et votre visibilité IA.">
-<meta property="og:url" content="https://johansimonneau.fr/ressources">
+<meta property="og:title" content="SIM Lab : les expériences growth en direct sur johansimonneau.fr">
+<meta property="og:description" content="Hypothèses, tests A/B et résultats réels, menés en direct sur ce site plutôt que théorisés.">
+<meta property="og:url" content="https://johansimonneau.fr/sim-lab">
 <meta property="og:image" content="https://johansimonneau.fr/assets/img/og-default.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -41,7 +41,49 @@ gtag('consent', 'default', {
 
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="subpage.css">
-<link rel="stylesheet" href="ressources.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "SIM Lab",
+      "url": "https://johansimonneau.fr/sim-lab",
+      "description": "Le SIM Lab de Johan Simonneau : hypothèses, tests A/B et résultats réels, menés en direct sur johansimonneau.fr."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment savez-vous quelle variante je vois ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Votre navigateur tire au sort une variante à votre première visite et la garde en mémoire localement (localStorage), pour que vous voyiez toujours la même par la suite."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mes données sont-elles utilisées ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Seulement si vous avez accepté les cookies de mesure d'audience. Aucune donnée personnelle n'est collectée pour ces tests — uniquement un clic anonyme associé à une variante."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que se passe-t-il une fois un test terminé ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le résultat est publié sur cette page, la variante gagnante est conservée sur le site, et un nouveau test prend le relais."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -112,7 +154,7 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
             </div>
           </div>
         </li>
-        <li><a href="/ressources" aria-current="page">Ressources</a></li>
+        <li><a href="/ressources">Ressources</a></li>
         <li><a href="/tarifs">Tarifs</a></li>
         <li><a href="/realisations">Réalisations</a></li>
         <li><a href="/a-propos">À propos</a></li>
@@ -131,7 +173,7 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
     <ol>
       <li><a href="/">Accueil</a></li>
       <li class="sep">/</li>
-      <li aria-current="page">Ressources</li>
+      <li aria-current="page">SIM Lab</li>
     </ol>
   </div>
 </nav>
@@ -140,61 +182,65 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
 
   <section class="sub-header">
     <div class="container sub-header-inner">
-      <p class="sub-pillar-tag">Ressources gratuites</p>
-      <h1>Guides, audits et blog pour muscler votre acquisition</h1>
-      <p class="sub-hook">Tout ce que je publie pour aider à structurer son SEO, sa visibilité dans les IA génératives et son growth marketing — sans email obligatoire pour la plupart, sans jargon inutile.</p>
+      <p class="sub-pillar-tag">Growth Lab en direct</p>
+      <h1>SIM Lab</h1>
+      <p class="sub-hook">Plutôt que de vous parler de growth marketing en théorie, je teste mes propres hypothèses en direct sur ce site — hypothèses, méthode et résultats publiés ici, sans tri.</p>
     </div>
   </section>
 
-  <section class="ressources-section">
-    <div class="container">
+  <section class="sub-article">
+    <div class="container sub-article-inner">
 
-      <p class="ressources-kicker">Guides</p>
-      <div class="ressources-guides" data-reveal-group>
-        <a href="/guide-prompts-claude-seo" class="ressources-guide-card" data-reveal>
-          <img src="assets/img/guide-claude-seo-cover.png" alt="Couverture du guide 20 prompts Claude pour structurer votre SEO" width="1200" height="630" loading="lazy">
-          <div class="ressources-guide-card-body">
-            <span class="ressources-guide-tag">Guide téléchargeable</span>
-            <h2>20 prompts Claude pour structurer votre SEO</h2>
-            <p>Une boîte à outils prête à copier-coller pour transformer Claude en assistant SEO fiable : contenu, Search Console, technique, mots-clés et GEO.</p>
-          </div>
-        </a>
-        <a href="/guide-geo-llm" class="ressources-guide-card" data-reveal>
-          <img src="assets/img/guide-geo-llm-cover.png" alt="Couverture du guide complet GEO pour ranker numéro 1 dans les LLMs" width="1200" height="630" loading="lazy">
-          <div class="ressources-guide-card-body">
-            <span class="ressources-guide-tag">Guide téléchargeable</span>
-            <h2>Le guide complet GEO pour ranker numéro 1 dans les LLMs</h2>
-            <p>SEO vs GEO, comment les LLMs choisissent leurs sources, les 5 stratégies qui marchent vraiment et une checklist actionnable.</p>
-          </div>
-        </a>
-        <a href="/audit-budget-ads" class="ressources-guide-card" data-reveal>
-          <img src="assets/img/audit-budget-ads-cover.png" alt="Couverture du guide arrêtez de perdre de l'argent en Google Ads et Meta Ads" width="1200" height="630" loading="lazy">
-          <div class="ressources-guide-card-body">
-            <span class="ressources-guide-tag">Guide interactif</span>
-            <h2>Arrêtez de perdre de l'argent en Google Ads et Meta Ads</h2>
-            <p>7 fuites de budget fréquentes, les benchmarks 2026 par secteur, un auto-diagnostic noté en 2 minutes et 3 prompts Claude pour les détecter vous-même.</p>
-          </div>
-        </a>
+      <h2>Pourquoi un SIM Lab ?</h2>
+      <p>Le growth marketing se juge sur les résultats obtenus, pas sur les intentions affichées. Plutôt que d'illustrer mes services uniquement avec des études de cas anciennes ou anonymisées, j'ai choisi d'ouvrir mes propres tests en direct sur johansimonneau.fr&nbsp;: mes hypothèses, ma méthode, et mes résultats — qu'ils confirment l'hypothèse de départ ou non.</p>
+
+      <h2>Comment ça marche</h2>
+      <ul class="sub-points">
+        <li><strong>Une hypothèse posée avant le lancement.</strong> Pas de justification a posteriori une fois le résultat connu.</li>
+        <li><strong>Une répartition aléatoire réelle des visiteurs.</strong> 50/50 entre les variantes, mémorisée par visiteur pour rester cohérente d'une visite à l'autre.</li>
+        <li><strong>Une mesure via Google Analytics 4.</strong> Uniquement si vous avez accepté les cookies de mesure d'audience.</li>
+        <li><strong>Des résultats publiés ici tels quels.</strong> Y compris quand l'hypothèse de départ ne se vérifie pas.</li>
+      </ul>
+
+      <h2>Expérience en cours</h2>
+
+      <div class="sub-case">
+        <p class="sub-case-label">Test n°1 — en cours</p>
+        <p>Hypothèse&nbsp;: un intitulé de CTA qui explicite le bénéfice et la durée de l'appel convertit mieux qu'un intitulé générique. Le test porte sur le bouton principal du hero de la page d'accueil.</p>
+        <div class="sub-case-stats">
+          <div class="sub-case-stat"><strong>A</strong><span>« Prendre RDV » (contrôle)</span></div>
+          <div class="sub-case-stat"><strong>B</strong><span>« Réserver un appel gratuit (30 min) » (test)</span></div>
+          <div class="sub-case-stat"><strong>50/50</strong><span>Répartition aléatoire par visiteur</span></div>
+          <div class="sub-case-stat"><strong>10/09</strong><span>Lancé le 10 septembre 2026</span></div>
+        </div>
       </div>
 
-      <p class="ressources-kicker">Autres ressources</p>
-      <div class="ressources-other" data-reveal-group>
-        <a href="/diagnostic" class="ressources-other-card" data-reveal>
-          <h2>Diagnostic Growth Marketing gratuit</h2>
-          <p>6 questions, 2 minutes : votre score de maturité par pilier (tracking, acquisition, SEO, GEO, CRO, pilotage) et la priorité à travailler en premier.</p>
-        </a>
-        <a href="/audit-geo" class="ressources-other-card" data-reveal>
-          <h2>Auto-diagnostic GEO gratuit</h2>
-          <p>10 questions, 2 minutes : évaluez si votre site est prêt à être cité par ChatGPT, Claude et Perplexity.</p>
-        </a>
-        <a href="/blog" class="ressources-other-card" data-reveal>
-          <h2>Blog</h2>
-          <p>Articles SEO, GEO et growth marketing, écrits à partir de missions réelles — sans statistiques inventées, sans remplissage.</p>
-        </a>
-        <a href="/sim-lab" class="ressources-other-card" data-reveal>
-          <h2>SIM Lab</h2>
-          <p>Le laboratoire d'expérimentation growth de ce site : hypothèses, tests A/B et résultats réels, menés en direct plutôt que théorisés.</p>
-        </a>
+      <h2>Résultats</h2>
+      <p>Le test vient de démarrer&nbsp;: pas encore assez de données pour un résultat fiable. Cette section sera mise à jour dès qu'un nombre de clics suffisant aura été collecté sur chaque variante, sans interruption anticipée du test pour éviter les faux positifs — voir <a href="/ab-testing-faible-trafic">pourquoi la patience compte davantage à faible trafic</a>.</p>
+
+      <h2>FAQ</h2>
+      <div class="sub-faq">
+        <details>
+          <summary>Comment savez-vous quelle variante je vois ?</summary>
+          <p>Votre navigateur tire au sort une variante à votre première visite et la garde en mémoire localement (localStorage), pour que vous voyiez toujours la même par la suite.</p>
+        </details>
+        <details>
+          <summary>Mes données sont-elles utilisées ?</summary>
+          <p>Seulement si vous avez accepté les cookies de mesure d'audience. Aucune donnée personnelle n'est collectée pour ces tests — uniquement un clic anonyme associé à une variante.</p>
+        </details>
+        <details>
+          <summary>Que se passe-t-il une fois un test terminé ?</summary>
+          <p>Le résultat est publié sur cette page, la variante gagnante est conservée sur le site, et un nouveau test prend le relais.</p>
+        </details>
+      </div>
+
+      <div class="sub-cta">
+        <h3>Une idée de test, ou envie d'appliquer cette méthode à votre site ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Discuter de votre prochain test</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/cro">CRO</a>.</p>
       </div>
 
     </div>
