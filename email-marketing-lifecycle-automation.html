@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email marketing et lifecycle automation : la checklist avant de lancer un scénario | Blog — Johan Simonneau</title>
+<meta name="description" content="Avant de lancer un scénario d'emails automatisés, ces points techniques et éditoriaux évitent les scénarios qui tournent en boucle, arrivent en spam, ou ne convertissent jamais.">
+
+<link rel="canonical" href="https://johansimonneau.fr/email-marketing-lifecycle-automation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Email marketing et lifecycle automation : la checklist avant de lancer un scénario">
+<meta property="og:description" content="Avant de lancer un scénario d'emails automatisés, ces points techniques et éditoriaux évitent les scénarios qui tournent en boucle, arrivent en spam, ou ne convertissent jamais.">
+<meta property="og:url" content="https://johansimonneau.fr/email-marketing-lifecycle-automation">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-email-marketing-lifecycle-automation-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-email-marketing-lifecycle-automation-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Email marketing et lifecycle automation : la checklist avant de lancer un scénario",
+      "image": "https://johansimonneau.fr/assets/img/blog-email-marketing-lifecycle-automation-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-12-04",
+      "dateModified": "2026-12-04",
+      "description": "Avant de lancer un scénario d'emails automatisés, ces points techniques et éditoriaux évitent les scénarios qui tournent en boucle, arrivent en spam, ou ne convertissent jamais.",
+      "mainEntityOfPage": "https://johansimonneau.fr/email-marketing-lifecycle-automation"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il un outil spécifique pour respecter SPF, DKIM et DMARC ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La plupart des plateformes d'emailing et de marketing automation modernes les configurent en grande partie automatiquement, mais la validation finale (enregistrements DNS) reste à la charge du propriétaire du domaine."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien d'emails maximum dans un scénario de bienvenue ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'y a pas de nombre universel, mais 3 à 5 emails espacés sur une à deux semaines couvrent la plupart des cas sans épuiser l'attention du contact."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le RGPD impose-t-il une durée de conservation des contacts inactifs ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, la CNIL recommande une purge des contacts n'ayant pas interagi depuis 3 ans, sauf relation commerciale active — au-delà, la conservation du contact devient difficile à justifier."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Email marketing & automation</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Email marketing et lifecycle automation : la checklist avant de lancer un scénario</h1>
+      <p class="sub-hook">L'email marketing reste l'un des canaux au meilleur ROI en growth marketing — à condition d'éviter les erreurs qui l'empêchent d'arriver en boîte de réception. Voici la checklist que je fais valider avant chaque lancement de scénario automatisé.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>4 décembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-email-marketing-lifecycle-automation-hero.png" alt="Illustration d'un scénario d'email automatisé mis en avant dans une interface de marketing automation" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Un scénario de lifecycle marketing mal préparé ne se contente pas de sous-performer&nbsp;: il peut dégrader la délivrabilité de tout votre domaine d'envoi, pour des mois. Voici les points à vérifier avant de l'activer, classés par risque.</p>
+
+<h2>Technique : ce qui conditionne l'arrivée en boîte de réception</h2>
+
+<ul class="sub-points">
+  <li><strong>SPF, DKIM et DMARC configurés et alignés.</strong> Depuis 2024, <a href="https://support.higherlogic.com/hc/en-us/articles/21639835567124-New-Bulk-Sender-Requirements" target="_blank" rel="noopener">Google et Yahoo exigent ces trois protocoles</a> pour tout envoi en volume vers leurs boîtes — sans eux, vos emails partent directement en spam ou sont rejetés, quelle que soit la qualité du contenu.</li>
+  <li><strong>Une désinscription en un clic, respectée sous 48h.</strong> C'est désormais une exigence technique des grands fournisseurs de messagerie, pas seulement une bonne pratique&nbsp;: un scénario qui continue d'envoyer après une désinscription fait grimper le taux de plainte, qui dégrade la réputation de tout le domaine.</li>
+  <li><strong>Un domaine d'envoi dédié, distinct du domaine principal.</strong> Séparer l'envoi transactionnel (facture, confirmation) de l'envoi marketing protège la délivrabilité de l'un si l'autre subit une dégradation de réputation.</li>
+  <li><strong>Un taux de plainte surveillé en continu.</strong> Au-delà de 0,3&nbsp;% de plaintes, les grands fournisseurs commencent à filtrer systématiquement les envois du domaine — un seuil qui se dépasse vite avec un scénario mal ciblé.</li>
+</ul>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-email-marketing-lifecycle-automation-resource.png" alt="Quatre vérifications techniques qui évitent la majorité des scénarios qui finissent en spam ou en plainte RGPD." width="900" height="340" loading="lazy">
+  <figcaption>Quatre vérifications techniques qui évitent la majorité des scénarios qui finissent en spam ou en plainte RGPD.</figcaption>
+</figure>
+
+<h2>Éditorial : ce qui évite le scénario qui tourne à vide</h2>
+
+<ul class="sub-points">
+  <li><strong>Une condition de sortie explicite.</strong> Si le contact a déjà réalisé l'action visée par le scénario (achat, rendez-vous pris) pendant qu'il le traverse, il doit en sortir automatiquement — sinon il reçoit des relances pour une action déjà faite, ce qui use la relation plus vite qu'il ne la construit.</li>
+  <li><strong>Un seul objectif par scénario.</strong> Un scénario qui tente de vendre, fidéliser et réactiver en même temps ne fait bien aucune des trois — chaque email doit avoir un objectif de conversion unique et mesurable.</li>
+  <li><strong>Un espacement qui laisse le temps de réagir.</strong> Trois emails en 24h pour un scénario de bienvenue épuisent l'attention avant même que le contact ait eu le temps de s'engager avec le premier.</li>
+</ul>
+
+<h2>Mesure : ce qu'il faut suivre après le lancement</h2>
+
+<ul class="sub-points">
+  <li><strong>Le taux d'ouverture n'est plus fiable seul</strong> depuis la protection de confidentialité des emails d'Apple Mail, qui précharge les pixels de tracking. Privilégiez le taux de clic et le taux de conversion sur l'action visée.</li>
+  <li><strong>Le taux de désabonnement par email du scénario</strong>, pas seulement sur l'ensemble&nbsp;: un email précis qui génère un pic de désabonnements signale un problème de contenu ou de timing sur cet email en particulier.</li>
+  <li><strong>Le délai moyen avant conversion</strong>, pour savoir si la longueur du scénario est adaptée ou si la conversion arrive bien avant sa fin — et donc que le scénario peut être raccourci.</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Faut-il un outil spécifique pour respecter SPF, DKIM et DMARC ?</summary>
+    <p>La plupart des plateformes d'emailing et de marketing automation modernes les configurent en grande partie automatiquement, mais la validation finale (enregistrements DNS) reste à la charge du propriétaire du domaine.</p>
+  </details>
+  <details>
+    <summary>Combien d'emails maximum dans un scénario de bienvenue ?</summary>
+    <p>Il n'y a pas de nombre universel, mais 3 à 5 emails espacés sur une à deux semaines couvrent la plupart des cas sans épuiser l'attention du contact.</p>
+  </details>
+  <details>
+    <summary>Le RGPD impose-t-il une durée de conservation des contacts inactifs ?</summary>
+    <p>Oui, la CNIL recommande une purge des contacts n'ayant pas interagi depuis 3 ans, sauf relation commerciale active — au-delà, la conservation du contact devient difficile à justifier.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Un scénario email qui ne convertit pas comme prévu ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre lifecycle marketing</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/cro">CRO</a>, la page <a href="/analytics">Analytics</a>, et la page <a href="/outils">Outils</a>.</p>
+        <p class="sub-cta-link">À lire aussi : <a href="/growth-loops-vs-funnel-marketing">Growth loops vs funnel marketing classique : repenser l'acquisition</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/cro">CRO →</a>
+      <a href="/analytics">Analytics →</a>
+      <a href="/rgpd-marketing-digital-tracking-2026">RGPD marketing 2026 →</a>
+      <a href="/outils">Outils →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
