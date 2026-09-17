@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Popups et exit-intent : les 5 erreurs qui les rendent contre-productifs | Blog — Johan Simonneau</title>
+<meta name="description" content="Un popup mal réglé fait fuir plus de visiteurs qu'il ne convertit. Les 5 erreurs les plus fréquentes sur les popups et exit-intent, et comment les corriger sans les supprimer.">
+
+<link rel="canonical" href="https://johansimonneau.fr/popups-exit-intent-erreurs-cro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Popups et exit-intent : les 5 erreurs qui les rendent contre-productifs">
+<meta property="og:description" content="Un popup mal réglé fait fuir plus de visiteurs qu'il ne convertit. Les 5 erreurs les plus fréquentes sur les popups et exit-intent, et comment les corriger sans les supprimer.">
+<meta property="og:url" content="https://johansimonneau.fr/popups-exit-intent-erreurs-cro">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-popups-exit-intent-erreurs-cro-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-popups-exit-intent-erreurs-cro-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Popups et exit-intent : les 5 erreurs qui les rendent contre-productifs",
+      "image": "https://johansimonneau.fr/assets/img/blog-popups-exit-intent-erreurs-cro-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-12-12",
+      "dateModified": "2026-12-12",
+      "description": "Un popup mal réglé fait fuir plus de visiteurs qu'il ne convertit. Les 5 erreurs les plus fréquentes sur les popups et exit-intent, et comment les corriger sans les supprimer.",
+      "mainEntityOfPage": "https://johansimonneau.fr/popups-exit-intent-erreurs-cro"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Les popups nuisent-ils au référencement Google ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google pénalise les interstitiels intrusifs qui bloquent le contenu principal sur mobile juste après l'arrivée sur la page. Un popup bien temporisé et facilement fermable n'est pas concerné par cette pénalité."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il abandonner les exit-intent sur mobile ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La détection du mouvement de souris ne fonctionne pas sur mobile. Un déclenchement basé sur le scroll ou le temps passé reste efficace et adapté à ce contexte."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps attendre avant de réafficher un popup à un visiteur qui l'a fermé ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'y a pas de règle universelle, mais espacer d'au moins plusieurs jours évite l'effet de lassitude qui pousse à fermer le popup sans même le lire."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Popups et exit-intent</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Popups et exit-intent : les 5 erreurs qui les rendent contre-productifs</h1>
+      <p class="sub-hook">Les popups ont mauvaise réputation — souvent à juste titre, tant ils sont mal réglés sur la plupart des sites que j'audite. Le problème n'est presque jamais l'outil, c'est le paramétrage. Voici les cinq erreurs qui reviennent le plus souvent, et comment les corriger.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>12 décembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-popups-exit-intent-erreurs-cro-hero.png" alt="Illustration d'un popup mis en avant sur une page web, encart d'offre de bienvenue" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Un popup bien réglé peut convertir plusieurs points de pourcentage de visiteurs qui, sans lui, seraient repartis sans laisser d'email ni de coordonnées. Un popup mal réglé produit l'effet inverse&nbsp;: il agace, il fait fuir, et il dégrade la perception de la marque avant même que le visiteur ait eu le temps de la découvrir. Voici les cinq erreurs qui font basculer d'un côté ou de l'autre.</p>
+
+<h2>Erreur n°1 — Le déclenchement trop précoce</h2>
+
+<p>Un popup qui s'affiche dans les 3 à 5 premières secondes de visite interrompt un visiteur qui n'a même pas encore compris où il se trouve. Le signal envoyé n'est pas «&nbsp;voici une offre intéressante&nbsp;», c'est «&nbsp;ce site privilégie ses propres objectifs aux vôtres&nbsp;». <strong>La correction</strong>&nbsp;: déclenchez sur un signal d'engagement réel — un pourcentage de scroll, un temps passé minimum, ou une intention de sortie détectée par le mouvement de la souris vers la barre d'adresse.</p>
+
+<h2>Erreur n°2 — L'absence de fermeture claire et accessible</h2>
+
+<p>Une croix minuscule, mal contrastée, ou un popup qui ne se ferme pas au clavier avec la touche Échap ne respecte ni l'expérience utilisateur ni les standards d'accessibilité de base. <strong>La correction</strong>&nbsp;: une zone de fermeture suffisamment grande, contrastée, et une fermeture possible au clic en dehors du popup comme au clavier.</p>
+
+<h2>Erreur n°3 — La même offre pour tous les visiteurs</h2>
+
+<p>Un visiteur qui arrive sur une page de blog et un visiteur qui consulte une fiche produit n'ont pas la même intention&nbsp;— leur proposer le même popup générique («&nbsp;-10&nbsp;% sur votre première commande&nbsp;») ignore ce contexte. <strong>La correction</strong>&nbsp;: adaptez l'offre ou le message au type de page consultée, même avec une segmentation simple (blog vs catalogue, nouveau visiteur vs visiteur récurrent).</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-popups-exit-intent-erreurs-cro-resource.png" alt="La différence entre un popup qui convertit et un popup qui fait fuir tient rarement au design — presque toujours au réglage." width="900" height="340" loading="lazy">
+  <figcaption>La différence entre un popup qui convertit et un popup qui fait fuir tient rarement au design — presque toujours au réglage.</figcaption>
+</figure>
+
+<h2>Erreur n°4 — Généraliser sans avoir testé</h2>
+
+<p>Déployer un popup sur 100&nbsp;% du trafic sans avoir mesuré son effet réel sur le taux de conversion global — pas seulement sur le taux de captation d'email — revient à parier que l'effet positif (plus de leads captés) dépasse l'effet négatif (plus de visiteurs agacés qui repartent). <strong>La correction</strong>&nbsp;: testez sur une portion du trafic, en mesurant le taux de conversion final, pas uniquement le taux d'inscription au popup.</p>
+
+<h2>Erreur n°5 — Ne jamais retirer le popup après une conversion</h2>
+
+<p>Un visiteur qui vient de s'inscrire à la newsletter, ou qui vient d'acheter, qui revoit le même popup à sa prochaine visite reçoit un signal clair&nbsp;: le site ne sait pas qui il est. <strong>La correction</strong>&nbsp;: supprimez ou adaptez l'affichage du popup une fois l'action visée réalisée, via un cookie ou un identifiant de session.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Les popups nuisent-ils au référencement Google ?</summary>
+    <p>Google pénalise les interstitiels intrusifs qui bloquent le contenu principal sur mobile juste après l'arrivée sur la page. Un popup bien temporisé et facilement fermable n'est pas concerné par cette pénalité.</p>
+  </details>
+  <details>
+    <summary>Faut-il abandonner les exit-intent sur mobile ?</summary>
+    <p>La détection du mouvement de souris ne fonctionne pas sur mobile. Un déclenchement basé sur le scroll ou le temps passé reste efficace et adapté à ce contexte.</p>
+  </details>
+  <details>
+    <summary>Combien de temps attendre avant de réafficher un popup à un visiteur qui l'a fermé ?</summary>
+    <p>Il n'y a pas de règle universelle, mais espacer d'au moins plusieurs jours évite l'effet de lassitude qui pousse à fermer le popup sans même le lire.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Vos popups convertissent moins qu'ils ne font fuir ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre optimisation CRO</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/cro">CRO</a>, et la page <a href="/optimisation-landing-page">Optimisation landing page</a>.</p>
+        <p class="sub-cta-link">À lire aussi : <a href="/heatmaps-analyse-comportementale">Heatmaps et analyse comportementale : ce qu'elles révèlent (et cachent)</a> et <a href="/landing-page-reduire-cout-par-lead">Landing page : les éléments qui font vraiment baisser le coût par lead</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/cro">CRO →</a>
+      <a href="/optimisation-landing-page">Optimisation landing page →</a>
+      <a href="/ab-testing-faible-trafic">A/B testing →</a>
+      <a href="/analytics">Analytics →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
