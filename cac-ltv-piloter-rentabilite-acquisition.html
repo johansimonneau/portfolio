@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAC et LTV : la méthode pour savoir si votre acquisition est vraiment rentable | Blog — Johan Simonneau</title>
+<meta name="description" content="Un CAC qui baisse ne veut rien dire seul, une LTV qui monte non plus. La méthode en 5 étapes pour calculer les deux correctement et savoir si votre acquisition tient debout.">
+
+<link rel="canonical" href="https://johansimonneau.fr/cac-ltv-piloter-rentabilite-acquisition">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CAC et LTV : la méthode pour savoir si votre acquisition est vraiment rentable">
+<meta property="og:description" content="Un CAC qui baisse ne veut rien dire seul, une LTV qui monte non plus. La méthode en 5 étapes pour calculer les deux correctement et savoir si votre acquisition tient debout.">
+<meta property="og:url" content="https://johansimonneau.fr/cac-ltv-piloter-rentabilite-acquisition">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-cac-ltv-piloter-rentabilite-acquisition-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-cac-ltv-piloter-rentabilite-acquisition-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "CAC et LTV : la méthode pour savoir si votre acquisition est vraiment rentable",
+      "image": "https://johansimonneau.fr/assets/img/blog-cac-ltv-piloter-rentabilite-acquisition-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-12-08",
+      "dateModified": "2026-12-08",
+      "description": "Un CAC qui baisse ne veut rien dire seul, une LTV qui monte non plus. La méthode en 5 étapes pour calculer les deux correctement et savoir si votre acquisition tient debout.",
+      "mainEntityOfPage": "https://johansimonneau.fr/cac-ltv-piloter-rentabilite-acquisition"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quel est un bon ratio LTV/CAC ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'existe pas de seuil universel. Le repère de 3 pour 1 souvent cité dans le SaaS doit être ajusté au cycle de recouvrement de trésorerie et au niveau de risque du modèle économique."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il inclure les salaires de l'équipe marketing dans le CAC ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est un choix méthodologique légitime dans les deux sens. Le plus important est de fixer le périmètre une fois et de le garder identique dans le temps, pour que les comparaisons restent valides."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment calculer une LTV fiable pour une entreprise récente sans historique long ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Utilisez le churn observé sur les cohortes les plus anciennes disponibles, même limitées, plutôt qu'un taux extrapolé ou un objectif — une LTV prudente vaut mieux qu'une LTV optimiste et fausse."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">CAC et LTV</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>CAC et LTV : la méthode pour savoir si votre acquisition est vraiment rentable</h1>
+      <p class="sub-hook">« Notre coût d'acquisition a baissé de 20&nbsp;% ce trimestre » est une phrase qui ne veut rien dire seule. Sans la mettre en face de la valeur générée par client, c'est un chiffre incomplet qui peut cacher un problème plus grave. Voici comment je pose ce calcul avec mes clients.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>8 décembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-cac-ltv-piloter-rentabilite-acquisition-hero.png" alt="Illustration d'un tableau de bord mettant en avant le ratio entre coût d'acquisition et valeur vie client" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Le CAC (coût d'acquisition client) et la LTV (valeur vie client) sont souvent calculés séparément, par des équipes différentes, avec des périmètres différents — ce qui les rend impossibles à comparer honnêtement. Voici la méthode en cinq étapes que j'applique pour les rendre réellement pilotables.</p>
+
+<h2>Étape 1 — Définir le périmètre de coût une bonne fois pour toutes</h2>
+
+<p>La première source d'erreur&nbsp;: certains ne comptent que le budget média dans le CAC, d'autres y ajoutent les salaires de l'équipe acquisition, les outils, la création de contenu. Aucune des deux approches n'est fausse en soi — mais il faut choisir un périmètre fixe et s'y tenir dans le temps, sinon toute comparaison entre deux périodes devient trompeuse.</p>
+
+<h2>Étape 2 — Calculer le CAC réel, canal par canal</h2>
+
+<p>Un CAC moyen toutes sources confondues masque des écarts souvent considérables entre canaux. Un CAC organique proche de zéro peut faire illusion sur la rentabilité globale pendant qu'un canal payant particulier brûle le budget sans retour proportionnel. Segmentez toujours le calcul par canal avant de le regarder en moyenne.</p>
+
+<h2>Étape 3 — Calculer une LTV réaliste, pas optimiste</h2>
+
+<ul class="sub-points">
+  <li><strong>Basez-vous sur la durée de vie moyenne réelle des clients</strong>, pas sur celle des meilleurs clients qui tirent la moyenne vers le haut de façon non représentative.</li>
+  <li><strong>Intégrez le taux de churn observé</strong>, pas un taux cible ou espéré — une LTV calculée sur un churn optimiste donne un ratio flatteur mais faux.</li>
+  <li><strong>Séparez la marge brute du chiffre d'affaires</strong>&nbsp;: une LTV calculée sur le chiffre d'affaires brut surestime systématiquement la rentabilité réelle d'un client.</li>
+</ul>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-cac-ltv-piloter-rentabilite-acquisition-resource.png" alt="Les cinq étapes pour transformer deux indicateurs séparés en un seul signal de rentabilité exploitable." width="900" height="300" loading="lazy">
+  <figcaption>Les cinq étapes pour transformer deux indicateurs séparés en un seul signal de rentabilité exploitable.</figcaption>
+</figure>
+
+<h2>Étape 4 — Poser le ratio LTV/CAC, sans le confondre avec le seuil de rentabilité</h2>
+
+<p>Un ratio LTV/CAC de 3 pour 1 est souvent cité comme référence dans le SaaS, mais ce n'est pas un seuil universel&nbsp;: un modèle avec un cycle de recouvrement rapide peut être sain avec un ratio plus faible, tandis qu'un modèle qui met des années à rentabiliser un client a besoin d'un ratio bien supérieur pour absorber le risque de trésorerie entre-temps.</p>
+
+<h2>Étape 5 — Suivre l'évolution du ratio dans le temps, pas sa valeur ponctuelle</h2>
+
+<ul class="sub-points">
+  <li><strong>Une LTV qui monte peut compenser un CAC qui monte aussi</strong> — c'est la tendance du ratio, pas la valeur isolée d'un des deux indicateurs, qui indique si l'acquisition reste soutenable.</li>
+  <li><strong>Un CAC qui baisse doit être croisé avec la qualité des clients acquis.</strong> Un CAC en baisse qui s'accompagne d'une LTV en baisse plus rapide n'est pas une bonne nouvelle&nbsp;: c'est souvent le signe d'un ciblage qui s'est élargi vers des clients moins rentables.</li>
+  <li><strong>Recalculez le ratio à fréquence fixe</strong> (mensuelle ou trimestrielle selon le volume), avec le même périmètre de coût défini à l'étape 1 — c'est la seule façon de rendre les comparaisons dans le temps réellement fiables.</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Quel est un bon ratio LTV/CAC ?</summary>
+    <p>Il n'existe pas de seuil universel. Le repère de 3 pour 1 souvent cité dans le SaaS doit être ajusté au cycle de recouvrement de trésorerie et au niveau de risque du modèle économique.</p>
+  </details>
+  <details>
+    <summary>Faut-il inclure les salaires de l'équipe marketing dans le CAC ?</summary>
+    <p>C'est un choix méthodologique légitime dans les deux sens. Le plus important est de fixer le périmètre une fois et de le garder identique dans le temps, pour que les comparaisons restent valides.</p>
+  </details>
+  <details>
+    <summary>Comment calculer une LTV fiable pour une entreprise récente sans historique long ?</summary>
+    <p>Utilisez le churn observé sur les cohortes les plus anciennes disponibles, même limitées, plutôt qu'un taux extrapolé ou un objectif — une LTV prudente vaut mieux qu'une LTV optimiste et fausse.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'y voir clair sur votre ratio LTV/CAC réel ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre rentabilité d'acquisition</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/analytics">Analytics</a>, la page <a href="/cro">CRO</a>, et la page <a href="/attribution-multi-touch-dernier-clic">Attribution multi-touch</a>.</p>
+        <p class="sub-cta-link">À lire aussi : <a href="/email-marketing-lifecycle-automation">Email marketing et lifecycle automation : la checklist avant de lancer un scénario</a> et <a href="/growth-loops-vs-funnel-marketing">Growth loops vs funnel marketing classique : repenser l'acquisition</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/analytics">Analytics →</a>
+      <a href="/cro">CRO →</a>
+      <a href="/attribution-multi-touch-dernier-clic">Attribution multi-touch →</a>
+      <a href="/consultant-ga4">Consultant GA4 →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
