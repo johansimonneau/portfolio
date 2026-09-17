@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growth marketing B2B SaaS vs e-commerce : deux logiques qu'on confond trop souvent | Blog — Johan Simonneau</title>
+<meta name="description" content="Un playbook growth pensé pour l'e-commerce échoue presque toujours tel quel en B2B SaaS, et inversement. Ce qui change vraiment entre les deux modèles, canal par canal.">
+
+<link rel="canonical" href="https://johansimonneau.fr/growth-b2b-saas-vs-ecommerce">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Growth marketing B2B SaaS vs e-commerce : deux logiques qu'on confond trop souvent">
+<meta property="og:description" content="Un playbook growth pensé pour l'e-commerce échoue presque toujours tel quel en B2B SaaS, et inversement. Ce qui change vraiment entre les deux modèles, canal par canal.">
+<meta property="og:url" content="https://johansimonneau.fr/growth-b2b-saas-vs-ecommerce">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-growth-b2b-saas-vs-ecommerce-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-growth-b2b-saas-vs-ecommerce-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Growth marketing B2B SaaS vs e-commerce : deux logiques qu'on confond trop souvent",
+      "image": "https://johansimonneau.fr/assets/img/blog-growth-b2b-saas-vs-ecommerce-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2027-01-05",
+      "dateModified": "2027-01-05",
+      "description": "Un playbook growth pensé pour l'e-commerce échoue presque toujours tel quel en B2B SaaS, et inversement. Ce qui change vraiment entre les deux modèles, canal par canal.",
+      "mainEntityOfPage": "https://johansimonneau.fr/growth-b2b-saas-vs-ecommerce"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Le paid social fonctionne-t-il en B2B SaaS ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, mais avec un rôle différent qu'en e-commerce : plus orienté vers la notoriété et la génération de leads à nourrir sur la durée que vers la conversion directe et immédiate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le content marketing est-il plus important en B2B qu'en e-commerce ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il joue un rôle différent plutôt que d'être simplement plus ou moins important : en e-commerce il capte une intention proche de l'achat, en B2B SaaS il accompagne souvent une décision qui se construit sur plusieurs semaines."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on appliquer les mêmes indicateurs de succès aux deux modèles ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les indicateurs de fond (CAC, LTV, taux de conversion) restent pertinents dans les deux cas, mais leurs valeurs de référence et la façon de les mesurer diffèrent fortement selon la longueur du cycle de décision."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Growth B2B SaaS vs e-commerce</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Growth marketing B2B SaaS vs e-commerce : deux logiques qu'on confond trop souvent</h1>
+      <p class="sub-hook">Beaucoup de contenu growth marketing se présente comme universel, alors qu'il a été pensé pour un modèle précis — le plus souvent l'e-commerce. Appliqué tel quel à un SaaS B2B à cycle de vente long, une bonne partie de ce playbook ne fonctionne simplement pas. Voici ce qui change vraiment.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>5 janvier 2027</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-growth-b2b-saas-vs-ecommerce-hero.png" alt="Illustration comparant l'e-commerce (cycle court, décision individuelle) au B2B SaaS (cycle long, décision collective)" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>« On devrait faire comme telle marque e-commerce qui cartonne sur TikTok » est une phrase que j'entends parfois de la part de clients B2B SaaS, et qui part d'un bon instinct — s'inspirer de ce qui marche — appliqué au mauvais modèle. Voici, canal par canal, ce qui change vraiment entre les deux.</p>
+
+<h2>Le cycle de décision</h2>
+
+<p>En e-commerce, la décision se prend souvent en une session, par une seule personne, sur des montants qui restent gérables sans validation externe. En B2B SaaS, la décision implique fréquemment plusieurs interlocuteurs (utilisateur, décideur budgétaire, parfois la DSI), sur des semaines voire des mois. Un tunnel de conversion pensé pour une décision impulsive n'a simplement pas la structure pour accompagner une décision collective et étalée dans le temps.</p>
+
+<h2>Ce qui change canal par canal</h2>
+
+<h3>Réseaux sociaux et UGC</h3>
+<p>Puissants en e-commerce B2C, où la preuve sociale rapide (avis, unboxing, UGC) accélère une décision déjà impulsive. En B2B SaaS, l'effet est plus indirect&nbsp;: la présence sociale construit la crédibilité et la notoriété sur la durée, mais rarement une conversion directe et immédiate.</p>
+
+<h3>Email marketing</h3>
+<p>En e-commerce, l'email sert surtout la relance (panier abandonné, réachat). En B2B SaaS, il sert davantage le nurturing sur un cycle long&nbsp;— accompagner un prospect qui n'est pas encore prêt à acheter, sur plusieurs semaines, avec du contenu à valeur ajoutée plutôt qu'une offre commerciale répétée.</p>
+
+<h3>Contenu et SEO</h3>
+<p>En e-commerce, le contenu sert principalement à capter une intention de recherche transactionnelle proche de l'achat. En B2B SaaS, le contenu joue souvent un rôle plus large dans la décision finale&nbsp;— un prospect peut consulter plusieurs articles de fond avant même d'entrer en contact commercial, ce qui rend le contenu éducatif directement stratégique plutôt qu'accessoire.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-growth-b2b-saas-vs-ecommerce-resource.png" alt="Un tactique growth qui fonctionne d'un côté peut être neutre, voire contre-productive, appliquée telle quelle de l'autre." width="900" height="340" loading="lazy">
+  <figcaption>Un tactique growth qui fonctionne d'un côté peut être neutre, voire contre-productive, appliquée telle quelle de l'autre.</figcaption>
+</figure>
+
+<h2>Ce qui ne change pas entre les deux modèles</h2>
+
+<ul class="sub-points">
+  <li><strong>La nécessité de mesurer sur la valeur réelle générée</strong>, pas seulement sur le volume de leads ou de ventes — un CAC bas avec une mauvaise rétention reste un mauvais calcul dans les deux modèles.</li>
+  <li><strong>L'importance du tracking pour attribuer correctement la conversion</strong> à son origine réelle, que le cycle dure trois minutes ou trois mois.</li>
+  <li><strong>Le principe qu'un mauvais produit ou une mauvaise expérience</strong> ne se rattrape pas durablement par plus de budget d'acquisition, quel que soit le modèle économique.</li>
+</ul>
+
+<h2>Comment adapter un playbook plutôt que le copier</h2>
+
+<p>Avant de reprendre une tactique growth qui a fonctionné ailleurs, la bonne question n'est pas «&nbsp;est-ce que ça a marché&nbsp;» mais «&nbsp;dans quel contexte de décision ça a marché, et le mien lui ressemble-t-il&nbsp;». Un cycle de décision court et individuel appelle des leviers d'impulsion&nbsp;; un cycle long et collectif appelle des leviers de construction de confiance étalés dans le temps.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Le paid social fonctionne-t-il en B2B SaaS ?</summary>
+    <p>Oui, mais avec un rôle différent qu'en e-commerce : plus orienté vers la notoriété et la génération de leads à nourrir sur la durée que vers la conversion directe et immédiate.</p>
+  </details>
+  <details>
+    <summary>Le content marketing est-il plus important en B2B qu'en e-commerce ?</summary>
+    <p>Il joue un rôle différent plutôt que d'être simplement plus ou moins important : en e-commerce il capte une intention proche de l'achat, en B2B SaaS il accompagne souvent une décision qui se construit sur plusieurs semaines.</p>
+  </details>
+  <details>
+    <summary>Peut-on appliquer les mêmes indicateurs de succès aux deux modèles ?</summary>
+    <p>Les indicateurs de fond (CAC, LTV, taux de conversion) restent pertinents dans les deux cas, mais leurs valeurs de référence et la façon de les mesurer diffèrent fortement selon la longueur du cycle de décision.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Un playbook growth à adapter à votre modèle réel ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre stratégie growth</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/cro">CRO</a>, la page <a href="/analytics">Analytics</a>, et la page <a href="/comment-je-travaille">Comment je travaille</a>.</p>
+        <p class="sub-cta-link">À lire aussi : <a href="/growth-loops-vs-funnel-marketing">Growth loops vs funnel marketing classique : repenser l'acquisition</a> et <a href="/cac-ltv-piloter-rentabilite-acquisition">CAC et LTV : la méthode pour savoir si votre acquisition est vraiment rentable</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/cro">CRO →</a>
+      <a href="/analytics">Analytics →</a>
+      <a href="/comment-je-travaille">Comment je travaille →</a>
+      <a href="/cac-ltv-piloter-rentabilite-acquisition">CAC et LTV →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
