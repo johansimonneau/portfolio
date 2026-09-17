@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retargeting : 4 idées reçues qui plombent vos campagnes de remarketing | Blog — Johan Simonneau</title>
+<meta name="description" content="Le retargeting reste efficace, mais mal réglé il use l'audience au lieu de la convertir. 4 idées reçues à corriger sur la fréquence, la fenêtre d'attribution et l'exclusion.">
+
+<link rel="canonical" href="https://johansimonneau.fr/retargeting-remarketing-mythes-realite">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Retargeting : 4 idées reçues qui plombent vos campagnes de remarketing">
+<meta property="og:description" content="Le retargeting reste efficace, mais mal réglé il use l'audience au lieu de la convertir. 4 idées reçues à corriger sur la fréquence, la fenêtre d'attribution et l'exclusion.">
+<meta property="og:url" content="https://johansimonneau.fr/retargeting-remarketing-mythes-realite">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-retargeting-remarketing-mythes-realite-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-retargeting-remarketing-mythes-realite-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "Retargeting : 4 idées reçues qui plombent vos campagnes de remarketing",
+      "image": "https://johansimonneau.fr/assets/img/blog-retargeting-remarketing-mythes-realite-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-12-24",
+      "dateModified": "2026-12-24",
+      "description": "Le retargeting reste efficace, mais mal réglé il use l'audience au lieu de la convertir. 4 idées reçues à corriger sur la fréquence, la fenêtre d'attribution et l'exclusion.",
+      "mainEntityOfPage": "https://johansimonneau.fr/retargeting-remarketing-mythes-realite"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quel plafond de fréquence appliquer en retargeting ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'y a pas de chiffre universel, mais commencer entre 3 et 7 expositions par semaine et ajuster selon l'évolution du taux de clic reste une base de départ raisonnable pour la plupart des secteurs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le retargeting fonctionne-t-il sans cookies tiers ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, en 2026 les cookies tiers restent actifs par défaut dans Chrome — Google a abandonné son projet de les remplacer entièrement. Le remarketing basé sur les listes de clients (first-party) reste néanmoins la solution la plus pérenne à long terme."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps garder un visiteur dans une liste de retargeting ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cela dépend du cycle de décision du produit ou service : quelques jours pour un achat impulsif, plusieurs semaines pour un cycle de vente B2B plus long."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Retargeting et remarketing</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Retargeting : 4 idées reçues qui plombent vos campagnes de remarketing</h1>
+      <p class="sub-hook">Le retargeting a la réputation d'être le levier publicitaire le plus rentable — ce qui pousse beaucoup d'annonceurs à l'utiliser sans le régler correctement. Voici les quatre idées reçues qui reviennent le plus souvent dans mes audits, et ce qu'il faut faire à la place.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>24 décembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-retargeting-remarketing-mythes-realite-hero.png" alt="Illustration opposant le mythe (plus de fréquence égale plus de conversions) à la réalité (un plafond existe au-delà duquel ça use l'audience)" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Le retargeting affiche souvent les meilleurs indicateurs de rentabilité d'un compte publicitaire — ce qui pousse naturellement à vouloir en faire plus. C'est précisément là que la plupart des comptes que j'audite perdent en efficacité. Voici quatre idées reçues à corriger.</p>
+
+<h2>Mythe n°1 : « Plus on montre l'annonce, plus on convertit »</h2>
+
+<p><strong>Réalité</strong>&nbsp;: la relation entre fréquence d'exposition et conversion n'est pas linéaire. Au-delà d'un certain plafond — généralement entre 3 et 7 expositions par semaine selon le secteur — l'effet marginal devient négatif&nbsp;: l'audience se lasse, le taux de clic chute, et la perception de la marque peut même se dégrader. <strong>À faire</strong>&nbsp;: fixez un plafond de fréquence explicite dans les paramètres de campagne, et ajustez-le en observant l'évolution du taux de clic dans le temps sur un même segment.</p>
+
+<h2>Mythe n°2 : « Une seule liste de retargeting suffit »</h2>
+
+<p><strong>Réalité</strong>&nbsp;: un visiteur qui a consulté une page produit et un visiteur qui a abandonné un panier n'ont pas la même distance à la conversion — leur montrer le même message générique gaspille le potentiel de conversion du second, plus proche de l'achat. <strong>À faire</strong>&nbsp;: segmentez au minimum par intention (simple visite, ajout au panier, panier abandonné), avec un message et une offre adaptés à chaque étape.</p>
+
+<h2>Mythe n°3 : « L'exclusion des acheteurs n'est pas prioritaire »</h2>
+
+<p><strong>Réalité</strong>&nbsp;: continuer à cibler un client qui vient d'acheter avec la même annonce d'acquisition gaspille du budget et peut même semer le doute sur la réussite de sa commande. C'est l'un des <a href="https://support.google.com/google-ads/answer/6287125" target="_blank" rel="noopener">réglages de remarketing dynamique</a> les plus simples à mettre en place, souvent négligé faute de priorité. <strong>À faire</strong>&nbsp;: excluez automatiquement les acheteurs récents de vos listes d'acquisition, et basculez-les vers des listes dédiées à la fidélisation ou à la vente additionnelle.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-retargeting-remarketing-mythes-realite-resource.png" alt="Le retargeting reste l'un des leviers les plus rentables — à condition de le traiter comme une audience à ménager, pas à saturer." width="900" height="340" loading="lazy">
+  <figcaption>Le retargeting reste l'un des leviers les plus rentables — à condition de le traiter comme une audience à ménager, pas à saturer.</figcaption>
+</figure>
+
+<h2>Mythe n°4 : « La créa peut rester identique tant qu'elle convertit »</h2>
+
+<p><strong>Réalité</strong>&nbsp;: la fatigue publicitaire (<em>ad fatigue</em>) touche particulièrement le retargeting, puisque c'est le même public restreint qui revoit les mêmes visuels plus souvent que sur une campagne d'acquisition large. Une baisse progressive du taux de clic sur une même audience, sans changement de ciblage, est souvent le signe d'une créa qui s'est usée avant que quiconque ne s'en rende compte. <strong>À faire</strong>&nbsp;: renouvelez les visuels et les messages à intervalle régulier, avant que la baisse de performance ne s'installe.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Quel plafond de fréquence appliquer en retargeting ?</summary>
+    <p>Il n'y a pas de chiffre universel, mais commencer entre 3 et 7 expositions par semaine et ajuster selon l'évolution du taux de clic reste une base de départ raisonnable pour la plupart des secteurs.</p>
+  </details>
+  <details>
+    <summary>Le retargeting fonctionne-t-il sans cookies tiers ?</summary>
+    <p>Oui, en 2026 les cookies tiers restent actifs par défaut dans Chrome — Google a abandonné son projet de les remplacer entièrement. Le remarketing basé sur les listes de clients (first-party) reste néanmoins la solution la plus pérenne à long terme.</p>
+  </details>
+  <details>
+    <summary>Combien de temps garder un visiteur dans une liste de retargeting ?</summary>
+    <p>Cela dépend du cycle de décision du produit ou service : quelques jours pour un achat impulsif, plusieurs semaines pour un cycle de vente B2B plus long.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Votre retargeting sature votre audience plus qu'il ne convertit ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur vos campagnes de remarketing</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/sea">SEA</a>, la page <a href="/sma">SMA</a>, et la page <a href="/cro">CRO</a>.</p>
+        <p class="sub-cta-link">À lire aussi : <a href="/attribution-multi-touch-dernier-clic">Attribution multi-touch : pourquoi le dernier clic ment sur votre ROI</a> et <a href="/youtube-ads-capter-attention-5-secondes">YouTube Ads : capter l'attention dans les 5 premières secondes</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/sea">SEA →</a>
+      <a href="/sma">SMA →</a>
+      <a href="/cro">CRO →</a>
+      <a href="/attribution-multi-touch-dernier-clic">Attribution multi-touch →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
