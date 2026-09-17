@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LinkedIn Ads ou Google Ads pour du B2B : comment trancher | Blog — Johan Simonneau</title>
+<meta name="description" content="LinkedIn Ads et Google Ads répondent à deux logiques différentes en B2B. Comparatif concret : ciblage, coût, cycle de vente, et comment les faire cohabiter plutôt que choisir.">
+
+<link rel="canonical" href="https://johansimonneau.fr/linkedin-ads-b2b-google-ads-comparatif">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LinkedIn Ads ou Google Ads pour du B2B : comment trancher">
+<meta property="og:description" content="LinkedIn Ads et Google Ads répondent à deux logiques différentes en B2B. Comparatif concret : ciblage, coût, cycle de vente, et comment les faire cohabiter plutôt que choisir.">
+<meta property="og:url" content="https://johansimonneau.fr/linkedin-ads-b2b-google-ads-comparatif">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-linkedin-ads-b2b-google-ads-comparatif-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-linkedin-ads-b2b-google-ads-comparatif-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "headline": "LinkedIn Ads ou Google Ads pour du B2B : comment trancher",
+      "image": "https://johansimonneau.fr/assets/img/blog-linkedin-ads-b2b-google-ads-comparatif-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-11-30",
+      "dateModified": "2026-11-30",
+      "description": "LinkedIn Ads et Google Ads répondent à deux logiques différentes en B2B. Comparatif concret : ciblage, coût, cycle de vente, et comment les faire cohabiter plutôt que choisir.",
+      "mainEntityOfPage": "https://johansimonneau.fr/linkedin-ads-b2b-google-ads-comparatif"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "LinkedIn Ads est-il toujours plus cher que Google Ads en B2B ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Au clic, oui dans la plupart des cas. Mais le coût par lead qualifié ou par client final peut être inférieur si le ciblage précis de LinkedIn réduit le volume de leads non pertinents."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il un budget minimum pour démarrer sur LinkedIn Ads ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "LinkedIn Ads reste accessible à budget modeste, mais son efficacité dépend surtout de la précision du ciblage plus que du volume investi — mieux vaut un budget resserré sur une liste de comptes qualifiée qu'un budget large et diffus."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on mesurer LinkedIn Ads et Google Ads avec les mêmes indicateurs ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas directement au niveau du coût par clic, très différent entre les deux plateformes. Le bon terrain de comparaison est le coût par lead qualifié ou le CAC, mesurés sur l'ensemble du parcours."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">LinkedIn Ads vs Google Ads</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>LinkedIn Ads ou Google Ads pour du B2B : comment trancher</h1>
+      <p class="sub-hook">« On devrait faire du LinkedIn plutôt que du Google Ads, non ? » — la question revient dans presque toutes mes premières réunions avec un client B2B. La réponse courte&nbsp;: ce n'est pas un choix binaire, ce sont deux outils qui répondent à deux moments différents du parcours d'achat.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>30 novembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-linkedin-ads-b2b-google-ads-comparatif-hero.png" alt="Illustration comparant LinkedIn Ads (ciblage par poste, cible froide) à Google Ads (intention de recherche, cible chaude)" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Dans les audits d'acquisition B2B que je mène, l'erreur la plus fréquente n'est pas de choisir le mauvais canal — c'est de comparer les deux sur le même indicateur, alors qu'ils ne mesurent pas la même chose. Voici comment je les compare vraiment, poste par poste.</p>
+
+<h2>Le ciblage</h2>
+
+<p>Le <a href="https://business.linkedin.com/marketing-solutions/ads" target="_blank" rel="noopener">ciblage LinkedIn Ads</a> se fait par attributs professionnels déclaratifs&nbsp;: poste, ancienneté, secteur, taille d'entreprise, et même des listes de comptes précis en <em>Account-Based Marketing</em>. Vous atteignez la bonne personne même si elle n'a encore rien cherché.</p>
+
+<p>Google Ads Search fonctionne à l'inverse&nbsp;: le ciblage se fait par intention de recherche, pas par profil. Vous ne savez pas qui tape la requête, mais vous savez qu'elle exprime un besoin actif au moment précis où elle la tape.</p>
+
+<h3>Quand LinkedIn Ads prend l'avantage</h3>
+
+<ul class="sub-points">
+  <li><strong>Le besoin n'est pas encore recherché activement.</strong> Un nouveau poste, un logiciel émergent, une catégorie que le marché ne connaît pas encore par son nom&nbsp;: personne ne tape la bonne requête sur Google, donc Google Ads ne peut rien capter.</li>
+  <li><strong>La cible est un profil précis dans une liste d'entreprises identifiées.</strong> L'ABM (Account-Based Marketing) via LinkedIn permet de cibler nommément les comptes stratégiques d'un pipeline commercial — impossible à répliquer avec la même précision sur Google Ads.</li>
+  <li><strong>Le cycle de vente est long et implique plusieurs décideurs.</strong> LinkedIn permet de toucher différents interlocuteurs d'une même entreprise (le technique, le financier, le décideur final) avec des messages adaptés à chacun.</li>
+</ul>
+
+<h3>Quand Google Ads prend l'avantage</h3>
+
+<ul class="sub-points">
+  <li><strong>Le besoin est déjà identifié et recherché.</strong> Une requête comme «&nbsp;logiciel de facturation PME&nbsp;» signale une intention active — le prospect est déjà plus avancé dans sa réflexion qu'un lecteur de fil LinkedIn.</li>
+  <li><strong>Le coût par clic doit rester maîtrisé.</strong> LinkedIn Ads coûte structurellement plus cher au clic que Google Ads Search sur la plupart des secteurs B2B, en particulier sur les postes à forte concurrence (RH, tech, finance).</li>
+  <li><strong>Le volume de recherche existe déjà sur le sujet.</strong> Sans volume de recherche minimum, Google Ads ne peut tout simplement pas délivrer d'impressions suffisantes — LinkedIn n'a pas cette contrainte de volume.</li>
+</ul>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-linkedin-ads-b2b-google-ads-comparatif-resource.png" alt="Le bon canal dépend surtout d'où en est le prospect dans sa réflexion, pas d'une préférence de principe pour l'un ou l'autre." width="900" height="340" loading="lazy">
+  <figcaption>Le bon canal dépend surtout d'où en est le prospect dans sa réflexion, pas d'une préférence de principe pour l'un ou l'autre.</figcaption>
+</figure>
+
+<h2>Le duo plutôt que le duel</h2>
+
+<p>Dans la plupart des comptes B2B que j'accompagne, la combinaison la plus rentable n'est ni «&nbsp;tout LinkedIn&nbsp;» ni «&nbsp;tout Google&nbsp;»&nbsp;: c'est LinkedIn pour construire la notoriété et l'intention sur une liste de comptes cibles, puis Google Ads pour capter cette même intention une fois qu'elle devient une recherche active — et le reciblage Google Display ou LinkedIn pour ne pas perdre le contact entre les deux.</p>
+
+<h2>Comment répartir un budget limité</h2>
+
+<ul class="sub-points">
+  <li><strong>Démarrez par Google Ads Search si le budget est serré.</strong> Le coût par lead y est généralement plus prévisible qu'en LinkedIn Ads, avec un volume de recherche suffisant sur vos mots-clés cœur de métier.</li>
+  <li><strong>Réservez LinkedIn Ads aux listes de comptes à forte valeur.</strong> Plutôt que du ciblage large et coûteux, concentrez le budget LinkedIn sur une liste resserrée de comptes stratégiques identifiés par les commerciaux.</li>
+  <li><strong>Mesurez sur un cycle complet, pas sur le coût par clic.</strong> Un clic LinkedIn plus cher peut produire un lead plus qualifié et donc un coût par client final inférieur — comparez le CAC, pas le CPC.</li>
+</ul>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>LinkedIn Ads est-il toujours plus cher que Google Ads en B2B ?</summary>
+    <p>Au clic, oui dans la plupart des cas. Mais le coût par lead qualifié ou par client final peut être inférieur si le ciblage précis de LinkedIn réduit le volume de leads non pertinents.</p>
+  </details>
+  <details>
+    <summary>Faut-il un budget minimum pour démarrer sur LinkedIn Ads ?</summary>
+    <p>LinkedIn Ads reste accessible à budget modeste, mais son efficacité dépend surtout de la précision du ciblage plus que du volume investi — mieux vaut un budget resserré sur une liste de comptes qualifiée qu'un budget large et diffus.</p>
+  </details>
+  <details>
+    <summary>Peut-on mesurer LinkedIn Ads et Google Ads avec les mêmes indicateurs ?</summary>
+    <p>Pas directement au niveau du coût par clic, très différent entre les deux plateformes. Le bon terrain de comparaison est le coût par lead qualifié ou le CAC, mesurés sur l'ensemble du parcours.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Besoin d'arbitrer votre budget entre LinkedIn Ads et Google Ads ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre acquisition B2B</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/sma">SMA</a>, la page <a href="/sea">SEA</a>, et la page <a href="/analytics">Analytics</a>.</p>
+        <p class="sub-cta-link">À lire aussi : <a href="/bing-ads-b2b-canal-sous-exploite">Bing Ads : le canal B2B que tout le monde ignore</a> et <a href="/performance-max-boite-noire-publicitaire">Performance Max : reprendre la main sur une boîte noire publicitaire</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/sma">SMA →</a>
+      <a href="/sea">SEA →</a>
+      <a href="/analytics">Analytics →</a>
+      <a href="/google-ads-petit-budget">Budget SEA limité →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
