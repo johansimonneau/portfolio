@@ -218,7 +218,7 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
 
 <h2>Ce qui ne change pas</h2>
 
-<p>La Conversion API ne remplace pas le tracking navigateur classique (pixel Meta, tag Google Ads)&nbsp;— elle vient en complément, en doublon volontaire. Les deux méthodes envoient les mêmes événements, avec un identifiant de déduplication, pour que la plateforme publicitaire ne compte pas deux fois la même conversion. L'objectif reste le même qu'avant&nbsp;: donner à l'algorithme d'enchères les signaux les plus complets et les plus fiables possible.</p>
+<p>La <a href="https://developers.facebook.com/docs/marketing-api/conversions-api/" target="_blank" rel="noopener">Conversion API</a> ne remplace pas le tracking navigateur classique (pixel Meta, tag Google Ads)&nbsp;— elle vient en complément, en doublon volontaire. Les deux méthodes envoient les mêmes événements, avec un identifiant de déduplication, pour que la plateforme publicitaire ne compte pas deux fois la même conversion. L'objectif reste le même qu'avant&nbsp;: donner à l'algorithme d'enchères les signaux les plus complets et les plus fiables possible.</p>
 
 <h2>Ce qui change vraiment</h2>
 
@@ -241,7 +241,7 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
 <h2>Ce qu'il faut faire concrètement</h2>
 
 <ul class="sub-points">
-  <li><strong>Commencez par un Server-Side Google Tag Manager</strong> si vous utilisez déjà GTM côté client&nbsp;: c'est la porte d'entrée la plus simple pour router les événements vers un serveur intermédiaire (Cloud Run, container GTM serveur) avant de les renvoyer aux plateformes.</li>
+  <li><strong>Commencez par un <a href="https://developers.google.com/tag-platform/tag-manager/server-side/overview" target="_blank" rel="noopener">Server-Side Google Tag Manager</a></strong> si vous utilisez déjà GTM côté client&nbsp;: c'est la porte d'entrée la plus simple pour router les événements vers un serveur intermédiaire (Cloud Run, container GTM serveur) avant de les renvoyer aux plateformes.</li>
   <li><strong>Priorisez les événements de conversion à forte valeur</strong> (achat, lead qualifié) avant les événements intermédiaires (vue de page, ajout au panier) — c'est là que l'écart de mesure coûte le plus cher.</li>
   <li><strong>Vérifiez la déduplication</strong> avec l'outil de diagnostic de la plateforme (Meta Events Manager, Google Tag Assistant) pour vous assurer qu'une même conversion n'est pas comptée deux fois entre le pixel et l'API.</li>
   <li><strong>Ne négligez pas le consentement</strong>&nbsp;: le tracking côté serveur ne dispense pas du recueil du consentement RGPD — il doit rester conditionné exactement comme le tracking navigateur.</li>
