@@ -20,19 +20,19 @@ gtag('consent', 'default', {
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Attribution multi-touch : pourquoi le dernier clic ment sur votre ROI | Blog — Johan Simonneau</title>
-<meta name="description" content="Le modèle d'attribution dernier clic sur-valorise systématiquement certains canaux. Comment l'attribution multi-touch corrige ce biais, et comment la mettre en place simplement.">
+<title>Mixpanel vs GA4 : quand l'analytics produit devient nécessaire | Blog — Johan Simonneau</title>
+<meta name="description" content="GA4 couvre bien le marketing digital mais atteint vite ses limites pour analyser un produit. Quand basculer vers un outil d'analytics produit comme Mixpanel, et pourquoi.">
 
-<link rel="canonical" href="https://johansimonneau.fr/attribution-multi-touch-dernier-clic">
+<link rel="canonical" href="https://johansimonneau.fr/mixpanel-vs-ga4-analytics-produit">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Attribution multi-touch : pourquoi le dernier clic ment sur votre ROI">
-<meta property="og:description" content="Le modèle d'attribution dernier clic sur-valorise systématiquement certains canaux. Comment l'attribution multi-touch corrige ce biais, et comment la mettre en place simplement.">
-<meta property="og:url" content="https://johansimonneau.fr/attribution-multi-touch-dernier-clic">
-<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-attribution-multi-touch-dernier-clic-hero.png">
+<meta property="og:title" content="Mixpanel vs GA4 : quand l'analytics produit devient nécessaire">
+<meta property="og:description" content="GA4 couvre bien le marketing digital mais atteint vite ses limites pour analyser un produit. Quand basculer vers un outil d'analytics produit comme Mixpanel, et pourquoi.">
+<meta property="og:url" content="https://johansimonneau.fr/mixpanel-vs-ga4-analytics-produit">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-mixpanel-vs-ga4-analytics-produit-hero.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-attribution-multi-touch-dernier-clic-hero.png">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-mixpanel-vs-ga4-analytics-produit-hero.png">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -66,50 +66,50 @@ gtag('consent', 'default', {
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Attribution multi-touch : pourquoi le dernier clic ment sur votre ROI",
-          "item": "https://johansimonneau.fr/attribution-multi-touch-dernier-clic"
+          "name": "Mixpanel vs GA4 : quand l'analytics produit devient nécessaire",
+          "item": "https://johansimonneau.fr/mixpanel-vs-ga4-analytics-produit"
         }
       ]
     },
     {
       "@type": "BlogPosting",
-      "headline": "Attribution multi-touch : pourquoi le dernier clic ment sur votre ROI",
-      "image": "https://johansimonneau.fr/assets/img/blog-attribution-multi-touch-dernier-clic-hero.png",
+      "headline": "Mixpanel vs GA4 : quand l'analytics produit devient nécessaire",
+      "image": "https://johansimonneau.fr/assets/img/blog-mixpanel-vs-ga4-analytics-produit-hero.png",
       "author": {
         "@type": "Person",
         "name": "Johan Simonneau",
         "url": "https://johansimonneau.fr"
       },
-      "datePublished": "2026-09-23",
-      "dateModified": "2026-09-23",
-      "description": "Le modèle d'attribution dernier clic sur-valorise systématiquement certains canaux. Comment l'attribution multi-touch corrige ce biais, et comment la mettre en place simplement.",
-      "mainEntityOfPage": "https://johansimonneau.fr/attribution-multi-touch-dernier-clic"
+      "datePublished": "2026-11-14",
+      "dateModified": "2026-11-14",
+      "description": "GA4 couvre bien le marketing digital mais atteint vite ses limites pour analyser un produit. Quand basculer vers un outil d'analytics produit comme Mixpanel, et pourquoi.",
+      "mainEntityOfPage": "https://johansimonneau.fr/mixpanel-vs-ga4-analytics-produit"
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "L'attribution multi-touch est-elle disponible gratuitement dans GA4 ?",
+          "name": "Peut-on remplacer complètement GA4 par Mixpanel ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Oui, l'attribution data-driven est intégrée nativement à GA4 sans coût supplémentaire, dès qu'il y a un volume de données suffisant pour l'entraîner correctement."
+            "text": "Ce n'est généralement pas recommandé. GA4 reste pertinent pour l'analyse marketing et l'attribution des canaux d'acquisition, un périmètre où Mixpanel n'est pas construit pour exceller."
           }
         },
         {
           "@type": "Question",
-          "name": "Faut-il abandonner complètement le dernier clic ?",
+          "name": "À partir de quel volume d'utilisateurs Mixpanel devient-il pertinent ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Non, il reste utile comme indicateur simple et rapide à lire pour un suivi quotidien. Le problème n'est pas de le consulter, c'est de baser des décisions budgétaires structurantes uniquement dessus."
+            "text": "Il n'y a pas de seuil universel, mais l'investissement se justifie surtout quand les questions produit deviennent plus fines que ce que GA4 peut mesurer nativement — rétention par fonctionnalité, parcours détaillé."
           }
         },
         {
           "@type": "Question",
-          "name": "L'attribution multi-touch fonctionne-t-elle pour un petit volume de conversions ?",
+          "name": "Le tracking GA4 existant peut-il être réutilisé pour Mixpanel ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Moins bien : les modèles data-driven ont besoin d'un volume minimum de données pour être statistiquement fiables. En dessous, un modèle basé sur des règles (linéaire, position) reste une alternative plus stable."
+            "text": "Partiellement dans sa logique, mais un plan de tracking événementiel dédié et plus détaillé est généralement nécessaire pour tirer parti des fonctionnalités spécifiques de Mixpanel."
           }
         }
       ]
@@ -208,7 +208,7 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
       <li class="sep">/</li>
       <li><a href="/blog">Blog</a></li>
       <li class="sep">/</li>
-      <li aria-current="page">Attribution</li>
+      <li aria-current="page">Mixpanel vs GA4</li>
     </ol>
   </div>
 </nav>
@@ -218,12 +218,12 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
   <section class="sub-header">
     <div class="container sub-header-inner">
       <a href="/blog" class="sub-pillar-tag">Blog</a>
-      <h1>Attribution multi-touch : pourquoi le dernier clic ment sur votre ROI</h1>
-      <p class="sub-hook">Si votre reporting attribue 100&nbsp;% de la conversion au dernier canal cliqué avant l'achat, vous êtes probablement en train de sur-financer le SEA de marque et de sous-financer tout ce qui construit la demande en amont. L'attribution dernier clic n'est pas fausse&nbsp;— elle est juste partielle, et elle ment par omission.</p>
+      <h1>Mixpanel vs GA4 : quand l'analytics produit devient nécessaire</h1>
+      <p class="sub-hook">GA4 répond bien aux besoins d'analyse marketing&nbsp;— acquisition, canaux, conversions. Dès qu'il s'agit d'analyser en profondeur le comportement des utilisateurs à l'intérieur d'un produit digital, ses limites deviennent vite un frein. C'est précisément le terrain sur lequel un outil comme Mixpanel prend le relais.</p>
       <p class="sub-byline">
         <span>Johan Simonneau</span>
         <span>·</span>
-        <span>23 septembre 2026</span>
+        <span>14 novembre 2026</span>
         <span>·</span>
         <span>6 min de lecture</span>
       </p>
@@ -232,71 +232,71 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
 
   <section class="sub-cover">
     <div class="container">
-      <img src="assets/img/blog-attribution-multi-touch-dernier-clic-hero.png" alt="Illustration d'une recherche mettant en avant un encart mis en évidence sur l'attribution, au-dessus de résultats secondaires grisés" width="1200" height="630" loading="eager">
+      <img src="assets/img/blog-mixpanel-vs-ga4-analytics-produit-hero.png" alt="Illustration comparant GA4, orienté marketing et acquisition, à Mixpanel, orienté analyse du parcours produit" width="1200" height="630" loading="eager">
     </div>
   </section>
 
   <section class="sub-article">
     <div class="container sub-article-inner">
 
-<p>C'est l'un des biais les plus coûteux que je trouve dans les comptes que j'audite&nbsp;: un reporting basé sur le dernier clic qui pousse, année après année, à couper les budgets de notoriété (Display, réseaux sociaux, contenu) au profit du SEA de marque — qui capte mécaniquement la conversion finale sans avoir généré la demande initiale.</p>
+<p>GA4 et Mixpanel ne répondent pas aux mêmes questions, même s'ils mesurent tous les deux des événements utilisateur. Confondre les deux outils, ou attendre de GA4 des analyses qu'il n'est pas construit pour produire, est une source fréquente de frustration dans les équipes produit.</p>
 
 <h2>Ce qui ne change pas</h2>
 
-<p>Aucun modèle d'attribution, aussi sophistiqué soit-il, ne remplace un tracking propre en amont&nbsp;: sans <a href="/consultant-ga4">GA4</a> correctement configuré et sans <a href="/conversion-api-tracking-server-side">Conversion API</a> pour fiabiliser les événements, même le meilleur modèle multi-touch travaille sur des données incomplètes. L'attribution ne corrige pas un tracking défaillant, elle répartit plus intelligemment ce qui est effectivement mesuré.</p>
+<p>Dans les deux cas, la fiabilité de l'analyse dépend directement de la qualité du plan de tracking mis en place en amont. La logique reste la même que pour <a href="/analytics">Analytics</a> en général&nbsp;: un outil puissant sur des données mal structurées produit des conclusions fausses, quel que soit le nom de l'outil utilisé.</p>
 
-<h2>Ce qui change vraiment avec le multi-touch</h2>
+<h2>Ce qui change vraiment entre les deux outils</h2>
 
 <ul class="sub-points">
-  <li><strong>Chaque point de contact reçoit une part du mérite, pas juste le dernier.</strong> Les modèles basés sur les données (data-driven attribution, disponible nativement dans GA4) répartissent la conversion entre tous les canaux du parcours, selon leur contribution réelle mesurée statistiquement.</li>
-  <li><strong>Les canaux de notoriété redeviennent visibles dans le ROI.</strong> Un canal comme le Display, souvent jugé peu performant en dernier clic, peut se révéler être le déclencheur initial d'une part significative des conversions attribuées à d'autres canaux en aval.</li>
-  <li><strong>Le budget se réalloue différemment.</strong> Une fois la contribution réelle de chaque canal mesurée, les arbitrages budgétaires changent&nbsp;: on finance ce qui construit la demande, pas seulement ce qui la capte en bout de course.</li>
-  <li><strong>La lecture devient plus complexe, pas plus simple.</strong> Un modèle multi-touch demande une lecture en délais de conversion et en chemins de conversion, pas un chiffre unique par canal&nbsp;— ce qui exige un vrai temps d'analyse, pas un tableau de bord automatique.</li>
+  <li><strong>GA4 raisonne en sessions et en canaux, Mixpanel en utilisateurs et en événements.</strong> GA4 excelle pour comprendre d'où vient le trafic et comment il convertit&nbsp;; Mixpanel excelle pour comprendre ce qu'un utilisateur fait précisément, dans quel ordre, sur quelle durée.</li>
+  <li><strong>L'analyse de cohortes est native sur Mixpanel, limitée sur GA4.</strong> Comparer le comportement d'utilisateurs inscrits en janvier à ceux inscrits en mars, sur plusieurs dimensions croisées, est un usage courant sur Mixpanel et laborieux sur GA4.</li>
+  <li><strong>La rétention par fonctionnalité est un point fort de Mixpanel.</strong> Savoir quelle fonctionnalité précise retient réellement les utilisateurs, au-delà de la rétention globale du produit, est une analyse que GA4 ne propose pas nativement.</li>
+  <li><strong>Le coût et la complexité de mise en place sont plus élevés sur Mixpanel.</strong> L'outil demande un plan de tracking événementiel plus rigoureux et un budget dédié, ce qui ne se justifie qu'à partir d'un volume d'utilisateurs suffisant.</li>
 </ul>
 
 <figure class="sub-figure">
-  <img src="assets/img/blog-attribution-multi-touch-dernier-clic-resource.png" alt="Le dernier clic n'attribue la conversion qu'à la dernière étape — en ignorant les trois qui ont construit la décision d'achat en amont." width="900" height="300" loading="lazy">
-  <figcaption>Le dernier clic n'attribue la conversion qu'à la dernière étape — en ignorant les trois qui ont construit la décision d'achat en amont.</figcaption>
+  <img src="assets/img/blog-mixpanel-vs-ga4-analytics-produit-resource.png" alt="Le passage à un outil d'analytics produit dédié devient pertinent quand les questions posées dépassent ce que GA4 peut mesurer nativement." width="900" height="300" loading="lazy">
+  <figcaption>Le passage à un outil d'analytics produit dédié devient pertinent quand les questions posées dépassent ce que GA4 peut mesurer nativement.</figcaption>
 </figure>
 
 <h2>Un exemple qui illustre bien la différence</h2>
 
-<p>Sur un compte e-commerce que j'ai audité, le dernier clic attribuait 70&nbsp;% des conversions au SEA de marque et seulement 8&nbsp;% au Display. En passant à un modèle data-driven, la part réelle du Display dans les parcours de conversion est montée à 24&nbsp;%&nbsp;: il apparaissait dans la majorité des chemins, en première ou deuxième position, sans jamais être le dernier clic. Couper ce budget, comme l'envisageait le client sur la base du seul reporting dernier clic, aurait mécaniquement fait baisser le volume global de conversions quelques semaines plus tard.</p>
+<p>Pour un client SaaS qui s'appuyait uniquement sur GA4, l'équipe produit ne parvenait pas à identifier pourquoi une partie des nouveaux inscrits abandonnait avant d'atteindre la première valeur du produit. La mise en place d'un tracking événementiel dédié dans Mixpanel a permis d'isoler précisément l'étape de blocage dans le parcours d'onboarding, une analyse que la structure de GA4 ne permettait pas d'obtenir avec la même précision.</p>
 
 <h2>Ce qu'il faut faire concrètement</h2>
 
 <ul class="sub-points">
-  <li><strong>Activez l'attribution data-driven dans GA4</strong>, disponible par défaut dès qu'il y a assez de volume de conversions&nbsp;: c'est le point de départ le plus simple, sans outil tiers.</li>
-  <li><strong>Regardez les chemins de conversion</strong> (rapport &laquo;&nbsp;Chemins de conversion multicanaux&nbsp;&raquo;) avant de couper un budget qui semble sous-performer en dernier clic&nbsp;— il joue peut-être un rôle en amont invisible autrement.</li>
-  <li><strong>Ne basculez pas tout d'un coup&nbsp;:</strong> testez les nouvelles allocations budgétaires progressivement, sur une portion du budget, pour valider l'hypothèse avant un changement complet de stratégie.</li>
-  <li><strong>Documentez la fenêtre de conversion</strong> adaptée à votre cycle de vente&nbsp;: un modèle multi-touch mal calibré sur une fenêtre trop courte reproduit les biais du dernier clic sans le savoir.</li>
+  <li><strong>Gardez GA4 pour tout ce qui touche à l'acquisition et aux canaux marketing</strong>&nbsp;— ce n'est pas l'outil à remplacer sur ce périmètre.</li>
+  <li><strong>Envisagez un outil d'analytics produit dès que les questions posées dépassent GA4</strong>&nbsp;: rétention par fonctionnalité, parcours détaillé, cohortes croisées.</li>
+  <li><strong>Construisez un plan de tracking événementiel rigoureux avant d'implémenter Mixpanel</strong>, plutôt que de dupliquer telle quelle la configuration GA4 existante.</li>
+  <li><strong>Faites coexister les deux outils plutôt que de choisir</strong>&nbsp;: ils répondent à des questions différentes et se complètent plus qu'ils ne se concurrencent.</li>
 </ul>
 
 <h2>FAQ</h2>
 
 <div class="sub-faq">
   <details>
-    <summary>L'attribution multi-touch est-elle disponible gratuitement dans GA4 ?</summary>
-    <p>Oui, l'attribution data-driven est intégrée nativement à GA4 sans coût supplémentaire, dès qu'il y a un volume de données suffisant pour l'entraîner correctement.</p>
+    <summary>Peut-on remplacer complètement GA4 par Mixpanel ?</summary>
+    <p>Ce n'est généralement pas recommandé. GA4 reste pertinent pour l'analyse marketing et l'attribution des canaux d'acquisition, un périmètre où Mixpanel n'est pas construit pour exceller.</p>
   </details>
   <details>
-    <summary>Faut-il abandonner complètement le dernier clic ?</summary>
-    <p>Non, il reste utile comme indicateur simple et rapide à lire pour un suivi quotidien. Le problème n'est pas de le consulter, c'est de baser des décisions budgétaires structurantes uniquement dessus.</p>
+    <summary>À partir de quel volume d'utilisateurs Mixpanel devient-il pertinent ?</summary>
+    <p>Il n'y a pas de seuil universel, mais l'investissement se justifie surtout quand les questions produit deviennent plus fines que ce que GA4 peut mesurer nativement — rétention par fonctionnalité, parcours détaillé.</p>
   </details>
   <details>
-    <summary>L'attribution multi-touch fonctionne-t-elle pour un petit volume de conversions ?</summary>
-    <p>Moins bien : les modèles data-driven ont besoin d'un volume minimum de données pour être statistiquement fiables. En dessous, un modèle basé sur des règles (linéaire, position) reste une alternative plus stable.</p>
+    <summary>Le tracking GA4 existant peut-il être réutilisé pour Mixpanel ?</summary>
+    <p>Partiellement dans sa logique, mais un plan de tracking événementiel dédié et plus détaillé est généralement nécessaire pour tirer parti des fonctionnalités spécifiques de Mixpanel.</p>
   </details>
 </div>
 
       <div class="sub-cta">
-        <h3>Envie d'y voir clair sur la contribution réelle de vos canaux ?</h3>
+        <h3>Envie de clarifier votre stratégie d'analytics produit ?</h3>
         <div class="sub-cta-actions">
-          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre attribution</a>
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre tracking</a>
           <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
         </div>
-        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/analytics">Analytics</a>, la page <a href="/consultant-ga4">Consultant GA4</a>, et la page <a href="/conversion-api-tracking-server-side">Conversion API</a>.</p>
-        <p class="sub-cta-link">À lire aussi : <a href="/server-side-tracking-conversion-api">Server-side tracking : pourquoi la Conversion API n'est plus optionnelle</a>.</p>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/amplitude-mixpanel">Amplitude / Mixpanel</a>, la page <a href="/analytics">Analytics</a>, et la page <a href="/consultant-ga4">Consultant GA4</a>.</p>
+        <p class="sub-cta-link">À lire aussi : <a href="/ga4-erreurs-configuration-courantes">GA4 : les 5 erreurs de configuration qui faussent vos données</a> et <a href="/server-side-tracking-conversion-api">Server-side tracking : pourquoi la Conversion API n'est plus optionnelle</a>.</p>
       </div>
 
     </div>
@@ -306,10 +306,10 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
     <div class="container sub-pillar-band-inner">
       <p>Pour continuer sur ce sujet.</p>
       <div class="sub-pillar-band-links">
+      <a href="/amplitude-mixpanel">Amplitude / Mixpanel →</a>
       <a href="/analytics">Analytics →</a>
       <a href="/consultant-ga4">Consultant GA4 →</a>
       <a href="/conversion-api-tracking-server-side">Conversion API →</a>
-      <a href="/cro">CRO →</a>
       </div>
     </div>
   </section>

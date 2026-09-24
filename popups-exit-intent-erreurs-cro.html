@@ -20,19 +20,19 @@ gtag('consent', 'default', {
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Attribution multi-touch : pourquoi le dernier clic ment sur votre ROI | Blog — Johan Simonneau</title>
-<meta name="description" content="Le modèle d'attribution dernier clic sur-valorise systématiquement certains canaux. Comment l'attribution multi-touch corrige ce biais, et comment la mettre en place simplement.">
+<title>Popups et exit-intent : les 5 erreurs qui les rendent contre-productifs | Blog — Johan Simonneau</title>
+<meta name="description" content="Un popup mal réglé fait fuir plus de visiteurs qu'il ne convertit. Les 5 erreurs les plus fréquentes sur les popups et exit-intent, et comment les corriger sans les supprimer.">
 
-<link rel="canonical" href="https://johansimonneau.fr/attribution-multi-touch-dernier-clic">
+<link rel="canonical" href="https://johansimonneau.fr/popups-exit-intent-erreurs-cro">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Attribution multi-touch : pourquoi le dernier clic ment sur votre ROI">
-<meta property="og:description" content="Le modèle d'attribution dernier clic sur-valorise systématiquement certains canaux. Comment l'attribution multi-touch corrige ce biais, et comment la mettre en place simplement.">
-<meta property="og:url" content="https://johansimonneau.fr/attribution-multi-touch-dernier-clic">
-<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-attribution-multi-touch-dernier-clic-hero.png">
+<meta property="og:title" content="Popups et exit-intent : les 5 erreurs qui les rendent contre-productifs">
+<meta property="og:description" content="Un popup mal réglé fait fuir plus de visiteurs qu'il ne convertit. Les 5 erreurs les plus fréquentes sur les popups et exit-intent, et comment les corriger sans les supprimer.">
+<meta property="og:url" content="https://johansimonneau.fr/popups-exit-intent-erreurs-cro">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-popups-exit-intent-erreurs-cro-hero.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-attribution-multi-touch-dernier-clic-hero.png">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-popups-exit-intent-erreurs-cro-hero.png">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -66,50 +66,50 @@ gtag('consent', 'default', {
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Attribution multi-touch : pourquoi le dernier clic ment sur votre ROI",
-          "item": "https://johansimonneau.fr/attribution-multi-touch-dernier-clic"
+          "name": "Popups et exit-intent : les 5 erreurs qui les rendent contre-productifs",
+          "item": "https://johansimonneau.fr/popups-exit-intent-erreurs-cro"
         }
       ]
     },
     {
       "@type": "BlogPosting",
-      "headline": "Attribution multi-touch : pourquoi le dernier clic ment sur votre ROI",
-      "image": "https://johansimonneau.fr/assets/img/blog-attribution-multi-touch-dernier-clic-hero.png",
+      "headline": "Popups et exit-intent : les 5 erreurs qui les rendent contre-productifs",
+      "image": "https://johansimonneau.fr/assets/img/blog-popups-exit-intent-erreurs-cro-hero.png",
       "author": {
         "@type": "Person",
         "name": "Johan Simonneau",
         "url": "https://johansimonneau.fr"
       },
-      "datePublished": "2026-09-23",
-      "dateModified": "2026-09-23",
-      "description": "Le modèle d'attribution dernier clic sur-valorise systématiquement certains canaux. Comment l'attribution multi-touch corrige ce biais, et comment la mettre en place simplement.",
-      "mainEntityOfPage": "https://johansimonneau.fr/attribution-multi-touch-dernier-clic"
+      "datePublished": "2026-12-12",
+      "dateModified": "2026-12-12",
+      "description": "Un popup mal réglé fait fuir plus de visiteurs qu'il ne convertit. Les 5 erreurs les plus fréquentes sur les popups et exit-intent, et comment les corriger sans les supprimer.",
+      "mainEntityOfPage": "https://johansimonneau.fr/popups-exit-intent-erreurs-cro"
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "L'attribution multi-touch est-elle disponible gratuitement dans GA4 ?",
+          "name": "Les popups nuisent-ils au référencement Google ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Oui, l'attribution data-driven est intégrée nativement à GA4 sans coût supplémentaire, dès qu'il y a un volume de données suffisant pour l'entraîner correctement."
+            "text": "Google pénalise les interstitiels intrusifs qui bloquent le contenu principal sur mobile juste après l'arrivée sur la page. Un popup bien temporisé et facilement fermable n'est pas concerné par cette pénalité."
           }
         },
         {
           "@type": "Question",
-          "name": "Faut-il abandonner complètement le dernier clic ?",
+          "name": "Faut-il abandonner les exit-intent sur mobile ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Non, il reste utile comme indicateur simple et rapide à lire pour un suivi quotidien. Le problème n'est pas de le consulter, c'est de baser des décisions budgétaires structurantes uniquement dessus."
+            "text": "La détection du mouvement de souris ne fonctionne pas sur mobile. Un déclenchement basé sur le scroll ou le temps passé reste efficace et adapté à ce contexte."
           }
         },
         {
           "@type": "Question",
-          "name": "L'attribution multi-touch fonctionne-t-elle pour un petit volume de conversions ?",
+          "name": "Combien de temps attendre avant de réafficher un popup à un visiteur qui l'a fermé ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Moins bien : les modèles data-driven ont besoin d'un volume minimum de données pour être statistiquement fiables. En dessous, un modèle basé sur des règles (linéaire, position) reste une alternative plus stable."
+            "text": "Il n'y a pas de règle universelle, mais espacer d'au moins plusieurs jours évite l'effet de lassitude qui pousse à fermer le popup sans même le lire."
           }
         }
       ]
@@ -208,7 +208,7 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
       <li class="sep">/</li>
       <li><a href="/blog">Blog</a></li>
       <li class="sep">/</li>
-      <li aria-current="page">Attribution</li>
+      <li aria-current="page">Popups et exit-intent</li>
     </ol>
   </div>
 </nav>
@@ -218,12 +218,12 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
   <section class="sub-header">
     <div class="container sub-header-inner">
       <a href="/blog" class="sub-pillar-tag">Blog</a>
-      <h1>Attribution multi-touch : pourquoi le dernier clic ment sur votre ROI</h1>
-      <p class="sub-hook">Si votre reporting attribue 100&nbsp;% de la conversion au dernier canal cliqué avant l'achat, vous êtes probablement en train de sur-financer le SEA de marque et de sous-financer tout ce qui construit la demande en amont. L'attribution dernier clic n'est pas fausse&nbsp;— elle est juste partielle, et elle ment par omission.</p>
+      <h1>Popups et exit-intent : les 5 erreurs qui les rendent contre-productifs</h1>
+      <p class="sub-hook">Les popups ont mauvaise réputation — souvent à juste titre, tant ils sont mal réglés sur la plupart des sites que j'audite. Le problème n'est presque jamais l'outil, c'est le paramétrage. Voici les cinq erreurs qui reviennent le plus souvent, et comment les corriger.</p>
       <p class="sub-byline">
         <span>Johan Simonneau</span>
         <span>·</span>
-        <span>23 septembre 2026</span>
+        <span>12 décembre 2026</span>
         <span>·</span>
         <span>6 min de lecture</span>
       </p>
@@ -232,71 +232,65 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
 
   <section class="sub-cover">
     <div class="container">
-      <img src="assets/img/blog-attribution-multi-touch-dernier-clic-hero.png" alt="Illustration d'une recherche mettant en avant un encart mis en évidence sur l'attribution, au-dessus de résultats secondaires grisés" width="1200" height="630" loading="eager">
+      <img src="assets/img/blog-popups-exit-intent-erreurs-cro-hero.png" alt="Illustration d'un popup mis en avant sur une page web, encart d'offre de bienvenue" width="1200" height="630" loading="eager">
     </div>
   </section>
 
   <section class="sub-article">
     <div class="container sub-article-inner">
 
-<p>C'est l'un des biais les plus coûteux que je trouve dans les comptes que j'audite&nbsp;: un reporting basé sur le dernier clic qui pousse, année après année, à couper les budgets de notoriété (Display, réseaux sociaux, contenu) au profit du SEA de marque — qui capte mécaniquement la conversion finale sans avoir généré la demande initiale.</p>
+<p>Un popup bien réglé peut convertir plusieurs points de pourcentage de visiteurs qui, sans lui, seraient repartis sans laisser d'email ni de coordonnées. Un popup mal réglé produit l'effet inverse&nbsp;: il agace, il fait fuir, et il dégrade la perception de la marque avant même que le visiteur ait eu le temps de la découvrir. Voici les cinq erreurs qui font basculer d'un côté ou de l'autre.</p>
 
-<h2>Ce qui ne change pas</h2>
+<h2>Erreur n°1 — Le déclenchement trop précoce</h2>
 
-<p>Aucun modèle d'attribution, aussi sophistiqué soit-il, ne remplace un tracking propre en amont&nbsp;: sans <a href="/consultant-ga4">GA4</a> correctement configuré et sans <a href="/conversion-api-tracking-server-side">Conversion API</a> pour fiabiliser les événements, même le meilleur modèle multi-touch travaille sur des données incomplètes. L'attribution ne corrige pas un tracking défaillant, elle répartit plus intelligemment ce qui est effectivement mesuré.</p>
+<p>Un popup qui s'affiche dans les 3 à 5 premières secondes de visite interrompt un visiteur qui n'a même pas encore compris où il se trouve. Le signal envoyé n'est pas «&nbsp;voici une offre intéressante&nbsp;», c'est «&nbsp;ce site privilégie ses propres objectifs aux vôtres&nbsp;». <strong>La correction</strong>&nbsp;: déclenchez sur un signal d'engagement réel — un pourcentage de scroll, un temps passé minimum, ou une intention de sortie détectée par le mouvement de la souris vers la barre d'adresse.</p>
 
-<h2>Ce qui change vraiment avec le multi-touch</h2>
+<h2>Erreur n°2 — L'absence de fermeture claire et accessible</h2>
 
-<ul class="sub-points">
-  <li><strong>Chaque point de contact reçoit une part du mérite, pas juste le dernier.</strong> Les modèles basés sur les données (data-driven attribution, disponible nativement dans GA4) répartissent la conversion entre tous les canaux du parcours, selon leur contribution réelle mesurée statistiquement.</li>
-  <li><strong>Les canaux de notoriété redeviennent visibles dans le ROI.</strong> Un canal comme le Display, souvent jugé peu performant en dernier clic, peut se révéler être le déclencheur initial d'une part significative des conversions attribuées à d'autres canaux en aval.</li>
-  <li><strong>Le budget se réalloue différemment.</strong> Une fois la contribution réelle de chaque canal mesurée, les arbitrages budgétaires changent&nbsp;: on finance ce qui construit la demande, pas seulement ce qui la capte en bout de course.</li>
-  <li><strong>La lecture devient plus complexe, pas plus simple.</strong> Un modèle multi-touch demande une lecture en délais de conversion et en chemins de conversion, pas un chiffre unique par canal&nbsp;— ce qui exige un vrai temps d'analyse, pas un tableau de bord automatique.</li>
-</ul>
+<p>Une croix minuscule, mal contrastée, ou un popup qui ne se ferme pas au clavier avec la touche Échap ne respecte ni l'expérience utilisateur ni les standards d'accessibilité de base. <strong>La correction</strong>&nbsp;: une zone de fermeture suffisamment grande, contrastée, et une fermeture possible au clic en dehors du popup comme au clavier.</p>
+
+<h2>Erreur n°3 — La même offre pour tous les visiteurs</h2>
+
+<p>Un visiteur qui arrive sur une page de blog et un visiteur qui consulte une fiche produit n'ont pas la même intention&nbsp;— leur proposer le même popup générique («&nbsp;-10&nbsp;% sur votre première commande&nbsp;») ignore ce contexte. <strong>La correction</strong>&nbsp;: adaptez l'offre ou le message au type de page consultée, même avec une segmentation simple (blog vs catalogue, nouveau visiteur vs visiteur récurrent).</p>
 
 <figure class="sub-figure">
-  <img src="assets/img/blog-attribution-multi-touch-dernier-clic-resource.png" alt="Le dernier clic n'attribue la conversion qu'à la dernière étape — en ignorant les trois qui ont construit la décision d'achat en amont." width="900" height="300" loading="lazy">
-  <figcaption>Le dernier clic n'attribue la conversion qu'à la dernière étape — en ignorant les trois qui ont construit la décision d'achat en amont.</figcaption>
+  <img src="assets/img/blog-popups-exit-intent-erreurs-cro-resource.png" alt="La différence entre un popup qui convertit et un popup qui fait fuir tient rarement au design — presque toujours au réglage." width="900" height="340" loading="lazy">
+  <figcaption>La différence entre un popup qui convertit et un popup qui fait fuir tient rarement au design — presque toujours au réglage.</figcaption>
 </figure>
 
-<h2>Un exemple qui illustre bien la différence</h2>
+<h2>Erreur n°4 — Généraliser sans avoir testé</h2>
 
-<p>Sur un compte e-commerce que j'ai audité, le dernier clic attribuait 70&nbsp;% des conversions au SEA de marque et seulement 8&nbsp;% au Display. En passant à un modèle data-driven, la part réelle du Display dans les parcours de conversion est montée à 24&nbsp;%&nbsp;: il apparaissait dans la majorité des chemins, en première ou deuxième position, sans jamais être le dernier clic. Couper ce budget, comme l'envisageait le client sur la base du seul reporting dernier clic, aurait mécaniquement fait baisser le volume global de conversions quelques semaines plus tard.</p>
+<p>Déployer un popup sur 100&nbsp;% du trafic sans avoir mesuré son effet réel sur le taux de conversion global — pas seulement sur le taux de captation d'email — revient à parier que l'effet positif (plus de leads captés) dépasse l'effet négatif (plus de visiteurs agacés qui repartent). <strong>La correction</strong>&nbsp;: testez sur une portion du trafic, en mesurant le taux de conversion final, pas uniquement le taux d'inscription au popup.</p>
 
-<h2>Ce qu'il faut faire concrètement</h2>
+<h2>Erreur n°5 — Ne jamais retirer le popup après une conversion</h2>
 
-<ul class="sub-points">
-  <li><strong>Activez l'attribution data-driven dans GA4</strong>, disponible par défaut dès qu'il y a assez de volume de conversions&nbsp;: c'est le point de départ le plus simple, sans outil tiers.</li>
-  <li><strong>Regardez les chemins de conversion</strong> (rapport &laquo;&nbsp;Chemins de conversion multicanaux&nbsp;&raquo;) avant de couper un budget qui semble sous-performer en dernier clic&nbsp;— il joue peut-être un rôle en amont invisible autrement.</li>
-  <li><strong>Ne basculez pas tout d'un coup&nbsp;:</strong> testez les nouvelles allocations budgétaires progressivement, sur une portion du budget, pour valider l'hypothèse avant un changement complet de stratégie.</li>
-  <li><strong>Documentez la fenêtre de conversion</strong> adaptée à votre cycle de vente&nbsp;: un modèle multi-touch mal calibré sur une fenêtre trop courte reproduit les biais du dernier clic sans le savoir.</li>
-</ul>
+<p>Un visiteur qui vient de s'inscrire à la newsletter, ou qui vient d'acheter, qui revoit le même popup à sa prochaine visite reçoit un signal clair&nbsp;: le site ne sait pas qui il est. <strong>La correction</strong>&nbsp;: supprimez ou adaptez l'affichage du popup une fois l'action visée réalisée, via un cookie ou un identifiant de session.</p>
 
 <h2>FAQ</h2>
 
 <div class="sub-faq">
   <details>
-    <summary>L'attribution multi-touch est-elle disponible gratuitement dans GA4 ?</summary>
-    <p>Oui, l'attribution data-driven est intégrée nativement à GA4 sans coût supplémentaire, dès qu'il y a un volume de données suffisant pour l'entraîner correctement.</p>
+    <summary>Les popups nuisent-ils au référencement Google ?</summary>
+    <p>Google pénalise les interstitiels intrusifs qui bloquent le contenu principal sur mobile juste après l'arrivée sur la page. Un popup bien temporisé et facilement fermable n'est pas concerné par cette pénalité.</p>
   </details>
   <details>
-    <summary>Faut-il abandonner complètement le dernier clic ?</summary>
-    <p>Non, il reste utile comme indicateur simple et rapide à lire pour un suivi quotidien. Le problème n'est pas de le consulter, c'est de baser des décisions budgétaires structurantes uniquement dessus.</p>
+    <summary>Faut-il abandonner les exit-intent sur mobile ?</summary>
+    <p>La détection du mouvement de souris ne fonctionne pas sur mobile. Un déclenchement basé sur le scroll ou le temps passé reste efficace et adapté à ce contexte.</p>
   </details>
   <details>
-    <summary>L'attribution multi-touch fonctionne-t-elle pour un petit volume de conversions ?</summary>
-    <p>Moins bien : les modèles data-driven ont besoin d'un volume minimum de données pour être statistiquement fiables. En dessous, un modèle basé sur des règles (linéaire, position) reste une alternative plus stable.</p>
+    <summary>Combien de temps attendre avant de réafficher un popup à un visiteur qui l'a fermé ?</summary>
+    <p>Il n'y a pas de règle universelle, mais espacer d'au moins plusieurs jours évite l'effet de lassitude qui pousse à fermer le popup sans même le lire.</p>
   </details>
 </div>
 
       <div class="sub-cta">
-        <h3>Envie d'y voir clair sur la contribution réelle de vos canaux ?</h3>
+        <h3>Vos popups convertissent moins qu'ils ne font fuir ?</h3>
         <div class="sub-cta-actions">
-          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre attribution</a>
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre optimisation CRO</a>
           <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
         </div>
-        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/analytics">Analytics</a>, la page <a href="/consultant-ga4">Consultant GA4</a>, et la page <a href="/conversion-api-tracking-server-side">Conversion API</a>.</p>
-        <p class="sub-cta-link">À lire aussi : <a href="/server-side-tracking-conversion-api">Server-side tracking : pourquoi la Conversion API n'est plus optionnelle</a>.</p>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/cro">CRO</a>, et la page <a href="/optimisation-landing-page">Optimisation landing page</a>.</p>
+        <p class="sub-cta-link">À lire aussi : <a href="/heatmaps-analyse-comportementale">Heatmaps et analyse comportementale : ce qu'elles révèlent (et cachent)</a> et <a href="/landing-page-reduire-cout-par-lead">Landing page : les éléments qui font vraiment baisser le coût par lead</a>.</p>
       </div>
 
     </div>
@@ -306,10 +300,10 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
     <div class="container sub-pillar-band-inner">
       <p>Pour continuer sur ce sujet.</p>
       <div class="sub-pillar-band-links">
-      <a href="/analytics">Analytics →</a>
-      <a href="/consultant-ga4">Consultant GA4 →</a>
-      <a href="/conversion-api-tracking-server-side">Conversion API →</a>
       <a href="/cro">CRO →</a>
+      <a href="/optimisation-landing-page">Optimisation landing page →</a>
+      <a href="/ab-testing-faible-trafic">A/B testing →</a>
+      <a href="/analytics">Analytics →</a>
       </div>
     </div>
   </section>
