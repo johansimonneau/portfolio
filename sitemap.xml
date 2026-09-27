@@ -85,6 +85,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://johansimonneau.fr/kit-mcp-marketing</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://johansimonneau.fr/ressources</loc>
     <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>

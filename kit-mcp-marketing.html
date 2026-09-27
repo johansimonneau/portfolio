@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kit gratuit : les connecteurs MCP marketing prêts à l'emploi | Johan Simonneau</title>
+<meta name="description" content="11 serveurs MCP officiels pour le marketing (Analytics, SEO, Ads, CRM, design, code), classés par catégorie avec leur statut et le lien officiel pour vous connecter. Kit PDF gratuit.">
+
+<link rel="canonical" href="https://johansimonneau.fr/kit-mcp-marketing">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kit MCP Marketing : les connecteurs officiels prêts à l'emploi">
+<meta property="og:description" content="11 serveurs MCP officiels pour le marketing, classés par catégorie avec leur statut et le lien pour vous connecter en toute sécurité.">
+<meta property="og:url" content="https://johansimonneau.fr/kit-mcp-marketing">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/kit-mcp-marketing-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/kit-mcp-marketing-cover.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+<link rel="stylesheet" href="guide.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Kit MCP Marketing : les connecteurs officiels prêts à l'emploi",
+      "url": "https://johansimonneau.fr/kit-mcp-marketing",
+      "description": "11 serveurs MCP officiels pour le marketing (Analytics, SEO, Ads, CRM, design, code), classés par catégorie avec leur statut et le lien officiel pour vous connecter."
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Le kit est-il vraiment gratuit ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, aucun paiement n'est demandé. Vos coordonnées servent uniquement à vous envoyer le kit et, si vous le souhaitez, à échanger ensuite sur votre stack marketing IA."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un serveur MCP officiel ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est un connecteur publié et maintenu directement par l'éditeur de l'outil (Google, Semrush, HubSpot, etc.), par opposition à un projet communautaire non audité. Ce kit ne liste que des serveurs officiels, à une exception explicitement signalée."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il coder pour utiliser ces connecteurs ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. La plupart des serveurs officiels se connectent en quelques clics depuis les réglages de votre assistant IA (Claude, ChatGPT, Cursor) via une authentification classique, sans écrire une ligne de code."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Kit MCP Marketing</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="guide-hero">
+    <div class="guide-hero-blob" aria-hidden="true"></div>
+    <div class="guide-hero-square" aria-hidden="true"></div>
+    <div class="container guide-hero-inner">
+      <div>
+        <p class="guide-hero-eyebrow" data-reveal>Ressource gratuite</p>
+        <h1 class="guide-hero-title" data-reveal>Kit MCP Marketing : les connecteurs officiels prêts à l'emploi</h1>
+        <p class="guide-hero-tagline" data-reveal>11 serveurs MCP officiels pour connecter votre assistant IA à vos outils marketing&nbsp;: Analytics, SEO, Publicité, CRM, design et code &mdash; classés par catégorie, avec leur statut et le lien officiel pour se connecter en sécurité.</p>
+        <div class="guide-hero-actions" data-reveal>
+          <a href="#guideFormSection" class="btn btn-primary btn-large">Télécharger le kit gratuitement</a>
+        </div>
+        <dl class="guide-hero-stats" data-reveal>
+          <div>
+            <dt>Connecteurs</dt>
+            <dd>11</dd>
+          </div>
+          <div>
+            <dt>Catégories</dt>
+            <dd>7</dd>
+          </div>
+          <div>
+            <dt>Prix</dt>
+            <dd>Gratuit</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="guide-hero-visual" data-reveal="right">
+        <img src="assets/img/kit-mcp-marketing-cover.png" alt="Couverture du kit MCP Marketing" width="1200" height="630" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="guideFormSection">
+    <div class="container guide-layout">
+
+      <div>
+        <p class="guide-benefits-title">Ce que contient le kit</p>
+        <ul class="guide-benefits">
+          <li>
+            <span class="icon"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4" stroke="#1A49EE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span>11 serveurs MCP officiels classés en 7 catégories&nbsp;: Analytics &amp; mesure, SEO, Publicité, CRM, Productivité, Design, Code &amp; déploiement.</span>
+          </li>
+          <li>
+            <span class="icon"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4" stroke="#1A49EE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span>Pour chaque connecteur&nbsp;: statut officiel, ce qu'il permet, et le lien vers la documentation pour le brancher vous-même à Claude, ChatGPT ou Cursor.</span>
+          </li>
+          <li>
+            <span class="icon"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4" stroke="#1A49EE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span>Le seul point de vigilance identifié à ce jour (Google Search Console, sans connecteur officiel) signalé clairement, sans recommandation approximative.</span>
+          </li>
+          <li>
+            <span class="icon"><svg viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4" stroke="#1A49EE" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span>Cinq réflexes sécurité à appliquer avant de connecter le moindre outil marketing à un agent IA.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="guide-form-card">
+        <h2>Recevez le kit par email</h2>
+        <p class="guide-form-sub">Renseignez vos coordonnées, le kit se télécharge immédiatement après.</p>
+
+        <div id="guideForm" data-guide-name="Kit MCP Marketing">
+          <div class="guide-field">
+            <label for="guidePrenom">Prénom</label>
+            <input type="text" id="guidePrenom" autocomplete="given-name">
+          </div>
+          <div class="guide-field">
+            <label for="guideNom">Nom</label>
+            <input type="text" id="guideNom" autocomplete="family-name">
+          </div>
+          <div class="guide-field">
+            <label for="guideEmail">Email</label>
+            <input type="email" id="guideEmail" autocomplete="email">
+          </div>
+          <input type="text" id="guideHoney" name="_honey" class="guide-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="button" class="btn btn-primary" id="guideSubmit">Télécharger le kit gratuitement</button>
+          <p class="guide-error" id="guideError" hidden></p>
+          <p class="guide-privacy">Vos coordonnées servent uniquement à vous envoyer ce kit et, si vous le souhaitez, à échanger sur votre stack marketing IA. Aucune revente, aucun spam — voir la <a href="/politique-de-confidentialite">politique de confidentialité</a>.</p>
+        </div>
+
+        <div class="guide-success" id="guideSuccess" hidden>
+          <span class="icon-check"><svg viewBox="0 0 24 24" fill="none" width="22" height="22"><path d="M5 12.5L9.5 17L19 6" stroke="#12309F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h2>Votre kit est prêt</h2>
+          <p>Votre demande a bien été envoyée. Téléchargez le PDF juste en dessous.</p>
+          <a href="assets/downloads/kit-mcp-marketing.pdf" download class="btn btn-primary">Télécharger le PDF</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container sub-article-inner">
+      <div class="sub-faq">
+        <h2>FAQ</h2>
+        <details>
+          <summary>Le kit est-il vraiment gratuit ?</summary>
+          <p>Oui, aucun paiement n'est demandé. Vos coordonnées servent uniquement à vous envoyer le kit et, si vous le souhaitez, à échanger ensuite sur votre stack marketing IA.</p>
+        </details>
+        <details>
+          <summary>Qu'est-ce qu'un serveur MCP officiel ?</summary>
+          <p>C'est un connecteur publié et maintenu directement par l'éditeur de l'outil (Google, Semrush, HubSpot, etc.), par opposition à un projet communautaire non audité. Ce kit ne liste que des serveurs officiels, à une exception explicitement signalée.</p>
+        </details>
+        <details>
+          <summary>Faut-il coder pour utiliser ces connecteurs ?</summary>
+          <p>Non. La plupart des serveurs officiels se connectent en quelques clics depuis les réglages de votre assistant IA (Claude, ChatGPT, Cursor) via une authentification classique, sans écrire une ligne de code.</p>
+        </details>
+      </div>
+
+      <div class="sub-cta">
+        <h3>Envie d'aller plus loin sur votre stack growth marketing IA ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur mon setup IA</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/guide-mcp-marketing">MCP pour le marketing</a>, la page <a href="/geo">GEO</a>, et la page <a href="/audit-visibilite-ia">Audit visibilité IA</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/guide-mcp-marketing">MCP pour le marketing →</a>
+      <a href="/geo">GEO →</a>
+      <a href="/audit-visibilite-ia">Audit visibilité IA →</a>
+      <a href="/comment-je-travaille">Comment je travaille →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script src="guide.js" defer></script>
+</body>
+</html>
