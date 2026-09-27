@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guide MCP Marketing : les connecteurs IA officiels et fiables | Johan Simonneau</title>
+<meta name="description" content="Le Model Context Protocol (MCP) connecte vos outils marketing à l'IA. Liste vérifiée des serveurs MCP officiels (Google Analytics, Google Ads, Meta Ads, Semrush, HubSpot, Notion...) à connecter en toute sécurité.">
+
+<link rel="canonical" href="https://johansimonneau.fr/guide-mcp-marketing">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Guide MCP Marketing : les connecteurs IA officiels et fiables">
+<meta property="og:description" content="Le Model Context Protocol (MCP) connecte vos outils marketing à l'IA. Liste vérifiée des serveurs MCP officiels à connecter en toute sécurité.">
+<meta property="og:url" content="https://johansimonneau.fr/guide-mcp-marketing">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/og-default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/og-default.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="legal.css">
+<link rel="stylesheet" href="pillar.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Ressources", "item": "https://johansimonneau.fr/ressources" },
+        { "@type": "ListItem", "position": 3, "name": "Guide MCP Marketing", "item": "https://johansimonneau.fr/guide-mcp-marketing" }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Guide MCP Marketing : les connecteurs IA officiels et fiables",
+      "author": { "@type": "Person", "name": "Johan Simonneau", "url": "https://johansimonneau.fr" },
+      "datePublished": "2026-09-27",
+      "dateModified": "2026-09-27",
+      "description": "Liste vérifiée des serveurs MCP officiels pour le marketing : analytics, SEO, publicité, CRM, productivité et design.",
+      "mainEntityOfPage": "https://johansimonneau.fr/guide-mcp-marketing"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que le MCP (Model Context Protocol) ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le Model Context Protocol est un standard ouvert créé par Anthropic qui permet à un assistant IA (Claude, ChatGPT, Gemini...) de se connecter directement à vos outils et données — Google Analytics, un CRM, un espace Notion — pour répondre à des questions ou exécuter des actions, sans exports manuels ni copier-coller."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Est-ce sécurisé de connecter un MCP à mes outils marketing ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ça dépend du serveur MCP utilisé. Les serveurs officiels des éditeurs (Google, Meta, HubSpot, Notion...), authentifiés en OAuth et à portée limitée (lecture seule quand c'est suffisant), sont la référence. Les serveurs communautaires non audités présentent plus de risques : vérifiez toujours qui les maintient et quelles permissions ils demandent avant de connecter des données sensibles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il être développeur pour utiliser ces connecteurs MCP ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pour les serveurs hébergés par l'éditeur (Semrush, Ahrefs, Notion, Canva, Slack), la connexion se fait par une authentification OAuth classique, sans compétence technique particulière. Pour les serveurs à installer localement (certains connecteurs Google), une configuration technique légère est nécessaire."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="legal-hero">
+    <div class="container">
+      <p class="eyebrow">Ressources</p>
+      <h1>MCP pour le marketing&nbsp;: les connecteurs IA officiels et fiables</h1>
+      <p class="legal-updated">Dernière mise à jour&nbsp;: 27 septembre 2026 — liste vérifiée, uniquement des serveurs officiels des éditeurs (sauf mention contraire explicite).</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container legal-layout">
+
+      <nav class="legal-toc" aria-label="Sommaire">
+        <p class="legal-toc-label">Sommaire</p>
+        <ol>
+          <li><a href="#definition">Qu'est-ce qu'un MCP&nbsp;?</a></li>
+          <li><a href="#analytics">Analytics &amp; mesure</a></li>
+          <li><a href="#seo">SEO &amp; intelligence concurrentielle</a></li>
+          <li><a href="#ads">Publicité</a></li>
+          <li><a href="#crm">CRM &amp; automatisation</a></li>
+          <li><a href="#productivite">Productivité &amp; contenu</a></li>
+          <li><a href="#design">Design &amp; création</a></li>
+          <li><a href="#code">Code &amp; déploiement</a></li>
+          <li><a href="#securite">Sécurité avant de connecter un MCP</a></li>
+        </ol>
+      </nav>
+
+      <div class="legal-body">
+
+        <section id="definition">
+          <h2>1. Qu'est-ce qu'un MCP&nbsp;?</h2>
+          <p>Le <strong>Model Context Protocol (MCP)</strong> est un standard ouvert créé par Anthropic fin 2024, aujourd'hui adopté par la plupart des grands éditeurs (Google, Meta, HubSpot, Notion, Figma...). Il définit une façon commune pour un assistant IA de se connecter directement à un outil ou une source de données&nbsp;: plus besoin d'exporter un CSV de Google Analytics ou de copier-coller une liste de contacts HubSpot, l'IA lit (et parfois écrit) directement dans l'outil, avec votre autorisation.</p>
+          <p>Concrètement, un « serveur MCP » est un petit programme, publié par l'éditeur ou par la communauté, qui fait le pont entre l'outil (GA4, HubSpot, Notion...) et un client compatible MCP (Claude, ChatGPT, Cursor, Gemini...). Cette page ne liste que des <strong>serveurs officiels</strong>, publiés et maintenus par l'éditeur lui-même — le point de vigilance le plus important quand on connecte ses données marketing à un outil externe.</p>
+        </section>
+
+        <section id="analytics">
+          <h2>2. Analytics &amp; mesure</h2>
+          <ul class="card-list">
+            <li><strong>Google Analytics (GA4)</strong> — serveur officiel publié par Google, en lecture seule&nbsp;: résumés de comptes, rapports standards, funnels, temps réel. Cas d'usage&nbsp;: demander à Claude d'expliquer une baisse de trafic sans ouvrir GA4. <a href="https://github.com/googleanalytics/google-analytics-mcp" target="_blank" rel="noopener">Dépôt officiel sur GitHub →</a></li>
+            <li><strong>Google Search Console</strong> — Google n'a pas encore publié de serveur MCP officiel pour la Search Console à la date de cette page. Plusieurs projets communautaires existent&nbsp;: à auditer vous-même avant de connecter des données de positionnement, comme n'importe quel code tiers non maintenu par l'éditeur.</li>
+          </ul>
+        </section>
+
+        <section id="seo">
+          <h2>3. SEO &amp; intelligence concurrentielle</h2>
+          <ul class="card-list">
+            <li><strong>Semrush</strong> — serveur MCP officiel hébergé par Semrush, authentification par votre compte, aucune installation locale. Cas d'usage&nbsp;: demander une analyse de mots-clés ou un audit concurrentiel directement en conversation. <a href="https://www.semrush.com/mcp/" target="_blank" rel="sponsored noopener">Semrush MCP →</a> (lien affilié&nbsp;: je peux toucher une commission si vous vous abonnez via ce lien, sans coût supplémentaire pour vous)</li>
+            <li><strong>Ahrefs</strong> — serveur MCP officiel Ahrefs, hébergé (plus besoin de l'ancienne version locale). Cas d'usage&nbsp;: interroger votre profil de backlinks sans quitter votre assistant IA. <a href="https://github.com/ahrefs/ahrefs-mcp-server" target="_blank" rel="noopener">Ahrefs MCP Server officiel →</a></li>
+          </ul>
+        </section>
+
+        <section id="ads">
+          <h2>4. Publicité</h2>
+          <ul class="card-list">
+            <li><strong>Google Ads</strong> — serveur MCP open source publié par l'équipe Google Ads API, en lecture seule (comptes, rapports GAQL, métadonnées) — pensé pour l'analyse, pas la modification de campagnes. <a href="https://github.com/googleads/google-ads-mcp" target="_blank" rel="noopener">Google Ads MCP officiel →</a></li>
+            <li><strong>Meta Ads (Facebook/Instagram)</strong> — serveur MCP officiel hébergé par Meta, avec des règles de permissions qui encadrent ce que l'agent IA peut faire sur un compte publicitaire (budgets, catalogue...). <a href="https://developers.facebook.com/documentation/ads-commerce/ads-ai-connectors/ads-mcp-server/ads-mcp-server-overview" target="_blank" rel="noopener">Documentation officielle Meta →</a></li>
+          </ul>
+        </section>
+
+        <section id="crm">
+          <h2>5. CRM &amp; automatisation</h2>
+          <ul class="card-list">
+            <li><strong>HubSpot</strong> — HubSpot publie deux serveurs officiels&nbsp;: un serveur CRM distant (contacts, deals, historique d'échanges) et un serveur développeur pour construire des apps HubSpot. Cas d'usage&nbsp;: interroger l'état d'un deal ou l'historique d'un contact en langage naturel. <a href="https://developers.hubspot.com/ai-tools/mcp" target="_blank" rel="noopener">HubSpot MCP officiel →</a></li>
+          </ul>
+        </section>
+
+        <section id="productivite">
+          <h2>6. Productivité &amp; contenu</h2>
+          <ul class="card-list">
+            <li><strong>Notion</strong> — serveur MCP officiel hébergé par Notion (le serveur auto-hébergé historique n'est plus maintenu, privilégiez la version distante). Recherche, lecture et édition de pages en respectant vos permissions existantes. <a href="https://developers.notion.com/guides/mcp/overview" target="_blank" rel="noopener">Notion MCP officiel →</a></li>
+            <li><strong>Slack</strong> — Slack (groupe Salesforce) a publié son propre serveur MCP officiel début 2026, qui remplace l'ancien serveur de référence d'Anthropic — retiré en 2025 après la découverte d'une faille (un message piégé pouvait faire exfiltrer des données via les bots de prévisualisation de liens Slack). Bon rappel&nbsp;: préférez toujours la version officielle la plus récente à un ancien projet abandonné. <a href="https://slack.com/help/articles/48855576908307-Guide-to-Model-Context-Protocol-in-Slack" target="_blank" rel="noopener">Guide officiel Slack MCP →</a></li>
+          </ul>
+        </section>
+
+        <section id="design">
+          <h2>7. Design &amp; création</h2>
+          <ul class="card-list">
+            <li><strong>Figma</strong> — serveur MCP officiel (Dev Mode), pour donner à un agent IA le contexte d'une maquette (composants, variables, auto-layout) ou écrire directement dans un fichier Figma. <a href="https://developers.figma.com/docs/figma-mcp-server/" target="_blank" rel="noopener">Documentation officielle Figma →</a></li>
+            <li><strong>Canva</strong> — serveur MCP officiel hébergé par Canva&nbsp;: recherche, génération, édition et export de designs directement depuis votre assistant IA. <a href="https://www.canva.dev/docs/apps/mcp/" target="_blank" rel="noopener">Canva MCP officiel →</a></li>
+          </ul>
+        </section>
+
+        <section id="code">
+          <h2>8. Code &amp; déploiement</h2>
+          <p>Moins « marketing » au sens strict, mais utile dès que votre site ou vos landing pages sont versionnés&nbsp;:</p>
+          <ul class="card-list">
+            <li><strong>GitHub</strong> — serveur MCP officiel GitHub&nbsp;: lecture de dépôts, gestion d'issues et de pull requests, suivi des workflows CI/CD, directement en langage naturel. <a href="https://github.com/github/github-mcp-server" target="_blank" rel="noopener">GitHub MCP Server officiel →</a></li>
+          </ul>
+        </section>
+
+        <section id="securite">
+          <h2>9. Sécurité&nbsp;: ce qu'il faut vérifier avant de connecter un MCP</h2>
+          <p>Un serveur MCP donne à un agent IA un accès plus ou moins large à vos données ou à vos comptes. Quelques réflexes avant de connecter quoi que ce soit&nbsp;:</p>
+          <ul class="card-list">
+            <li><strong>Préférez toujours le serveur officiel de l'éditeur</strong> à un projet communautaire non maintenu, surtout pour des données sensibles (CRM, comptes publicitaires, Search Console).</li>
+            <li><strong>Vérifiez le mode d'authentification&nbsp;:</strong> un serveur hébergé par l'éditeur en OAuth (Semrush, Notion, Canva, HubSpot...) est généralement plus sûr qu'un script local qui vous demande de coller une clé API en clair dans un fichier de configuration.</li>
+            <li><strong>Limitez les permissions à ce qui est nécessaire&nbsp;:</strong> beaucoup de serveurs (Google Analytics, Google Ads) sont volontairement en lecture seule — c'est un choix de sécurité à privilégier tant que vous n'avez pas besoin d'écriture.</li>
+            <li><strong>Ne partagez jamais une clé API dans un outil partagé ou versionné</strong> (dépôt Git public, message Slack, document partagé).</li>
+          </ul>
+          <div class="legal-callout">
+            <p>Le cas du serveur Slack est un bon rappel&nbsp;: le premier serveur MCP de référence d'Anthropic pour Slack a été retiré en 2025 après la découverte d'une faille de sécurité, avant que Slack ne publie sa propre version officielle début 2026. Un standard ouvert et récent ne veut pas dire que chaque implémentation est sûre&nbsp;: c'est la maintenance et l'audit qui font la différence.</p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <div class="section-head" data-reveal="scale">
+        <p class="eyebrow">FAQ</p>
+        <h2 class="section-title">Questions fréquentes</h2>
+      </div>
+      <div class="pillar-faq" data-reveal-group>
+        <details data-reveal>
+          <summary>Qu'est-ce que le MCP (Model Context Protocol)&nbsp;?</summary>
+          <p>Un standard ouvert créé par Anthropic qui permet à un assistant IA de se connecter directement à vos outils et données (Google Analytics, un CRM, un espace Notion...) pour répondre à des questions ou exécuter des actions, sans export manuel ni copier-coller.</p>
+        </details>
+        <details data-reveal>
+          <summary>Est-ce sécurisé de connecter un MCP à mes outils marketing&nbsp;?</summary>
+          <p>Ça dépend du serveur utilisé. Les serveurs officiels des éditeurs, authentifiés en OAuth et à portée limitée (lecture seule quand c'est suffisant), sont la référence. Les serveurs communautaires non audités présentent plus de risques&nbsp;: vérifiez toujours qui les maintient avant de connecter des données sensibles.</p>
+        </details>
+        <details data-reveal>
+          <summary>Faut-il être développeur pour utiliser ces connecteurs MCP&nbsp;?</summary>
+          <p>Pour les serveurs hébergés par l'éditeur (Semrush, Ahrefs, Notion, Canva, Slack), la connexion se fait par une authentification classique, sans compétence technique particulière. Pour certains connecteurs à installer localement, une configuration technique légère est nécessaire.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="container contact-inner" data-reveal="scale">
+      <p class="eyebrow">Contact</p>
+      <h2 class="section-title">Envie d'aller plus loin sur l'IA appliquée au marketing&nbsp;?</h2>
+      <p class="section-lead">Le premier échange permet de voir rapidement si et comment je peux vous aider.</p>
+      <div class="hero-actions contact-actions">
+        <a href="https://calendly.com/johan-simonneau/30min" class="btn btn-primary btn-large" target="_blank" rel="noopener">Prendre RDV</a>
+        <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-ghost btn-large btn-ghost-on-dark">Contactez-moi</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management &amp; Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
