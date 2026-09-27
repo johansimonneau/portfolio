@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connecter Meta Ads (Facebook/Instagram) en MCP | Johan Simonneau</title>
+<meta name="description" content="Comment connecter le serveur MCP officiel de Meta Ads (Facebook/Instagram) à Claude ou ChatGPT : URL du connecteur, authentification, lien vers la doc officielle.">
+
+<link rel="canonical" href="https://johansimonneau.fr/connecter-meta-ads-mcp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Connecter Meta Ads (Facebook / Instagram) en MCP">
+<meta property="og:description" content="Comment connecter le serveur MCP officiel de Meta Ads (Facebook/Instagram) à Claude ou ChatGPT : URL du connecteur, authentification, lien vers la doc officielle.">
+<meta property="og:url" content="https://johansimonneau.fr/connecter-meta-ads-mcp">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/kit-mcp-marketing-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/kit-mcp-marketing-cover.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Librairie MCP Marketing", "item": "https://johansimonneau.fr/kit-mcp-marketing" },
+        { "@type": "ListItem", "position": 3, "name": "Meta Ads", "item": "https://johansimonneau.fr/connecter-meta-ads-mcp" }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Connecter Meta Ads (Facebook / Instagram) en MCP",
+      "dateModified": "2026-09-27",
+      "author": { "@type": "Person", "name": "Johan Simonneau", "url": "https://johansimonneau.fr" },
+      "description": "Comment connecter le serveur MCP officiel de Meta Ads (Facebook/Instagram) à Claude ou ChatGPT : URL du connecteur, authentification, lien vers la doc officielle.",
+      "mainEntityOfPage": "https://johansimonneau.fr/connecter-meta-ads-mcp"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "L'URL du serveur Meta Ads MCP change-t-elle selon le pays ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, Meta indique que cette URL est identique quel que soit le client ou la région."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ce connecteur donne-t-il accès à tous les comptes publicitaires Meta existants ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, uniquement aux comptes auxquels votre compte Facebook connecté a déjà accès, selon les mêmes règles de permission que l'API Marketing de Meta."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il un compte développeur Meta pour l'utiliser ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La documentation officielle décrit une connexion par compte Facebook standard (OAuth) ; consultez-la pour les cas d'usage avancés nécessitant un accès développeur."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/kit-mcp-marketing">Librairie MCP Marketing</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Meta Ads</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/kit-mcp-marketing" class="sub-pillar-tag">Librairie MCP Marketing</a>
+      <h1>Connecter Meta Ads (Facebook / Instagram) en MCP</h1>
+      <p class="sub-hook">Meta héberge son propre serveur MCP officiel pour les campagnes Facebook et Instagram Ads&nbsp;: une seule URL, identique partout dans le monde. Voici comment l'ajouter.</p>
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Le serveur MCP officiel de Meta donne accès à l'API Marketing de Meta (comptes publicitaires Facebook et Instagram) directement depuis un assistant IA compatible, sans installation locale.</p>
+
+<h2>Statut &amp; type de connexion</h2>
+<dl class="sub-status">
+  <div><dt>Éditeur</dt><dd>Meta</dd></div>
+  <div><dt>Statut</dt><dd>Officiel</dd></div>
+  <div><dt>Connexion</dt><dd>Distante (URL)</dd></div>
+</dl>
+
+<h2>Comment se connecter</h2>
+<p>URL du serveur officiel&nbsp;:</p>
+<pre class="sub-code"><code>https://mcp.facebook.com/ads</code></pre>
+<p>Dans les réglages de connecteurs de votre client IA (Claude, ChatGPT, Cursor...), ajoutez un connecteur personnalisé et collez cette URL. Meta indique que cette URL est identique quel que soit le client ou la région.</p>
+
+<h2>Authentification</h2>
+<p>Connexion via votre compte Facebook (OAuth). L'accès aux comptes publicitaires suit les mêmes règles de permission que l'API Marketing de Meta&nbsp;: vous ne verrez que les comptes auxquels votre compte Facebook a déjà accès.</p>
+
+<h2>Documentation officielle</h2>
+<p><a href="https://developers.facebook.com/documentation/ads-commerce/ads-ai-connectors/ads-mcp-server/ads-mcp-server-overview" target="_blank" rel="noopener">developers.facebook.com</a></p>
+
+<div class="sub-faq">
+<h2>FAQ</h2>
+  <details>
+    <summary>L'URL du serveur Meta Ads MCP change-t-elle selon le pays ?</summary>
+    <p>Non, Meta indique que cette URL est identique quel que soit le client ou la région.</p>
+  </details>
+  <details>
+    <summary>Ce connecteur donne-t-il accès à tous les comptes publicitaires Meta existants ?</summary>
+    <p>Non, uniquement aux comptes auxquels votre compte Facebook connecté a déjà accès, selon les mêmes règles de permission que l'API Marketing de Meta.</p>
+  </details>
+  <details>
+    <summary>Faut-il un compte développeur Meta pour l'utiliser ?</summary>
+    <p>La documentation officielle décrit une connexion par compte Facebook standard (OAuth) ; consultez-la pour les cas d'usage avancés nécessitant un accès développeur.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'avoir les 11 connecteurs sous la main&nbsp;?</h3>
+        <div class="sub-cta-actions">
+          <a href="/kit-mcp-marketing#guideFormSection" class="btn btn-primary">Télécharger la librairie complète</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la <a href="/guide-mcp-marketing">liste complète des connecteurs MCP marketing</a> et la page <a href="/sma">SMA</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/guide-mcp-marketing">MCP pour le marketing &rarr;</a>
+      <a href="/kit-mcp-marketing">Librairie MCP Marketing &rarr;</a>
+      <a href="/connecter-google-ads-mcp">Google Ads MCP &rarr;</a>
+      <a href="/sma">SMA &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>

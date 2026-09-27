@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Search Console et MCP : pourquoi il n'y a pas de connecteur officiel | Johan Simonneau</title>
+<meta name="description" content="Il n'existe pas encore de connecteur MCP officiel pour Google Search Console. Ce qui existe côté communautaire, les risques, et ce qu'on peut faire en attendant.">
+
+<link rel="canonical" href="https://johansimonneau.fr/connecter-google-search-console-mcp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Search Console et MCP&nbsp;: pourquoi il n'y a pas encore de connecteur officiel">
+<meta property="og:description" content="Il n'existe pas encore de connecteur MCP officiel pour Google Search Console. Ce qui existe côté communautaire, les risques, et ce qu'on peut faire en attendant.">
+<meta property="og:url" content="https://johansimonneau.fr/connecter-google-search-console-mcp">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/kit-mcp-marketing-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/kit-mcp-marketing-cover.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Librairie MCP Marketing", "item": "https://johansimonneau.fr/kit-mcp-marketing" },
+        { "@type": "ListItem", "position": 3, "name": "Google Search Console", "item": "https://johansimonneau.fr/connecter-google-search-console-mcp" }
+      ]
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Google Search Console et MCP&nbsp;: pourquoi il n'y a pas encore de connecteur officiel",
+      "dateModified": "2026-09-27",
+      "author": { "@type": "Person", "name": "Johan Simonneau", "url": "https://johansimonneau.fr" },
+      "description": "Il n'existe pas encore de connecteur MCP officiel pour Google Search Console. Ce qui existe côté communautaire, les risques, et ce qu'on peut faire en attendant.",
+      "mainEntityOfPage": "https://johansimonneau.fr/connecter-google-search-console-mcp"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Y a-t-il un délai annoncé pour un connecteur MCP officiel Search Console ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, Google n'a communiqué aucune date à ce jour. Cette page est mise à jour dès qu'une annonce officielle est faite."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je quand même automatiser l'accès à Search Console sans MCP ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, via l'API officielle Search Console, sans passer par un serveur MCP — une option plus classique mais toujours d'actualité en attendant un connecteur officiel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les connecteurs communautaires Search Console sont-ils tous dangereux ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas nécessairement, mais leur niveau de maintenance et d'audit varie fortement et n'est pas garanti par Google. C'est cette absence de garantie, plus que le principe même, qui justifie la prudence."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/kit-mcp-marketing">Librairie MCP Marketing</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Google Search Console</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/kit-mcp-marketing" class="sub-pillar-tag">Librairie MCP Marketing</a>
+      <h1>Google Search Console et MCP&nbsp;: pourquoi il n'y a pas encore de connecteur officiel</h1>
+      <p class="sub-hook">Contrairement à Google Analytics ou Google Ads, Google n'a pas publié de serveur MCP officiel pour Search Console au moment de la rédaction. Voici l'état des lieux, honnêtement.</p>
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Search Console reste l'un des outils marketing les plus utilisés au quotidien — suivi des positions, couverture d'indexation, Core Web Vitals — et pourtant Google n'a publié, à ce jour, aucun serveur MCP officiel pour le connecter à un assistant IA.</p>
+
+<h2>Statut &amp; type de connexion</h2>
+<dl class="sub-status">
+  <div><dt>Éditeur</dt><dd>Google</dd></div>
+  <div><dt>Statut</dt><dd>Pas de connecteur officiel</dd></div>
+  <div><dt>Connexion</dt><dd>—</dd></div>
+</dl>
+
+<h2>Ce qui existe côté communautaire</h2>
+<p>Plusieurs projets non officiels existent pour connecter Search Console en MCP. Nous ne recommandons aucun d'entre eux dans cette librairie&nbsp;: leur maintenance et leur audit de sécurité ne sont pas garantis, ce qui est un point de vigilance particulier pour un outil qui donne accès à vos données de positionnement et, selon la configuration, à des actions sur votre propriété.</p>
+
+<div class="sub-note">
+  <p>Un serveur MCP donne à un agent IA un accès plus ou moins large à vos données. Pour un outil aussi sensible que Search Console, l'absence de version officielle est une bonne raison d'attendre plutôt que d'adopter un projet communautaire non audité.</p>
+</div>
+
+<h2>Ce qu'on peut faire en attendant</h2>
+<ul class="sub-points">
+  <li><strong>Continuer à consulter Search Console manuellement</strong>, ou via son API officielle (sans MCP) pour vos automatisations existantes.</li>
+  <li><strong>Suivre les annonces officielles de Google</strong> sur le sujet plutôt que d'adopter un connecteur communautaire non audité pour un outil aussi sensible.</li>
+  <li><strong>Si vous testez malgré tout un connecteur communautaire</strong>, limitez ses permissions au strict nécessaire et ne l'utilisez jamais avec une clé d'API partagée dans un outil versionné ou collectif.</li>
+</ul>
+
+<h2>Documentation officielle</h2>
+<p>Aucune documentation MCP officielle Google Search Console à ce jour. Cette page sera mise à jour dès qu'un connecteur officiel sera publié.</p>
+
+<div class="sub-faq">
+<h2>FAQ</h2>
+  <details>
+    <summary>Y a-t-il un délai annoncé pour un connecteur MCP officiel Search Console ?</summary>
+    <p>Non, Google n'a communiqué aucune date à ce jour. Cette page est mise à jour dès qu'une annonce officielle est faite.</p>
+  </details>
+  <details>
+    <summary>Puis-je quand même automatiser l'accès à Search Console sans MCP ?</summary>
+    <p>Oui, via l'API officielle Search Console, sans passer par un serveur MCP — une option plus classique mais toujours d'actualité en attendant un connecteur officiel.</p>
+  </details>
+  <details>
+    <summary>Les connecteurs communautaires Search Console sont-ils tous dangereux ?</summary>
+    <p>Pas nécessairement, mais leur niveau de maintenance et d'audit varie fortement et n'est pas garanti par Google. C'est cette absence de garantie, plus que le principe même, qui justifie la prudence.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'avoir les 11 connecteurs sous la main&nbsp;?</h3>
+        <div class="sub-cta-actions">
+          <a href="/kit-mcp-marketing#guideFormSection" class="btn btn-primary">Télécharger la librairie complète</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la <a href="/guide-mcp-marketing">liste complète des connecteurs MCP marketing</a> et la page <a href="/seo">SEO</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/guide-mcp-marketing">MCP pour le marketing &rarr;</a>
+      <a href="/kit-mcp-marketing">Librairie MCP Marketing &rarr;</a>
+      <a href="/connecter-google-analytics-mcp">Google Analytics MCP &rarr;</a>
+      <a href="/seo">SEO &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
