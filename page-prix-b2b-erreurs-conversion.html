@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page de prix : les erreurs qui font fuir un prospect B2B | Blog — Johan Simonneau</title>
+<meta name="description" content="La page de prix est souvent la dernière étape avant la prise de contact en B2B, et l'une des moins optimisées. Les erreurs les plus fréquentes qui font fuir un prospect à ce moment précis.">
+
+<link rel="canonical" href="https://johansimonneau.fr/page-prix-b2b-erreurs-conversion">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Page de prix : les erreurs qui font fuir un prospect B2B">
+<meta property="og:description" content="La page de prix est souvent la dernière étape avant la prise de contact en B2B, et l'une des moins optimisées. Les erreurs les plus fréquentes qui font fuir un prospect à ce moment précis.">
+<meta property="og:url" content="https://johansimonneau.fr/page-prix-b2b-erreurs-conversion">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-page-prix-b2b-erreurs-conversion-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-page-prix-b2b-erreurs-conversion-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Page de prix : les erreurs qui font fuir un prospect B2B", "item": "https://johansimonneau.fr/page-prix-b2b-erreurs-conversion" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Page de prix : les erreurs qui font fuir un prospect B2B",
+      "image": "https://johansimonneau.fr/assets/img/blog-page-prix-b2b-erreurs-conversion-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-11-10",
+      "dateModified": "2026-11-10",
+      "description": "La page de prix est souvent la dernière étape avant la prise de contact en B2B, et l'une des moins optimisées. Les erreurs les plus fréquentes qui font fuir un prospect à ce moment précis.",
+      "mainEntityOfPage": "https://johansimonneau.fr/page-prix-b2b-erreurs-conversion"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il toujours afficher un prix exact sur une page B2B ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas nécessairement si le prix dépend réellement de variables complexes, mais dans ce cas, expliquer pourquoi et donner une fourchette indicative reste préférable à un silence total sur le sujet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien d'offres afficher sur une grille tarifaire ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trois offres est un standard qui fonctionne bien dans la plupart des contextes B2B : assez de choix pour couvrir différents besoins, pas assez pour créer une paralysie de décision."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Une FAQ tarifaire remplace-t-elle un appel commercial ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, elle le précède plutôt : elle élimine les questions simples pour que l'échange commercial, quand il a lieu, porte sur des sujets à plus forte valeur ajoutée."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Page de prix B2B</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Page de prix : les erreurs qui font fuir un prospect B2B</h1>
+      <p class="sub-hook">La page de prix reçoit en général un trafic très qualifié — des visiteurs déjà convaincus de l'intérêt du produit — et c'est pourtant l'une des pages les plus négligées d'un site B2B. Chaque erreur y coûte proportionnellement plus cher qu'ailleurs sur le site.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>10 novembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-page-prix-b2b-erreurs-conversion-hero.png" alt="Illustration d'une grille tarifaire avec une offre mise en avant et des informations secondaires en retrait" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Un visiteur qui arrive sur une page de prix a déjà franchi plusieurs étapes de qualification&nbsp;: il connaît le produit, en comprend l'intérêt, et cherche à savoir s'il rentre dans son budget. C'est un trafic rare et précieux — ce qui rend chaque friction inutile sur cette page proportionnellement plus coûteuse que sur n'importe quelle autre page du site.</p>
+
+<h2>Erreur n°1 — Cacher le prix sans raison claire</h2>
+
+<p>Demander de remplir un formulaire pour obtenir un tarif, sans justification apparente, déclenche une méfiance immédiate&nbsp;: le visiteur suppose que le prix doit être mauvais pour être caché ainsi. Cette pratique se justifie uniquement quand le prix dépend réellement de variables complexes propres à chaque client (volume, intégration sur mesure) — et dans ce cas, l'expliquer clairement plutôt que de simplement masquer le prix change radicalement la perception.</p>
+
+<h2>Erreur n°2 — Aucune offre mise en avant</h2>
+
+<p>Face à trois offres présentées de façon strictement identique, un visiteur indécis a plus de mal à choisir — et l'indécision se traduit souvent par un abandon plutôt que par un choix. Mettre visuellement en avant l'offre la plus adaptée à la majorité des visiteurs (via un badge « recommandé » ou une mise en forme différenciée) réduit cette charge de décision.</p>
+
+<h2>Erreur n°3 — Des fonctionnalités listées sans lien avec la valeur</h2>
+
+<p>Une liste de fonctionnalités techniques sans traduction en bénéfice concret oblige le visiteur à faire lui-même le travail de compréhension — un travail qu'une partie non négligeable des visiteurs ne fera simplement pas. Chaque ligne de la grille tarifaire devrait répondre à la question implicite « en quoi cela me sert », pas seulement lister ce qui est inclus techniquement.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-page-prix-b2b-erreurs-conversion-resource.png" alt="Chacune de ces erreurs ajoute une friction à un visiteur qui était pourtant déjà très proche de la décision." width="900" height="340" loading="lazy">
+  <figcaption>Chacune de ces erreurs ajoute une friction à un visiteur qui était pourtant déjà très proche de la décision.</figcaption>
+</figure>
+
+<h2>Erreur n°4 — Pas de FAQ tarifaire</h2>
+
+<p>Les objections sur une page de prix sont largement prévisibles&nbsp;: engagement minimum, modalités de résiliation, coûts additionnels, différence entre deux offres proches. Ne pas y répondre directement sur la page pousse le visiteur soit à chercher la réponse ailleurs (et potentiellement à abandonner en route), soit à ouvrir un canal de contact pour une question qui aurait pu être résolue instantanément.</p>
+
+<h2>Le principe qui guide une bonne page de prix B2B</h2>
+
+<p>Une page de prix efficace traite chaque friction comme un coût direct, parce que le trafic qui y arrive est rare et déjà qualifié&nbsp;: contrairement à une page d'accueil où l'on peut se permettre un peu d'ambiguïté, ici chaque doute non résolu a une probabilité disproportionnée de se traduire par un abandon plutôt qu'une prise de contact.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Faut-il toujours afficher un prix exact sur une page B2B ?</summary>
+    <p>Pas nécessairement si le prix dépend réellement de variables complexes, mais dans ce cas, expliquer pourquoi et donner une fourchette indicative reste préférable à un silence total sur le sujet.</p>
+  </details>
+  <details>
+    <summary>Combien d'offres afficher sur une grille tarifaire ?</summary>
+    <p>Trois offres est un standard qui fonctionne bien dans la plupart des contextes B2B : assez de choix pour couvrir différents besoins, pas assez pour créer une paralysie de décision.</p>
+  </details>
+  <details>
+    <summary>Une FAQ tarifaire remplace-t-elle un appel commercial ?</summary>
+    <p>Non, elle le précède plutôt : elle élimine les questions simples pour que l'échange commercial, quand il a lieu, porte sur des sujets à plus forte valeur ajoutée.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un audit de votre page de prix B2B ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Auditer ma page de prix</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/cro">CRO</a>, et l'article <a href="/trust-signals-cro-reassurance-achat">Trust signals</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/cro">CRO →</a>
+      <a href="/trust-signals-cro-reassurance-achat">Trust signals →</a>
+      <a href="/landing-page-reduire-cout-par-lead">Landing page →</a>
+      <a href="/cac-ltv-piloter-rentabilite-acquisition">CAC et LTV →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
