@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consent Mode v2 : ce qui casse vraiment vos données si mal configuré | Blog — Johan Simonneau</title>
+<meta name="description" content="Consent Mode v2 conditionne l'accès à certaines fonctionnalités Google Ads et Analytics depuis 2024. Les erreurs de configuration les plus fréquentes, et comment les repérer sur votre propre site.">
+
+<link rel="canonical" href="https://johansimonneau.fr/consent-mode-v2-erreurs-configuration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Consent Mode v2 : ce qui casse vraiment vos données si mal configuré">
+<meta property="og:description" content="Consent Mode v2 conditionne l'accès à certaines fonctionnalités Google Ads et Analytics depuis 2024. Les erreurs de configuration les plus fréquentes, et comment les repérer sur votre propre site.">
+<meta property="og:url" content="https://johansimonneau.fr/consent-mode-v2-erreurs-configuration">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-consent-mode-v2-erreurs-configuration-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-consent-mode-v2-erreurs-configuration-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Consent Mode v2 : ce qui casse vraiment vos données si mal configuré", "item": "https://johansimonneau.fr/consent-mode-v2-erreurs-configuration" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Consent Mode v2 : ce qui casse vraiment vos données si mal configuré",
+      "image": "https://johansimonneau.fr/assets/img/blog-consent-mode-v2-erreurs-configuration-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-11-01",
+      "dateModified": "2026-11-01",
+      "description": "Consent Mode v2 conditionne l'accès à certaines fonctionnalités Google Ads et Analytics depuis 2024. Les erreurs de configuration les plus fréquentes, et comment les repérer sur votre propre site.",
+      "mainEntityOfPage": "https://johansimonneau.fr/consent-mode-v2-erreurs-configuration"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Consent Mode v2 est-il obligatoire ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il est nécessaire pour continuer à utiliser certaines fonctionnalités publicitaires de Google (comme le remarketing) pour les visiteurs de l'Espace économique européen depuis mars 2024, en complément — pas en remplacement — du respect du RGPD."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le mode basique ou le mode avancé, lequel choisir ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cela dépend de votre besoin de modélisation des conversions : le mode avancé permet à Google d'estimer les conversions manquantes faute de consentement, le mode basique ne le permet pas mais est plus simple à mettre en œuvre correctement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment savoir si ma configuration a un problème sans compétence technique poussée ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un test simple : observer si le nombre de conversions Google Ads chute anormalement après une mise à jour de la bannière de cookies. Ce n'est pas une preuve formelle, mais un signal fort à faire vérifier techniquement."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Consent Mode v2</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Consent Mode v2 : ce qui casse vraiment vos données si mal configuré</h1>
+      <p class="sub-hook">Consent Mode n'est pas une simple case à cocher dans Google Tag Manager — c'est ce qui détermine si Google peut modéliser les conversions que le consentement lui interdit de mesurer directement. Mal configuré, il fait disparaître des données sans prévenir.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>1er novembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-consent-mode-v2-erreurs-configuration-hero.png" alt="Illustration d'une bannière de consentement avec un état mis en avant et des signaux techniques en retrait" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Depuis mars 2024, Consent Mode v2 conditionne l'accès à certaines fonctionnalités publicitaires de Google pour les visiteurs situés dans l'Espace économique européen. Ce n'est pas une option cosmétique&nbsp;: sans configuration correcte, Google Ads et GA4 perdent leur capacité à modéliser les conversions manquantes faute de consentement, et le reporting se dégrade silencieusement — sans erreur visible dans l'interface.</p>
+
+<h2>Ce que Consent Mode fait réellement</h2>
+
+<p>Le principe est simple sur le papier&nbsp;: avant que l'utilisateur ait fait son choix, le site envoie un état de consentement par défaut (refusé) aux tags Google. Une fois le choix fait, cet état est mis à jour. La partie qui casse souvent&nbsp;: il existe quatre signaux distincts depuis la v2 (<code>analytics_storage</code>, <code>ad_storage</code>, <code>ad_user_data</code>, <code>ad_personalization</code>), et beaucoup de sites n'en gèrent que les deux premiers, hérités de la v1 — laissant les deux nouveaux signaux dans un état non défini.</p>
+
+<h2>Les erreurs les plus fréquentes en audit</h2>
+
+<h3>Aucun état par défaut envoyé avant le choix</h3>
+<p>Si le premier appel <code>gtag('consent', 'default', ...)</code> n'intervient pas avant le chargement des autres tags Google, ceux-ci démarrent sans cadre de consentement défini — ce qui peut, selon la configuration, revenir à leur donner un accès non maîtrisé par défaut. L'ordre de chargement des scripts compte autant que leur contenu.</p>
+
+<h3>Le mode avancé confondu avec le mode basique</h3>
+<p>Le mode basique bloque complètement les tags tant que le consentement n'est pas donné&nbsp;: aucune donnée, même anonymisée, ne part. Le mode avancé laisse les tags s'exécuter mais sans cookies, ce qui permet à Google de modéliser les données manquantes. Confondre les deux revient soit à perdre toute donnée avant consentement (basique), soit à croire qu'on modélise alors qu'on ne le fait pas (mauvaise implémentation de l'avancé).</p>
+
+<h3>Le consentement stocké mais jamais relu</h3>
+<p>Un choix de consentement doit être relu à chaque chargement de page, pas seulement au moment où l'utilisateur clique. Si le stockage local du choix (cookie ou <code>localStorage</code>) n'est pas relu systématiquement pour mettre à jour l'état avant l'exécution des tags, chaque nouvelle visite repart d'un état par défaut refusé, même pour un utilisateur ayant déjà accepté.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-consent-mode-v2-erreurs-configuration-resource.png" alt="Ces quatre erreurs suffisent, à elles seules, à fausser silencieusement un reporting Google Ads ou GA4." width="900" height="340" loading="lazy">
+  <figcaption>Ces quatre erreurs suffisent, à elles seules, à fausser silencieusement un reporting Google Ads ou GA4.</figcaption>
+</figure>
+
+<h2>Comment vérifier sa propre configuration</h2>
+
+<p>Le diagnostic le plus rapide&nbsp;: ouvrir la console développeur du navigateur, filtrer les requêtes vers <code>google-analytics.com</code> ou <code>googleads.g.doubleclick.net</code>, et observer les paramètres <code>gcs</code> et <code>gcd</code> envoyés avant et après avoir accepté les cookies sur son propre site. Si ces paramètres ne changent jamais, la configuration ne répercute pas correctement le choix de l'utilisateur — un signal à corriger avant même de se demander si le tracking « fonctionne ».</p>
+
+<h2>Pourquoi ça mérite une vérification régulière</h2>
+
+<p>Une bannière de cookies changée par une agence, un CMS mis à jour, une nouvelle bannière testée en A/B&nbsp;: chacun de ces changements peut casser silencieusement la chaîne Consent Mode sans qu'aucune erreur ne remonte dans Google Ads ou GA4 — les chiffres baissent simplement, sans explication visible. Une vérification technique après chaque changement de bannière ou de CMS évite de chercher pendant des semaines une « baisse de performance » qui n'en est pas une.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Consent Mode v2 est-il obligatoire ?</summary>
+    <p>Il est nécessaire pour continuer à utiliser certaines fonctionnalités publicitaires de Google (comme le remarketing) pour les visiteurs de l'Espace économique européen depuis mars 2024, en complément — pas en remplacement — du respect du RGPD.</p>
+  </details>
+  <details>
+    <summary>Le mode basique ou le mode avancé, lequel choisir ?</summary>
+    <p>Cela dépend de votre besoin de modélisation des conversions : le mode avancé permet à Google d'estimer les conversions manquantes faute de consentement, le mode basique ne le permet pas mais est plus simple à mettre en œuvre correctement.</p>
+  </details>
+  <details>
+    <summary>Comment savoir si ma configuration a un problème sans compétence technique poussée ?</summary>
+    <p>Un test simple : observer si le nombre de conversions Google Ads chute anormalement après une mise à jour de la bannière de cookies. Ce n'est pas une preuve formelle, mais un signal fort à faire vérifier techniquement.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de vérifier que votre Consent Mode fonctionne vraiment ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Auditer mon tracking</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/analytics">Analytics</a>, et les articles <a href="/rgpd-marketing-digital-tracking-2026">RGPD et marketing digital</a> et <a href="/server-side-tracking-conversion-api">Server-side tracking</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/analytics">Analytics →</a>
+      <a href="/rgpd-marketing-digital-tracking-2026">RGPD et marketing →</a>
+      <a href="/server-side-tracking-conversion-api">Server-side tracking →</a>
+      <a href="/ga4-erreurs-configuration-courantes">GA4 : erreurs de configuration →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
