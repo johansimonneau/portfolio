@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baromètre IA & Growth Marketing : les chiffres vérifiés | Johan Simonneau</title>
+<meta name="description" content="L'adoption de l'IA dans les équipes marketing et growth, en chiffres sourcés et recoupés : adoption, résultats réels, budgets, visibilité IA. Mis à jour chaque semaine.">
+
+<link rel="canonical" href="https://johansimonneau.fr/barometre-ia-growth-marketing">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Baromètre IA & Growth Marketing : les chiffres vérifiés">
+<meta property="og:description" content="L'adoption de l'IA dans les équipes marketing et growth, en chiffres sourcés et recoupés : adoption, résultats réels, budgets, visibilité IA. Mis à jour chaque semaine.">
+<meta property="og:url" content="https://johansimonneau.fr/barometre-ia-growth-marketing">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-barometre-ia-growth-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-barometre-ia-growth-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+<link rel="stylesheet" href="barometre.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://johansimonneau.fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ressources",
+          "item": "https://johansimonneau.fr/ressources"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Baromètre IA & Growth Marketing",
+          "item": "https://johansimonneau.fr/barometre-ia-growth-marketing"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "D'où viennent les chiffres de ce baromètre ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Uniquement d'études et de communications officielles, nommées et datées : rapports de HubSpot, Salesforce, Content Marketing Institute, Banque de France, Ifop, Anthropic, et annonces officielles d'OpenAI et de Google. Chaque chiffre est lié à sa source directe. Aucune statistique n'est inventée, arrondie de façon trompeuse ou reprise d'un site qui lui-même ne cite pas de source primaire."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "À quelle fréquence ce baromètre est-il mis à jour ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Chaque lundi matin, par une vérification manuelle des sources déjà citées et une recherche de nouvelles études significatives. Un chiffre n'est changé que si une étude plus récente le remplace réellement — jamais par simple habitude de mise à jour."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi certains chiffres se contredisent-ils entre deux études ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Parce que les méthodologies diffèrent : taille et pays de l'échantillon, définition de \"utiliser l'IA\", période de collecte. C'est pour cette raison que chaque chiffre reste attribué à son étude d'origine plutôt que présenté comme une vérité unique et universelle."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/ressources">Ressources</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Baromètre IA &amp; Growth Marketing</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/ressources" class="sub-pillar-tag">Ressources</a>
+      <h1>Baromètre IA &amp; Growth Marketing</h1>
+      <p class="sub-hook">L'adoption de l'IA dans les équipes marketing et growth, en chiffres sourcés et recoupés — pas une liste de statistiques décontextualisées, mais une lecture croisée entre ce que les équipes adoptent, ce qu'elles en mesurent vraiment, et ce que ça change pour la visibilité dans les moteurs de recherche génératifs.</p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-barometre-ia-growth-hero.png" alt="Aperçu du baromètre : quatre chiffres clés sur l'adoption de l'IA dans le marketing, mis à jour chaque semaine" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<dl class="sub-status">
+  <div>
+    <dt>Dernière mise à jour</dt>
+    <dd>4 octobre 2026</dd>
+  </div>
+  <div>
+    <dt>Rythme de mise à jour</dt>
+    <dd>Chaque lundi matin</dd>
+  </div>
+  <div>
+    <dt>Sources suivies</dt>
+    <dd>8 études et annonces officielles</dd>
+  </div>
+</dl>
+
+<p class="baro-intro">Ce baromètre réunit uniquement des chiffres provenant d'études ou d'annonces officielles, nommées et datées — jamais de statistique reprise d'un site qui ne cite pas lui-même de source primaire. Chaque carte renvoie vers l'étude d'origine. Un chiffre n'est mis à jour que lorsqu'une étude plus récente le remplace réellement.</p>
+
+<h2>Adoption : où en sont vraiment les équipes</h2>
+
+<div class="baro-stat-grid">
+  <div class="baro-stat-card">
+    <div class="baro-stat-number">86,4&nbsp;%</div>
+    <p class="baro-stat-label">des marketeurs utilisent déjà des outils d'IA dans leur travail, tous usages confondus.</p>
+    <p class="baro-stat-source">Source : <a href="https://blog.hubspot.com/marketing/state-of-generative-ai" target="_blank" rel="noopener">HubSpot, State of Marketing 2026</a> — enquête auprès de 1&nbsp;500+ marketeurs dans le monde.</p>
+  </div>
+  <div class="baro-stat-card">
+    <div class="baro-stat-number">95&nbsp;%</div>
+    <p class="baro-stat-label">des marketeurs B2B utilisent l'IA pour au moins une partie de leur production de contenu.</p>
+    <p class="baro-stat-source">Source : <a href="https://contentmarketinginstitute.com/b2b-research/b2b-content-marketing-trends-research" target="_blank" rel="noopener">Content Marketing Institute &amp; MarketingProfs</a>, 16<sup>e</sup> enquête B2B annuelle — ~1&nbsp;000 marketeurs B2B, collecte juin–août 2025.</p>
+  </div>
+  <div class="baro-stat-card">
+    <div class="baro-stat-number">75&nbsp;%</div>
+    <p class="baro-stat-label">des marketeurs ont adopté l'IA — mais continuent majoritairement d'envoyer des campagnes génériques, à sens unique.</p>
+    <p class="baro-stat-source">Source : <a href="https://www.salesforce.com/news/stories/state-of-marketing-2026/" target="_blank" rel="noopener">Salesforce, State of Marketing</a>, 10<sup>e</sup> édition — 4&nbsp;450 marketeurs, 26 pays.</p>
+  </div>
+  <div class="baro-stat-card">
+    <div class="baro-stat-number">67&nbsp;%</div>
+    <p class="baro-stat-label">des entreprises françaises de 20 salariés et plus déclarent utiliser l'IA générative (64&nbsp;% pour les 20-49 salariés, 83&nbsp;% pour les 1&nbsp;000+).</p>
+    <p class="baro-stat-source">Source : <a href="https://www.banque-france.fr/en/news/ai-gaining-ground-french-firms-rapid-diffusion-productivity-gains-are-so-far-limited" target="_blank" rel="noopener">Banque de France</a>, Bulletin n°266 (3 septembre 2026) — enquête auprès d'environ 7&nbsp;000 entreprises.</p>
+  </div>
+</div>
+
+<div class="sub-note">
+  <p>Le chiffre le plus utile ici n'est pas le plus haut, c'est l'écart entre eux&nbsp;: en France, l'adoption grimpe nettement avec la taille de l'entreprise (64&nbsp;% à 20-49 salariés contre 83&nbsp;% à 1&nbsp;000+), ce qui suggère un effet de moyens et de structure bien plus qu'un effet de secteur.</p>
+</div>
+
+<h2>L'écart entre adoption et résultats réels</h2>
+
+<p>C'est le recoupement le plus parlant de ce baromètre&nbsp;: une adoption massive ne garantit pas un résultat mesurable. Trois études indépendantes, sur des terrains différents (B2B mondial, entreprises françaises, marketeurs généralistes), arrivent au même constat.</p>
+
+<div class="baro-stat-grid">
+  <div class="baro-stat-card">
+    <div class="baro-stat-number">39&nbsp;%</div>
+    <p class="baro-stat-label">seulement des marketeurs B2B utilisateurs d'IA jugent qu'elle améliore réellement leur performance — sur une base d'adoption de 95&nbsp;%.</p>
+    <p class="baro-stat-source">Source : <a href="https://contentmarketinginstitute.com/b2b-research/b2b-content-marketing-trends-research" target="_blank" rel="noopener">Content Marketing Institute &amp; MarketingProfs</a>, 2026.</p>
+  </div>
+  <div class="baro-stat-card">
+    <div class="baro-stat-number">31&nbsp;%</div>
+    <p class="baro-stat-label">seulement des entreprises françaises utilisatrices d'IA générative observent un gain de productivité tangible et déjà constaté.</p>
+    <p class="baro-stat-source">Source : <a href="https://www.banque-france.fr/en/news/ai-gaining-ground-french-firms-rapid-diffusion-productivity-gains-are-so-far-limited" target="_blank" rel="noopener">Banque de France</a>, Bulletin n°266, 3 septembre 2026.</p>
+  </div>
+  <div class="baro-stat-card">
+    <div class="baro-stat-number">68,2&nbsp;%</div>
+    <p class="baro-stat-label">des marketeurs disent comprendre comment utiliser l'IA en marketing, contre 47&nbsp;% en 2025 — la maturité progresse, même si le résultat tarde.</p>
+    <p class="baro-stat-source">Source : <a href="https://blog.hubspot.com/marketing/state-of-generative-ai" target="_blank" rel="noopener">HubSpot, State of Marketing 2026</a>.</p>
+  </div>
+</div>
+
+<h2>Quand ça marche vraiment : l'impact mesuré</h2>
+
+<div class="baro-stat-grid">
+  <div class="baro-stat-card">
+    <div class="baro-stat-number">10 à 14h</div>
+    <p class="baro-stat-label">gagnées chaque semaine, déclarées par 32,8&nbsp;% des équipes marketing utilisant l'IA.</p>
+    <p class="baro-stat-source">Source : <a href="https://blog.hubspot.com/marketing/state-of-generative-ai" target="_blank" rel="noopener">HubSpot, State of Marketing 2026</a>.</p>
+  </div>
+  <div class="baro-stat-card">
+    <div class="baro-stat-number">+20&nbsp;% / −19&nbsp;%</div>
+    <p class="baro-stat-label">de ROI en plus et de coûts en moins pour les équipes marketing les plus performantes — qui ne sont pas celles qui cumulent le plus d'outils IA.</p>
+    <p class="baro-stat-source">Source : <a href="https://www.salesforce.com/news/stories/state-of-marketing-2026/" target="_blank" rel="noopener">Salesforce, State of Marketing</a>, 10<sup>e</sup> édition.</p>
+  </div>
+  <div class="baro-stat-card">
+    <div class="baro-stat-number">45&nbsp;%</div>
+    <p class="baro-stat-label">des marketeurs B2B placent l'IA en tête de leurs priorités d'investissement pour 2026, devant les événements (33&nbsp;%) et le owned media (32&nbsp;%).</p>
+    <p class="baro-stat-source">Source : <a href="https://contentmarketinginstitute.com/b2b-research/b2b-content-marketing-trends-research" target="_blank" rel="noopener">Content Marketing Institute &amp; MarketingProfs</a>, 2026.</p>
+  </div>
+</div>
+
+<h2>Visibilité et recherche via IA générative</h2>
+
+<p>Ces volumes contextualisent l'enjeu du <a href="/geo">GEO</a>&nbsp;: la bascule d'une partie des recherches vers des interfaces conversationnelles n'est plus marginale.</p>
+
+<div class="baro-stat-grid">
+  <div class="baro-stat-card">
+    <div class="baro-stat-number">1,2&nbsp;Md</div>
+    <p class="baro-stat-label">d'utilisateurs actifs hebdomadaires pour ChatGPT, contre 900 millions en février 2026.</p>
+    <p class="baro-stat-source">Source : Sam Altman, keynote <a href="https://www.engadget.com/2271985/openai-dev-day-live-blog-chatgpt-news/" target="_blank" rel="noopener">OpenAI DevDay</a>, 29 septembre 2026.</p>
+  </div>
+  <div class="baro-stat-card">
+    <div class="baro-stat-number">2,5&nbsp;Md</div>
+    <p class="baro-stat-label">d'utilisateurs mensuels pour les AI Overviews de Google ; AI Mode dépasse 1 milliard d'utilisateurs mensuels.</p>
+    <p class="baro-stat-source">Source : Sundar Pichai, <a href="https://blog.google/innovation-and-ai/sundar-pichai-io-2026/" target="_blank" rel="noopener">keynote Google I/O</a>, 20 mai 2026.</p>
+  </div>
+  <div class="baro-stat-card">
+    <div class="baro-stat-number">65&nbsp;%</div>
+    <p class="baro-stat-label">des Français déclarent utiliser des outils d'IA générative, 39&nbsp;% au moins une fois par semaine.</p>
+    <p class="baro-stat-source">Source : <a href="https://www.ifopgroup.com/en/article/the-french-and-ai-from-technological-curiosity-to-everyday-use-2" target="_blank" rel="noopener">Ifop Group</a>, étude « Les Français et l'IA ».</p>
+  </div>
+</div>
+
+<div class="sub-note">
+  <p>Côté usage professionnel, l'Anthropic Economic Index (rapport « Cadences », 26 juin 2026, ~9&nbsp;700 répondants dont les réponses sont liées à leur usage réel de Claude) place le contenu marketing et la correspondance professionnelle parmi les usages dominants en semaine, aux côtés de la préparation de présentations — un signal direct que l'IA générative s'est installée dans le quotidien des équipes marketing, pas seulement dans leurs intentions déclarées.</p>
+</div>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>D'où viennent les chiffres de ce baromètre ?</summary>
+    <p>Uniquement d'études et de communications officielles, nommées et datées : rapports de HubSpot, Salesforce, Content Marketing Institute, Banque de France, Ifop, Anthropic, et annonces officielles d'OpenAI et de Google. Chaque chiffre est lié à sa source directe. Aucune statistique n'est inventée, arrondie de façon trompeuse ou reprise d'un site qui lui-même ne cite pas de source primaire.</p>
+  </details>
+  <details>
+    <summary>À quelle fréquence ce baromètre est-il mis à jour ?</summary>
+    <p>Chaque lundi matin, par une vérification manuelle des sources déjà citées et une recherche de nouvelles études significatives. Un chiffre n'est changé que si une étude plus récente le remplace réellement — jamais par simple habitude de mise à jour.</p>
+  </details>
+  <details>
+    <summary>Pourquoi certains chiffres se contredisent-ils entre deux études ?</summary>
+    <p>Parce que les méthodologies diffèrent : taille et pays de l'échantillon, définition de "utiliser l'IA", période de collecte. C'est pour cette raison que chaque chiffre reste attribué à son étude d'origine plutôt que présenté comme une vérité unique et universelle.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de transformer ces chiffres en plan d'action pour votre site ?</h3>
+        <div class="sub-cta-actions">
+          <a href="mailto:johansimonneau.pro@gmail.com?subject=Demande%20sur%20portfolio%20!" class="btn btn-primary">Échanger sur votre visibilité IA</a>
+          <span class="sub-cta-mail"><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, l'<a href="/audit-visibilite-ia">audit de visibilité IA</a>, et le <a href="/guide-mcp-marketing">guide MCP Marketing</a>.</p>
+        <p class="sub-cta-link">À lire aussi : <a href="/guide-complet-geo-ranker-llm">Le guide complet GEO pour ranker numéro 1 dans les LLMs</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/audit-visibilite-ia">Audit visibilité IA →</a>
+      <a href="/guide-mcp-marketing">Guide MCP Marketing →</a>
+      <a href="/ressources">Toutes les ressources →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="mailto:johansimonneau.pro@gmail.com">johansimonneau.pro@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
