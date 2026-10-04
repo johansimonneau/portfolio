@@ -1,1 +1,60 @@
-.baro-intro{font-size:15.5px;line-height:1.75;color:var(--color-ink-soft);margin:0 0 28px}.baro-stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin:0 0 36px}.baro-stat-card{display:flex;flex-direction:column;padding:24px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-bg)}.baro-stat-number{font-family:var(--font-serif);font-weight:700;font-size:clamp(26px,4vw,34px);color:var(--color-navy);line-height:1.05;margin-bottom:10px}.baro-stat-label{font-size:14px;line-height:1.55;color:var(--color-ink-soft);margin-bottom:16px;flex-grow:1}.baro-stat-source{font-size:12px;color:var(--color-ink-faint);border-top:1px solid var(--color-border);padding-top:12px;line-height:1.5}.baro-stat-source a{color:var(--color-ink-faint);font-weight:500;text-decoration:underline;text-decoration-color:var(--color-border)}.baro-stat-source a:hover{color:var(--color-navy)}.baro-methodo{background:var(--color-bg-alt);border-radius:var(--radius);border:1px solid var(--color-border);padding:24px 26px;margin:0 0 40px}.baro-methodo h3{font-family:var(--font-sans);font-weight:700;font-size:14.5px;color:var(--color-ink);margin-bottom:10px}.baro-methodo p{font-size:14px;color:var(--color-ink-soft);margin-bottom:0}.baro-sources-list{columns:2;column-gap:32px;margin:0 0 28px;padding:0;list-style:none}@media (max-width:620px){.baro-sources-list{columns:1}}.baro-sources-list li{font-size:13.5px;color:var(--color-ink-soft);line-height:1.8;break-inside:avoid}.baro-sources-list a{color:var(--color-navy);font-weight:500;text-decoration:none}.baro-sources-list a:hover{text-decoration:underline}
+.baro-dark{position:relative;background:#070b1a;color:#f4f6fb;overflow:hidden;isolation:isolate}
+.baro-grid-bg{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(76,230,185,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(76,230,185,.07) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 85% 65% at 50% 0%,#000 35%,transparent 92%);mask-image:radial-gradient(ellipse 85% 65% at 50% 0%,#000 35%,transparent 92%)}
+.baro-glow{position:absolute;border-radius:50%;filter:blur(90px);z-index:0;pointer-events:none}
+.baro-glow-1{width:560px;height:560px;background:rgba(76,230,185,.2);top:-160px;right:-120px}
+.baro-glow-2{width:460px;height:460px;background:rgba(26,73,238,.3);bottom:8%;left:-160px}
+
+.baro-breadcrumb{position:relative;z-index:2;padding:18px 0;border-bottom:1px solid rgba(244,246,251,.1)}
+.baro-breadcrumb ol{display:flex;flex-wrap:wrap;align-items:center;gap:6px;list-style:none;font-size:13px;color:rgba(244,246,251,.42)}
+.baro-breadcrumb a{color:rgba(244,246,251,.6);text-decoration:none;transition:color var(--transition)}
+.baro-breadcrumb a:hover{color:#4ce6b9}
+.baro-breadcrumb li[aria-current=page]{color:rgba(244,246,251,.78)}
+.baro-breadcrumb .sep{color:rgba(244,246,251,.25)}
+
+.baro-hero{position:relative;z-index:2;padding-block:clamp(48px,8vw,96px) clamp(32px,5vw,52px)}
+.baro-hero-inner{max-width:800px}
+.baro-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#4ce6b9;background:rgba(76,230,185,.1);border:1px solid rgba(76,230,185,.3);border-radius:999px;padding:6px 14px;margin-bottom:22px;text-decoration:none}
+.baro-tag:hover{border-color:#4ce6b9}
+.baro-hero h1{font-family:var(--font-serif);font-weight:700;font-size:clamp(32px,5.2vw,54px);line-height:1.06;letter-spacing:-.02em;margin-bottom:20px;background:linear-gradient(135deg,#ffffff 15%,#4ce6b9 140%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.baro-hook{font-size:17px;line-height:1.7;color:rgba(244,246,251,.72);max-width:62ch;margin-bottom:36px}
+.baro-meta{display:flex;flex-wrap:wrap;gap:26px 44px;padding-top:28px;border-top:1px solid rgba(244,246,251,.12)}
+.baro-meta dt{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:rgba(244,246,251,.4);margin-bottom:7px}
+.baro-meta dd{font-family:var(--font-serif);font-weight:700;font-size:17px;color:#f4f6fb}
+
+.baro-subnav{position:sticky;top:73px;z-index:40;background:rgba(7,11,26,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-block:1px solid rgba(244,246,251,.1)}
+.baro-subnav-inner{display:flex;gap:4px;overflow-x:auto;padding-block:12px;scrollbar-width:none}
+.baro-subnav-inner::-webkit-scrollbar{display:none}
+.baro-subnav a{flex:0 0 auto;font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;font-size:12.5px;font-weight:600;color:rgba(244,246,251,.5);text-decoration:none;padding:9px 16px;border-radius:999px;white-space:nowrap;transition:color .2s ease,background .2s ease}
+.baro-subnav a:hover{color:#f4f6fb}
+.baro-subnav a.is-active{color:#070b1a;background:#4ce6b9;font-weight:700}
+
+.baro-section{position:relative;z-index:2;padding-block:clamp(44px,7vw,80px);scroll-margin-top:150px}
+.baro-section-kicker{display:flex;align-items:center;gap:10px;font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;font-size:12.5px;letter-spacing:.06em;color:#4ce6b9;margin-bottom:14px}
+.baro-section-kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:#4ce6b9;box-shadow:0 0 0 4px rgba(76,230,185,.18);flex:0 0 auto}
+.baro-section h2{font-family:var(--font-serif);font-weight:700;font-size:clamp(22px,3vw,30px);color:#f4f6fb;margin-bottom:10px;max-width:30ch}
+.baro-section-intro{font-size:15px;line-height:1.75;color:rgba(244,246,251,.68);max-width:68ch;margin:0 0 6px}
+
+.baro-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(252px,1fr));gap:18px;margin:26px 0 26px}
+.baro-tile{position:relative;padding:28px 26px;border-radius:18px;background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.015));border:1px solid rgba(244,246,251,.11)}
+.baro-tile::before{content:"";position:absolute;top:0;left:26px;right:26px;height:1px;background:linear-gradient(90deg,transparent,#4ce6b9,transparent);opacity:0;transition:opacity .25s ease}
+.baro-tile:hover{border-color:rgba(76,230,185,.45);box-shadow:0 0 0 1px rgba(76,230,185,.12),0 22px 48px rgba(0,0,0,.4)}
+.baro-tile:hover::before{opacity:.65}
+.baro-tile-number{font-family:var(--font-serif);font-weight:700;font-size:clamp(28px,3.8vw,38px);line-height:1;margin-bottom:14px;font-variant-numeric:tabular-nums;letter-spacing:-.01em;background:linear-gradient(135deg,#f4f6fb 15%,#4ce6b9 170%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.baro-tile-label{font-size:14.5px;line-height:1.62;color:rgba(244,246,251,.74);margin-bottom:18px}
+.baro-tile-source{font-size:12px;line-height:1.6;color:rgba(244,246,251,.42);padding-top:14px;border-top:1px solid rgba(244,246,251,.08)}
+.baro-tile-source a{color:rgba(244,246,251,.58);font-weight:600;text-decoration:underline;text-decoration-color:rgba(76,230,185,.4);text-underline-offset:2px}
+.baro-tile-source a:hover{color:#4ce6b9}
+
+.baro-insight{display:flex;gap:16px;align-items:flex-start;margin-top:6px;padding:22px 24px;border-radius:16px;background:rgba(76,230,185,.06);border:1px solid rgba(76,230,185,.22)}
+.baro-insight-icon{flex:0 0 auto;width:30px;height:30px;border-radius:9px;background:rgba(76,230,185,.16);display:flex;align-items:center;justify-content:center}
+.baro-insight-icon svg{width:16px;height:16px}
+.baro-insight p{font-size:14.5px;line-height:1.72;color:rgba(244,246,251,.78);margin:0}
+
+.baro-fade{height:96px;margin-top:-96px;position:relative;z-index:3;pointer-events:none;background:linear-gradient(to bottom,transparent,var(--color-bg))}
+
+@media (max-width:640px){
+  .baro-subnav{top:64px}
+}
+@media (prefers-reduced-motion:reduce){
+  .baro-tile,.baro-insight{transition:none}
+}
