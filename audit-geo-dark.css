@@ -1,0 +1,30 @@
+#auditGeoQuiz.audit-quiz{position:relative;z-index:1;border:1px solid rgba(244,246,251,.12);border-radius:18px;background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.01))}
+#auditGeoQuiz .audit-quiz-item{border-bottom:1px solid rgba(244,246,251,.1)}
+#auditGeoQuiz .audit-quiz-question{color:rgba(244,246,251,.88)}
+#auditGeoQuiz .audit-quiz-hint{color:rgba(244,246,251,.45)}
+#auditGeoQuiz .audit-quiz-toggle button{border:1.5px solid rgba(244,246,251,.22);color:rgba(244,246,251,.7);background:rgba(255,255,255,.02)}
+#auditGeoQuiz .audit-quiz-toggle button:hover{border-color:#4ce6b9}
+#auditGeoQuiz .audit-quiz-toggle button.is-selected[data-value=oui]{border-color:#f87171;background:rgba(248,113,113,.16);color:#fca5a5}
+#auditGeoQuiz .audit-quiz-toggle button.is-selected[data-value=non]{border-color:#4ce6b9;background:rgba(76,230,185,.14);color:#4ce6b9}
+#auditGeoQuiz .audit-quiz-submit.btn-primary{background:#4ce6b9;color:#070b1a}
+#auditGeoQuiz .audit-quiz-submit.btn-primary:hover{background:#fff}
+#auditGeoQuiz .audit-quiz-submit:disabled{opacity:.4}
+
+#auditGeoResult.audit-result{position:relative;z-index:1;border:1.5px solid rgba(244,246,251,.12);background:linear-gradient(160deg,rgba(255,255,255,.045),rgba(255,255,255,.01))}
+#auditGeoResult .audit-result-score-label{color:rgba(244,246,251,.45)}
+#auditGeoResult .audit-result-verdict{color:#f4f6fb}
+#auditGeoResult .audit-result-detail{color:rgba(244,246,251,.72)}
+#auditGeoResult[data-band=ok] .audit-result-band,#auditGeoResult[data-band=ok] .audit-result-score{color:#4ce6b9}
+#auditGeoResult[data-band=ok] .audit-result-band{background:rgba(76,230,185,.12)}
+#auditGeoResult[data-band=fuites] .audit-result-band,#auditGeoResult[data-band=fuites] .audit-result-score{color:#fbbf24}
+#auditGeoResult[data-band=fuites] .audit-result-band{background:rgba(251,191,36,.12)}
+#auditGeoResult[data-band=serieux] .audit-result-band,#auditGeoResult[data-band=serieux] .audit-result-score{color:#fb923c}
+#auditGeoResult[data-band=serieux] .audit-result-band{background:rgba(251,146,60,.12)}
+#auditGeoResult[data-band=urgent] .audit-result-band,#auditGeoResult[data-band=urgent] .audit-result-score{color:#f87171}
+#auditGeoResult[data-band=urgent] .audit-result-band{background:rgba(248,113,113,.14)}
+#auditGeoResult .audit-result-actions .btn-primary{background:#4ce6b9;color:#070b1a}
+#auditGeoResult .audit-result-actions .btn-primary:hover{background:#fff}
+#auditGeoResult .audit-result-actions .btn-ghost{color:#f4f6fb;border-color:rgba(244,246,251,.3)}
+#auditGeoResult .audit-result-actions .btn-ghost:hover{border-color:#4ce6b9;color:#4ce6b9}
+#auditGeoResult .audit-restart{color:rgba(244,246,251,.45)}
+#auditGeoResult .audit-restart:hover{color:#4ce6b9}

@@ -43,7 +43,9 @@ gtag('consent', 'default', {
 <link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="subpage.css">
+<link rel="stylesheet" href="dark-hero.css">
 <link rel="stylesheet" href="audit-budget-ads.css">
+<link rel="stylesheet" href="audit-geo-dark.css">
 
 <script type="application/ld+json">
 {
@@ -164,39 +166,46 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
   </div>
 </header>
 
-<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
-  <div class="container">
-    <ol>
-      <li><a href="/">Accueil</a></li>
-      <li class="sep">/</li>
-      <li aria-current="page">Auto-diagnostic GEO</li>
-    </ol>
-  </div>
-</nav>
-
 <main id="main">
 
-  <section class="sub-header">
-    <div class="container sub-header-inner">
-      <p class="sub-pillar-tag">Ressource gratuite</p>
-      <h1>Êtes-vous visible dans ChatGPT, Claude et Perplexity ?</h1>
-      <p class="sub-hook">10 questions, 2 minutes. Un score sur vos fondations GEO (structure, données structurées, cohérence de marque) et ce qui a le plus d'impact à corriger en premier.</p>
-    </div>
-  </section>
+  <div class="dh-dark">
+    <div class="dh-grid-bg" aria-hidden="true"></div>
+    <div class="dh-glow dh-glow-1" aria-hidden="true"></div>
+    <div class="dh-glow dh-glow-2" aria-hidden="true"></div>
 
-  <section class="section">
-    <div class="container sub-article-inner">
-
-      <div class="audit-quiz" id="auditGeoQuiz">
-        <div data-quiz-list></div>
-        <button type="button" class="btn btn-primary audit-quiz-submit" data-quiz-submit disabled>Voir mon résultat</button>
-        <p class="audit-quiz-hint" data-quiz-hint></p>
+    <nav class="dh-breadcrumb" aria-label="Fil d'Ariane">
+      <div class="container">
+        <ol>
+          <li><a href="/">Accueil</a></li>
+          <li class="sep">/</li>
+          <li aria-current="page">Auto-diagnostic GEO</li>
+        </ol>
       </div>
+    </nav>
 
-      <div class="audit-result" id="auditGeoResult"></div>
+    <section class="dh-hero">
+      <div class="container dh-hero-inner">
+        <span class="dh-tag">Ressource gratuite</span>
+        <h1>Êtes-vous visible dans ChatGPT, Claude et Perplexity ?</h1>
+        <p class="dh-hook">10 questions, 2 minutes. Un score sur vos fondations GEO (structure, données structurées, cohérence de marque) et ce qui a le plus d'impact à corriger en premier.</p>
+      </div>
+    </section>
 
-    </div>
-  </section>
+    <section class="section">
+      <div class="container sub-article-inner">
+
+        <div class="audit-quiz" id="auditGeoQuiz">
+          <div data-quiz-list></div>
+          <button type="button" class="btn btn-primary audit-quiz-submit" data-quiz-submit disabled>Voir mon résultat</button>
+          <p class="audit-quiz-hint" data-quiz-hint></p>
+        </div>
+
+        <div class="audit-result" id="auditGeoResult"></div>
+
+      </div>
+    </section>
+  </div>
+  <div class="dh-fade" aria-hidden="true"></div>
 
   <section class="section section-alt">
     <div class="container sub-article-inner">
