@@ -188,7 +188,7 @@
   </url>
   <url>
     <loc>https://johansimonneau.fr/blog</loc>
-    <lastmod>2026-11-12</lastmod>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -639,6 +639,12 @@
   <url>
     <loc>https://johansimonneau.fr/apple-search-ads-acquisition-mobile</loc>
     <lastmod>2026-11-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://johansimonneau.fr/growth-loops-vs-funnel-marketing</loc>
+    <lastmod>2026-11-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
