@@ -45,6 +45,16 @@
 .baro-tile-source a{color:rgba(244,246,251,.58);font-weight:600;text-decoration:underline;text-decoration-color:rgba(76,230,185,.4);text-underline-offset:2px}
 .baro-tile-source a:hover{color:#4ce6b9}
 
+.baro-compare{display:flex;flex-direction:column;gap:13px;margin:28px 0 8px}
+.baro-compare-row{display:grid;grid-template-columns:112px 1fr 64px;align-items:center;gap:14px}
+.baro-compare-label{font-family:var(--font-sans);font-size:13.5px;color:rgba(244,246,251,.68)}
+.baro-compare-row.is-highlight .baro-compare-label{color:#4ce6b9;font-weight:700}
+.baro-compare-track{height:10px;border-radius:999px;background:rgba(244,246,251,.08);overflow:hidden}
+.baro-compare-bar{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#1a49ee,#7c93f5)}
+.baro-compare-row.is-highlight .baro-compare-bar{background:#4ce6b9}
+.baro-compare-value{font-family:var(--font-serif);font-weight:700;font-size:14.5px;color:#f4f6fb;text-align:right;font-variant-numeric:tabular-nums}
+.baro-compare-source{margin-top:10px;padding-top:0;border-top:none}
+
 .baro-insight{display:flex;gap:16px;align-items:flex-start;margin-top:6px;padding:22px 24px;border-radius:16px;background:rgba(76,230,185,.06);border:1px solid rgba(76,230,185,.22)}
 .baro-insight-icon{flex:0 0 auto;width:30px;height:30px;border-radius:9px;background:rgba(76,230,185,.16);display:flex;align-items:center;justify-content:center}
 .baro-insight-icon svg{width:16px;height:16px}
@@ -54,6 +64,9 @@
 
 @media (max-width:640px){
   .baro-subnav{top:64px}
+  .baro-compare-row{grid-template-columns:84px 1fr 54px;gap:10px}
+  .baro-compare-label{font-size:12.5px}
+  .baro-compare-value{font-size:13px}
 }
 @media (prefers-reduced-motion:reduce){
   .baro-tile,.baro-insight{transition:none}

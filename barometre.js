@@ -1,5 +1,9 @@
 (function () {
   "use strict";
+  document.querySelectorAll("[data-bar-fill]").forEach(function (bar) {
+    bar.style.width = bar.getAttribute("data-bar-fill") + "%";
+  });
+
   var sections = document.querySelectorAll(".baro-section[id]");
   var links = document.querySelectorAll(".baro-subnav a[href^='#']");
   if (!sections.length || !links.length || !("IntersectionObserver" in window)) return;
