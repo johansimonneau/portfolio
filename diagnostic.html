@@ -43,6 +43,7 @@ gtag('consent', 'default', {
 <link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="subpage.css">
+<link rel="stylesheet" href="dark-hero.css">
 <link rel="stylesheet" href="diagnostic.css">
 </head>
 <body>
@@ -129,42 +130,49 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
   </div>
 </header>
 
-<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
-  <div class="container">
-    <ol>
-      <li><a href="/">Accueil</a></li>
-      <li class="sep">/</li>
-      <li aria-current="page">Diagnostic</li>
-    </ol>
-  </div>
-</nav>
-
 <main id="main">
 
-  <section class="sub-header">
-    <div class="container sub-header-inner">
-      <p class="sub-pillar-tag">Ressource gratuite</p>
-      <h1>Quel est votre score de maturité en acquisition ?</h1>
-      <p class="sub-hook">6 questions, 2 minutes. À la fin, un score par pilier (tracking, acquisition, SEO, GEO, CRO, pilotage) et une recommandation sur ce qui a le plus d'impact à travailler en premier.</p>
-    </div>
-  </section>
+  <div class="dh-dark">
+    <div class="dh-grid-bg" aria-hidden="true"></div>
+    <div class="dh-glow dh-glow-1" aria-hidden="true"></div>
+    <div class="dh-glow dh-glow-2" aria-hidden="true"></div>
 
-  <section class="section">
-    <div class="container diag-app" id="diagnosticApp">
-
-      <div data-quiz>
-        <div class="diag-progress">
-          <span class="diag-back" data-back-btn role="button" tabindex="0">← Précédent</span>
-          <span class="diag-progress-track"><span class="diag-progress-bar" data-progress-bar></span></span>
-          <span class="diag-progress-label" data-progress-label>Question 1 / 6</span>
-        </div>
-        <div class="diag-card" data-question-card></div>
+    <nav class="dh-breadcrumb" aria-label="Fil d'Ariane">
+      <div class="container">
+        <ol>
+          <li><a href="/">Accueil</a></li>
+          <li class="sep">/</li>
+          <li aria-current="page">Diagnostic</li>
+        </ol>
       </div>
+    </nav>
 
-      <div class="diag-results" data-results></div>
+    <section class="dh-hero">
+      <div class="container dh-hero-inner">
+        <span class="dh-tag">Ressource gratuite</span>
+        <h1>Quel est votre score de maturité en acquisition ?</h1>
+        <p class="dh-hook">6 questions, 2 minutes. À la fin, un score par pilier (tracking, acquisition, SEO, GEO, CRO, pilotage) et une recommandation sur ce qui a le plus d'impact à travailler en premier.</p>
+      </div>
+    </section>
 
-    </div>
-  </section>
+    <section class="section">
+      <div class="container diag-app" id="diagnosticApp">
+
+        <div data-quiz>
+          <div class="diag-progress">
+            <span class="diag-back" data-back-btn role="button" tabindex="0">← Précédent</span>
+            <span class="diag-progress-track"><span class="diag-progress-bar" data-progress-bar></span></span>
+            <span class="diag-progress-label" data-progress-label>Question 1 / 6</span>
+          </div>
+          <div class="diag-card" data-question-card></div>
+        </div>
+
+        <div class="diag-results" data-results></div>
+
+      </div>
+    </section>
+  </div>
+  <div class="dh-fade" aria-hidden="true"></div>
 
 </main>
 

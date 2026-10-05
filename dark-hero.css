@@ -1,0 +1,20 @@
+.dh-dark{position:relative;background:#070b1a;color:#f4f6fb;overflow:hidden;isolation:isolate}
+.dh-grid-bg{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(76,230,185,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(76,230,185,.07) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 85% 65% at 50% 0%,#000 35%,transparent 92%);mask-image:radial-gradient(ellipse 85% 65% at 50% 0%,#000 35%,transparent 92%)}
+.dh-glow{position:absolute;border-radius:50%;filter:blur(90px);z-index:0;pointer-events:none}
+.dh-glow-1{width:520px;height:520px;background:rgba(76,230,185,.2);top:-150px;right:-120px}
+.dh-glow-2{width:420px;height:420px;background:rgba(26,73,238,.3);bottom:5%;left:-150px}
+
+.dh-breadcrumb{position:relative;z-index:2;padding:18px 0;border-bottom:1px solid rgba(244,246,251,.1)}
+.dh-breadcrumb ol{display:flex;flex-wrap:wrap;align-items:center;gap:6px;list-style:none;font-size:13px;color:rgba(244,246,251,.42)}
+.dh-breadcrumb a{color:rgba(244,246,251,.6);text-decoration:none;transition:color var(--transition)}
+.dh-breadcrumb a:hover{color:#4ce6b9}
+.dh-breadcrumb li[aria-current=page]{color:rgba(244,246,251,.78)}
+.dh-breadcrumb .sep{color:rgba(244,246,251,.25)}
+
+.dh-hero{position:relative;z-index:2;padding-block:clamp(44px,7vw,80px) clamp(28px,4vw,44px)}
+.dh-hero-inner{max-width:760px}
+.dh-tag{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-sans);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#4ce6b9;background:rgba(76,230,185,.1);border:1px solid rgba(76,230,185,.3);border-radius:999px;padding:6px 14px;margin-bottom:20px}
+.dh-hero h1{font-family:var(--font-serif);font-weight:700;font-size:clamp(28px,4.6vw,46px);line-height:1.1;letter-spacing:-.02em;margin-bottom:18px;background:linear-gradient(135deg,#ffffff 15%,#4ce6b9 140%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.dh-hook{font-size:16.5px;line-height:1.68;color:rgba(244,246,251,.72);max-width:62ch}
+
+.dh-fade{height:96px;margin-top:-96px;position:relative;z-index:3;pointer-events:none;background:linear-gradient(to bottom,transparent,var(--color-bg))}
