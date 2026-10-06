@@ -115,7 +115,7 @@
       "J'aimerais échanger sur la visibilité de mon site dans les IA génératives."
     ];
     var mailto =
-      "mailto:johansimonneau.pro@gmail.com?subject=" +
+      "mailto:johansimonneau.pro" + "@gmail.com?subject=" +
       encodeURIComponent("Mon auto-diagnostic GEO (" + score + "/10)") +
       "&body=" +
       encodeURIComponent(bodyLines.join("\n"));
