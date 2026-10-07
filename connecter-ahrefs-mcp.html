@@ -59,7 +59,7 @@ gtag('consent', 'default', {
     {
       "@type": "TechArticle",
       "headline": "Connecter Ahrefs en MCP à Claude ou ChatGPT",
-      "dateModified": "2026-09-27",
+      "dateModified": "2026-10-07",
       "author": { "@type": "Person", "name": "Johan Simonneau", "url": "https://johansimonneau.fr" },
       "description": "Comment connecter le serveur MCP officiel d'Ahrefs à Claude ou ChatGPT : installation npm, configuration, authentification, lien vers la doc officielle.",
       "mainEntityOfPage": "https://johansimonneau.fr/connecter-ahrefs-mcp"
@@ -72,23 +72,23 @@ gtag('consent', 'default', {
           "name": "Le serveur Ahrefs local est-il encore recommandé ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Le dépôt officiel est archivé et indique qu'un serveur distant le remplace désormais, sans en préciser l'URL exacte à ce jour. Vérifiez la documentation officielle avant de choisir."
+            "text": "Non. Le dépôt officiel du serveur local est archivé et Ahrefs recommande désormais explicitement le serveur distant, qui ne nécessite aucune installation."
           }
         },
         {
           "@type": "Question",
-          "name": "Faut-il un abonnement Ahrefs spécifique pour la clé API ?",
+          "name": "La clé API Ahrefs classique fonctionne-t-elle avec le serveur distant ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Oui, l'accès à l'API Ahrefs (et donc à ce connecteur) dépend de votre forfait Ahrefs — vérifiez votre accès API sur votre compte."
+            "text": "Non, Ahrefs précise que les clés API et les clés MCP ne sont pas interchangeables. Il faut générer une clé MCP dédiée depuis son espace Ahrefs."
           }
         },
         {
           "@type": "Question",
-          "name": "Cette configuration fonctionne-t-elle avec Claude Desktop ?",
+          "name": "Faut-il un abonnement Ahrefs spécifique pour générer une clé MCP ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Le format mcpServers ci-dessus est compatible avec la plupart des clients MCP qui lisent ce type de configuration, dont Claude Desktop."
+            "text": "Oui, la génération d'une clé MCP dépend de votre forfait Ahrefs et de votre accès à l'API — vérifiez votre accès sur votre compte."
           }
         }
       ]
@@ -199,7 +199,7 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
     <div class="container sub-header-inner">
       <a href="/kit-mcp-marketing" class="sub-pillar-tag">Librairie MCP Marketing</a>
       <h1>Connecter Ahrefs en MCP à Claude ou ChatGPT</h1>
-      <p class="sub-hook">Ahrefs publie un serveur MCP officiel pour interroger son index de backlinks et de mots-clés directement en conversation. Voici comment l'installer.</p>
+      <p class="sub-hook">Ahrefs publie désormais un serveur MCP officiel distant pour interroger son index de backlinks et de mots-clés directement en conversation, sans aucune installation locale. Voici comment le connecter.</p>
     </div>
   </section>
 
@@ -212,29 +212,21 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
 <dl class="sub-status">
   <div><dt>Éditeur</dt><dd>Ahrefs</dd></div>
   <div><dt>Statut</dt><dd>Officiel</dd></div>
-  <div><dt>Connexion</dt><dd>Locale (commande)</dd></div>
+  <div><dt>Connexion</dt><dd>Distante (URL)</dd></div>
 </dl>
 
 <h2>Comment se connecter</h2>
-<p>Installation du paquet npm officiel&nbsp;:</p>
-<pre class="sub-code"><code>npm install --prefix=~/.global-node-modules @ahrefs/mcp -g</code></pre>
-<p>Configuration (format <code>mcpServers</code>, compatible avec la plupart des clients MCP)&nbsp;:</p>
-<pre class="sub-code"><code>{
-  "mcpServers": {
-    "ahrefs": {
-      "command": "npx",
-      "args": ["--prefix=~/.global-node-modules", "@ahrefs/mcp"],
-      "env": { "API_KEY": "VOTRE_CLE_API" }
-    }
-  }
-}</code></pre>
+<p>URL du serveur distant officiel (Streamable HTTP)&nbsp;:</p>
+<pre class="sub-code"><code>https://api.ahrefs.com/mcp/mcp</code></pre>
+<p>Dans les réglages de connecteurs de votre client IA, ajoutez un connecteur personnalisé avec cette URL, en authentification par en-tête (voir ci-dessous).</p>
 
 <div class="sub-note">
-  <p><strong>Remarque importante&nbsp;:</strong> le dépôt officiel de ce serveur local est aujourd'hui archivé, avec une mention indiquant qu'un serveur distant le remplace désormais. L'URL exacte de ce serveur distant n'est pas confirmée dans ce dépôt au moment de la rédaction — vérifiez la documentation officielle Ahrefs avant de choisir entre l'installation locale ci-dessus et un éventuel serveur distant plus récent.</p>
+  <p><strong>Le serveur local est abandonné&nbsp;:</strong> le dépôt officiel <code>@ahrefs/mcp</code> est désormais archivé et Ahrefs déconseille explicitement son usage (« outdated », « non recommandé ») au profit de ce serveur distant.</p>
 </div>
 
 <h2>Authentification</h2>
-<p>Clé d'API Ahrefs (API v3), à renseigner dans la variable d'environnement <code>API_KEY</code>. Ne partagez jamais cette clé dans un dépôt public ou un outil collectif non sécurisé.</p>
+<p>Jeton porteur (Bearer) envoyé dans l'en-tête <code>Authorization</code>. Ce jeton n'est <strong>pas</strong> votre clé API Ahrefs habituelle&nbsp;: Ahrefs précise que les clés API et les clés MCP ne sont pas interchangeables. Générez une clé dédiée depuis votre espace Ahrefs, rubrique Account Settings → API Keys → «&nbsp;Generate MCP key&nbsp;», puis utilisez-la au format&nbsp;:</p>
+<pre class="sub-code"><code>Authorization: Bearer VOTRE_CLE_MCP</code></pre>
 
 <h2>Documentation officielle</h2>
 <p><a href="https://github.com/ahrefs/ahrefs-mcp-server" target="_blank" rel="noopener">github.com/ahrefs/ahrefs-mcp-server</a></p>
@@ -243,15 +235,15 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
 <h2>FAQ</h2>
   <details>
     <summary>Le serveur Ahrefs local est-il encore recommandé ?</summary>
-    <p>Le dépôt officiel est archivé et indique qu'un serveur distant le remplace désormais, sans en préciser l'URL exacte à ce jour. Vérifiez la documentation officielle avant de choisir.</p>
+    <p>Non. Le dépôt officiel du serveur local est archivé et Ahrefs recommande désormais explicitement le serveur distant, qui ne nécessite aucune installation.</p>
   </details>
   <details>
-    <summary>Faut-il un abonnement Ahrefs spécifique pour la clé API ?</summary>
-    <p>Oui, l'accès à l'API Ahrefs (et donc à ce connecteur) dépend de votre forfait Ahrefs — vérifiez votre accès API sur votre compte.</p>
+    <summary>La clé API Ahrefs classique fonctionne-t-elle avec le serveur distant ?</summary>
+    <p>Non, Ahrefs précise que les clés API et les clés MCP ne sont pas interchangeables. Il faut générer une clé MCP dédiée depuis son espace Ahrefs.</p>
   </details>
   <details>
-    <summary>Cette configuration fonctionne-t-elle avec Claude Desktop ?</summary>
-    <p>Le format mcpServers ci-dessus est compatible avec la plupart des clients MCP qui lisent ce type de configuration, dont Claude Desktop.</p>
+    <summary>Faut-il un abonnement Ahrefs spécifique pour générer une clé MCP ?</summary>
+    <p>Oui, la génération d'une clé MCP dépend de votre forfait Ahrefs et de votre accès à l'API — vérifiez votre accès sur votre compte.</p>
   </details>
 </div>
 

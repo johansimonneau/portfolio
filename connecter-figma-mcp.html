@@ -20,13 +20,13 @@ gtag('consent', 'default', {
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Connecter Figma (Dev Mode) en MCP | Johan Simonneau</title>
-<meta name="description" content="Comment connecter le serveur MCP officiel de Figma (Dev Mode) à Claude ou ChatGPT : activation, configuration locale, authentification, lien vers la doc officielle.">
+<title>Connecter Figma en MCP | Johan Simonneau</title>
+<meta name="description" content="Comment connecter le serveur MCP officiel de Figma à Claude ou ChatGPT : serveur distant recommandé, option Dev Mode locale pour les entreprises, authentification, lien vers la doc officielle.">
 
 <link rel="canonical" href="https://johansimonneau.fr/connecter-figma-mcp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Connecter Figma (Dev Mode) en MCP">
-<meta property="og:description" content="Comment connecter le serveur MCP officiel de Figma (Dev Mode) à Claude ou ChatGPT : activation, configuration locale, authentification, lien vers la doc officielle.">
+<meta property="og:title" content="Connecter Figma en MCP">
+<meta property="og:description" content="Comment connecter le serveur MCP officiel de Figma à Claude ou ChatGPT : serveur distant recommandé, option Dev Mode locale pour les entreprises, authentification, lien vers la doc officielle.">
 <meta property="og:url" content="https://johansimonneau.fr/connecter-figma-mcp">
 <meta property="og:image" content="https://johansimonneau.fr/assets/img/kit-mcp-marketing-cover.png">
 <meta property="og:image:width" content="1200">
@@ -58,8 +58,8 @@ gtag('consent', 'default', {
     },
     {
       "@type": "TechArticle",
-      "headline": "Connecter Figma (Dev Mode) en MCP",
-      "dateModified": "2026-09-27",
+      "headline": "Connecter Figma en MCP",
+      "dateModified": "2026-10-07",
       "author": { "@type": "Person", "name": "Johan Simonneau", "url": "https://johansimonneau.fr" },
       "description": "Comment connecter le serveur MCP officiel de Figma (Dev Mode) à Claude ou ChatGPT : activation, configuration locale, authentification, lien vers la doc officielle.",
       "mainEntityOfPage": "https://johansimonneau.fr/connecter-figma-mcp"
@@ -69,26 +69,26 @@ gtag('consent', 'default', {
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Faut-il un abonnement Figma payant pour utiliser ce connecteur ?",
+          "name": "Faut-il un abonnement Figma payant pour utiliser le serveur distant ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Oui, le Dev Mode qui expose le serveur MCP nécessite une licence Figma payante."
+            "text": "Non, Figma indique que le serveur distant est disponible sur tous les sièges et toutes les formules. C'est le serveur de bureau (Dev Mode) qui reste réservé aux sièges Dev ou Full des formules payantes."
           }
         },
         {
           "@type": "Question",
-          "name": "Ce serveur fonctionne-t-il si l'application Figma est fermée ?",
+          "name": "Faut-il encore utiliser le serveur de bureau (Dev Mode) ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Non, il tourne à l'intérieur de l'application de bureau Figma elle-même : l'application doit être ouverte pour que le serveur local soit disponible."
+            "text": "Figma le réserve désormais à des cas d'usage spécifiques côté entreprises. Pour l'essentiel des usages, le serveur distant couvre un périmètre de fonctionnalités plus large."
           }
         },
         {
           "@type": "Question",
-          "name": "Peut-on utiliser ce connecteur sans l'application de bureau, uniquement via le navigateur ?",
+          "name": "Comment s'authentifie-t-on sur le serveur distant ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Non, ce serveur MCP est spécifique à l'application de bureau Figma en Dev Mode, pas à la version web."
+            "text": "Par OAuth avec votre compte Figma&nbsp;: la première connexion ouvre une fenêtre d'autorisation, réutilisée ensuite pour les sessions suivantes."
           }
         }
       ]
@@ -198,58 +198,53 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
   <section class="sub-header">
     <div class="container sub-header-inner">
       <a href="/kit-mcp-marketing" class="sub-pillar-tag">Librairie MCP Marketing</a>
-      <h1>Connecter Figma (Dev Mode) en MCP</h1>
-      <p class="sub-hook">Le serveur MCP de Figma tourne directement dans l'application de bureau, en local&nbsp;: pas d'installation séparée, juste une option à activer en Dev Mode.</p>
+      <h1>Connecter Figma en MCP</h1>
+      <p class="sub-hook">Figma héberge désormais un serveur MCP distant disponible sur tous les plans, en plus du serveur local en Dev Mode réservé à des cas d'usage entreprises. Voici comment connecter le premier.</p>
     </div>
   </section>
 
   <section class="sub-article">
     <div class="container sub-article-inner">
 
-<p>Le serveur MCP officiel de Figma donne à un assistant IA le contexte d'une maquette (composants, variables, auto-layout) pour générer du code fidèle au design, ou écrire directement dans un fichier Figma.</p>
+<p>Le serveur MCP officiel de Figma donne à un assistant IA le contexte d'une maquette (composants, variables, auto-layout) pour générer du code fidèle au design, capturer une interface web vers Figma, ou écrire directement dans un fichier Figma.</p>
 
 <h2>Statut &amp; type de connexion</h2>
 <dl class="sub-status">
   <div><dt>Éditeur</dt><dd>Figma</dd></div>
   <div><dt>Statut</dt><dd>Officiel</dd></div>
-  <div><dt>Connexion</dt><dd>Locale (application de bureau)</dd></div>
+  <div><dt>Connexion</dt><dd>Distante (URL) — recommandée</dd></div>
 </dl>
 
-<h2>Comment se connecter</h2>
-<ol class="sub-list">
-  <li>Ouvrez l'application de bureau Figma (nécessite un accès Dev Mode, donc une licence Figma payante).</li>
-  <li>Dans Dev Mode, activez «&nbsp;Enable desktop MCP server&nbsp;» dans les préférences.</li>
-  <li>Le serveur est alors disponible en local à cette adresse&nbsp;:</li>
-</ol>
+<h2>Comment se connecter (serveur distant, recommandé)</h2>
+<p>URL du serveur hébergé par Figma&nbsp;:</p>
+<pre class="sub-code"><code>https://mcp.figma.com/mcp</code></pre>
+<p>Dans un fichier Figma Design ouvert dans le navigateur, passez en Dev Mode sans rien sélectionner sur le canvas, puis cliquez sur «&nbsp;Set up an MCP client&nbsp;» dans le panneau d'inspection. Avec Claude Code (ligne de commande)&nbsp;:</p>
+<pre class="sub-code"><code>claude plugin install figma@claude-plugins-official</code></pre>
+<p>Disponible sur tous les sièges et toutes les formules Figma&nbsp;: aucune licence payante n'est requise pour ce serveur distant.</p>
+
+<h2>Option entreprise&nbsp;: serveur local (Dev Mode, application de bureau)</h2>
+<p>Figma réserve désormais le serveur local de bureau à des cas d'usage spécifiques côté entreprises&nbsp;; pour la plupart des usages, le serveur distant ci-dessus couvre un périmètre plus large. Il nécessite un siège Dev ou Full sur une formule payante, et l'application de bureau Figma ouverte&nbsp;:</p>
 <pre class="sub-code"><code>http://127.0.0.1:3845/mcp</code></pre>
-<p>Configuration (format <code>mcpServers</code>)&nbsp;:</p>
-<pre class="sub-code"><code>{
-  "mcpServers": {
-    "figma-desktop": {
-      "url": "http://127.0.0.1:3845/mcp"
-    }
-  }
-}</code></pre>
 
 <h2>Authentification</h2>
-<p>Aucune authentification séparée&nbsp;: l'accès dépend uniquement du fait d'être connecté à l'application de bureau Figma avec un accès Dev Mode.</p>
+<p>OAuth avec votre compte Figma pour le serveur distant&nbsp;: la première connexion ouvre une fenêtre d'autorisation («&nbsp;Allow access&nbsp;»), réutilisée ensuite pour les sessions suivantes. Le serveur local ne demande aucune authentification séparée&nbsp;: l'accès dépend uniquement du fait d'être connecté à l'application de bureau avec un accès Dev Mode.</p>
 
 <h2>Documentation officielle</h2>
-<p><a href="https://developers.figma.com/docs/figma-mcp-server/" target="_blank" rel="noopener">developers.figma.com/docs/figma-mcp-server</a></p>
+<p><a href="https://help.figma.com/hc/en-us/articles/35281350665623-Figma-MCP-collection-How-to-set-up-the-Figma-remote-MCP-server" target="_blank" rel="noopener">help.figma.com — Figma remote MCP server</a> &middot; <a href="https://developers.figma.com/docs/figma-mcp-server/" target="_blank" rel="noopener">developers.figma.com/docs/figma-mcp-server</a> (serveur local)</p>
 
 <div class="sub-faq">
 <h2>FAQ</h2>
   <details>
-    <summary>Faut-il un abonnement Figma payant pour utiliser ce connecteur ?</summary>
-    <p>Oui, le Dev Mode qui expose le serveur MCP nécessite une licence Figma payante.</p>
+    <summary>Faut-il un abonnement Figma payant pour utiliser le serveur distant ?</summary>
+    <p>Non, Figma indique que le serveur distant est disponible sur tous les sièges et toutes les formules. C'est le serveur de bureau (Dev Mode) qui reste réservé aux sièges Dev ou Full des formules payantes.</p>
   </details>
   <details>
-    <summary>Ce serveur fonctionne-t-il si l'application Figma est fermée ?</summary>
-    <p>Non, il tourne à l'intérieur de l'application de bureau Figma elle-même : l'application doit être ouverte pour que le serveur local soit disponible.</p>
+    <summary>Faut-il encore utiliser le serveur de bureau (Dev Mode) ?</summary>
+    <p>Figma le réserve désormais à des cas d'usage spécifiques côté entreprises. Pour l'essentiel des usages, le serveur distant couvre un périmètre de fonctionnalités plus large.</p>
   </details>
   <details>
-    <summary>Peut-on utiliser ce connecteur sans l'application de bureau, uniquement via le navigateur ?</summary>
-    <p>Non, ce serveur MCP est spécifique à l'application de bureau Figma en Dev Mode, pas à la version web.</p>
+    <summary>Comment s'authentifie-t-on sur le serveur distant ?</summary>
+    <p>Par OAuth avec votre compte Figma : la première connexion ouvre une fenêtre d'autorisation, réutilisée ensuite pour les sessions suivantes.</p>
   </details>
 </div>
 
