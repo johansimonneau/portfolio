@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Bidding : ce qu'il faut vérifier avant de lui laisser le volant | Blog — Johan Simonneau</title>
+<meta name="description" content="Le Smart Bidding de Google Ads (tCPA, tROAS) peut très bien fonctionner, ou détruire une campagne saine en quelques jours. Ce qui détermine lequel des deux scénarios se produit chez vous.">
+
+<link rel="canonical" href="https://johansimonneau.fr/smart-bidding-google-ads-controle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Smart Bidding : ce qu'il faut vérifier avant de lui laisser le volant">
+<meta property="og:description" content="Le Smart Bidding de Google Ads (tCPA, tROAS) peut très bien fonctionner, ou détruire une campagne saine en quelques jours. Ce qui détermine lequel des deux scénarios se produit chez vous.">
+<meta property="og:url" content="https://johansimonneau.fr/smart-bidding-google-ads-controle">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-smart-bidding-google-ads-controle-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-smart-bidding-google-ads-controle-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Smart Bidding : ce qu'il faut vérifier avant de lui laisser le volant", "item": "https://johansimonneau.fr/smart-bidding-google-ads-controle" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Smart Bidding : ce qu'il faut vérifier avant de lui laisser le volant",
+      "image": "https://johansimonneau.fr/assets/img/blog-smart-bidding-google-ads-controle-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-11-05",
+      "dateModified": "2026-11-05",
+      "description": "Le Smart Bidding de Google Ads (tCPA, tROAS) peut très bien fonctionner, ou détruire une campagne saine en quelques jours. Ce qui détermine lequel des deux scénarios se produit chez vous.",
+      "mainEntityOfPage": "https://johansimonneau.fr/smart-bidding-google-ads-controle"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Combien de conversions faut-il par mois pour utiliser le Smart Bidding ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le seuil exact dépend de la stratégie choisie et évolue avec les recommandations de Google — dans tous les cas, un très faible volume de conversions mensuelles reste le signal le plus fiable qu'il vaut mieux attendre avant d'activer une stratégie entièrement automatique."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le Smart Bidding et Performance Max sont-ils la même chose ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non : Smart Bidding est la stratégie d'enchères, utilisée dans plusieurs types de campagnes. Performance Max est un type de campagne complet qui automatise aussi le ciblage et la diffusion des créations, au-delà des seules enchères."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps dure la phase d'apprentissage ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Elle varie selon le volume de conversions et l'ampleur du changement effectué, généralement de quelques jours à quelques semaines. Éviter d'intervenir pendant cette période reste la meilleure pratique, sauf signal de performance clairement anormal."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Smart Bidding</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Smart Bidding : ce qu'il faut vérifier avant de lui laisser le volant</h1>
+      <p class="sub-hook">« On est passés en Smart Bidding et les résultats se sont effondrés » — c'est presque toujours un problème de préconditions, pas un défaut de l'algorithme lui-même. Voici ce qui détermine si le Smart Bidding va vous servir ou vous coûter cher.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>5 novembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-smart-bidding-google-ads-controle-hero.png" alt="Illustration comparant les enchères manuelles (contrôle total) au Smart Bidding (automatisé, appris sur signaux)" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Le Smart Bidding (enchères automatiques pilotées par l'algorithme de Google — tCPA, tROAS, Maximiser les conversions) n'est ni une solution miracle ni une menace à éviter par principe. C'est un outil qui a besoin de préconditions précises pour bien fonctionner, et qui produit des résultats erratiques quand ces préconditions manquent — ce qui explique pourquoi deux comptes avec le même réglage vivent des expériences opposées.</p>
+
+<h2>La précondition qu'on oublie le plus&nbsp;: le volume de conversions</h2>
+
+<p>Le Smart Bidding a besoin d'un volume de conversions suffisant pour apprendre les signaux qui prédisent une conversion — Google recommande généralement un minimum de conversions par mois selon la stratégie choisie, un seuil en dessous duquel l'algorithme manque de données pour bien apprendre. Un compte qui génère quelques conversions par mois ne donne tout simplement pas assez de matière à l'algorithme, quelle que soit la qualité de la campagne par ailleurs.</p>
+
+<h2>La qualité des conversions trackées compte plus que leur volume</h2>
+
+<p>Le Smart Bidding optimise exactement ce qu'on lui dit d'optimiser — s'il apprend sur des conversions mal qualifiées (un simple clic sur un bouton plutôt qu'un vrai lead, un abandon de panier compté comme achat par erreur de configuration), il va sur-enchérir pour obtenir davantage de ce signal bruité. Avant d'activer une stratégie automatique, la première vérification est toujours de s'assurer que les conversions trackées correspondent réellement à de la valeur business.</p>
+
+<h2>Fixer un objectif réaliste, pas ambitieux</h2>
+
+<p>Régler un tCPA très inférieur au coût par acquisition réel observé pousse l'algorithme à chercher un résultat qu'il ne peut pas atteindre avec le budget et la concurrence en place — ce qui se traduit souvent par une chute du volume de conversions plutôt qu'un coût plus bas. Le bon réglage de départ se base sur les performances historiques réelles, pas sur l'objectif qu'on aimerait atteindre.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-smart-bidding-google-ads-controle-resource.png" alt="Sauter une seule de ces quatre étapes suffit généralement à expliquer un Smart Bidding qui sous-performe." width="900" height="300" loading="lazy">
+  <figcaption>Sauter une seule de ces quatre étapes suffit généralement à expliquer un Smart Bidding qui sous-performe.</figcaption>
+</figure>
+
+<h2>Ne pas intervenir pendant la phase d'apprentissage</h2>
+
+<p>Chaque changement significatif (budget, enchère cible, ciblage) relance une phase d'apprentissage pendant laquelle les performances sont généralement instables. Le réflexe de « corriger » une campagne qui semble sous-performer pendant cette phase, en changeant à nouveau les réglages, prolonge l'instabilité au lieu de la résoudre — la patience est ici une vraie compétence, pas juste une posture.</p>
+
+<h2>Ce que je vérifie systématiquement avant d'activer une stratégie automatique</h2>
+
+<p>Dans les audits que je mène, la bascule en Smart Bidding qui échoue a presque toujours la même origine&nbsp;: un volume de conversions insuffisant, des conversions mal qualifiées, ou un objectif fixé sans base historique réelle. Ce n'est pas Smart Bidding et Performance Max qui posent problème — un rappel utile puisque les deux sont souvent confondus&nbsp;: Smart Bidding est la couche d'enchères, utilisée à l'intérieur de plusieurs types de campagnes dont Performance Max, mais aussi dans des campagnes Search classiques où le contrôle créatif et le ciblage restent, eux, entièrement dans vos mains.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Combien de conversions faut-il par mois pour utiliser le Smart Bidding ?</summary>
+    <p>Le seuil exact dépend de la stratégie choisie et évolue avec les recommandations de Google — dans tous les cas, un très faible volume de conversions mensuelles reste le signal le plus fiable qu'il vaut mieux attendre avant d'activer une stratégie entièrement automatique.</p>
+  </details>
+  <details>
+    <summary>Le Smart Bidding et Performance Max sont-ils la même chose ?</summary>
+    <p>Non : Smart Bidding est la stratégie d'enchères, utilisée dans plusieurs types de campagnes. Performance Max est un type de campagne complet qui automatise aussi le ciblage et la diffusion des créations, au-delà des seules enchères.</p>
+  </details>
+  <details>
+    <summary>Combien de temps dure la phase d'apprentissage ?</summary>
+    <p>Elle varie selon le volume de conversions et l'ampleur du changement effectué, généralement de quelques jours à quelques semaines. Éviter d'intervenir pendant cette période reste la meilleure pratique, sauf signal de performance clairement anormal.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un audit de vos stratégies d'enchères Google Ads ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer mes campagnes Google Ads</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/sea">SEA</a>, et l'article <a href="/performance-max-boite-noire-publicitaire">Performance Max</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/sea">SEA →</a>
+      <a href="/performance-max-boite-noire-publicitaire">Performance Max →</a>
+      <a href="/analytics">Analytics →</a>
+      <a href="/cro">CRO →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

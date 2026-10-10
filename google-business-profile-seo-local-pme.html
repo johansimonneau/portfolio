@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Business Profile : le levier local que les PME sous-exploitent | Blog — Johan Simonneau</title>
+<meta name="description" content="Une fiche Google Business Profile mal tenue coûte de la visibilité locale bien avant que le SEO classique n'entre en jeu. Ce qui fait vraiment la différence sur ce levier trop souvent négligé.">
+
+<link rel="canonical" href="https://johansimonneau.fr/google-business-profile-seo-local-pme">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Business Profile : le levier local que les PME sous-exploitent">
+<meta property="og:description" content="Une fiche Google Business Profile mal tenue coûte de la visibilité locale bien avant que le SEO classique n'entre en jeu. Ce qui fait vraiment la différence sur ce levier trop souvent négligé.">
+<meta property="og:url" content="https://johansimonneau.fr/google-business-profile-seo-local-pme">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-google-business-profile-seo-local-pme-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-google-business-profile-seo-local-pme-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Google Business Profile : le levier local que les PME sous-exploitent", "item": "https://johansimonneau.fr/google-business-profile-seo-local-pme" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Google Business Profile : le levier local que les PME sous-exploitent",
+      "image": "https://johansimonneau.fr/assets/img/blog-google-business-profile-seo-local-pme-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-11-07",
+      "dateModified": "2026-11-07",
+      "description": "Une fiche Google Business Profile mal tenue coûte de la visibilité locale bien avant que le SEO classique n'entre en jeu. Ce qui fait vraiment la différence sur ce levier trop souvent négligé.",
+      "mainEntityOfPage": "https://johansimonneau.fr/google-business-profile-seo-local-pme"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "À quelle fréquence faut-il mettre à jour sa fiche Google Business Profile ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'y a pas de fréquence imposée, mais un rythme mensuel (nouvelles photos, vérification des horaires, réponse aux avis en attente) suffit généralement à maintenir un signal d'activité perçu comme sain."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on avoir plusieurs catégories sur sa fiche ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, une catégorie principale et plusieurs catégories secondaires sont possibles. La catégorie principale reste celle qui pèse le plus, à choisir avec le plus de précision possible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "GBP remplace-t-il le besoin d'un site web optimisé SEO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, les deux se complètent : GBP capte une partie significative des recherches locales directement dans les résultats Google, mais le site reste nécessaire pour approfondir, convertir et exister sur des recherches non strictement locales."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Google Business Profile</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Google Business Profile : le levier local que les PME sous-exploitent</h1>
+      <p class="sub-hook">Avant même de parler de netlinking ou de cocon sémantique, la première question que je pose à un client local est souvent la plus simple&nbsp;: « Votre fiche Google Business Profile, elle est à jour ? » La réponse révèle presque toujours une opportunité perdue.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>7 novembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-google-business-profile-seo-local-pme-hero.png" alt="Illustration d'une fiche d'établissement avec des informations à jour mises en avant et des détails secondaires en retrait" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Google Business Profile (GBP) est souvent traité comme une formalité administrative réglée une fois puis oubliée, alors qu'il conditionne directement la visibilité dans le pack local — ce bloc de trois résultats avec carte qui apparaît en tête pour la majorité des recherches locales, souvent avant même les résultats organiques classiques.</p>
+
+<h2>Pourquoi ce levier est sous-exploité</h2>
+
+<p>Contrairement au SEO classique qui demande du contenu et du netlinking sur la durée, GBP se pilote avec des actions simples et rapides&nbsp;: c'est précisément parce que c'est perçu comme mineur que la plupart des PME le laissent à l'abandon après la création initiale de la fiche, alors que c'est l'un des rares leviers SEO où l'effort et l'impact sont largement disproportionnés en bonne faveur du premier.</p>
+
+<h2>Les quatre éléments qui pèsent le plus</h2>
+
+<h3>La catégorie principale, souvent mal choisie</h3>
+<p>Choisir une catégorie trop large («&nbsp;Entreprise&nbsp;») ou approximative plutôt que la catégorie la plus précise disponible réduit directement les chances d'apparaître sur les recherches spécifiques à votre activité. Cette catégorie est l'un des signaux les plus déterminants pour le classement dans le pack local.</p>
+
+<h3>Des photos récentes, renouvelées régulièrement</h3>
+<p>Une fiche avec des photos vieilles de plusieurs années envoie un signal d'abandon, autant aux visiteurs qu'à l'algorithme. Ajouter régulièrement des photos récentes (locaux, équipe, réalisations) fait partie des signaux d'activité que Google valorise dans son classement local.</p>
+
+<h3>Une réponse systématique aux avis</h3>
+<p>Répondre à chaque avis — y compris négatif, avec une réponse factuelle et posée — envoie un signal d'engagement actif sur la fiche, en plus de rassurer les futurs visiteurs qui consultent les avis avant de choisir. Une fiche avec des avis jamais commentés paraît à l'abandon, même avec une bonne note globale.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-google-business-profile-seo-local-pme-resource.png" alt="Ces quatre éléments coûtent quelques minutes par mois et pèsent plus lourd que la plupart des optimisations SEO classiques pour une recherche locale." width="900" height="340" loading="lazy">
+  <figcaption>Ces quatre éléments coûtent quelques minutes par mois et pèsent plus lourd que la plupart des optimisations SEO classiques pour une recherche locale.</figcaption>
+</figure>
+
+<h2>L'erreur la plus coûteuse&nbsp;: des horaires obsolètes</h2>
+
+<p>Un horaire d'ouverture faux affiché sur Google fait perdre des visiteurs qui se déplacent pour rien, ce qui dégrade la confiance dans votre établissement bien plus durablement qu'une fiche incomplète. C'est l'élément le plus simple à corriger, et pourtant l'un des plus souvent négligé, en particulier autour des jours fériés et des horaires exceptionnels de fin d'année.</p>
+
+<h2>Ce que ça change pour une PME avec un point de vente ou un secteur d'intervention local</h2>
+
+<p>Contrairement au SEO organique où les résultats mettent souvent des mois à se matérialiser, l'entretien de GBP a un effet quasi immédiat sur la fraîcheur perçue de la fiche. Pour une PME locale, c'est souvent le levier qui rapporte le plus vite au regard du temps investi — avant même de penser au premier article de blog ou au premier lien entrant.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>À quelle fréquence faut-il mettre à jour sa fiche Google Business Profile ?</summary>
+    <p>Il n'y a pas de fréquence imposée, mais un rythme mensuel (nouvelles photos, vérification des horaires, réponse aux avis en attente) suffit généralement à maintenir un signal d'activité perçu comme sain.</p>
+  </details>
+  <details>
+    <summary>Peut-on avoir plusieurs catégories sur sa fiche ?</summary>
+    <p>Oui, une catégorie principale et plusieurs catégories secondaires sont possibles. La catégorie principale reste celle qui pèse le plus, à choisir avec le plus de précision possible.</p>
+  </details>
+  <details>
+    <summary>GBP remplace-t-il le besoin d'un site web optimisé SEO ?</summary>
+    <p>Non, les deux se complètent : GBP capte une partie significative des recherches locales directement dans les résultats Google, mais le site reste nécessaire pour approfondir, convertir et exister sur des recherches non strictement locales.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un audit rapide de votre fiche Google Business Profile ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer ma fiche locale</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/seo">SEO</a>, et l'article <a href="/netlinking-2026-google-ia">Netlinking en 2026</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/seo">SEO →</a>
+      <a href="/netlinking-2026-google-ia">Netlinking en 2026 →</a>
+      <a href="/cocons-semantiques-methode-seo">Cocons sémantiques →</a>
+      <a href="/geo">GEO →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
