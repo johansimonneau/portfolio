@@ -1,0 +1,30 @@
+{
+  "prefetch": [
+    {
+      "source": "document",
+      "where": {
+        "and": [
+          { "href_matches": "/*" },
+          { "not": { "href_matches": "/assets/*" } },
+          { "not": { "href_matches": "/*.(pdf|zip|xml|txt|json)" } },
+          { "not": { "selector_matches": "[download], [rel~=nofollow], [target=_blank]" } }
+        ]
+      },
+      "eagerness": "moderate"
+    }
+  ],
+  "prerender": [
+    {
+      "source": "document",
+      "where": {
+        "and": [
+          { "href_matches": "/*" },
+          { "not": { "href_matches": "/assets/*" } },
+          { "not": { "href_matches": "/*.(pdf|zip|xml|txt|json)" } },
+          { "not": { "selector_matches": "[download], [rel~=nofollow], [target=_blank]" } }
+        ]
+      },
+      "eagerness": "conservative"
+    }
+  ]
+}
