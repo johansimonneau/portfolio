@@ -28,3 +28,4 @@
 #auditGeoResult .audit-result-actions .btn-ghost:hover{border-color:#4ce6b9;color:#4ce6b9}
 #auditGeoResult .audit-restart{color:rgba(244,246,251,.45)}
 #auditGeoResult .audit-restart:hover{color:#4ce6b9}
+[data-quiz-list]:empty{min-height:1500px}@media (min-width:375px){[data-quiz-list]:empty{min-height:1420px}}@media (min-width:412px){[data-quiz-list]:empty{min-height:1355px}}@media (min-width:500px){[data-quiz-list]:empty{min-height:1265px}}@media (min-width:600px){[data-quiz-list]:empty{min-height:890px}}@media (min-width:700px){[data-quiz-list]:empty{min-height:780px}}
