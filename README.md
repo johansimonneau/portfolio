@@ -204,6 +204,28 @@ Playwright, par exemple) sur toutes les pages plutôt que sur un échantillon �
 un hash qui ne correspond plus après une modification de script casse la
 page silencieusement, sans erreur visible à l'œil nu.
 
+## Attribution persistante (UTM)
+
+`utm-tracking.js` (chargé sur toutes les pages, après `cookie-consent.js`)
+mémorise la provenance du visiteur : paramètres `utm_*`, click IDs
+(`gclid`, `gbraid`, `wbraid`, `fbclid`, `msclkid`, `ttclid`, `li_fat_id`),
+page d'arrivée et référent. Sans paramètre, la source est déduite du
+référent (`organic` pour les moteurs, `ai` pour ChatGPT/Perplexity/Claude…,
+`referral` sinon). Deux touches sont gardées : **première visite** (jamais
+écrasée) et **dernière source non directe**.
+
+- Stockage : `sessionStorage` par défaut ; `localStorage` (90 jours) seulement
+  si `cookie_consent === "accepted"`, purgé en cas de refus.
+- Restitution : bloc « Provenance » ajouté au corps de **tous les mailto**
+  au moment du clic (y compris ceux générés par le diagnostic et les audits),
+  paramètres `utm_*` ajoutés aux liens **Calendly**, champs ajoutés au
+  formulaire guide (`guide.js`, via `window.simAttribution.fields()`).
+- GTM : événement `attribution_ready` poussé dans `dataLayer` avec
+  `first_source/medium/campaign` et `last_source/medium/campaign`, à mapper
+  en variables de couche de données / propriétés utilisateur GA4.
+- Le `gclid` transmis dans l'email permet l'import de conversions hors ligne
+  dans Google Ads (même logique pour `msclkid` côté Microsoft Ads).
+
 ## RGPD & cookies
 
 Consentement recueilli via `cookie-consent.js` + Google Consent Mode (refus
