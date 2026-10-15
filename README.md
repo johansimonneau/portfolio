@@ -157,6 +157,11 @@ flow.png` (cartes comparatives + flux en pastilles) et `blog-ai-overviews-
 hero.png` / `blog-ai-overviews-flow.png` (mockup de résultat de recherche +
 graphique en barres) comme deux références de styles différents.
 
+**URL absolues** : toutes les URL absolues (canonical, `og:url`,
+`og:image`, JSON-LD, sitemap) utilisent `https://www.johansimonneau.fr`,
+le domaine principal sur Vercel (`johansimonneau.fr` redirige en 308 vers
+le www). Ne jamais déclarer d'URL sans `www`.
+
 **Piège CSP à connaître** (utile pour tout élément affiché/masqué
 dynamiquement en JS sur ce site) : basculez toujours la visibilité via
 l'assignation directe `element.style.xxx = ...`, jamais via un `style=""`
