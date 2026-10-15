@@ -62,6 +62,22 @@
 
 .baro-fade{height:96px;margin-top:-96px;position:relative;z-index:3;pointer-events:none;background:linear-gradient(to bottom,transparent,var(--color-bg))}
 
+.baro-table-wrap{margin:28px 0 8px;overflow-x:auto;border-radius:16px;border:1px solid rgba(244,246,251,.11);background:rgba(255,255,255,.025)}
+.baro-table{width:100%;min-width:640px;border-collapse:collapse;font-size:14px;line-height:1.55}
+.baro-table th,.baro-table td{padding:14px 18px;text-align:left;vertical-align:top;border-bottom:1px solid rgba(244,246,251,.08)}
+.baro-table thead th{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#4ce6b9;background:rgba(76,230,185,.06)}
+.baro-table tbody th{font-weight:700;color:#f4f6fb}
+.baro-table td{color:rgba(244,246,251,.72)}
+.baro-table tbody tr:last-child th,.baro-table tbody tr:last-child td{border-bottom:none}
+
+.baro-cheats{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:18px;margin:28px 0 8px;padding:0}
+.baro-cheat{position:relative;padding:30px 26px 24px;border-radius:18px;background:linear-gradient(160deg,rgba(76,230,185,.09),rgba(26,73,238,.06));border:1px solid rgba(76,230,185,.28)}
+.baro-cheat-rank{display:block;font-family:var(--font-serif);font-weight:700;font-size:38px;line-height:1;margin-bottom:14px;color:#4ce6b9}
+.baro-cheat h3{font-family:var(--font-serif);font-weight:700;font-size:18px;line-height:1.3;color:#f4f6fb;margin-bottom:12px}
+.baro-cheat p{font-size:14.5px;line-height:1.65;color:rgba(244,246,251,.74);margin:0 0 14px}
+.baro-cheat p a,.baro-section-intro a{color:#4ce6b9}
+.baro-cheat-proof{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;font-size:11.5px!important;color:rgba(244,246,251,.45)!important;padding-top:12px;border-top:1px solid rgba(244,246,251,.1);margin:0!important}
+
 @media (max-width:640px){
   .baro-subnav{top:64px}
   .baro-compare-row{grid-template-columns:84px 1fr 54px;gap:10px}
