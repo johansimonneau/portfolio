@@ -2,7 +2,7 @@
 .dh-grid-bg{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(76,230,185,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(76,230,185,.07) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 85% 65% at 50% 0%,#000 35%,transparent 92%);mask-image:radial-gradient(ellipse 85% 65% at 50% 0%,#000 35%,transparent 92%)}
 .dh-glow{position:absolute;border-radius:50%;filter:blur(90px);z-index:0;pointer-events:none}
 .dh-glow-1{width:520px;height:520px;background:rgba(76,230,185,.2);top:-150px;right:-120px}
-.dh-glow-2{width:420px;height:420px;background:rgba(26,73,238,.3);bottom:5%;left:-150px}
+.dh-glow-2{width:420px;height:420px;background:rgba(26,73,238,.3);top:340px;left:-150px}
 
 .dh-breadcrumb{position:relative;z-index:2;padding:18px 0;border-bottom:1px solid rgba(244,246,251,.1)}
 .dh-breadcrumb ol{display:flex;flex-wrap:wrap;align-items:center;gap:6px;list-style:none;font-size:13px;color:rgba(244,246,251,.42)}
