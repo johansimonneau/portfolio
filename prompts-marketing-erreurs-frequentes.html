@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pourquoi vos prompts marketing ne donnent rien de bon (et comment les corriger) | Blog — Johan Simonneau</title>
+<meta name="description" content="Vos prompts marketing donnent des résultats génériques ou hors sujet ? Les 5 erreurs les plus fréquentes qui expliquent pourquoi, et comment les corriger concrètement.">
+
+<link rel="canonical" href="https://johansimonneau.fr/prompts-marketing-erreurs-frequentes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pourquoi vos prompts marketing ne donnent rien de bon (et comment les corriger)">
+<meta property="og:description" content="Vos prompts marketing donnent des résultats génériques ou hors sujet ? Les 5 erreurs les plus fréquentes qui expliquent pourquoi, et comment les corriger concrètement.">
+<meta property="og:url" content="https://johansimonneau.fr/prompts-marketing-erreurs-frequentes">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-prompts-marketing-erreurs-frequentes-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-prompts-marketing-erreurs-frequentes-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Pourquoi vos prompts marketing ne donnent rien de bon (et comment les corriger)", "item": "https://johansimonneau.fr/prompts-marketing-erreurs-frequentes" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Pourquoi vos prompts marketing ne donnent rien de bon (et comment les corriger)",
+      "image": "https://johansimonneau.fr/assets/img/blog-prompts-marketing-erreurs-frequentes-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-10-29",
+      "dateModified": "2026-10-29",
+      "description": "Vos prompts marketing donnent des résultats génériques ou hors sujet ? Les 5 erreurs les plus fréquentes qui expliquent pourquoi, et comment les corriger concrètement.",
+      "mainEntityOfPage": "https://johansimonneau.fr/prompts-marketing-erreurs-frequentes"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Existe-t-il des formules de prompt universelles qui marchent à tous les coups ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, malgré ce qu'on lit parfois. La qualité d'un prompt dépend du contexte spécifique fourni, pas d'une formule générique trouvée en ligne — un même gabarit de prompt peut très bien fonctionner pour une marque et mal fonctionner pour une autre."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il un prompt très long pour obtenir un bon résultat ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas nécessairement long, mais précis. Un prompt court qui contient le contexte, un exemple de ton et l'objectif réel bat généralement un prompt long qui ne fait que décrire le sujet en détail sans ce contexte."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment garder une cohérence de ton entre plusieurs prompts différents ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En centralisant votre charte éditoriale et vos exemples dans un espace persistant (comme un Projet Claude) plutôt qu'en la retapant à chaque nouvelle conversation."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Erreurs de prompt marketing</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Pourquoi vos prompts marketing ne donnent rien de bon (et comment les corriger)</h1>
+      <p class="sub-hook">« L'IA me donne toujours un résultat générique » — c'est presque toujours un problème de prompt, pas d'outil. Voici les 5 erreurs qui reviennent le plus souvent quand j'observe des équipes marketing travailler avec l'IA au quotidien.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>29 octobre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-prompts-marketing-erreurs-frequentes-hero.png" alt="Illustration d'un prompt marketing vague produisant un résultat générique et peu exploitable" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Le réflexe le plus courant face à un mauvais résultat IA est de blâmer l'outil ou de chercher un « prompt magique » ailleurs. Dans l'immense majorité des cas que j'observe, le problème est plus simple&nbsp;: le prompt ne contient pas assez de contexte pour que l'IA sorte du résultat générique moyen qu'elle produirait pour n'importe qui d'autre posant la même question vague.</p>
+
+<h2>Erreur n°1 — Demander le sujet sans donner le contexte</h2>
+
+<p>« Écris-moi un post LinkedIn sur notre nouveau produit » est un sujet, pas un brief. Sans savoir à qui il s'adresse, sur quel canal exact, avec quelle contrainte de longueur et dans quel ton, l'IA produit la version la plus statistiquement probable d'un post LinkedIn — c'est-à-dire le résultat le plus générique possible.</p>
+
+<h2>Erreur n°2 — Ne donner aucun exemple de ton attendu</h2>
+
+<p>Décrire un ton en un adjectif (« professionnel », « dynamique ») laisse une marge d'interprétation énorme. Coller un exemple réel de contenu déjà validé par votre marque, même court, réduit cette marge bien plus efficacement qu'une longue description abstraite du ton recherché.</p>
+
+<h2>Erreur n°3 — Confondre le sujet et l'objectif</h2>
+
+<p>« Parle de notre offre de conseil » est un sujet. « Convaincre un décideur marketing pressé, qui hésite entre nous et une agence, de prendre 15 minutes d'échange » est un objectif. Un prompt structuré autour de l'objectif produit un contenu bien plus orienté action qu'un prompt structuré autour du sujet seul.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-prompts-marketing-erreurs-frequentes-resource.png" alt="Un bon prompt marketing ressemble à un brief donné à un nouveau collaborateur, pas à une recherche Google." width="900" height="340" loading="lazy">
+  <figcaption>Un bon prompt marketing ressemble à un brief donné à un nouveau collaborateur, pas à une recherche Google.</figcaption>
+</figure>
+
+<h2>Erreur n°4 — Ne jamais préciser ce qu'il ne faut pas faire</h2>
+
+<p>Préciser une contrainte négative (« sans jargon technique », « sans emoji », « sans promesse chiffrée que nous ne pouvons pas tenir ») est souvent plus efficace qu'une longue liste de consignes positives, parce que ça élimine directement les dérives les plus fréquentes du contenu généré par défaut.</p>
+
+<h2>Erreur n°5 — Repartir de zéro à chaque prompt</h2>
+
+<p>Recommencer chaque conversation sans contexte préalable oblige à tout redonner à chaque fois, et laisse filer des incohérences entre deux contenus produits à quelques jours d'intervalle. Utiliser un espace de travail persistant (comme les Projets Claude) pour stocker une fois pour toutes votre charte éditoriale, vos exemples et vos contraintes change complètement la cohérence des résultats obtenus sur la durée.</p>
+
+<h2>Le bon réflexe&nbsp;: traiter le prompt comme un brief</h2>
+
+<p>La meilleure façon de corriger ces cinq erreurs d'un coup&nbsp;: écrivez votre prompt comme vous écririez un brief pour un nouveau collaborateur qui rejoint l'équipe et ne connaît encore ni votre marque, ni vos clients, ni vos habitudes. C'est exactement le niveau de contexte qu'une IA générative attend pour sortir d'une réponse générique.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Existe-t-il des formules de prompt universelles qui marchent à tous les coups ?</summary>
+    <p>Non, malgré ce qu'on lit parfois. La qualité d'un prompt dépend du contexte spécifique fourni, pas d'une formule générique trouvée en ligne — un même gabarit de prompt peut très bien fonctionner pour une marque et mal fonctionner pour une autre.</p>
+  </details>
+  <details>
+    <summary>Faut-il un prompt très long pour obtenir un bon résultat ?</summary>
+    <p>Pas nécessairement long, mais précis. Un prompt court qui contient le contexte, un exemple de ton et l'objectif réel bat généralement un prompt long qui ne fait que décrire le sujet en détail sans ce contexte.</p>
+  </details>
+  <details>
+    <summary>Comment garder une cohérence de ton entre plusieurs prompts différents ?</summary>
+    <p>En centralisant votre charte éditoriale et vos exemples dans un espace persistant (comme un Projet Claude) plutôt qu'en la retapant à chaque nouvelle conversation.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un cadrage de prompts qui tient sur la durée pour votre équipe ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Structurer vos prompts marketing</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir le <a href="/guide-prompts-claude-seo">guide 20 prompts Claude pour le SEO</a>, la page <a href="/agents-ia-marketing-ce-qu-on-peut-leur-confier">Agents IA marketing</a>, et la page <a href="/comment-je-travaille">Comment je travaille</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/guide-prompts-claude-seo">Prompts Claude SEO →</a>
+      <a href="/agents-ia-marketing-ce-qu-on-peut-leur-confier">Agents IA marketing →</a>
+      <a href="/comment-je-travaille">Comment je travaille →</a>
+      <a href="/mythes-growth-hacking-ia">Mythes growth hacking IA →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

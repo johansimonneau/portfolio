@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketing Mix Modeling : une alternative au tracking pour les moyennes entreprises | Blog — Johan Simonneau</title>
+<meta name="description" content="Le Marketing Mix Modeling analyse l'impact des canaux sans dépendre du tracking individuel. Ce qu'il permet vraiment, ses limites, et à partir de quelle taille d'entreprise il devient pertinent.">
+
+<link rel="canonical" href="https://johansimonneau.fr/marketing-mix-modeling-alternative-tracking">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Marketing Mix Modeling : une alternative au tracking pour les moyennes entreprises">
+<meta property="og:description" content="Le Marketing Mix Modeling analyse l'impact des canaux sans dépendre du tracking individuel. Ce qu'il permet vraiment, ses limites, et à partir de quelle taille d'entreprise il devient pertinent.">
+<meta property="og:url" content="https://johansimonneau.fr/marketing-mix-modeling-alternative-tracking">
+<meta property="og:image" content="https://johansimonneau.fr/assets/img/blog-marketing-mix-modeling-alternative-tracking-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://johansimonneau.fr/assets/img/blog-marketing-mix-modeling-alternative-tracking-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Marketing Mix Modeling : une alternative au tracking pour les moyennes entreprises", "item": "https://johansimonneau.fr/marketing-mix-modeling-alternative-tracking" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Marketing Mix Modeling : une alternative au tracking pour les moyennes entreprises",
+      "image": "https://johansimonneau.fr/assets/img/blog-marketing-mix-modeling-alternative-tracking-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://johansimonneau.fr"
+      },
+      "datePublished": "2026-11-08",
+      "dateModified": "2026-11-08",
+      "description": "Le Marketing Mix Modeling analyse l'impact des canaux sans dépendre du tracking individuel. Ce qu'il permet vraiment, ses limites, et à partir de quelle taille d'entreprise il devient pertinent.",
+      "mainEntityOfPage": "https://johansimonneau.fr/marketing-mix-modeling-alternative-tracking"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Le MMM peut-il remplacer complètement GA4 et le tracking classique ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, les deux répondent à des besoins différents : le tracking digital reste plus précis pour l'optimisation quotidienne des campagnes en ligne, le MMM est plus pertinent pour les arbitrages budgétaires globaux et la mesure des canaux non trackables."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour construire un modèle MMM fiable ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cela dépend du volume et de la qualité de l'historique de données disponible : plus l'historique est long et propre, plus le modèle statistique produit sera fiable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le MMM est-il accessible sans équipe data dédiée ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Des outils et prestataires spécialisés existent pour construire un MMM sans équipe data interne, mais l'interprétation des résultats reste plus exigeante que la lecture d'un tableau de bord d'attribution classique."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Marketing Mix Modeling</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Marketing Mix Modeling : une alternative au tracking pour les moyennes entreprises</h1>
+      <p class="sub-hook">À mesure que le tracking individuel se complique (consentement, navigateurs, réglementation), le Marketing Mix Modeling revient sur le devant de la scène — une méthode plus ancienne que le tracking digital lui-même, mais qui répond justement à ce que le tracking ne peut plus garantir seul.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>8 novembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-marketing-mix-modeling-alternative-tracking-hero.png" alt="Illustration d'un modèle d'analyse de répartition budgétaire entre plusieurs canaux marketing" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Le Marketing Mix Modeling (MMM) est une méthode statistique qui analyse l'impact de chaque canal marketing sur un résultat business (ventes, leads) à partir de données agrégées dans le temps, plutôt qu'à partir du suivi individuel d'un visiteur. C'est l'approche historique du marketing avant l'ère du tracking digital granulaire — et elle redevient pertinente précisément parce que ce tracking granulaire devient de moins en moins fiable seul.</p>
+
+<h2>Pourquoi ce retour en grâce n'est pas une mode</h2>
+
+<p>Le consentement RGPD, la disparition progressive des cookies tiers et les limitations imposées par les navigateurs réduisent structurellement la part de trafic qu'on peut suivre individuellement d'un point de contact à l'autre. Le MMM ne dépend pas de ce suivi individuel&nbsp;: il corrèle des investissements par canal, sur des périodes données, avec des résultats business globaux — une approche qui reste valide quel que soit le niveau de consentement au tracking.</p>
+
+<h2>Ce que le MMM apporte que le tracking classique ne peut pas</h2>
+
+<ul class="sub-points">
+  <li><strong>La mesure des canaux non trackables.</strong> Une campagne TV, un affichage urbain, une présence radio n'ont pas de lien cliquable à suivre — le MMM permet néanmoins d'estimer leur contribution en observant les variations de ventes corrélées aux périodes de diffusion.</li>
+  <li><strong>Les effets indirects entre canaux.</strong> Une campagne de notoriété peut augmenter les recherches de marque et donc les conversions SEA, sans qu'aucun clic ne relie directement les deux — un effet que le tracking au clic ne capture jamais, mais que le MMM peut isoler statistiquement.</li>
+  <li><strong>Une lecture moins sensible au bruit quotidien.</strong> Le MMM travaille sur des tendances de moyen terme plutôt que sur l'attribution événement par événement, ce qui le rend plus stable face aux fluctuations ponctuelles qui perturbent souvent les tableaux de bord d'attribution classique.</li>
+</ul>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-marketing-mix-modeling-alternative-tracking-resource.png" alt="Le MMM ne remplace pas le tracking individuel : il répond à ce que le tracking ne peut structurellement pas mesurer seul." width="900" height="340" loading="lazy">
+  <figcaption>Le MMM ne remplace pas le tracking individuel : il répond à ce que le tracking ne peut structurellement pas mesurer seul.</figcaption>
+</figure>
+
+<h2>Les limites qu'il faut connaître avant de s'y lancer</h2>
+
+<p>Le MMM demande un historique de données conséquent (généralement plusieurs années de dépenses et de résultats par canal) pour produire un modèle statistiquement fiable — une contrainte qui l'écarte de fait des entreprises jeunes ou avec un historique de données limité. Il produit aussi des résultats agrégés, utiles pour arbitrer un budget entre grandes masses de canaux, mais peu adaptés à l'optimisation fine d'une campagne au jour le jour, un rôle que le tracking digital classique continue de mieux remplir.</p>
+
+<h2>À partir de quelle taille ça devient pertinent</h2>
+
+<p>Dans la pratique, le MMM devient réellement rentable à partir d'un budget marketing multi-canal conséquent et d'un historique de données suffisant pour alimenter le modèle&nbsp;: en dessous de ce seuil, le coût de mise en place dépasse généralement la valeur des arbitrages qu'il permettrait. Pour une petite structure, un tracking digital bien configuré reste largement suffisant et plus rentable à mettre en œuvre.</p>
+
+<h2>MMM et tracking digital&nbsp;: complémentaires, pas concurrents</h2>
+
+<p>Les entreprises qui en tirent le meilleur parti ne remplacent pas leur tracking digital par le MMM&nbsp;: elles utilisent le tracking pour l'optimisation fine et quotidienne des campagnes digitales, et le MMM pour les arbitrages budgétaires de plus haut niveau entre grandes catégories de canaux, y compris ceux que le tracking ne peut structurellement pas couvrir.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Le MMM peut-il remplacer complètement GA4 et le tracking classique ?</summary>
+    <p>Non, les deux répondent à des besoins différents : le tracking digital reste plus précis pour l'optimisation quotidienne des campagnes en ligne, le MMM est plus pertinent pour les arbitrages budgétaires globaux et la mesure des canaux non trackables.</p>
+  </details>
+  <details>
+    <summary>Combien de temps faut-il pour construire un modèle MMM fiable ?</summary>
+    <p>Cela dépend du volume et de la qualité de l'historique de données disponible : plus l'historique est long et propre, plus le modèle statistique produit sera fiable.</p>
+  </details>
+  <details>
+    <summary>Le MMM est-il accessible sans équipe data dédiée ?</summary>
+    <p>Des outils et prestataires spécialisés existent pour construire un MMM sans équipe data interne, mais l'interprétation des résultats reste plus exigeante que la lecture d'un tableau de bord d'attribution classique.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de savoir si le Marketing Mix Modeling a du sens pour votre budget ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Évaluer mon besoin de mesure</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/analytics">Analytics</a>, et l'article <a href="/attribution-multi-touch-dernier-clic">Attribution multi-touch</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/analytics">Analytics →</a>
+      <a href="/cac-ltv-piloter-rentabilite-acquisition">CAC et LTV →</a>
+      <a href="/server-side-tracking-conversion-api">Server-side tracking →</a>
+      <a href="/sea">SEA →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
