@@ -218,7 +218,7 @@
   </url>
   <url>
     <loc>https://www.johansimonneau.fr/blog</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -237,6 +237,30 @@
   <url>
     <loc>https://www.johansimonneau.fr/seo-geo-ce-qui-change-vraiment</loc>
     <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.johansimonneau.fr/cac-ltv-piloter-rentabilite-acquisition</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.johansimonneau.fr/popups-exit-intent-erreurs-cro</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.johansimonneau.fr/matomo-vs-ga4-alternative-rgpd</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.johansimonneau.fr/seo-international-hreflang-guide</loc>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
