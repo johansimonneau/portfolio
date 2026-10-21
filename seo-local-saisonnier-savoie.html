@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO local saisonnier en Savoie : structurer ses pages et son budget Ads | Blog — Johan Simonneau</title>
+<meta name="description" content="À Chambéry, Aix-les-Bains ou dans les stations savoyardes, la demande locale varie fortement selon la saison. Comment structurer ses pages ville et son budget Ads sans se faire piéger.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/seo-local-saisonnier-savoie">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SEO local saisonnier en Savoie : structurer ses pages et son budget Ads">
+<meta property="og:description" content="À Chambéry, Aix-les-Bains ou dans les stations savoyardes, la demande locale varie fortement selon la saison. Comment structurer ses pages ville et son budget Ads sans se faire piéger.">
+<meta property="og:url" content="https://www.johansimonneau.fr/seo-local-saisonnier-savoie">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-seo-local-saisonnier-savoie-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-seo-local-saisonnier-savoie-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://www.johansimonneau.fr/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.johansimonneau.fr/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SEO local saisonnier en Savoie",
+          "item": "https://www.johansimonneau.fr/seo-local-saisonnier-savoie"
+        }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "SEO local saisonnier en Savoie : structurer ses pages et son budget Ads entre haute et basse saison",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-seo-local-saisonnier-savoie-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-10-21",
+      "dateModified": "2026-10-21",
+      "description": "À Chambéry, Aix-les-Bains ou dans les stations savoyardes, la demande locale varie fortement selon la saison. Comment structurer ses pages ville et son budget Ads sans se faire piéger.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/seo-local-saisonnier-savoie"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il une page par ville ou une seule page régionale pour la Savoie ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une page par ville ou bassin de chalandise, à condition que chacune ait un contenu réellement différent (contexte local, offre, zone desservie). Une seule page qui tente de couvrir toute la région finit par ne cibler précisément aucune requête locale."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment éviter le duplicate content entre plusieurs pages ville en Savoie ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En ne dupliquant jamais le corps de texte d'une page à l'autre : chaque page doit citer des repères propres à sa ville (lieux, spécificités économiques, distance aux villes voisines) plutôt qu'un gabarit générique où l'on change juste le nom de la ville."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il couper son budget Google Ads en basse saison touristique ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rarement en totalité : couper à zéro fait perdre l'historique d'apprentissage des campagnes et oblige à repartir de rien à la réouverture de la saison. Mieux vaut réduire le budget et resserrer le ciblage plutôt que suspendre complètement les campagnes."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">SEO local saisonnier en Savoie</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>SEO local saisonnier en Savoie : structurer ses pages et son budget Ads entre haute et basse saison</h1>
+      <p class="sub-hook">Chambéry, Aix-les-Bains, les stations de ski et les bords du lac du Bourget n'ont pas le même rythme de demande locale toute l'année. Un site qui traite sa visibilité locale comme un réglage figé perd du terrain à chaque bascule de saison. Voici comment structurer ses pages et piloter son budget sans repartir de zéro à chaque changement de saison.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>21 octobre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-seo-local-saisonnier-savoie-hero.png" alt="Illustration d'une courbe de demande locale oscillant entre haute saison et basse saison sur une carte stylisée de la Savoie" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>La Savoie a une particularité que peu de guides SEO génériques traitent correctement&nbsp;: une partie significative de son économie locale est saisonnière. Les stations de ski vivent l'hiver, les thermes et le lac du Bourget animent l'été, et des villes comme Chambéry gardent une activité économique stable toute l'année grâce au tertiaire et à l'événementiel. Appliquer une stratégie SEO local unique et figée à ce territoire revient à ignorer une bonne partie du signal de demande réelle.</p>
+
+<h2>Le piège du site qui traite toute la Savoie comme une seule zone homogène</h2>
+
+<p><strong>Constat</strong>&nbsp;: beaucoup de sites savoyards créent une page « zone d'intervention » unique qui liste dix communes sans jamais entrer dans le détail de ce qui différencie leur demande. Résultat&nbsp;: la page ne répond précisément à aucune des requêtes locales qu'elle vise, et Google a du mal à la positionner sur une ville en particulier. <strong>À faire</strong>&nbsp;: séparer les bassins de chalandise qui ont des dynamiques réellement différentes — une ville thermale et touristique comme Aix-les-Bains n'a pas le même profil de recherche qu'une préfecture à économie tertiaire comme Chambéry — et leur dédier chacune une page avec un contenu propre, pas un gabarit où seul le nom change.</p>
+
+<h2>Caler le contenu des pages locales sur le bon cycle, pas sur un calendrier arbitraire</h2>
+
+<p><strong>Constat</strong>&nbsp;: une page ville écrite une fois et jamais retouchée perd en pertinence au fil des saisons, alors que la demande locale, elle, continue de bouger. <strong>À faire</strong>&nbsp;: pour une activité réellement dépendante de la saisonnalité touristique (hébergement, activités de plein air, bien-être), prévoir une revue de contenu au moins deux fois par an — avant chaque haute saison — plutôt que de laisser la page figée. Pour une activité à demande stable comme le conseil ou les services B2B, ce rythme n'est pas nécessaire&nbsp;: la priorité reste la fraîcheur générale du site, pas un calendrier saisonnier.</p>
+
+<h2>Piloter le budget Ads local sans tout couper ni tout garder identique</h2>
+
+<p><strong>Constat</strong>&nbsp;: face à la baisse de demande en basse saison, deux réflexes reviennent souvent — couper le budget à zéro, ou le laisser identique en espérant que ça compense. Les deux posent problème&nbsp;: couper à zéro fait perdre l'historique d'apprentissage des campagnes (Google Ads et Meta Ads ont besoin de volume de conversions régulier pour maintenir leurs algorithmes d'enchère calibrés), et un budget inchangé en basse saison gaspille du budget sur une demande qui n'est plus là. <strong>À faire</strong>&nbsp;: réduire le budget en basse saison sans l'annuler, et resserrer le ciblage géographique et les mots-clés sur le cœur de cible qui reste actif toute l'année, plutôt que de suspendre les campagnes dans leur ensemble.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-seo-local-saisonnier-savoie-resource.png" alt="Schéma illustrant le maintien d'un socle de budget publicitaire en basse saison plutôt qu'une coupure totale" width="900" height="340" loading="lazy">
+  <figcaption>Réduire sans couper&nbsp;: garder un socle de budget et un ciblage resserré en basse saison évite de reconstruire l'apprentissage des campagnes à chaque réouverture.</figcaption>
+</figure>
+
+<h2>Ne pas confondre SEO local saisonnier et optimisation de fiche Google Business Profile</h2>
+
+<p><strong>Constat</strong>&nbsp;: ce sont deux leviers distincts, souvent mélangés. La fiche Google Business Profile (avis, photos, horaires, posts) agit sur la visibilité immédiate dans le pack local et sur Maps. La structure des pages locales du site, elle, agit sur le référencement naturel de fond — ce qui permet au site d'être trouvé sur des recherches plus larges que le simple « près de moi ». <strong>À faire</strong>&nbsp;: traiter les deux en parallèle plutôt que de concentrer tous les efforts sur l'un en négligeant l'autre — une fiche optimisée ne compense pas des pages locales mal structurées, et inversement.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Faut-il une page par ville ou une seule page régionale pour la Savoie ?</summary>
+    <p>Une page par ville ou bassin de chalandise, à condition que chacune ait un contenu réellement différent (contexte local, offre, zone desservie). Une seule page qui tente de couvrir toute la région finit par ne cibler précisément aucune requête locale.</p>
+  </details>
+  <details>
+    <summary>Comment éviter le duplicate content entre plusieurs pages ville en Savoie ?</summary>
+    <p>En ne dupliquant jamais le corps de texte d'une page à l'autre : chaque page doit citer des repères propres à sa ville (lieux, spécificités économiques, distance aux villes voisines) plutôt qu'un gabarit générique où l'on change juste le nom de la ville.</p>
+  </details>
+  <details>
+    <summary>Faut-il couper son budget Google Ads en basse saison touristique ?</summary>
+    <p>Rarement en totalité : couper à zéro fait perdre l'historique d'apprentissage des campagnes et oblige à repartir de rien à la réouverture de la saison. Mieux vaut réduire le budget et resserrer le ciblage plutôt que suspendre complètement les campagnes.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Votre présence locale en Savoie mérite mieux qu'une page générique par ville ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Échanger sur votre stratégie locale</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/seo">SEO</a>, la page <a href="/geo">GEO</a>, et la page <a href="/consultant-marketing-digital-chambery">Consultant marketing à Chambéry</a>.</p>
+        <p class="sub-cta-link">À lire aussi : <a href="/cocons-semantiques-methode-seo">Cocons sémantiques : la méthode SEO expliquée</a> et <a href="/audit-geo">Audit GEO : votre visibilité dans les réponses IA</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/seo">SEO →</a>
+      <a href="/geo">GEO →</a>
+      <a href="/consultant-marketing-digital-chambery">Chambéry →</a>
+      <a href="/consultant-marketing-digital-aix-les-bains">Aix-les-Bains →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
