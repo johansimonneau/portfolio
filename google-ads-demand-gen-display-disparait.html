@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google Ads Demand Gen : ce qui change quand Display disparaît | Blog — Johan Simonneau</title>
+<meta name="description" content="Depuis juin 2026, Google migre les campagnes Display vers Demand Gen. Ce que vous gagnez (création IA, nouveaux inventaires), ce que vous perdez, et ce qu'il faut vérifier avant la bascule.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/google-ads-demand-gen-display-disparait">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Ads Demand Gen : ce qui change quand Display disparaît">
+<meta property="og:description" content="Depuis juin 2026, Google migre les campagnes Display vers Demand Gen. Ce que vous gagnez (création IA, nouveaux inventaires), ce que vous perdez, et ce qu'il faut vérifier avant la bascule.">
+<meta property="og:url" content="https://www.johansimonneau.fr/google-ads-demand-gen-display-disparait">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-google-ads-demand-gen-display-disparait-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-google-ads-demand-gen-display-disparait-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Google Ads Demand Gen : ce qui change quand Display disparaît", "item": "https://www.johansimonneau.fr/google-ads-demand-gen-display-disparait" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Google Ads Demand Gen : ce qui change quand Display disparaît",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-google-ads-demand-gen-display-disparait-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-11-21",
+      "dateModified": "2026-11-21",
+      "description": "Depuis juin 2026, Google migre les campagnes Display vers Demand Gen. Ce que vous gagnez (création IA, nouveaux inventaires), ce que vous perdez, et ce qu'il faut vérifier avant la bascule.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/google-ads-demand-gen-display-disparait"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Les campagnes Display existantes sont-elles supprimées automatiquement ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google a d'abord ouvert une migration volontaire via un outil dédié dans l'interface à partir de juin 2026, avant de prévoir une migration automatique des campagnes Display restantes éligibles. Vérifiez l'état de vos campagnes directement dans votre compte plutôt que de vous fier à une date unique."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Demand Gen remplace-t-il aussi Performance Max ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, les deux coexistent. Performance Max reste orienté conversion automatisée tous inventaires confondus, tandis que Demand Gen cible la notoriété et la considération sur YouTube, Discover, Gmail et Maps avec davantage de contrôle créatif."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on encore tester de très petits budgets segmentés comme sur Display ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, Demand Gen impose un budget minimum par campagne qui rend impossible la pratique historique du test à 1-2 € par jour sur de nombreux segments en parallèle. Les tests de segmentation fine doivent être repensés en amont, pas en cours de diffusion."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Demand Gen vs Display</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Google Ads Demand Gen : ce qui change quand Display disparaît</h1>
+      <p class="sub-hook">Depuis juin 2026, Google propose — puis impose progressivement — la migration des campagnes Display vers Demand Gen. Ce n'est pas un simple changement de nom : ce qu'on y gagne et ce qu'on y perd ne sont pas symétriques.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>21 novembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-google-ads-demand-gen-display-disparait-hero.png" alt="Illustration représentant la bascule des campagnes Display vers Demand Gen sur Google Ads" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Google a ouvert en juin 2026 un outil de migration volontaire permettant de basculer une campagne Display existante vers Demand Gen. Sur le papier, c'est un changement d'étiquette. Dans les faits, c'est un changement de logique&nbsp;: Demand Gen n'est pas Display avec un nouveau nom, c'est un format pensé pour l'automatisation créative et le ciblage par signaux, qui a sacrifié une partie du contrôle fin qui faisait la force de Display.</p>
+
+<h2>Ce qui bascule, et quand</h2>
+
+<p>La migration a démarré par un outil dédié dans l'interface Google Ads, à l'initiative de l'annonceur, pour les campagnes Display éligibles. La suite annoncée est plus radicale&nbsp;: la création de nouvelles campagnes se fera uniquement sous Demand Gen, et les campagnes Display restantes basculeront automatiquement. Il n'existe pas de date de bascule totale unique et figée — le plus fiable reste de vérifier directement dans son compte si l'option de migration ou un message de bascule automatique est déjà apparu, plutôt que de se fier à une échéance générale.</p>
+
+<h2>Ce que Demand Gen apporte en échange</h2>
+
+<p>La contrepartie n'est pas négligeable. Demand Gen a reçu en mars 2026 des outils de création publicitaire par IA générative vidéo, une intégration avec des partenariats créateurs YouTube pour utiliser des formats natifs, et un objectif d'optimisation orienté « croissance organique » qui vise aussi les vues YouTube non payantes générées par la campagne. Le format couvre un inventaire plus large que Display seul&nbsp;: YouTube (y compris Shorts), Discover, Gmail et Maps, en plus du Display Network classique.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-google-ads-demand-gen-display-disparait-resource.png" alt="Display campaigns apportaient un contrôle fin par petits segments, Demand Gen apporte de la création IA et un inventaire plus large, au prix de ce contrôle" width="900" height="340" loading="lazy">
+  <figcaption>Display apportait un contrôle fin par petits segments ; Demand Gen apporte de la création IA et un inventaire plus large — au prix de ce contrôle.</figcaption>
+</figure>
+
+<h2>Le changement qui va coincer les petits budgets</h2>
+
+<p>Le point le moins documenté dans les annonces, et le plus concret pour beaucoup d'annonceurs&nbsp;: Demand Gen impose un budget minimum par campagne. Cela rend impossible la pratique historique, très répandue sur Display, de tester des dizaines de micro-segments en parallèle à 1 ou 2&nbsp;€ de budget quotidien chacun. Ce n'est pas qu'un détail technique&nbsp;: c'est une méthode de test entière qui doit être repensée avant, et non plus pendant, la diffusion.</p>
+
+<h2>Ce qu'il faut vérifier avant de migrer</h2>
+
+<p>Avant d'activer la migration volontaire ou de laisser la bascule automatique se faire&nbsp;: consolider les segments de test en quelques audiences suffisamment larges pour tenir le budget minimum, préparer des assets créatifs compatibles avec les formats vidéo et natifs YouTube plutôt que de recycler les seuls bannières Display, et vérifier dans Ads Editor (version 2.12 ou supérieure) la prise en charge des objectifs de nouveaux clients, désormais disponible aussi pour Demand Gen.</p>
+
+<h2>Le vrai changement n'est pas le nom, c'est la logique de test</h2>
+
+<p>Display récompensait la granularité et la patience sur de petits budgets. Demand Gen récompense des audiences plus larges et des créations pensées pour l'IA générative et le format vidéo. Ceux qui migrent en gardant leur ancienne logique de segmentation fine risquent de sous-performer non pas à cause du nouveau format, mais parce qu'ils continuent à jouer selon les règles de l'ancien.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Les campagnes Display existantes sont-elles supprimées automatiquement ?</summary>
+    <p>Google a d'abord ouvert une migration volontaire via un outil dédié dans l'interface à partir de juin 2026, avant de prévoir une migration automatique des campagnes Display restantes éligibles. Vérifiez l'état de vos campagnes directement dans votre compte plutôt que de vous fier à une date unique.</p>
+  </details>
+  <details>
+    <summary>Demand Gen remplace-t-il aussi Performance Max ?</summary>
+    <p>Non, les deux coexistent. Performance Max reste orienté conversion automatisée tous inventaires confondus, tandis que Demand Gen cible la notoriété et la considération sur YouTube, Discover, Gmail et Maps avec davantage de contrôle créatif.</p>
+  </details>
+  <details>
+    <summary>Peut-on encore tester de très petits budgets segmentés comme sur Display ?</summary>
+    <p>Non, Demand Gen impose un budget minimum par campagne qui rend impossible la pratique historique du test à 1-2 € par jour sur de nombreux segments en parallèle. Les tests de segmentation fine doivent être repensés en amont, pas en cours de diffusion.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'anticiper la bascule Display → Demand Gen sur vos comptes ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer mes campagnes Display</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/sea">SEA</a>, et l'article <a href="/performance-max-boite-noire-publicitaire">Performance Max</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/sea">SEA →</a>
+      <a href="/performance-max-boite-noire-publicitaire">Performance Max →</a>
+      <a href="/smart-bidding-google-ads-controle">Smart Bidding →</a>
+      <a href="/black-friday-2026-calendrier-preparation-google-ads">Black Friday Google Ads →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
