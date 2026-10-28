@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Créations publicitaires par IA (Meta Advantage+) : ce que les chiffres qui se contredisent révèlent | Blog — Johan Simonneau</title>
+<meta name="description" content="CTR en hausse de 12 à 35 %, mais conversion et ROAS en baisse selon d'autres sources : les chiffres sur la création publicitaire par IA de Meta se contredisent. Comment lire ces claims et tester chez vous.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/meta-advantage-plus-creation-ia-chiffres-contradictoires">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Créations publicitaires par IA (Meta Advantage+) : ce que les chiffres qui se contredisent révèlent">
+<meta property="og:description" content="CTR en hausse de 12 à 35 %, mais conversion et ROAS en baisse selon d'autres sources : les chiffres sur la création publicitaire par IA de Meta se contredisent. Comment lire ces claims et tester chez vous.">
+<meta property="og:url" content="https://www.johansimonneau.fr/meta-advantage-plus-creation-ia-chiffres-contradictoires">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-meta-advantage-plus-creation-ia-chiffres-contradictoires-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-meta-advantage-plus-creation-ia-chiffres-contradictoires-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Créations publicitaires par IA (Meta Advantage+) : ce que les chiffres qui se contredisent révèlent", "item": "https://www.johansimonneau.fr/meta-advantage-plus-creation-ia-chiffres-contradictoires" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Créations publicitaires par IA (Meta Advantage+) : ce que les chiffres qui se contredisent révèlent",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-meta-advantage-plus-creation-ia-chiffres-contradictoires-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-11-24",
+      "dateModified": "2026-11-24",
+      "description": "CTR en hausse de 12 à 35 %, mais conversion et ROAS en baisse selon d'autres sources : les chiffres sur la création publicitaire par IA de Meta se contredisent. Comment lire ces claims et tester chez vous.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/meta-advantage-plus-creation-ia-chiffres-contradictoires"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il faire confiance aux chiffres de performance publiés par les agences sur la création IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Avec prudence : la plupart de ces chiffres viennent d'agences, d'outils tiers ou de Meta elle-même, sans méthodologie publiée ni échantillon indépendant vérifiable. Ils indiquent une tendance possible, pas une donnée actionnable sans test propre."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "La création publicitaire par IA est-elle obligatoire sur Meta Ads ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, mais Meta impose depuis mars 2026 une déclaration quand un contenu publicitaire est généré ou significativement modifié par IA, ce qui en pratique pousse à davantage de transparence sur son usage plutôt qu'à son interdiction."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi un produit à prix élevé réagit-il différemment à la créa IA qu'un produit à prix bas ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un panier moyen élevé s'accompagne souvent d'un achat plus réfléchi, où la perception de qualité et d'authenticité de la créa pèse davantage sur la décision finale que le seul taux de clic initial, ce qui explique en partie l'écart observé entre CTR et conversion sur ces produits."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Création IA Meta Advantage+</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Créations publicitaires par IA (Meta Advantage+) : ce que les chiffres qui se contredisent révèlent</h1>
+      <p class="sub-hook">Plus de 4 millions d'annonceurs utiliseraient déjà les outils de création publicitaire par IA de Meta. Mais les chiffres de performance circulant sur ces créas se contredisent frontalement selon la source — et c'est justement ce qui est le plus instructif.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>24 novembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-meta-advantage-plus-creation-ia-chiffres-contradictoires-hero.png" alt="Illustration représentant des chiffres de performance contradictoires sur la création publicitaire générée par IA" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Depuis mars 2026, les outils de création publicitaire par IA générative de Meta couvrent davantage de terrain&nbsp;: doublage avec synchronisation labiale dans la voix de l'annonceur, arrière-plans de style de vie générés automatiquement, musique de fond générée elle aussi. Meta impose désormais une déclaration pour tout contenu publicitaire généré ou significativement modifié par IA. Le signal d'adoption est fort&nbsp;: plus de 4 millions d'annonceurs utiliseraient ces outils. Ce qui l'est beaucoup moins, c'est ce que ces créas produisent réellement en performance — et c'est là que les chiffres se contredisent ouvertement selon qui les publie.</p>
+
+<h2>Quatre claims, quatre sources, quatre conclusions différentes</h2>
+
+<p>Une agence spécialisée e-commerce avance une hausse de 18 à 35&nbsp;% du taux de clic sur des créas produit physique générées par IA. Un autre outil de benchmark, sur plus de 50&nbsp;000 variantes publicitaires analysées, rapporte une hausse de clic plus modeste de 12&nbsp;%, mais une baisse de conversion de 8&nbsp;% sur les produits à panier moyen supérieur à 100&nbsp;$. Une étude citant les méthodes d'évaluation créative de Kantar place les publicités génératives au 54e centile d'efficacité créative, contre 65e centile pour les créas non générées par IA. Un éditeur d'outils marketing rapporte, lui, une baisse de ROAS de 23&nbsp;% immédiatement après une bascule vers la création IA, sans méthodologie publiée permettant de vérifier ce chiffre.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-meta-advantage-plus-creation-ia-chiffres-contradictoires-resource.png" alt="Quatre sources, quatre chiffres contradictoires sur la performance de la création publicitaire par IA : aucune méthodologie indépendante vérifiable" width="900" height="340" loading="lazy">
+  <figcaption>Quatre sources, quatre chiffres contradictoires — et aucune méthodologie indépendante vérifiable derrière.</figcaption>
+</figure>
+
+<h2>Ce que ces contradictions ont en commun</h2>
+
+<p>Aucun de ces chiffres ne vient d'une étude indépendante avec méthodologie publiée et échantillon vérifiable&nbsp;: ce sont des claims d'agences, d'éditeurs d'outils ou de Meta elle-même, chacun avec un intérêt à raconter une histoire qui lui est favorable. Le seul point de convergence réel entre ces sources contradictoires&nbsp;: un taux de clic en hausse ne garantit pas une conversion en hausse, en particulier sur des produits à prix plus élevé où l'achat est plus réfléchi.</p>
+
+<h2>Le signal le plus solide&nbsp;: la perception quand l'IA est identifiée</h2>
+
+<p>Un signal plus cohérent émerge sur un point différent&nbsp;: quand un consommateur identifie explicitement une publicité comme générée par IA, la perception de qualité premium recule d'environ 17&nbsp;%, l'effet d'inspiration de 19&nbsp;%, et l'intention d'achat de 14&nbsp;%. Ce chiffre reste lui aussi à prendre avec la prudence habituelle sur une mesure d'intention déclarée, mais il converge avec l'intuition&nbsp;: la question n'est pas seulement « l'IA génère-t-elle une bonne créa », mais « le consommateur sait-il qu'elle en est une, et cela change-t-il sa perception de la marque ».</p>
+
+<h2>Comment tester chez vous plutôt que de croire une statistique</h2>
+
+<p>Face à des chiffres publics qui se contredisent, la seule donnée fiable est la vôtre&nbsp;: tester une créa générée par IA contre une créa classique sur un même segment d'audience, mesurer au-delà du taux de clic jusqu'à la conversion et, si possible, jusqu'au ROAS, et séparer les résultats par gamme de prix plutôt que de regarder une moyenne globale qui masque des effets opposés selon le panier moyen.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Faut-il faire confiance aux chiffres de performance publiés par les agences sur la création IA ?</summary>
+    <p>Avec prudence : la plupart de ces chiffres viennent d'agences, d'outils tiers ou de Meta elle-même, sans méthodologie publiée ni échantillon indépendant vérifiable. Ils indiquent une tendance possible, pas une donnée actionnable sans test propre.</p>
+  </details>
+  <details>
+    <summary>La création publicitaire par IA est-elle obligatoire sur Meta Ads ?</summary>
+    <p>Non, mais Meta impose depuis mars 2026 une déclaration quand un contenu publicitaire est généré ou significativement modifié par IA, ce qui en pratique pousse à davantage de transparence sur son usage plutôt qu'à son interdiction.</p>
+  </details>
+  <details>
+    <summary>Pourquoi un produit à prix élevé réagit-il différemment à la créa IA qu'un produit à prix bas ?</summary>
+    <p>Un panier moyen élevé s'accompagne souvent d'un achat plus réfléchi, où la perception de qualité et d'authenticité de la créa pèse davantage sur la décision finale que le seul taux de clic initial, ce qui explique en partie l'écart observé entre CTR et conversion sur ces produits.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de tester la création publicitaire par IA sans vous fier aux moyennes du marché ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Structurer un test créa</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/sma">SMA</a>, et l'article <a href="/meta-ads-segmentation-audiences-automatisation">Meta Ads : segmenter ses audiences</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/sma">SMA →</a>
+      <a href="/meta-ads-segmentation-audiences-automatisation">Meta Ads : segmentation →</a>
+      <a href="/mythes-growth-hacking-ia">7 mythes sur le growth hacking IA →</a>
+      <a href="/agents-ia-marketing-ce-qu-on-peut-leur-confier">Agents IA marketing →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
