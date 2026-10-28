@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Topical authority : la méthode pour construire une autorité thématique qui tient la route | Blog — Johan Simonneau</title>
+<meta name="description" content="Publier plus de contenu ne suffit pas à construire une autorité thématique. La méthode concrète en 4 étapes pour structurer un cocon de contenu qui couvre réellement un sujet, sans cannibalisation.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/topical-authority-clusters-contenu-methode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Topical authority : la méthode pour construire une autorité thématique qui tient la route">
+<meta property="og:description" content="Publier plus de contenu ne suffit pas à construire une autorité thématique. La méthode concrète en 4 étapes pour structurer un cocon de contenu qui couvre réellement un sujet, sans cannibalisation.">
+<meta property="og:url" content="https://www.johansimonneau.fr/topical-authority-clusters-contenu-methode">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-topical-authority-clusters-contenu-methode-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-topical-authority-clusters-contenu-methode-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Topical authority : la méthode pour construire une autorité thématique qui tient la route", "item": "https://www.johansimonneau.fr/topical-authority-clusters-contenu-methode" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Topical authority : la méthode pour construire une autorité thématique qui tient la route",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-topical-authority-clusters-contenu-methode-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-11-25",
+      "dateModified": "2026-11-25",
+      "description": "Publier plus de contenu ne suffit pas à construire une autorité thématique. La méthode concrète en 4 étapes pour structurer un cocon de contenu qui couvre réellement un sujet, sans cannibalisation.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/topical-authority-clusters-contenu-methode"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Combien de pages faut-il pour construire une autorité thématique ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'y a pas de nombre universel : ce qui compte est de couvrir les sous-thèmes et intentions de recherche réels de votre audience sur le sujet, sans trou de couverture ni page redondante. Un cluster de 6 pages qui couvre vraiment un sujet vaut mieux qu'un cluster de 20 pages avec des recoupements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il absolument une page pilier pour chaque cluster ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est fortement recommandé : la page pilier donne une vue d'ensemble du sujet et sert de point d'entrée et de distribution de maillage interne vers les pages de support. Sans elle, le cluster perd sa colonne vertébrale et le maillage devient difficile à structurer de façon cohérente."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "La cannibalisation entre deux pages du même cluster est-elle grave ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui si elle persiste : deux pages qui répondent à la même intention de recherche se concurrencent plutôt que de se renforcer, ce qui dilue l'autorité du cluster au lieu de la construire. Fusionner ou différencier clairement l'angle de chaque page règle généralement le problème."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Topical authority</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Topical authority : la méthode pour construire une autorité thématique qui tient la route</h1>
+      <p class="sub-hook">« Publier plus de contenu » est le conseil SEO le plus répété et le moins précis qui existe. Ce qui construit réellement une autorité thématique n'est pas le volume, c'est la structure de couverture d'un sujet et l'absence de trous ou de recoupements dans cette couverture.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>25 novembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-topical-authority-clusters-contenu-methode-hero.png" alt="Illustration représentant un cocon de contenu structuré autour d'une page pilier et de pages de support" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Un site avec 80 articles dispersés peut avoir moins d'autorité thématique réelle qu'un site avec 15 pages correctement structurées. La différence ne se joue pas sur le nombre de pages, mais sur la façon dont elles couvrent, ensemble, l'ensemble des intentions de recherche d'un sujet donné — sans zone non couverte et sans deux pages qui répondent à la même question.</p>
+
+<h2>Étape 1 — Cartographier les intentions de recherche réelles du sujet</h2>
+
+<p>Avant d'écrire la moindre ligne, l'étape qui manque le plus souvent est de lister toutes les questions et sous-thèmes qu'un public cherche réellement autour d'un sujet&nbsp;: définition, comparaison, méthode, erreurs fréquentes, cas d'usage par secteur, outils. Cette cartographie, pas le mot-clé principal, est la vraie base du cluster&nbsp;: elle révèle les trous de couverture avant même d'avoir écrit quoi que ce soit.</p>
+
+<h2>Étape 2 — Construire une page pilier qui structure, pas qui résume</h2>
+
+<p>La page pilier n'est pas un résumé superficiel de toutes les sous-pages&nbsp;: c'est la colonne vertébrale qui donne une vue d'ensemble du sujet et distribue le maillage interne vers chaque page de support. Une page pilier qui se contente de paraphraser ses pages filles sans apporter de valeur propre affaiblit le cluster entier, parce qu'elle entre elle-même en concurrence avec ses propres pages de support sur les mêmes requêtes larges.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-topical-authority-clusters-contenu-methode-resource.png" alt="Un cocon de contenu bien structuré a une page pilier qui distribue le maillage, et des pages de support qui ne se recoupent jamais sur la même intention" width="900" height="340" loading="lazy">
+  <figcaption>Un cocon bien structuré a une page pilier qui distribue le maillage, et des pages de support qui ne se recoupent jamais sur la même intention.</figcaption>
+</figure>
+
+<h2>Étape 3 — Éliminer la cannibalisation avant qu'elle ne s'installe</h2>
+
+<p>Deux pages qui répondent à la même intention de recherche ne se renforcent pas mutuellement&nbsp;: elles se concurrencent, et cette concurrence dilue l'autorité du cluster au lieu de la construire. Avant de publier une nouvelle page, vérifier qu'aucune page existante ne répond déjà à la même intention est plus rentable que de publier puis corriger après coup — une fusion ou une différenciation d'angle tardive coûte toujours plus cher qu'une vérification en amont.</p>
+
+<h2>Étape 4 — Maillage interne dirigé, pas systématique</h2>
+
+<p>Lier chaque page de support à la page pilier, et la page pilier à chaque page de support, construit la structure de base. Mais le maillage le plus efficace va plus loin&nbsp;: lier aussi les pages de support entre elles quand leur contenu se complète naturellement (par exemple une page « méthode » qui renvoie vers une page « erreurs fréquentes » sur le même sous-thème), ce qui renforce la cohérence du cluster perçue à la fois par les lecteurs et par les moteurs.</p>
+
+<h2>Le signal qui prouve qu'un cluster fonctionne</h2>
+
+<p>Un cluster qui fonctionne se reconnaît à un signal simple&nbsp;: la page pilier gagne en visibilité au fil du temps à mesure que les pages de support se publient, sans qu'aucune de ces pages de support ne cannibalise les autres. Si la position de la page pilier stagne ou recule à mesure que le cluster grossit, c'est le signe d'un recoupement d'intentions à corriger, pas d'un besoin de contenu supplémentaire.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Combien de pages faut-il pour construire une autorité thématique ?</summary>
+    <p>Il n'y a pas de nombre universel : ce qui compte est de couvrir les sous-thèmes et intentions de recherche réels de votre audience sur le sujet, sans trou de couverture ni page redondante. Un cluster de 6 pages qui couvre vraiment un sujet vaut mieux qu'un cluster de 20 pages avec des recoupements.</p>
+  </details>
+  <details>
+    <summary>Faut-il absolument une page pilier pour chaque cluster ?</summary>
+    <p>C'est fortement recommandé : la page pilier donne une vue d'ensemble du sujet et sert de point d'entrée et de distribution de maillage interne vers les pages de support. Sans elle, le cluster perd sa colonne vertébrale et le maillage devient difficile à structurer de façon cohérente.</p>
+  </details>
+  <details>
+    <summary>La cannibalisation entre deux pages du même cluster est-elle grave ?</summary>
+    <p>Oui si elle persiste : deux pages qui répondent à la même intention de recherche se concurrencent plutôt que de se renforcer, ce qui dilue l'autorité du cluster au lieu de la construire. Fusionner ou différencier clairement l'angle de chaque page règle généralement le problème.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de structurer un cocon de contenu qui tient vraiment la route ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Structurer mon cocon de contenu</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/seo">SEO</a>, et l'article <a href="/cocons-semantiques-methode-seo">Structurer un site qui se positionne avec les cocons sémantiques</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/seo">SEO →</a>
+      <a href="/cocons-semantiques-methode-seo">Cocons sémantiques →</a>
+      <a href="/netlinking-2026-google-ia">Netlinking →</a>
+      <a href="/programmatic-seo-limites-automatisation">Programmatic SEO →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
