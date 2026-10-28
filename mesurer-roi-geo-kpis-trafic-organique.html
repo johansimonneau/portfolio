@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mesurer le ROI du GEO : les indicateurs qui remplacent (ou complètent) le trafic organique | Blog — Johan Simonneau</title>
+<meta name="description" content="Le GEO ne se mesure pas comme le SEO classique : une citation dans une réponse IA ne génère pas toujours de clic. Les indicateurs concrets pour évaluer un travail de GEO sans se fier au seul trafic.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/mesurer-roi-geo-kpis-trafic-organique">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mesurer le ROI du GEO : les indicateurs qui remplacent (ou complètent) le trafic organique">
+<meta property="og:description" content="Le GEO ne se mesure pas comme le SEO classique : une citation dans une réponse IA ne génère pas toujours de clic. Les indicateurs concrets pour évaluer un travail de GEO sans se fier au seul trafic.">
+<meta property="og:url" content="https://www.johansimonneau.fr/mesurer-roi-geo-kpis-trafic-organique">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-mesurer-roi-geo-kpis-trafic-organique-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-mesurer-roi-geo-kpis-trafic-organique-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Mesurer le ROI du GEO : les indicateurs qui remplacent (ou complètent) le trafic organique", "item": "https://www.johansimonneau.fr/mesurer-roi-geo-kpis-trafic-organique" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Mesurer le ROI du GEO : les indicateurs qui remplacent (ou complètent) le trafic organique",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-mesurer-roi-geo-kpis-trafic-organique-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-11-26",
+      "dateModified": "2026-11-26",
+      "description": "Le GEO ne se mesure pas comme le SEO classique : une citation dans une réponse IA ne génère pas toujours de clic. Les indicateurs concrets pour évaluer un travail de GEO sans se fier au seul trafic.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/mesurer-roi-geo-kpis-trafic-organique"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Google Search Console permet-il de mesurer le GEO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Indirectement seulement : Search Console montre le trafic issu de certaines surfaces IA de Google (comme AI Overviews) mais pas les citations sur ChatGPT, Claude ou Perplexity. Il faut compléter par un suivi manuel ou outillé des réponses de ces assistants."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Une hausse des recherches de marque est-elle une preuve fiable d'effet GEO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est un signal utile mais pas une preuve isolée : une hausse de notoriété peut avoir d'autres causes (campagne publicitaire, actualité, bouche-à-oreille). Elle devient plus convaincante quand elle coïncide avec une période où la marque est effectivement davantage citée dans les réponses IA suivies."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il arrêter de suivre le trafic organique classique à cause du GEO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, le trafic organique reste un indicateur pertinent pour tout ce qui passe encore par un clic vers le site. Le GEO ajoute des indicateurs complémentaires pour la part croissante des interactions qui ne génèrent justement pas ce clic."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">ROI du GEO</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Mesurer le ROI du GEO : les indicateurs qui remplacent (ou complètent) le trafic organique</h1>
+      <p class="sub-hook">Être cité dans une réponse de ChatGPT ne génère pas toujours un clic vers votre site — et c'est justement là que le tableau de bord SEO classique devient aveugle. Mesurer le GEO demande d'autres indicateurs, pas un simple report du même tableau.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>26 novembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-mesurer-roi-geo-kpis-trafic-organique-hero.png" alt="Illustration représentant un tableau de bord d'indicateurs GEO distincts du trafic organique classique" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Le SEO classique a un entonnoir de mesure bien rodé&nbsp;: position, impression, clic, conversion. Le GEO casse cette chaîne dès la deuxième étape&nbsp;: un assistant IA peut citer votre marque, reformuler votre contenu et répondre entièrement à la question de l'utilisateur sans qu'aucun clic ne soit jamais généré. Mesurer le ROI du GEO avec les seuls outils du trafic organique revient à chercher sous le seul lampadaire qui éclaire.</p>
+
+<h2>Pourquoi le trafic organique seul ne suffit plus</h2>
+
+<p>Une citation dans une réponse de ChatGPT, Claude ou Perplexity peut influencer une décision d'achat sans laisser aucune trace dans Google Analytics. L'effet existe, mais il est invisible dans un tableau de bord qui ne mesure que les sessions issues d'un clic. Ignorer cet effet revient à sous-estimer systématiquement l'impact réel d'un travail de visibilité IA.</p>
+
+<h2>Les indicateurs à suivre en complément</h2>
+
+<p>Quatre indicateurs comblent une partie de cet angle mort&nbsp;: la fréquence de citation de la marque sur un échantillon de prompts représentatifs testés régulièrement (le « share of voice » dans les réponses IA), le sentiment de ces citations (neutre, positif, ou carrément erroné — une citation négative n'a pas la même valeur qu'une citation positive), l'évolution des recherches de marque directe dans Search Console (un signal de notoriété qui accompagne souvent une hausse de citations), et le taux de conversions assistées sur les sessions arrivant par recherche de marque, qui peut révéler un parcours commencé ailleurs.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-mesurer-roi-geo-kpis-trafic-organique-resource.png" alt="Le GEO se mesure par la fréquence de citation, le sentiment de ces citations, la notoriété de marque et les conversions assistées, pas seulement par le trafic organique" width="900" height="340" loading="lazy">
+  <figcaption>Le GEO se mesure par la fréquence et le sentiment des citations, la notoriété de marque et les conversions assistées — pas seulement par le trafic organique.</figcaption>
+</figure>
+
+<h2>Le suivi manuel reste nécessaire, et ce n'est pas un défaut</h2>
+
+<p>Il n'existe pas aujourd'hui d'outil analytique qui mesure de façon fiable et automatisée la fréquence de citation d'une marque sur l'ensemble des assistants IA grand public. Le suivi passe par des tests manuels ou semi-automatisés, réguliers, sur un échantillon fixe de prompts représentatifs de l'intention de recherche réelle de l'audience. Ce n'est pas un contournement imparfait d'un meilleur outil qui n'existerait pas encore&nbsp;: c'est, pour l'instant, la méthode la plus fiable disponible.</p>
+
+<h2>Construire un scorecard GEO simple</h2>
+
+<p>Un scorecard GEO utile tient sur une seule page&nbsp;: un score de présence sur l'échantillon de prompts suivis (présent / absent / cité avec erreur), l'évolution de ce score sur plusieurs mois, les recherches de marque sur la même période, et une colonne de conversions assistées issues de ces recherches. Ce n'est pas un ROI au sens financier strict, mais c'est un ensemble d'indicateurs cohérents qui permet de juger si un travail de GEO produit un effet réel, plutôt que de rester dans l'incertitude totale.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Google Search Console permet-il de mesurer le GEO ?</summary>
+    <p>Indirectement seulement : Search Console montre le trafic issu de certaines surfaces IA de Google (comme AI Overviews) mais pas les citations sur ChatGPT, Claude ou Perplexity. Il faut compléter par un suivi manuel ou outillé des réponses de ces assistants.</p>
+  </details>
+  <details>
+    <summary>Une hausse des recherches de marque est-elle une preuve fiable d'effet GEO ?</summary>
+    <p>C'est un signal utile mais pas une preuve isolée : une hausse de notoriété peut avoir d'autres causes (campagne publicitaire, actualité, bouche-à-oreille). Elle devient plus convaincante quand elle coïncide avec une période où la marque est effectivement davantage citée dans les réponses IA suivies.</p>
+  </details>
+  <details>
+    <summary>Faut-il arrêter de suivre le trafic organique classique à cause du GEO ?</summary>
+    <p>Non, le trafic organique reste un indicateur pertinent pour tout ce qui passe encore par un clic vers le site. Le GEO ajoute des indicateurs complémentaires pour la part croissante des interactions qui ne génèrent justement pas ce clic.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de construire un tableau de bord GEO pour votre marque ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Construire mon scorecard GEO</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, et l'article <a href="/auditer-visibilite-chatgpt-perplexity">Comment auditer sa visibilité dans ChatGPT et Perplexity</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/auditer-visibilite-chatgpt-perplexity">Auditer sa visibilité IA →</a>
+      <a href="/guide-complet-geo-ranker-llm">Guide complet GEO →</a>
+      <a href="/ai-overviews-google-trafic-seo">Impact des AI Overviews →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
