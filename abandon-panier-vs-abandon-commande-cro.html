@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abandon de panier vs abandon de commande : la confusion qui fausse vos priorités CRO | Blog — Johan Simonneau</title>
+<meta name="description" content="Le chiffre de 70 % d'abandon souvent cité mélange deux problèmes différents : quitter le panier avant le checkout, ou abandonner pendant le checkout. Les solutions ne sont pas les mêmes.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/abandon-panier-vs-abandon-commande-cro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Abandon de panier vs abandon de commande : la confusion qui fausse vos priorités CRO">
+<meta property="og:description" content="Le chiffre de 70 % d'abandon souvent cité mélange deux problèmes différents : quitter le panier avant le checkout, ou abandonner pendant le checkout. Les solutions ne sont pas les mêmes.">
+<meta property="og:url" content="https://www.johansimonneau.fr/abandon-panier-vs-abandon-commande-cro">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-abandon-panier-vs-abandon-commande-cro-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-abandon-panier-vs-abandon-commande-cro-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Abandon de panier vs abandon de commande : la confusion qui fausse vos priorités CRO", "item": "https://www.johansimonneau.fr/abandon-panier-vs-abandon-commande-cro" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Abandon de panier vs abandon de commande : la confusion qui fausse vos priorités CRO",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-abandon-panier-vs-abandon-commande-cro-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-11-27",
+      "dateModified": "2026-11-27",
+      "description": "Le chiffre de 70 % d'abandon souvent cité mélange deux problèmes différents : quitter le panier avant le checkout, ou abandonner pendant le checkout. Les solutions ne sont pas les mêmes.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/abandon-panier-vs-abandon-commande-cro"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "D'où vient le chiffre de 70 % d'abandon de panier souvent cité ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il vient principalement d'une agrégation de dizaines d'études réalisée par le Baymard Institute. C'est une moyenne utile comme repère général, mais elle varie énormément selon le secteur (de moins de 50 % à plus de 90 %) et mélange souvent abandon de panier et abandon de commande dans sa communication publique."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi distinguer les deux si le résultat final (pas d'achat) est le même ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Parce que les causes et donc les corrections sont différentes : un abandon de panier se corrige souvent sur la page produit ou la transparence des coûts, un abandon de commande se corrige sur le formulaire de checkout lui-même. Traiter les deux avec la même solution revient à soigner le mauvais symptôme."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le taux d'abandon de commande est-il plus facile à corriger que l'abandon de panier ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En général oui, car il se limite à un parcours plus court et plus contrôlable (le formulaire de checkout), alors que l'abandon de panier peut avoir des causes en amont bien plus diffuses (prix, confiance, pertinence du produit) plus difficiles à isoler."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Abandon panier vs commande</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Abandon de panier vs abandon de commande : la confusion qui fausse vos priorités CRO</h1>
+      <p class="sub-hook">Le fameux chiffre de 70 % d'abandon qui circule partout mélange deux problèmes qui n'ont presque rien en commun dans leurs causes. Tant qu'on ne les distingue pas, on risque de corriger le mauvais problème avec la mauvaise solution.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>27 novembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-abandon-panier-vs-abandon-commande-cro-hero.png" alt="Illustration distinguant l'abandon de panier avant le checkout de l'abandon de commande pendant le checkout" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Le chiffre de près de 70&nbsp;% d'abandon, issu d'une agrégation de dizaines d'études compilée par le Baymard Institute, est cité presque systématiquement sans préciser à quel moment exact l'abandon a lieu. Or ce détail change tout&nbsp;: un visiteur qui quitte le site avant même d'arriver sur la page de checkout n'a pas le même problème qu'un visiteur qui démarre le checkout et ne le termine pas. Confondre les deux conduit à des plans d'action qui ratent leur cible.</p>
+
+<h2>Deux moments, deux définitions</h2>
+
+<p>L'abandon de panier désigne le visiteur qui ajoute un produit puis quitte le site sans jamais entamer le processus de paiement. L'abandon de commande (ou abandon de checkout) désigne le visiteur qui entre dans ce processus — souvent après avoir renseigné des informations de livraison ou de paiement — et l'interrompt avant la confirmation. Le taux d'abandon de commande, mesuré isolément, se situe généralement entre 25 et 40&nbsp;%, nettement sous le chiffre agrégé de 70&nbsp;% qui inclut l'abandon de panier plus large.</p>
+
+<h2>Pourquoi les causes ne se recoupent presque pas</h2>
+
+<p>Un abandon de panier a des causes qui se jouent souvent en amont du checkout&nbsp;: un prix jugé trop élevé une fois les frais de port révélés, un manque de confiance perçu (absence d'avis, de garantie, de preuve sociale), ou simplement une comparaison en cours avec un concurrent. Un abandon de commande, lui, se joue presque toujours dans le formulaire de checkout lui-même&nbsp;: création de compte imposée, trop de champs à remplir, options de paiement insuffisantes, ou un temps de chargement qui se dégrade au pire moment du parcours.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-abandon-panier-vs-abandon-commande-cro-resource.png" alt="L'abandon de panier se corrige en amont (prix, confiance, pertinence) ; l'abandon de commande se corrige dans le formulaire de checkout lui-même" width="900" height="340" loading="lazy">
+  <figcaption>L'abandon de panier se corrige en amont du checkout ; l'abandon de commande se corrige dans le formulaire lui-même. Deux diagnostics, deux plans d'action.</figcaption>
+</figure>
+
+<h2>Comment savoir lequel est votre vrai problème</h2>
+
+<p>La réponse se trouve dans vos propres données d'entonnoir, pas dans une moyenne sectorielle&nbsp;: comparez le taux de passage de la page panier à la première étape du checkout, puis le taux de passage de cette première étape jusqu'à la confirmation. Un décrochage massif avant même d'entrer dans le checkout pointe vers un problème de panier (prix, confiance, pertinence)&nbsp;; un décrochage concentré dans le checkout pointe vers un problème de formulaire.</p>
+
+<h2>Les corrections qui fonctionnent pour chaque cas</h2>
+
+<p>Pour l'abandon de panier&nbsp;: afficher les frais de livraison le plus tôt possible dans le parcours plutôt qu'au moment du checkout, renforcer les signaux de confiance directement sur la page panier, et simplifier la comparaison entre options pour réduire l'indécision. Pour l'abandon de commande&nbsp;: proposer un achat invité sans création de compte obligatoire, réduire le nombre de champs au strict nécessaire, et multiplier les options de paiement plutôt que d'en imposer une seule.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>D'où vient le chiffre de 70 % d'abandon de panier souvent cité ?</summary>
+    <p>Il vient principalement d'une agrégation de dizaines d'études réalisée par le Baymard Institute. C'est une moyenne utile comme repère général, mais elle varie énormément selon le secteur (de moins de 50 % à plus de 90 %) et mélange souvent abandon de panier et abandon de commande dans sa communication publique.</p>
+  </details>
+  <details>
+    <summary>Pourquoi distinguer les deux si le résultat final (pas d'achat) est le même ?</summary>
+    <p>Parce que les causes et donc les corrections sont différentes : un abandon de panier se corrige souvent sur la page produit ou la transparence des coûts, un abandon de commande se corrige sur le formulaire de checkout lui-même. Traiter les deux avec la même solution revient à soigner le mauvais symptôme.</p>
+  </details>
+  <details>
+    <summary>Le taux d'abandon de commande est-il plus facile à corriger que l'abandon de panier ?</summary>
+    <p>En général oui, car il se limite à un parcours plus court et plus contrôlable (le formulaire de checkout), alors que l'abandon de panier peut avoir des causes en amont bien plus diffuses (prix, confiance, pertinence du produit) plus difficiles à isoler.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de diagnostiquer où votre tunnel d'achat perd vraiment ses visiteurs ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Diagnostiquer mon tunnel d'achat</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/cro">CRO</a>, et l'article <a href="/trust-signals-cro-reassurance-achat">Trust signals</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/cro">CRO →</a>
+      <a href="/trust-signals-cro-reassurance-achat">Trust signals →</a>
+      <a href="/page-prix-b2b-erreurs-conversion">Page de prix B2B →</a>
+      <a href="/popups-exit-intent-erreurs-cro">Popups et exit-intent →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
