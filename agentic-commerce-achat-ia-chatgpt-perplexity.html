@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Achat direct dans ChatGPT, Perplexity, Google AI Mode : où en est l'agentic commerce | Blog — Johan Simonneau</title>
+<meta name="description" content="Google, Perplexity et OpenAI avancent à des vitesses très différentes sur l'achat intégré aux IA conversationnelles. Ce qui fonctionne déjà, ce qui recule, et ce qu'un e-commerçant doit vraiment préparer en premier.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/agentic-commerce-achat-ia-chatgpt-perplexity">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Achat direct dans ChatGPT, Perplexity, Google AI Mode : où en est l'agentic commerce">
+<meta property="og:description" content="Google, Perplexity et OpenAI avancent à des vitesses très différentes sur l'achat intégré aux IA conversationnelles. Ce qui fonctionne déjà, ce qui recule, et ce qu'un e-commerçant doit vraiment préparer en premier.">
+<meta property="og:url" content="https://www.johansimonneau.fr/agentic-commerce-achat-ia-chatgpt-perplexity">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-agentic-commerce-achat-ia-chatgpt-perplexity-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-agentic-commerce-achat-ia-chatgpt-perplexity-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Achat direct dans ChatGPT, Perplexity, Google AI Mode : où en est l'agentic commerce", "item": "https://www.johansimonneau.fr/agentic-commerce-achat-ia-chatgpt-perplexity" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Achat direct dans ChatGPT, Perplexity, Google AI Mode : où en est l'agentic commerce",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-agentic-commerce-achat-ia-chatgpt-perplexity-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-10-29",
+      "dateModified": "2026-10-29",
+      "description": "Google, Perplexity et OpenAI avancent à des vitesses très différentes sur l'achat intégré aux IA conversationnelles. Ce qui fonctionne déjà, ce qui recule, et ce qu'un e-commerçant doit vraiment préparer en premier.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/agentic-commerce-achat-ia-chatgpt-perplexity"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il intégrer un protocole de paiement agentique dès maintenant ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas dans l'urgence pour la majorité des e-commerçants français : ces protocoles sont encore jeunes, concentrés sur le marché américain, et la priorité réelle est d'abord d'être recommandé par ces IA (flux produit propre, informations fiables) avant de se soucier du paiement intégré lui-même."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi OpenAI a-t-il reculé sur le paiement intégré alors que Google avance ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les sources disponibles ne donnent pas la raison officielle d'OpenAI. Le constat rapporté est factuel : peu de marchands actifs six mois après le lancement, et un repositionnement de ChatGPT vers la découverte produit plutôt que la transaction elle-même."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment un site e-commerce peut-il apparaître dans les recommandations de ces IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En priorité par un flux produit propre et à jour (prix, stock, caractéristiques exactes) et par des pages produit riches en informations factuelles vérifiables — les mêmes bases que le référencement classique, avant même de considérer l'intégration d'un protocole de paiement."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Agentic commerce</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Achat direct dans ChatGPT, Perplexity, Google AI Mode : où en est l'agentic commerce</h1>
+      <p class="sub-hook">Acheter sans quitter une conversation avec une IA n'est plus un concept de conférence&nbsp;: Google y investit massivement, Perplexity en a fait un argument central, et OpenAI vient pourtant de faire marche arrière. Les trois plateformes ne racontent pas la même histoire — ce qui en dit long sur où se situe vraiment la priorité pour un e-commerçant.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>29 octobre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-agentic-commerce-achat-ia-chatgpt-perplexity-hero.png" alt="Illustration comparant les postures de Google, Perplexity et OpenAI sur l'achat intégré aux IA conversationnelles" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>L'idée de « commerce agentique » — un agent IA qui découvre, compare et achète un produit sans que l'utilisateur quitte la conversation — avance, mais de façon très inégale selon la plateforme. Les trois acteurs les plus en vue (Google, Perplexity, OpenAI) ont pris des trajectoires opposées en quelques mois, et cette divergence est elle-même la donnée la plus utile pour un e-commerçant qui se demande où investir son attention en premier.</p>
+
+<h2>Google mise sur le paiement intégré, et accélère</h2>
+
+<p>Google pousse le plus loin sur l'achat complet à l'intérieur de l'IA&nbsp;: les utilisateurs peuvent désormais acheter chez des marchands éligibles directement dans AI Mode et sur Gemini, via Google Pay (et à terme PayPal), sous son <em>Universal Commerce Protocol</em> (UCP). En mai 2026, Google a annoncé l'extension de ce paiement intégré au Canada et à l'Australie, puis au Royaume-Uni dans les mois suivants.</p>
+
+<h2>OpenAI a reculé, et s'est recentré sur la découverte</h2>
+
+<p>À l'inverse, OpenAI a effectivement abandonné en mars 2026 son <em>Instant Checkout</em>, la fonctionnalité phare de paiement intégré dans ChatGPT&nbsp;: seulement une trentaine de marchands étaient encore actifs six mois après son lancement. ChatGPT s'est depuis recentré sur la découverte produit, laissant la finalisation de l'achat aux sites marchands eux-mêmes. Un signal rapporté illustre l'écart&nbsp;: un responsable Walmart aurait indiqué que le taux de conversion des sessions menées directement dans ChatGPT tournait autour du tiers de celui observé sur Walmart.com.</p>
+
+<h2>Perplexity reste le plus engagé côté transaction</h2>
+
+<p>Perplexity a pris le chemin inverse d'OpenAI&nbsp;: son « Instant Buy », construit sur PayPal et lancé en novembre 2025, permet de découvrir, comparer, acheter et suivre la livraison d'un produit sans jamais sortir de l'interface de chat. Cette ambition a toutefois généré une friction juridique directe avec Amazon, qui a attaqué Perplexity au sujet de son agent Comet et a banni son agent d'achat de la plateforme — une décision que Perplexity conteste.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-agentic-commerce-achat-ia-chatgpt-perplexity-resource.png" alt="Google accélère sur le paiement intégré, Perplexity l'a fait de son côté, OpenAI s'en est retiré pour se concentrer sur la découverte produit." width="900" height="340" loading="lazy">
+  <figcaption>Trois plateformes, trois trajectoires opposées sur la même question du paiement intégré à l'IA.</figcaption>
+</figure>
+
+<h2>Le vrai goulot n'est pas le protocole, c'est la confiance</h2>
+
+<p>Au-delà des annonces de plateformes, le frein principal reste côté utilisateur&nbsp;: une étude relayée dans la presse spécialisée du secteur indique que seulement 17&nbsp;% des consommateurs se disent prêts à faire confiance à une IA pour finaliser un achat. Dans le même temps, les sessions passées par l'assistant Rufus d'Amazon convertiraient environ trois fois mieux que les sessions classiques — ce qui suggère que la confiance progresse surtout quand l'agent reste rattaché à une marque déjà connue de l'acheteur, pas dans l'abstrait.</p>
+
+<h2>Ce qu'un e-commerçant doit vraiment préparer en premier</h2>
+
+<p>Avant de se soucier d'intégrer un protocole de paiement agentique, la priorité réaliste pour la plupart des sites français est d'être correctement <em>recommandé</em> par ces IA — ce qui dépend d'abord de la qualité du flux produit (prix, stock, caractéristiques exactes et à jour) et de pages produit factuelles, pas de l'intégration technique du paiement lui-même. Plusieurs analystes du secteur résument ce point en parlant d'un problème de découverte avant d'être un problème de transaction. À noter&nbsp;: Shopify a rendu les canaux d'agents (ChatGPT, Google AI Mode, Perplexity) disponibles depuis son panneau d'administration, activés par défaut depuis fin mars 2026 — un paramètre à vérifier si votre boutique est sur cette plateforme, dans un sens comme dans l'autre.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Faut-il intégrer un protocole de paiement agentique dès maintenant ?</summary>
+    <p>Pas dans l'urgence pour la majorité des e-commerçants français : ces protocoles sont encore jeunes, concentrés sur le marché américain, et la priorité réelle est d'abord d'être recommandé par ces IA (flux produit propre, informations fiables) avant de se soucier du paiement intégré lui-même.</p>
+  </details>
+  <details>
+    <summary>Pourquoi OpenAI a-t-il reculé sur le paiement intégré alors que Google avance ?</summary>
+    <p>Les sources disponibles ne donnent pas la raison officielle d'OpenAI. Le constat rapporté est factuel : peu de marchands actifs six mois après le lancement, et un repositionnement de ChatGPT vers la découverte produit plutôt que la transaction elle-même.</p>
+  </details>
+  <details>
+    <summary>Comment un site e-commerce peut-il apparaître dans les recommandations de ces IA ?</summary>
+    <p>En priorité par un flux produit propre et à jour (prix, stock, caractéristiques exactes) et par des pages produit riches en informations factuelles vérifiables — les mêmes bases que le référencement classique, avant même de considérer l'intégration d'un protocole de paiement.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de préparer votre visibilité dans les IA avant vos concurrents ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer ma visibilité IA</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, l'<a href="/audit-visibilite-ia">audit de visibilité IA</a>, et l'article <a href="/growth-b2b-saas-vs-ecommerce">Growth B2B SaaS vs e-commerce</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/audit-visibilite-ia">Audit visibilité IA →</a>
+      <a href="/guide-complet-geo-ranker-llm">Guide complet GEO →</a>
+      <a href="/trust-signals-cro-reassurance-achat">Trust signals →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
