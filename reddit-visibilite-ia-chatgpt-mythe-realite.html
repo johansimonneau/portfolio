@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reddit et visibilité dans ChatGPT : le levier est-il en train de s'effondrer ? | Blog — Johan Simonneau</title>
+<meta name="description" content="Une étude dit que Reddit a dépassé Wikipedia dans les citations ChatGPT. Une autre mesure l'inverse quelques mois plus tard. Ce qu'on sait vraiment sur Reddit comme levier de visibilité IA, et ce qu'on ne sait pas.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/reddit-visibilite-ia-chatgpt-mythe-realite">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Reddit et visibilité dans ChatGPT : le levier est-il en train de s'effondrer ?">
+<meta property="og:description" content="Une étude dit que Reddit a dépassé Wikipedia dans les citations ChatGPT. Une autre mesure l'inverse quelques mois plus tard. Ce qu'on sait vraiment sur Reddit comme levier de visibilité IA, et ce qu'on ne sait pas.">
+<meta property="og:url" content="https://www.johansimonneau.fr/reddit-visibilite-ia-chatgpt-mythe-realite">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-reddit-visibilite-ia-chatgpt-mythe-realite-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-reddit-visibilite-ia-chatgpt-mythe-realite-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Reddit et visibilité dans ChatGPT : le levier est-il en train de s'effondrer ?", "item": "https://www.johansimonneau.fr/reddit-visibilite-ia-chatgpt-mythe-realite" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Reddit et visibilité dans ChatGPT : le levier est-il en train de s'effondrer ?",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-reddit-visibilite-ia-chatgpt-mythe-realite-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-10-30",
+      "dateModified": "2026-10-30",
+      "description": "Une étude dit que Reddit a dépassé Wikipedia dans les citations ChatGPT. Une autre mesure l'inverse quelques mois plus tard. Ce qu'on sait vraiment sur Reddit comme levier de visibilité IA, et ce qu'on ne sait pas.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/reddit-visibilite-ia-chatgpt-mythe-realite"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il créer un compte de marque sur Reddit pour gagner en visibilité IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est l'approche la plus risquée : la culture anti-promotion de Reddit sanctionne durement les comptes de marque trop visibles, jusqu'au bannissement. L'approche la plus sûre consiste à faire intervenir des membres de l'équipe depuis leurs comptes personnels, pour répondre aux questions où la marque est pertinente plutôt que pour la promouvoir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Reddit est-il un meilleur levier de visibilité IA que les backlinks classiques ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une étude Ahrefs sur 75 000 marques montre une corrélation plus forte entre les mentions de marque sur le web en général (0,664) et la visibilité dans les AI Overviews qu'entre les backlinks et cette même visibilité (0,218). Reddit n'est qu'une source de mentions parmi d'autres, pas un levier isolé supérieur aux backlinks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Une présence ponctuelle sur Reddit suffit-elle à améliorer sa visibilité IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un test rapporté montre l'inverse : des mentions de marque sur Reddit ont triplé les citations dans les AI Overviews pendant la période de publication, puis ce gain a disparu dès l'arrêt des publications. Une présence régulière compte davantage qu'une campagne ponctuelle."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Reddit et visibilité IA</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Reddit et visibilité dans ChatGPT : le levier est-il en train de s'effondrer ?</h1>
+      <p class="sub-hook">Une étude affirme que Reddit a dépassé Wikipedia dans les citations de ChatGPT en mai 2026. Une autre mesure, trois mois plus tard, une chute de 73&nbsp;% de ces mêmes citations. Les deux ne peuvent pas être pleinement vraies en même temps — ce qui en dit beaucoup sur la fiabilité d'une stratégie bâtie sur une seule étude.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>30 octobre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-reddit-visibilite-ia-chatgpt-mythe-realite-hero.png" alt="Illustration de deux mesures contradictoires sur l'évolution des citations Reddit dans ChatGPT en 2026" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>En mai 2026, un bilan annonce que Reddit a dépassé Wikipedia dans les citations de ChatGPT, les citations de Wikipedia chutant de 51&nbsp;% sur la même période. Trois mois plus tard, un échantillon de suivi distinct rapporte l'inverse&nbsp;: une chute de 73,4&nbsp;% des citations quotidiennes de Reddit dans ChatGPT. Reddit se serait donc effondré trois mois après avoir dépassé Wikipedia&nbsp;? C'est l'histoire que racontent, mises côte à côte, deux études sérieuses — et c'est justement le signe qu'il faut regarder sous le capot avant de choisir un camp.</p>
+
+<h2>Même sujet, méthodologies différentes</h2>
+
+<p>Les deux mesures ne portent presque certainement pas sur le même panel de requêtes, ni la même fenêtre d'observation, ni la même définition de ce qui compte comme « citation ». Un bilan ponctuel comparant deux mois précis et un suivi continu sur plusieurs semaines peuvent capter des phénomènes réels mais différents — un pic ponctuel n'est pas une tendance de fond, et une tendance de fond mesurée sur un échantillon étroit n'est pas non plus la vérité du marché entier. Ni l'une ni l'autre étude n'est nécessairement fausse&nbsp;; elles répondent simplement à des questions légèrement différentes, présentées comme si c'était la même.</p>
+
+<h2>Le chiffre que les deux études passent sous silence</h2>
+
+<p>Pendant que le débat se concentre sur la trajectoire de Reddit, un échantillon indépendant situe l'ensemble des sept principales plateformes sociales à seulement 0,46&nbsp;% des citations de ChatGPT — contre 12,2&nbsp;% pour les citations des AI Overviews de Google, qui favorisent nettement YouTube (83,2 millions de citations entre janvier et avril 2026, contre 35,8 millions pour Reddit et 32,4 millions pour Wikipedia). Reddit pèse donc très différemment selon le moteur IA considéré, ce qui contredit déjà l'idée d'une règle universelle valable partout — avant même de trancher s'il monte ou descend.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-reddit-visibilite-ia-chatgpt-mythe-realite-resource.png" alt="Les mentions de marque sur le web corrèlent plus fortement avec la visibilité AI Overviews (0,664) que les backlinks classiques (0,218)." width="900" height="340" loading="lazy">
+  <figcaption>Ce qui corrèle le plus avec la visibilité dans les AI Overviews, selon une étude Ahrefs sur 75 000 marques.</figcaption>
+</figure>
+
+<h2>Le vrai signal se cache derrière la plateforme, pas dedans</h2>
+
+<p>Une étude Ahrefs portant sur 75&nbsp;000 marques situe la corrélation entre les mentions de marque sur le web en général et la visibilité dans les AI Overviews à 0,664, contre seulement 0,218 pour les backlinks classiques. Reddit n'est donc qu'une source de mentions parmi d'autres (presse spécialisée, forums, avis clients) — ce qui recadre tout le débat précédent&nbsp;: peu importe que Reddit monte ou descende isolément, une stratégie construite uniquement autour de cette plateforme rate l'essentiel du signal.</p>
+
+<h2>Un test qui tranche une question plus utile que le débat de fond</h2>
+
+<p>Un test rapporté dans la presse du secteur répond à une question plus actionnable que « Reddit monte-t-il ou descend-il » &nbsp;: des mentions de marque sur la plateforme ont triplé les citations dans les AI Overviews pendant la période de publication active, avant que ce gain ne disparaisse complètement dès l'arrêt des publications. La leçon ne porte pas sur Reddit en particulier, mais sur la discipline&nbsp;: une présence continue, même modeste, a surpassé une campagne ponctuelle intense.</p>
+
+<h2>La seule vérification qui vaille, plutôt que de choisir un camp</h2>
+
+<p>Avec les données publiques disponibles, personne ne peut dire avec certitude si la tendance de fond sur Reddit est à la hausse ou à la baisse sur 2026 — les deux études qui prétendent répondre à cette question se contredisent, pour les raisons méthodologiques vues plus haut. Un test réalisé sur un secteur ou une marque ne se généralise pas non plus automatiquement à d'autres. Avant d'investir lourdement sur Reddit pour la visibilité IA, la vérification la plus utile reste de suivre, pour votre propre marque, les requêtes réelles que vos acheteurs tapent dans ChatGPT, Google et Perplexity — plutôt que de se fier à l'étude la plus récente qui circule.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Faut-il créer un compte de marque sur Reddit pour gagner en visibilité IA ?</summary>
+    <p>C'est l'approche la plus risquée : la culture anti-promotion de Reddit sanctionne durement les comptes de marque trop visibles, jusqu'au bannissement. L'approche la plus sûre consiste à faire intervenir des membres de l'équipe depuis leurs comptes personnels, pour répondre aux questions où la marque est pertinente plutôt que pour la promouvoir.</p>
+  </details>
+  <details>
+    <summary>Reddit est-il un meilleur levier de visibilité IA que les backlinks classiques ?</summary>
+    <p>Une étude Ahrefs sur 75 000 marques montre une corrélation plus forte entre les mentions de marque sur le web en général (0,664) et la visibilité dans les AI Overviews qu'entre les backlinks et cette même visibilité (0,218). Reddit n'est qu'une source de mentions parmi d'autres, pas un levier isolé supérieur aux backlinks.</p>
+  </details>
+  <details>
+    <summary>Une présence ponctuelle sur Reddit suffit-elle à améliorer sa visibilité IA ?</summary>
+    <p>Un test rapporté montre l'inverse : des mentions de marque sur Reddit ont triplé les citations dans les AI Overviews pendant la période de publication, puis ce gain a disparu dès l'arrêt des publications. Une présence régulière compte davantage qu'une campagne ponctuelle.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de savoir où votre marque apparaît vraiment dans les IA ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer ma visibilité IA</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, l'<a href="/audit-visibilite-ia">audit de visibilité IA</a>, et l'article <a href="/netlinking-2026-google-ia">Netlinking pour Google et les IA</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/audit-visibilite-ia">Audit visibilité IA →</a>
+      <a href="/netlinking-2026-google-ia">Netlinking →</a>
+      <a href="/guide-complet-geo-ranker-llm">Guide complet GEO →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
