@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Disclosure IA obligatoire dans vos pubs : ce qui change concrètement en 2026 | Blog — Johan Simonneau</title>
+<meta name="description" content="Google Ads, l'AI Act européen et une loi new-yorkaise imposent chacun leurs propres règles de déclaration pour les créations publicitaires générées par IA en 2026. Ce qui s'applique à vous, et où placer le label pour qu'il ne disparaisse pas.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/disclosure-ia-publicite-obligations-2026">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Disclosure IA obligatoire dans vos pubs : ce qui change concrètement en 2026">
+<meta property="og:description" content="Google Ads, l'AI Act européen et une loi new-yorkaise imposent chacun leurs propres règles de déclaration pour les créations publicitaires générées par IA en 2026. Ce qui s'applique à vous, et où placer le label pour qu'il ne disparaisse pas.">
+<meta property="og:url" content="https://www.johansimonneau.fr/disclosure-ia-publicite-obligations-2026">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-disclosure-ia-publicite-obligations-2026-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-disclosure-ia-publicite-obligations-2026-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Disclosure IA obligatoire dans vos pubs : ce qui change concrètement en 2026", "item": "https://www.johansimonneau.fr/disclosure-ia-publicite-obligations-2026" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Disclosure IA obligatoire dans vos pubs : ce qui change concrètement en 2026",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-disclosure-ia-publicite-obligations-2026-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-10-30",
+      "dateModified": "2026-10-30",
+      "description": "Google Ads, l'AI Act européen et une loi new-yorkaise imposent chacun leurs propres règles de déclaration pour les créations publicitaires générées par IA en 2026. Ce qui s'applique à vous, et où placer le label pour qu'il ne disparaisse pas.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/disclosure-ia-publicite-obligations-2026"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Une PME française est-elle concernée par la loi de New York ou le règlement européen ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La loi de New York vise les publicités diffusées dans cet État, donc elle ne concerne a priori pas une PME qui ne cible pas ce marché. L'AI Act européen, en revanche, s'applique dès que la publicité touche des utilisateurs dans l'Union européenne, ce qui couvre la quasi-totalité des annonceurs français."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il déclarer un visuel simplement retouché par IA, ou seulement un visuel entièrement généré ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les seuils diffèrent selon le texte : l'obligation de label deepfake de l'AI Act cible un contenu qui pourrait sembler authentique en représentant une personne, un lieu ou un événement réel, pas une simple retouche cosmétique. Google Ads, de son côté, demande une déclaration dès qu'un outil génératif a été utilisé dans la création, retouche incluse selon les cas. En cas de doute, déclarer reste la option la plus sûre."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment s'assurer que le label de divulgation ne disparaît pas sur les réseaux sociaux ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En intégrant le label directement dans le visuel ou la vidéo elle-même (incrusté dans l'image), plutôt que de compter sur un élément d'interface de la plateforme — un recadrage automatique ou une republication sur un autre réseau peut faire disparaître une mention ajoutée en dehors du fichier."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Disclosure IA</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Disclosure IA obligatoire dans vos pubs : ce qui change concrètement en 2026</h1>
+      <p class="sub-hook">La question « dois-je déclarer cette création IA ? » n'a pas une seule réponse en 2026&nbsp;: elle en a trois, selon où vous diffusez. Et le piège n'est presque jamais la déclaration elle-même — c'est l'endroit où vous la placez.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>30 octobre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-disclosure-ia-publicite-obligations-2026-hero.png" alt="Illustration de trois cadres réglementaires distincts imposant chacun leur propre obligation de déclaration IA en publicité" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Depuis l'été 2026, trois cadres bien distincts imposent des obligations de déclaration pour les créations publicitaires générées ou retouchées par IA — une politique de plateforme, un règlement européen, une loi d'État américaine. Aucun ne reprend le seuil ou le périmètre d'un autre, ce qui rend une approche « une seule règle pour tout » risquée.</p>
+
+<h2>Le premier filtre : où cette publicité est-elle diffusée</h2>
+
+<p>Avant de chercher le bon niveau de déclaration, il faut d'abord savoir quels cadres s'appliquent concrètement à une campagne donnée&nbsp;:</p>
+
+<ul class="sub-points">
+  <li><strong>Sur Google Ads, toujours.</strong> Depuis juillet 2026, la plateforme impose à tout annonceur de déclarer l'usage d'outils génératifs dans ses créations, sur l'ensemble de ses formats. Les créations produites avec les propres outils IA de Google sont étiquetées automatiquement&nbsp;; celles produites avec un outil tiers demandent d'activer manuellement un réglage de déclaration au moment de l'upload.</li>
+  <li><strong>Dès qu'un utilisateur européen peut voir la publicité.</strong> Depuis le 2 août 2026, les règles de transparence sur les deepfakes de l'AI Act s'appliquent. Les lignes directrices de la Commission du 20 juillet 2026 précisent que l'obligation cible un contenu qui ressemble à une personne, un objet, un lieu ou un événement réel et pourrait sembler authentique à tort — un avatar entièrement fictif n'est pas automatiquement concerné.</li>
+  <li><strong>Seulement si vous ciblez l'État de New York.</strong> Une loi entrée en vigueur le 9 juin 2026 y impose la déclaration des publicités utilisant des personnes générées par IA à la place d'acteurs réels, avec des pénalités rapportées de 1&nbsp;000&nbsp;$ pour une première infraction et 5&nbsp;000&nbsp;$ ensuite.</li>
+</ul>
+
+<p>Pour la quasi-totalité des annonceurs français, les deux premiers filtres suffisent à couvrir le sujet&nbsp;: le troisième ne s'applique qu'à une diffusion ciblée sur cet État précis.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-disclosure-ia-publicite-obligations-2026-resource.png" alt="Trois cadres réglementaires distincts, trois seuils de déclenchement différents pour la déclaration IA en publicité." width="900" height="340" loading="lazy">
+  <figcaption>Trois cadres, trois seuils différents — aucun ne remplace les deux autres.</figcaption>
+</figure>
+
+<h2>Le deuxième filtre : retouche ou génération complète</h2>
+
+<p>Un cadre sectoriel publié par l'IAB en janvier 2026 nuance le débat&nbsp;: toute utilisation de l'IA dans une création ne justifie pas nécessairement une déclaration. Son enquête relève que plus de la moitié des répondants souhaitent une déclaration lorsque la publicité est entièrement générée par IA ou utilise une image ou une vidéo IA — un seuil plus restrictif que « toute retouche assistée par IA ». En cas de doute entre les deux, déclarer reste la option la plus sûre.</p>
+
+<h2>Le point qui fait échouer la plupart des déclarations</h2>
+
+<p>Le problème pratique le plus fréquent n'est pas de savoir s'il faut déclarer, mais où placer la mention&nbsp;: un label ajouté en dehors du fichier (surcouche d'interface, texte dans la légende) disparaît souvent au recadrage automatique d'une plateforme, à la republication sur un autre réseau, ou à la traduction. La pratique qui tient dans la durée consiste à intégrer le label directement dans le visuel ou la vidéo elle-même, dès la prise en charge de la création — pas comme une étape ajoutée après coup.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Une PME française est-elle concernée par la loi de New York ou le règlement européen ?</summary>
+    <p>La loi de New York vise les publicités diffusées dans cet État, donc elle ne concerne a priori pas une PME qui ne cible pas ce marché. L'AI Act européen, en revanche, s'applique dès que la publicité touche des utilisateurs dans l'Union européenne, ce qui couvre la quasi-totalité des annonceurs français.</p>
+  </details>
+  <details>
+    <summary>Faut-il déclarer un visuel simplement retouché par IA, ou seulement un visuel entièrement généré ?</summary>
+    <p>Les seuils diffèrent selon le texte : l'obligation de label deepfake de l'AI Act cible un contenu qui pourrait sembler authentique en représentant une personne, un lieu ou un événement réel, pas une simple retouche cosmétique. Google Ads, de son côté, demande une déclaration dès qu'un outil génératif a été utilisé dans la création, retouche incluse selon les cas. En cas de doute, déclarer reste la option la plus sûre.</p>
+  </details>
+  <details>
+    <summary>Comment s'assurer que le label de divulgation ne disparaît pas sur les réseaux sociaux ?</summary>
+    <p>En intégrant le label directement dans le visuel ou la vidéo elle-même (incrusté dans l'image), plutôt que de compter sur un élément d'interface de la plateforme — un recadrage automatique ou une republication sur un autre réseau peut faire disparaître une mention ajoutée en dehors du fichier.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de sécuriser vos créations publicitaires IA avant de les diffuser ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Échanger sur mes campagnes IA</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir les pages <a href="/sma">SMA</a> et <a href="/sea">SEA</a>, et l'article <a href="/rgpd-marketing-digital-tracking-2026">RGPD et marketing digital</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/sma">SMA →</a>
+      <a href="/sea">SEA →</a>
+      <a href="/rgpd-marketing-digital-tracking-2026">RGPD et marketing →</a>
+      <a href="/geo">GEO →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
