@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>robots.txt ou llms.txt : faut-il bloquer les crawlers IA sur son site ? | Blog — Johan Simonneau</title>
+<meta name="description" content="Bloquer un bot IA peut protéger votre contenu, ou vous retirer des réponses de ChatGPT et Perplexity — tout dépend du type de bot. Comment distinguer crawlers d'entraînement et crawlers de citation avant de toucher à votre robots.txt.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/robots-txt-llms-txt-bloquer-crawlers-ia">
+<meta property="og:type" content="article">
+<meta property="og:title" content="robots.txt ou llms.txt : faut-il bloquer les crawlers IA sur son site ?">
+<meta property="og:description" content="Bloquer un bot IA peut protéger votre contenu, ou vous retirer des réponses de ChatGPT et Perplexity — tout dépend du type de bot. Comment distinguer crawlers d'entraînement et crawlers de citation avant de toucher à votre robots.txt.">
+<meta property="og:url" content="https://www.johansimonneau.fr/robots-txt-llms-txt-bloquer-crawlers-ia">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-robots-txt-llms-txt-bloquer-crawlers-ia-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-robots-txt-llms-txt-bloquer-crawlers-ia-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "robots.txt ou llms.txt : faut-il bloquer les crawlers IA sur son site ?", "item": "https://www.johansimonneau.fr/robots-txt-llms-txt-bloquer-crawlers-ia" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "robots.txt ou llms.txt : faut-il bloquer les crawlers IA sur son site ?",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-robots-txt-llms-txt-bloquer-crawlers-ia-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-10-31",
+      "dateModified": "2026-10-31",
+      "description": "Bloquer un bot IA peut protéger votre contenu, ou vous retirer des réponses de ChatGPT et Perplexity — tout dépend du type de bot. Comment distinguer crawlers d'entraînement et crawlers de citation avant de toucher à votre robots.txt.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/robots-txt-llms-txt-bloquer-crawlers-ia"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Bloquer ClaudeBot empêche-t-il Claude de me citer ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Anthropic indique que ses trois robots (dont Claude-User) respectent chacun le robots.txt séparément : bloquer ClaudeBot (utilisé pour l'entraînement) ne bloque pas automatiquement les deux autres, dont celui qui alimente les réponses citées."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Un fichier llms.txt empêche-t-il les IA de citer mon contenu ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non : llms.txt n'est pas une directive d'exploration ni une demande de citation, mais un index pensé à l'origine pour des agents de codage IA. Il ne remplace pas robots.txt et n'a pas d'effet direct démontré sur les citations dans les réponses des IA génératives."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "robots.txt empêche-t-il vraiment un bot IA d'explorer mon site ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "robots.txt est une directive respectée volontairement, pas un verrou technique. Les crawlers déclarés des grands éditeurs (Google, OpenAI, Anthropic) le respectent généralement, mais rien n'empêche techniquement un bot non déclaré de l'ignorer — l'application réelle d'un blocage se fait au niveau du WAF ou du CDN."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">robots.txt et llms.txt</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>robots.txt ou llms.txt : faut-il bloquer les crawlers IA sur son site ?</h1>
+      <p class="sub-hook">« Bloquons tous les bots IA, on ne veut pas nourrir leurs modèles gratuitement » — une réaction compréhensible, mais qui peut vous retirer sans le vouloir des réponses de ChatGPT ou Perplexity que vos clients consultent déjà. Tout dépend de quel bot vous bloquez, et pourquoi.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>31 octobre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-robots-txt-llms-txt-bloquer-crawlers-ia-hero.png" alt="Illustration d'un arbre de décision pour choisir quel type de bot IA bloquer selon l'objectif recherché" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Face à la multiplication des bots IA qui explorent les sites, le réflexe de « tout bloquer » est compréhensible, mais il repose sur une confusion fréquente&nbsp;: tous les bots IA n'ont pas le même rôle, et les bloquer tous revient souvent à se couper des réponses de ChatGPT ou Perplexity que vos clients potentiels consultent déjà pour vous comparer à la concurrence.</p>
+
+<h2>Trois types de bots, trois rôles différents</h2>
+
+<p>La distinction la plus utile sépare les bots en trois catégories&nbsp;: les <strong>crawlers d'entraînement</strong> (GPTBot, CCBot, Google-Extended), qui alimentent les futurs modèles&nbsp;; les <strong>crawlers de récupération</strong>, qui alimentent les réponses citées en temps réel quand un utilisateur pose une question&nbsp;; et les <strong>agents de récupération à la demande</strong>, déclenchés en direct pendant qu'un utilisateur discute avec l'IA. Bloquer les premiers protège votre contenu sans vous exclure des citations&nbsp;; bloquer les seconds vous retire des réponses.</p>
+
+<h2>robots.txt reste une directive, pas un verrou</h2>
+
+<p>Plusieurs analyses du secteur insistent sur ce point&nbsp;: robots.txt n'a jamais été un mécanisme d'application technique, mais un panneau affiché à l'entrée — l'application réelle d'un blocage se fait au niveau du WAF ou du CDN, pas dans ce fichier texte. Les crawlers déclarés des grands éditeurs le respectent en général&nbsp;: Anthropic indique ainsi que ses trois robots (dont Claude-User) respectent chacun le fichier séparément, et que bloquer ClaudeBot ne bloque pas automatiquement les deux autres.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-robots-txt-llms-txt-bloquer-crawlers-ia-resource.png" alt="Arbre de décision simplifié : bloquer un crawler d'entraînement protège le contenu, bloquer un crawler de citation retire des réponses IA." width="900" height="340" loading="lazy">
+  <figcaption>La question à se poser avant de toucher à son robots.txt n'est pas « bloquer ou pas », mais « bloquer lequel ».</figcaption>
+</figure>
+
+<h2>llms.txt n'est pas ce que son nom suggère</h2>
+
+<p>Contrairement à une idée répandue, llms.txt n'est ni une directive d'exploration ni une demande de citation&nbsp;: c'est un fichier index, conçu à l'origine pour aider des agents de codage IA à naviguer dans la documentation d'un projet. Il ne remplace pas robots.txt et sa présence (environ 10&nbsp;% des domaines explorés, selon une estimation de SE Ranking) ne garantit aucun effet mesuré sur les citations.</p>
+
+<h2>Un changement de politique à surveiller : Cloudflare</h2>
+
+<p>Depuis le 15&nbsp;septembre 2026, Cloudflare bloque par défaut les bots d'entraînement et les agents sur les pages monétisées par de la publicité, tout en laissant passer les bots de recherche classiques — un changement qui affecte directement les sites utilisant ce CDN, sans que l'éditeur n'ait forcément touché à son propre robots.txt.</p>
+
+<h2>Ce que fait la majorité des programmes GEO sérieux en 2026</h2>
+
+<p>Selon plusieurs guides spécialisés, la pratique la plus répandue chez les sites qui prennent le GEO au sérieux consiste à autoriser l'ensemble des grands crawlers déclarés et à gérer les abus (volume excessif, bots non déclarés) par limitation de débit au niveau du CDN, plutôt que par un blocage généralisé dans robots.txt — un choix cohérent avec le fait que la visibilité dans les réponses IA dépend justement de rester accessible à ces crawlers.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Bloquer ClaudeBot empêche-t-il Claude de me citer ?</summary>
+    <p>Anthropic indique que ses trois robots (dont Claude-User) respectent chacun le robots.txt séparément : bloquer ClaudeBot (utilisé pour l'entraînement) ne bloque pas automatiquement les deux autres, dont celui qui alimente les réponses citées.</p>
+  </details>
+  <details>
+    <summary>Un fichier llms.txt empêche-t-il les IA de citer mon contenu ?</summary>
+    <p>Non : llms.txt n'est pas une directive d'exploration ni une demande de citation, mais un index pensé à l'origine pour des agents de codage IA. Il ne remplace pas robots.txt et n'a pas d'effet direct démontré sur les citations dans les réponses des IA génératives.</p>
+  </details>
+  <details>
+    <summary>robots.txt empêche-t-il vraiment un bot IA d'explorer mon site ?</summary>
+    <p>robots.txt est une directive respectée volontairement, pas un verrou technique. Les crawlers déclarés des grands éditeurs (Google, OpenAI, Anthropic) le respectent généralement, mais rien n'empêche techniquement un bot non déclaré de l'ignorer — l'application réelle d'un blocage se fait au niveau du WAF ou du CDN.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'auditer les accès des bots IA à votre site ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer ma configuration technique</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, l'<a href="/audit-visibilite-ia">audit de visibilité IA</a>, et le <a href="/guide-complet-geo-ranker-llm">guide complet GEO</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/audit-visibilite-ia">Audit visibilité IA →</a>
+      <a href="/guide-complet-geo-ranker-llm">Guide complet GEO →</a>
+      <a href="/seo">SEO →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
