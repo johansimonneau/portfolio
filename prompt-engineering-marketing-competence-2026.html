@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt engineering pour le marketing : compétence de base ou effet de mode ? | Blog — Johan Simonneau</title>
+<meta name="description" content="Écrire un bon prompt n'a rien d'instinctif, et ça ne s'improvise plus à l'échelle d'une équipe. La structure en 5 parties qui revient dans la plupart des guides sérieux, et comment savoir si votre équipe a vraiment besoin de la formaliser.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/prompt-engineering-marketing-competence-2026">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Prompt engineering pour le marketing : compétence de base ou effet de mode ?">
+<meta property="og:description" content="Écrire un bon prompt n'a rien d'instinctif, et ça ne s'improvise plus à l'échelle d'une équipe. La structure en 5 parties qui revient dans la plupart des guides sérieux, et comment savoir si votre équipe a vraiment besoin de la formaliser.">
+<meta property="og:url" content="https://www.johansimonneau.fr/prompt-engineering-marketing-competence-2026">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-prompt-engineering-marketing-competence-2026-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-prompt-engineering-marketing-competence-2026-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Prompt engineering pour le marketing : compétence de base ou effet de mode ?", "item": "https://www.johansimonneau.fr/prompt-engineering-marketing-competence-2026" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Prompt engineering pour le marketing : compétence de base ou effet de mode ?",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-prompt-engineering-marketing-competence-2026-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-10-31",
+      "dateModified": "2026-10-31",
+      "description": "Écrire un bon prompt n'a rien d'instinctif, et ça ne s'improvise plus à l'échelle d'une équipe. La structure en 5 parties qui revient dans la plupart des guides sérieux, et comment savoir si votre équipe a vraiment besoin de la formaliser.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/prompt-engineering-marketing-competence-2026"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Le prompt engineering va-t-il devenir un métier à part dans le marketing ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Plutôt une compétence transversale intégrée aux métiers existants qu'un poste séparé pour la plupart des équipes. Certains guides évoquent un rôle hybride de « content engineer » qui mélange écriture et discipline d'ingénierie, mais surtout pour des organisations qui gèrent un très grand volume de contenu généré."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il créer une bibliothèque de prompts partagée dans son équipe ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ça devient utile à partir d'un certain volume : un repère cité dans le secteur situe le seuil autour d'une trentaine de prompts actifs utilisés régulièrement par l'équipe. Avant ce seuil, le gain d'une bibliothèque formalisée est souvent inférieur au temps nécessaire pour la maintenir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que le \"context engineering\" dont on parle de plus en plus ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est le prolongement du prompt engineering classique : plutôt que de chercher la formulation magique d'une seule instruction, on structure l'historique de conversation, les données fournies et les contraintes business pour que le modèle comprenne mieux l'intention réelle derrière la demande."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Prompt engineering</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Prompt engineering pour le marketing : compétence de base ou effet de mode ?</h1>
+      <p class="sub-hook">Le terme fait parfois sourire, entre « ingénierie » et un simple champ de texte. Mais écrire un prompt qui produit un résultat utilisable du premier coup, de façon répétable à l'échelle d'une équipe, n'a rien d'instinctif — et c'est précisément ce qui en fait une vraie compétence, pas un gadget.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>31 octobre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-prompt-engineering-marketing-competence-2026-hero.png" alt="Illustration de la structure en 5 parties d'un prompt marketing efficace : rôle, contexte, tâche, format, exemples" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Plusieurs voix du secteur présentent désormais le prompt engineering comme une littératie de base pour 2026, au même rang que savoir lire un bilan financier. L'affirmation peut sembler excessive, mais elle pointe un vrai changement&nbsp;: la différence entre un prompt improvisé et un prompt structuré n'est plus marginale quand une équipe entière s'en sert au quotidien pour produire du contenu, des analyses ou des briefs.</p>
+
+<h2>La structure en 5 parties qui revient dans la plupart des guides</h2>
+
+<p>Au-delà des « trucs et astuces » qui ont dominé les débuts du prompt engineering, une structure simple s'impose comme base commune&nbsp;: <strong>rôle</strong> (qui le modèle doit incarner), <strong>contexte</strong> (les informations de fond nécessaires), <strong>tâche</strong> (ce qui est précisément demandé), <strong>format</strong> (la forme attendue de la réponse) et <strong>exemples</strong> (un ou plusieurs cas illustrant le résultat souhaité). Ce squelette ne garantit pas un résultat parfait, mais il élimine la majorité des réponses à côté du besoin.</p>
+
+<h2>Le glissement vers le « context engineering »</h2>
+
+<p>Plusieurs formations spécialisées décrivent un glissement récent&nbsp;: au-delà du prompt isolé, la discipline s'étend au « context engineering » — la façon de structurer l'historique de conversation, les données fournies et les contraintes business pour que le modèle comprenne mieux l'intention réelle derrière une demande, pas seulement sa formulation littérale. Un même prompt peut produire des résultats très différents selon le contexte qui l'entoure.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-prompt-engineering-marketing-competence-2026-resource.png" alt="Les 5 parties d'un prompt marketing structuré : rôle, contexte, tâche, format, exemples." width="900" height="340" loading="lazy">
+  <figcaption>Un squelette simple qui élimine la majorité des réponses à côté du besoin.</figcaption>
+</figure>
+
+<h2>Le repère pour savoir s'il faut formaliser une bibliothèque de prompts</h2>
+
+<p>Un guide spécialisé dans le recrutement de profils marketing décrit un rôle hybride de « content engineer », mêlant écriture et discipline d'ingénierie, et situe à une trentaine de prompts actifs le seuil au-delà duquel une bibliothèque partagée devient utile pour une équipe. En deçà de ce volume, documenter et maintenir une bibliothèque coûte probablement plus de temps qu'elle n'en fait gagner — mieux vaut qu'un ou deux membres de l'équipe capitalisent individuellement sur leurs meilleurs prompts avant de formaliser quoi que ce soit.</p>
+
+<h2>Le test simple pour savoir si votre équipe en a besoin</h2>
+
+<p>Si plusieurs personnes de l'équipe réécrivent, chacune de leur côté, des prompts proches pour des tâches similaires (brief de contenu, synthèse de reporting, déclinaison créative), c'est le signal le plus fiable qu'une structure partagée — même minimale, un simple document avec le squelette en 5 parties et deux ou trois exemples réussis — ferait gagner du temps immédiatement, sans attendre d'atteindre un volume important.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Le prompt engineering va-t-il devenir un métier à part dans le marketing ?</summary>
+    <p>Plutôt une compétence transversale intégrée aux métiers existants qu'un poste séparé pour la plupart des équipes. Certains guides évoquent un rôle hybride de « content engineer » qui mélange écriture et discipline d'ingénierie, mais surtout pour des organisations qui gèrent un très grand volume de contenu généré.</p>
+  </details>
+  <details>
+    <summary>Faut-il créer une bibliothèque de prompts partagée dans son équipe ?</summary>
+    <p>Ça devient utile à partir d'un certain volume : un repère cité dans le secteur situe le seuil autour d'une trentaine de prompts actifs utilisés régulièrement par l'équipe. Avant ce seuil, le gain d'une bibliothèque formalisée est souvent inférieur au temps nécessaire pour la maintenir.</p>
+  </details>
+  <details>
+    <summary>Qu'est-ce que le "context engineering" dont on parle de plus en plus ?</summary>
+    <p>C'est le prolongement du prompt engineering classique : plutôt que de chercher la formulation magique d'une seule instruction, on structure l'historique de conversation, les données fournies et les contraintes business pour que le modèle comprenne mieux l'intention réelle derrière la demande.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de structurer l'usage de l'IA dans votre équipe marketing ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Échanger sur vos usages IA</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir l'article <a href="/claude-vs-chatgpt-growth-marketing">Claude et ChatGPT en growth marketing</a>, et <a href="/prompts-marketing-erreurs-frequentes">Pourquoi vos prompts marketing ne donnent rien de bon</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/claude-vs-chatgpt-growth-marketing">Claude vs ChatGPT →</a>
+      <a href="/prompts-marketing-erreurs-frequentes">Erreurs de prompts →</a>
+      <a href="/agents-ia-marketing-ce-qu-on-peut-leur-confier">Agents IA marketing →</a>
+      <a href="/growth-marketing-ia-petites-equipes">Growth IA petites équipes →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
