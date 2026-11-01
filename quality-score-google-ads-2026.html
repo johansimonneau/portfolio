@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quality Score Google Ads : ce qui est officiel, ce qui est spéculation | Blog — Johan Simonneau</title>
+<meta name="description" content="Google documente précisément les 3 composants du Quality Score, mais ne publie aucune pondération. Ce qui est confirmé par Google, ce qui relève de la spéculation d'agence, et pourquoi l'Ad Rank n'est pas le Quality Score affiché.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/quality-score-google-ads-2026">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Quality Score Google Ads : ce qui est officiel, ce qui est spéculation">
+<meta property="og:description" content="Google documente précisément les 3 composants du Quality Score, mais ne publie aucune pondération. Ce qui est confirmé par Google, ce qui relève de la spéculation d'agence, et pourquoi l'Ad Rank n'est pas le Quality Score affiché.">
+<meta property="og:url" content="https://www.johansimonneau.fr/quality-score-google-ads-2026">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-quality-score-google-ads-2026-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-quality-score-google-ads-2026-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Quality Score Google Ads : ce qui est officiel, ce qui est spéculation", "item": "https://www.johansimonneau.fr/quality-score-google-ads-2026" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Quality Score Google Ads : ce qui est officiel, ce qui est spéculation",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-quality-score-google-ads-2026-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-12-01",
+      "dateModified": "2026-12-01",
+      "description": "Google documente précisément les 3 composants du Quality Score, mais ne publie aucune pondération. Ce qui est confirmé par Google, ce qui relève de la spéculation d'agence, et pourquoi l'Ad Rank n'est pas le Quality Score affiché.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/quality-score-google-ads-2026"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Le Quality Score affiché à 10/10 garantit-il la meilleure position possible ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Le chiffre sur 10 est un indicateur de diagnostic historique, mis à jour périodiquement. L'Ad Rank, qui détermine réellement la position et le coût par clic à chaque enchère, repose sur un calcul de qualité en temps réel plus fin que ce score affiché, combiné aux enchères et au contexte de la recherche."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le composant du Quality Score le plus important ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google ne publie aucune pondération officielle entre le CTR attendu, la pertinence de l'annonce et l'expérience de la page de destination. Toute affirmation du type « le CTR compte pour 40 % » vient de tests d'agences, pas de Google — à traiter comme une hypothèse de travail, pas comme un fait établi."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "L'essor des enchères automatisées a-t-il rendu le Quality Score inutile ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, il reste un signal de diagnostic utile pour repérer une annonce ou une page de destination mal alignée avec la requête, même si l'optimisation des enchères elle-même est désormais largement automatisée. Un Quality Score bas reste un symptôme à corriger, pas une métrique à ignorer."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Quality Score</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Quality Score Google Ads : ce qui est officiel, ce qui est spéculation</h1>
+      <p class="sub-hook">Tout le monde cite le Quality Score. Peu distinguent ce que Google documente réellement de ce qu'une agence a mesuré une fois sur un compte et généralisé depuis. La frontière entre les deux change concrètement ce qu'il faut regarder en priorité.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>1 décembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-quality-score-google-ads-2026-hero.png" alt="Illustration du Quality Score Google Ads décomposé en trois signaux officiels" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Peu de métriques Google Ads génèrent autant de règles maison que le Quality Score. Le problème n'est pas que ces règles soient fausses — certaines sont de bonnes heuristiques — mais qu'elles sont presque toujours présentées avec la même certitude que ce que Google documente officiellement, alors que les deux n'ont pas la même fiabilité.</p>
+
+<h2>Ce que Google documente, sans ambiguïté</h2>
+
+<p>Le Quality Score repose sur trois composants officiellement documentés&nbsp;: le CTR attendu (la probabilité estimée qu'une annonce soit cliquée par rapport aux autres annonceurs sur le même mot-clé), la pertinence de l'annonce (l'adéquation entre le mot-clé et le message de l'annonce) et l'expérience de la page de destination (la pertinence, la clarté et la facilité de navigation de la page vers laquelle pointe l'annonce). Chacun est noté Au-dessus de la moyenne, Moyen ou Au-dessous de la moyenne, relativement aux autres annonceurs sur ce même mot-clé — jamais dans l'absolu.</p>
+
+<h2>Ce que Google ne dit jamais&nbsp;: la pondération</h2>
+
+<p>Aucune publication officielle ne précise le poids relatif de ces trois composants dans le score final sur 10. Les affirmations qui circulent — « le CTR pèse pour 40&nbsp;%, la pertinence pour 30&nbsp;%&nbsp;» — proviennent de tests d'agences sur un échantillon de comptes, pas d'une documentation Google. Ce sont des hypothèses de travail qui peuvent orienter une priorisation, mais elles ne doivent jamais être présentées à un client comme un fait établi&nbsp;: Google ne les a confirmées à aucun moment.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-quality-score-google-ads-2026-resource.png" alt="Les trois composants officiels du Quality Score : CTR attendu, pertinence de l'annonce, expérience de la page de destination" width="900" height="340" loading="lazy">
+  <figcaption>Trois composants documentés par Google, aucune pondération officielle entre eux.</figcaption>
+</figure>
+
+<h2>Le piège le plus fréquent&nbsp;: confondre le score affiché et l'Ad Rank</h2>
+
+<p>Le chiffre sur 10 visible dans l'interface est un indicateur de diagnostic, recalculé périodiquement à partir d'un historique. Ce n'est pas ce chiffre qui détermine la position de l'annonce ni le coût par clic à l'instant de l'enchère&nbsp;: c'est l'Ad Rank, qui combine l'enchère, le contexte précis de la recherche et un calcul de qualité plus fin et en temps réel, distinct du score affiché. Un compte peut afficher un Quality Score moyen tout en obtenant un excellent Ad Rank sur une requête précise, et inversement&nbsp;: optimiser le chiffre affiché sans comprendre cette distinction revient à optimiser le mauvais indicateur.</p>
+
+<h2>Ce qui n'a pas changé avec l'essor des enchères automatisées</h2>
+
+<p>L'automatisation des enchères (Smart Bidding, Performance Max) ne rend pas le Quality Score obsolète&nbsp;: il reste un signal de diagnostic directement actionnable pour repérer une annonce mal alignée avec l'intention de recherche ou une page de destination qui déçoit après le clic. Ce que l'automatisation a changé, c'est le besoin d'optimiser manuellement les enchères elles-mêmes — pas le besoin de corriger ce que le Quality Score révèle en amont.</p>
+
+<h2>Comment trier le signal du bruit en pratique</h2>
+
+<p>Avant d'agir sur un Quality Score bas, distinguer trois niveaux de certitude&nbsp;: les composants eux-mêmes et leur note relative (officiel, fiable à 100&nbsp;%), le diagnostic qu'ils permettent — une annonce peu pertinente ou une page lente pénalise probablement le score (déduction logique, fiable) — et la pondération exacte entre composants (spéculation d'agence, à ne jamais citer comme un fait Google). Corriger le composant noté « Au-dessous de la moyenne » reste la meilleure action disponible, que la pondération exacte soit connue ou non.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Le Quality Score affiché à 10/10 garantit-il la meilleure position possible ?</summary>
+    <p>Non. Le chiffre sur 10 est un indicateur de diagnostic historique, mis à jour périodiquement. L'Ad Rank, qui détermine réellement la position et le coût par clic à chaque enchère, repose sur un calcul de qualité en temps réel plus fin que ce score affiché, combiné aux enchères et au contexte de la recherche.</p>
+  </details>
+  <details>
+    <summary>Quel est le composant du Quality Score le plus important ?</summary>
+    <p>Google ne publie aucune pondération officielle entre le CTR attendu, la pertinence de l'annonce et l'expérience de la page de destination. Toute affirmation du type « le CTR compte pour 40 % » vient de tests d'agences, pas de Google — à traiter comme une hypothèse de travail, pas comme un fait établi.</p>
+  </details>
+  <details>
+    <summary>L'essor des enchères automatisées a-t-il rendu le Quality Score inutile ?</summary>
+    <p>Non, il reste un signal de diagnostic utile pour repérer une annonce ou une page de destination mal alignée avec la requête, même si l'optimisation des enchères elle-même est désormais largement automatisée. Un Quality Score bas reste un symptôme à corriger, pas une métrique à ignorer.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un audit de la qualité réelle de vos campagnes Google Ads ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer mon Quality Score</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/sea">SEA</a>, et l'article <a href="/smart-bidding-google-ads-controle">Smart Bidding : ce qu'il faut vérifier avant de lui laisser le volant</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/sea">SEA →</a>
+      <a href="/smart-bidding-google-ads-controle">Smart Bidding →</a>
+      <a href="/performance-max-boite-noire-publicitaire">Performance Max →</a>
+      <a href="/google-ads-demand-gen-display-disparait">Google Ads Demand Gen →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
