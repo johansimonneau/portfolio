@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vitesse de chargement mobile et conversion : le seuil qui fait vraiment mal | Blog — Johan Simonneau</title>
+<meta name="description" content="Le taux de rebond mobile bondit de 32 % entre 1 et 3 secondes de chargement, puis de 90 % jusqu'à 5 secondes. Ce que les données disent sur le lien entre vitesse mobile et conversion, et pourquoi la plupart des sites e-commerce dépassent déjà ce seuil.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/vitesse-mobile-conversion-seuil-cro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vitesse de chargement mobile et conversion : le seuil qui fait vraiment mal">
+<meta property="og:description" content="Le taux de rebond mobile bondit de 32 % entre 1 et 3 secondes de chargement, puis de 90 % jusqu'à 5 secondes. Ce que les données disent sur le lien entre vitesse mobile et conversion, et pourquoi la plupart des sites e-commerce dépassent déjà ce seuil.">
+<meta property="og:url" content="https://www.johansimonneau.fr/vitesse-mobile-conversion-seuil-cro">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-vitesse-mobile-conversion-seuil-cro-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-vitesse-mobile-conversion-seuil-cro-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Vitesse de chargement mobile et conversion : le seuil qui fait vraiment mal", "item": "https://www.johansimonneau.fr/vitesse-mobile-conversion-seuil-cro" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Vitesse de chargement mobile et conversion : le seuil qui fait vraiment mal",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-vitesse-mobile-conversion-seuil-cro-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-12-05",
+      "dateModified": "2026-12-05",
+      "description": "Le taux de rebond mobile bondit de 32 % entre 1 et 3 secondes de chargement, puis de 90 % jusqu'à 5 secondes. Ce que les données disent sur le lien entre vitesse mobile et conversion, et pourquoi la plupart des sites e-commerce dépassent déjà ce seuil.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/vitesse-mobile-conversion-seuil-cro"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "À partir de combien de secondes de chargement mobile perd-on vraiment des clients ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le point de bascule le plus souvent cité se situe autour de 3 secondes : la probabilité de rebond augmente de 32 % entre 1 et 3 secondes de chargement, puis de 90 % entre 1 et 5 secondes. Ces chiffres, largement attribués à des analyses Google, sont des ordres de grandeur répétés dans de nombreuses sources plutôt qu'une mesure unique et à jour."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de conversion perd-on par seconde de chargement supplémentaire ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un chiffre couramment cité évoque environ 7 % de conversions perdues par seconde additionnelle, avec des estimations plus élevées sur mobile selon certaines sources. Ces chiffres varient significativement d'une source à l'autre et doivent être traités comme des ordres de grandeur, pas comme une formule universelle applicable à n'importe quel site."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mesurer le temps de chargement suffit-il pour diagnostiquer un problème de conversion mobile ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Le temps de chargement perçu par l'utilisateur dépend surtout de la rapidité d'affichage du contenu principal (proche de la logique du LCP) et de la réactivité aux premières interactions (proche de l'INP), pas uniquement du temps de chargement total de la page. Un diagnostic CRO sérieux croise ces métriques techniques avec le comportement réel observé en analytics."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Vitesse mobile et conversion</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Vitesse de chargement mobile et conversion : le seuil qui fait vraiment mal</h1>
+      <p class="sub-hook">Trois secondes. C'est le seuil au-delà duquel la probabilité de perdre un visiteur mobile s'accélère nettement. La majorité des sites e-commerce le dépassent déjà sans le savoir précisément — faute de le mesurer avec les bons outils.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>5 décembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-vitesse-mobile-conversion-seuil-cro-hero.png" alt="Illustration de la courbe de perte de conversion mobile en fonction du temps de chargement" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>La vitesse mobile est l'un des rares sujets CRO où le consensus est large&nbsp;: plus une page met de temps à s'afficher, plus elle perd de visiteurs avant même qu'ils aient vu l'offre. Ce qui est moins souvent précisé, c'est que cette perte n'est pas linéaire&nbsp;: elle s'accélère nettement à partir d'un seuil assez bas.</p>
+
+<h2>Le seuil le plus souvent cité&nbsp;: 3 secondes</h2>
+
+<p>Les chiffres largement attribués à des analyses Google et répétés depuis dans de nombreuses sources situent la probabilité de rebond en hausse de 32&nbsp;% lorsque le temps de chargement passe de 1 à 3&nbsp;secondes, puis de 90&nbsp;% lorsqu'il passe de 1 à 5&nbsp;secondes. L'essentiel de la dégradation se joue donc entre 1 et 3&nbsp;secondes&nbsp;: au-delà, chaque seconde supplémentaire continue de coûter cher, mais le gros de la perte a déjà eu lieu.</p>
+
+<h2>Le chiffre par seconde&nbsp;: à manier avec prudence</h2>
+
+<p>Un autre chiffre très répété évoque environ 7&nbsp;% de conversions perdues par seconde de chargement supplémentaire, avec des estimations plus élevées encore spécifiquement sur mobile selon certaines sources — jusqu'à une variance significative d'une étude à l'autre. Ce n'est pas une formule à appliquer mécaniquement à n'importe quel site&nbsp;: c'est un ordre de grandeur qui justifie de prendre la vitesse mobile au sérieux, pas un calcul de ROI précis transposable sans mesure propre.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-vitesse-mobile-conversion-seuil-cro-resource.png" alt="La probabilité de rebond mobile augmente de 32 % entre 1 et 3 secondes de chargement, puis de 90 % jusqu'à 5 secondes" width="900" height="340" loading="lazy">
+  <figcaption>L'essentiel de la perte se joue entre 1 et 3 secondes — au-delà, chaque seconde coûte encore, mais moins brutalement.</figcaption>
+</figure>
+
+<h2>Pourquoi le temps de chargement total ne suffit pas à diagnostiquer</h2>
+
+<p>Le temps de chargement perçu par un visiteur ne se résume pas à un chronomètre global&nbsp;: il dépend surtout de la rapidité d'affichage du contenu principal visible — la même logique que la métrique LCP — et de la réactivité aux premières interactions, proche de ce que mesure l'INP. Un site peut afficher un temps de chargement total correct tout en donnant une impression de lenteur si l'élément principal tarde à apparaître ou si les boutons restent figés quelques centaines de millisecondes après un clic.</p>
+
+<h2>Ce qu'il faut mesurer avant d'agir</h2>
+
+<p>Avant d'investir dans une optimisation technique, croiser trois sources&nbsp;: les Core Web Vitals réels du site (LCP, INP, CLS, mesurés sur des visiteurs réels et non uniquement en laboratoire), le taux de rebond mobile segmenté par tranche de temps de chargement dans l'outil d'analytics, et un test utilisateur simple sur un mobile d'entrée de gamme avec une connexion dégradée — l'expérience en conditions optimales au bureau masque souvent l'ampleur réelle du problème pour une partie significative de l'audience.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>À partir de combien de secondes de chargement mobile perd-on vraiment des clients ?</summary>
+    <p>Le point de bascule le plus souvent cité se situe autour de 3 secondes : la probabilité de rebond augmente de 32 % entre 1 et 3 secondes de chargement, puis de 90 % entre 1 et 5 secondes. Ces chiffres, largement attribués à des analyses Google, sont des ordres de grandeur répétés dans de nombreuses sources plutôt qu'une mesure unique et à jour.</p>
+  </details>
+  <details>
+    <summary>Combien de conversion perd-on par seconde de chargement supplémentaire ?</summary>
+    <p>Un chiffre couramment cité évoque environ 7 % de conversions perdues par seconde additionnelle, avec des estimations plus élevées sur mobile selon certaines sources. Ces chiffres varient significativement d'une source à l'autre et doivent être traités comme des ordres de grandeur, pas comme une formule universelle applicable à n'importe quel site.</p>
+  </details>
+  <details>
+    <summary>Mesurer le temps de chargement suffit-il pour diagnostiquer un problème de conversion mobile ?</summary>
+    <p>Non. Le temps de chargement perçu par l'utilisateur dépend surtout de la rapidité d'affichage du contenu principal (proche de la logique du LCP) et de la réactivité aux premières interactions (proche de l'INP), pas uniquement du temps de chargement total de la page. Un diagnostic CRO sérieux croise ces métriques techniques avec le comportement réel observé en analytics.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de savoir ce que la vitesse mobile coûte vraiment à votre conversion ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Diagnostiquer mon CRO</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/cro">CRO</a>, et l'article <a href="/landing-page-reduire-cout-par-lead">Ce qui fait vraiment baisser le coût par lead sur une landing page</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/cro">CRO →</a>
+      <a href="/landing-page-reduire-cout-par-lead">Coût par lead →</a>
+      <a href="/heatmaps-analyse-comportementale">Heatmaps →</a>
+      <a href="/trust-signals-cro-reassurance-achat">Trust signals →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
