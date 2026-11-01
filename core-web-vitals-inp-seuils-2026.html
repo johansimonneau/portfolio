@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INP et Core Web Vitals : le seuil qui compte vraiment en 2026 | Blog — Johan Simonneau</title>
+<meta name="description" content="Une rumeur circule sur un durcissement des seuils INP en 2026. Le seuil officiel de Google reste inchangé depuis 2024 — voici ce qui est documenté, ce qui ne l'est pas, et pourquoi la confusion persiste.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/core-web-vitals-inp-seuils-2026">
+<meta property="og:type" content="article">
+<meta property="og:title" content="INP et Core Web Vitals : le seuil qui compte vraiment en 2026">
+<meta property="og:description" content="Une rumeur circule sur un durcissement des seuils INP en 2026. Le seuil officiel de Google reste inchangé depuis 2024 — voici ce qui est documenté, ce qui ne l'est pas, et pourquoi la confusion persiste.">
+<meta property="og:url" content="https://www.johansimonneau.fr/core-web-vitals-inp-seuils-2026">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-core-web-vitals-inp-seuils-2026-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-core-web-vitals-inp-seuils-2026-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "INP et Core Web Vitals : le seuil qui compte vraiment en 2026", "item": "https://www.johansimonneau.fr/core-web-vitals-inp-seuils-2026" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "INP et Core Web Vitals : le seuil qui compte vraiment en 2026",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-core-web-vitals-inp-seuils-2026-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-12-03",
+      "dateModified": "2026-12-03",
+      "description": "Une rumeur circule sur un durcissement des seuils INP en 2026. Le seuil officiel de Google reste inchangé depuis 2024 — voici ce qui est documenté, ce qui ne l'est pas, et pourquoi la confusion persiste.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/core-web-vitals-inp-seuils-2026"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Le seuil « bon » de l'INP a-t-il changé en 2026 ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, pas selon la documentation officielle de Google (web.dev). Le seuil reste à 200 millisecondes ou moins pour « bon », au-delà de 500 ms pour « à améliorer », mesuré au 75e percentile des interactions des visiteurs réels. Des publications tierces évoquent un seuil abaissé à 150 ms sans citer de source primaire Google vérifiable — à ne pas prendre pour acquis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles sont les trois métriques Core Web Vitals actuelles ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "LCP (Largest Contentful Paint, le temps de chargement du plus grand élément visible), INP (Interaction to Next Paint, la réactivité aux interactions) et CLS (Cumulative Layout Shift, la stabilité visuelle). Aucune quatrième métrique Core Web Vital n'a été ajoutée depuis le remplacement de FID par INP en mars 2024."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi l'INP a-t-il remplacé le FID en 2024 ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le FID ne mesurait que le délai avant la première interaction, ce qui laissait de côté les lenteurs ressenties sur les interactions suivantes. L'INP évalue la réactivité sur l'ensemble des interactions d'une visite, ce qui donne une mesure plus représentative de l'expérience réelle d'un visiteur."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">INP et Core Web Vitals</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>INP et Core Web Vitals : le seuil qui compte vraiment en 2026</h1>
+      <p class="sub-hook">Une rumeur circule sur les blogs SEO : un seuil INP abaissé à 150 ms depuis 2026. Elle ne figure dans aucune documentation Google. Voici ce qui est réellement documenté, et pourquoi ce genre de rumeur se propage si facilement.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>3 décembre 2026</span>
+        <span>·</span>
+        <span>5 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-core-web-vitals-inp-seuils-2026-hero.png" alt="Illustration du seuil INP des Core Web Vitals avec les zones bon, à améliorer et mauvais" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Une affirmation revient régulièrement dans des articles SEO publiés en 2026&nbsp;: Google aurait resserré le seuil « bon » de l'INP à 150&nbsp;millisecondes, contre 200&nbsp;ms auparavant. Le problème, c'est qu'aucune de ces publications ne cite la documentation officielle de Google à l'appui — et pour une bonne raison&nbsp;: elle ne le dit pas.</p>
+
+<h2>Ce que web.dev documente, sans ambiguïté</h2>
+
+<p>La documentation officielle de Google (web.dev) fixe le seuil « bon » de l'INP à 200&nbsp;ms ou moins, « à améliorer » entre 200 et 500&nbsp;ms, « mauvais » au-delà de 500&nbsp;ms. Ce seuil est mesuré au 75e&nbsp;percentile des interactions enregistrées auprès de visiteurs réels — pas une moyenne, mais le point sous lequel se situent 75&nbsp;% des interactions observées. Ces chiffres n'ont pas changé depuis l'introduction de l'INP comme Core Web Vital, en mars 2024.</p>
+
+<h2>D'où vient la confusion</h2>
+
+<p>Deux dynamiques alimentent ce genre de rumeur&nbsp;: la republication en chaîne d'un chiffre inventé par un premier article sans source, repris ensuite par d'autres sans vérification — un classique du contenu SEO généré en volume — et la confusion entre le seuil officiel et des recommandations internes plus strictes que certaines agences appliquent à leurs propres clients, pour viser une marge de sécurité. Ces recommandations peuvent être de bonnes pratiques, mais elles ne sont pas le seuil Google, et les présenter comme telles induit en erreur.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-core-web-vitals-inp-seuils-2026-resource.png" alt="Le seuil INP officiel reste à 200 ms depuis 2024, malgré une rumeur non confirmée d'un seuil à 150 ms en 2026" width="900" height="340" loading="lazy">
+  <figcaption>Le seuil officiel n'a pas changé — seule la rumeur a circulé.</figcaption>
+</figure>
+
+<h2>Les trois métriques qui comptent toujours</h2>
+
+<p>LCP (Largest Contentful Paint), INP et CLS (Cumulative Layout Shift) restent les trois Core Web Vitals actuelles. Aucune quatrième métrique n'a été ajoutée depuis le remplacement du FID par l'INP. Un site qui respecte les trois seuils « bon » documentés — LCP sous 2,5&nbsp;secondes, INP sous 200&nbsp;ms, CLS sous 0,1 — reste aligné avec les standards actuels de Google, sans qu'il soit nécessaire de courir après un seuil plus strict non confirmé.</p>
+
+<h2>Comment vérifier une affirmation de ce genre avant de la relayer</h2>
+
+<p>Face à un chiffre technique qui circule sans source, le réflexe le plus simple reste de remonter à la documentation officielle&nbsp;: la page <em>web.dev/articles/inp</em> pour les seuils INP, ou <em>web.dev/articles/defining-core-web-vitals-thresholds</em> pour la méthodologie de définition des seuils. Si l'affirmation n'y figure pas et qu'aucune annonce officielle de Google ne la confirme non plus, mieux vaut la traiter comme non vérifiée plutôt que de l'intégrer à un audit ou une recommandation client.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Le seuil « bon » de l'INP a-t-il changé en 2026 ?</summary>
+    <p>Non, pas selon la documentation officielle de Google (web.dev). Le seuil reste à 200 millisecondes ou moins pour « bon », au-delà de 500 ms pour « à améliorer », mesuré au 75e percentile des interactions des visiteurs réels. Des publications tierces évoquent un seuil abaissé à 150 ms sans citer de source primaire Google vérifiable — à ne pas prendre pour acquis.</p>
+  </details>
+  <details>
+    <summary>Quelles sont les trois métriques Core Web Vitals actuelles ?</summary>
+    <p>LCP (Largest Contentful Paint, le temps de chargement du plus grand élément visible), INP (Interaction to Next Paint, la réactivité aux interactions) et CLS (Cumulative Layout Shift, la stabilité visuelle). Aucune quatrième métrique Core Web Vital n'a été ajoutée depuis le remplacement de FID par INP en mars 2024.</p>
+  </details>
+  <details>
+    <summary>Pourquoi l'INP a-t-il remplacé le FID en 2024 ?</summary>
+    <p>Le FID ne mesurait que le délai avant la première interaction, ce qui laissait de côté les lenteurs ressenties sur les interactions suivantes. L'INP évalue la réactivité sur l'ensemble des interactions d'une visite, ce qui donne une mesure plus représentative de l'expérience réelle d'un visiteur.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un audit technique fiable de vos Core Web Vitals ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer mon site</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/seo">SEO</a>, et l'article <a href="/google-core-updates-2026-calendrier">Les core updates Google de 2026</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/seo">SEO →</a>
+      <a href="/google-core-updates-2026-calendrier">Core updates 2026 →</a>
+      <a href="/ai-overviews-google-trafic-seo">Impact des AI Overviews →</a>
+      <a href="/landing-page-reduire-cout-par-lead">Coût par lead →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
