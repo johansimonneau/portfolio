@@ -768,4 +768,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://www.johansimonneau.fr/google-ai-mode-france-2026</loc>
+    <lastmod>2026-12-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
