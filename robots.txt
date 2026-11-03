@@ -1,4 +1,26 @@
+# robots.txt — www.johansimonneau.fr
+# Tout le site est ouvert à l'exploration, y compris aux crawlers IA
+# (recherche/citation et entraînement) : l'objectif est d'être cité
+# par Google, Bing, ChatGPT, Claude, Perplexity et les AI Overviews.
+
 User-agent: *
 Allow: /
 
+# Moteurs de réponse IA — déclarés explicitement pour lever toute ambiguïté
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: ClaudeBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bingbot
+User-agent: DuckAssistBot
+User-agent: MistralAI-User
+Allow: /
+
+# Index pour les LLM : https://www.johansimonneau.fr/llms.txt
 Sitemap: https://www.johansimonneau.fr/sitemap.xml
