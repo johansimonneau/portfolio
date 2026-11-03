@@ -169,6 +169,26 @@ l'assignation directe `element.style.xxx = ...`, jamais via un `style=""`
 HTML `hidden` sur un `<svg>` (ne se masque pas de façon fiable dans
 Chromium).
 
+### SEO & GEO : conventions à respecter sur chaque nouvelle page
+
+- **`<title>` ≤ 60 caractères** (mot-clé en tête, pas de suffixe « | Blog — Johan
+  Simonneau » qui serait tronqué dans Google) et **meta description ≤ 155
+  caractères**. Le `og:title` peut rester plus long.
+- `og:locale` (`fr_FR`) et `og:site_name` juste après `og:type`.
+- **Graphe d'entités JSON-LD** : Johan Simonneau est déclaré une seule fois
+  avec `"@id": "https://www.johansimonneau.fr/#person"` (home + `/a-propos`),
+  le site avec `"@id": "https://www.johansimonneau.fr/#website"`. Chaque
+  `BlogPosting`/`Article`/`TechArticle` reprend ces `@id` dans `author` et
+  `publisher`, et ajoute `inLanguage: "fr-FR"` + `isPartOf` → `#website`.
+  C'est ce qui permet à Google et aux LLM de rattacher tous les contenus à la
+  même entité.
+- **`llms.txt`** : ajouter chaque nouvelle page/article dans la bonne
+  section (blog : sous la catégorie affichée sur `/blog`), au format
+  `- [Titre](URL absolue): description`.
+- `robots.txt` autorise explicitement les crawlers IA (recherche et
+  entraînement) : ne pas en bloquer sans arbitrage, cela retirerait le site
+  des réponses de ChatGPT/Claude/Perplexity.
+
 ## Diagnostic interactif (`/diagnostic`)
 
 Quiz en 6 questions (tracking, acquisition payante, SEO, GEO, CRO, pilotage)
