@@ -64,6 +64,7 @@ Johan intervient en mission freelance (pas d'agence, pas d'intermédiaire) sur l
 - [TikTok Ads Freelance | Consultant Publicité TikTok](https://www.johansimonneau.fr/tiktok-ads): Consultant TikTok Ads freelance. Cas clients Swapn et Tiime : scaling paid social multi-plateformes, +230% et +900% de croissance.
 - [Tracking Mobile Firebase & Adjust | Attribution App](https://www.johansimonneau.fr/tracking-mobile): Mise en place du tracking mobile (Firebase, Adjust) pour mesurer fiablement l'acquisition et la rétention de votre application, malgré les restrictions iOS.
 - [YouTube Ads Freelance | Publicité Vidéo Google Ads](https://www.johansimonneau.fr/youtube-ads): Consultant YouTube Ads freelance : stratégie vidéo intégrée à votre écosystème Google Ads, du ciblage au format le plus adapté à votre objectif.
+- [Marque blanche pour agences](https://www.johansimonneau.fr/marque-blanche): Freelance en marque blanche pour agences : SEA, SEO, GEO, Analytics, CRO. Vous gardez la relation client, je livre sous votre marque. Basé à Chambéry.
 
 ## Connecteurs MCP marketing (Claude, ChatGPT)
 
