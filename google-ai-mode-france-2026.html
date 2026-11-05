@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google AI Mode arrive en France : ce que ça change pour votre visibilité | Blog — Johan Simonneau</title>
+<meta name="description" content="Le 22 juillet 2026, Google a déployé AI Mode et les AI Overviews en France — le dernier grand marché européen à les recevoir. Ce qui a changé, ce qu'on sait sur l'impact sur le clic, et ce qui reste à vérifier avant d'en tirer des conclusions.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/google-ai-mode-france-2026">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google AI Mode arrive en France : ce que ça change pour votre visibilité">
+<meta property="og:description" content="Le 22 juillet 2026, Google a déployé AI Mode et les AI Overviews en France — le dernier grand marché européen à les recevoir. Ce qui a changé, ce qu'on sait sur l'impact sur le clic, et ce qui reste à vérifier avant d'en tirer des conclusions.">
+<meta property="og:url" content="https://www.johansimonneau.fr/google-ai-mode-france-2026">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-google-ai-mode-france-2026-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-google-ai-mode-france-2026-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Google AI Mode arrive en France : ce que ça change pour votre visibilité", "item": "https://www.johansimonneau.fr/google-ai-mode-france-2026" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Google AI Mode arrive en France : ce que ça change pour votre visibilité",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-google-ai-mode-france-2026-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-11-05",
+      "dateModified": "2026-11-05",
+      "description": "Le 22 juillet 2026, Google a déployé AI Mode et les AI Overviews en France — le dernier grand marché européen à les recevoir. Ce qui a changé, ce qu'on sait sur l'impact sur le clic, et ce qui reste à vérifier avant d'en tirer des conclusions.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/google-ai-mode-france-2026"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qui distingue Google AI Mode des AI Overviews ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI Overviews reste intégré en haut des résultats de recherche classiques, pour une partie des requêtes. AI Mode est un onglet de recherche à part, pensé pour des échanges conversationnels en plusieurs étapes plutôt qu'une requête unique — les deux fonctionnalités coexistent et ont été déployées en France le même jour."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi la France a-t-elle reçu AI Overviews et AI Mode si tard par rapport au reste de l'Europe ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les AI Overviews avaient déjà été déployés dans neuf autres pays européens dès mars 2025. Le retard français est largement attribué aux tensions autour de la loi sur les droits voisins de la presse, qui a retardé les négociations entre Google et les éditeurs français avant le déploiement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il déjà changer sa stratégie SEO à cause du déploiement d'AI Mode en France ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas dans l'urgence. Le déploiement est trop récent pour disposer de données françaises fiables sur son impact réel ; les fondamentaux (structure claire, autorité, données factuelles citables) restent valables pour le SEO classique comme pour la visibilité dans ces réponses génératives."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">AI Mode en France</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Google AI Mode arrive en France : ce que ça change pour votre visibilité</h1>
+      <p class="sub-hook">La France a été le dernier grand marché européen à recevoir les AI Overviews et AI Mode. Le retard s'explique, mais le déploiement a maintenant eu lieu — et il change la donne même sans intégration publicitaire pour l'instant.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>5 novembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-google-ai-mode-france-2026-hero.png" alt="Illustration du déploiement de Google AI Mode et des AI Overviews en France en juillet 2026" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Le 22 juillet 2026, Google a déployé simultanément les AI Overviews et AI Mode en France. Rien d'inédit sur le principe&nbsp;: les deux fonctionnalités existaient déjà ailleurs depuis longtemps. Ce qui l'est, c'est le calendrier&nbsp;: la France a été l'un des derniers grands marchés européens à les recevoir, loin derrière neuf autres pays du continent qui les avaient déjà en mars 2025.</p>
+
+<h2>Pourquoi ce retard n'était pas technique</h2>
+
+<p>Le décalage s'explique largement par les tensions autour de la loi française sur les droits voisins de la presse, qui encadre la rémunération des éditeurs pour la reprise de leurs contenus par les plateformes. Les négociations entre Google et les éditeurs français autour de cette question ont retardé un déploiement qui était, lui, disponible techniquement depuis longtemps dans d'autres pays comparables.</p>
+
+<h2>Deux fonctionnalités distinctes, déployées le même jour</h2>
+
+<p>Les AI Overviews restent intégrés directement en haut des résultats de recherche classiques, pour une partie des requêtes seulement. AI Mode est un onglet de recherche séparé, pensé pour des échanges conversationnels en plusieurs étapes plutôt qu'une requête unique — l'utilisateur peut affiner sa demande au fil de la conversation, un peu comme avec un chatbot, mais directement intégré à l'interface de recherche Google. Les deux coexistent&nbsp;: l'un n'est pas une évolution de l'autre.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-google-ai-mode-france-2026-resource.png" alt="AI Overviews intégré aux résultats classiques et AI Mode comme onglet de recherche séparé, déployés en France le 22 juillet 2026" width="900" height="340" loading="lazy">
+  <figcaption>Deux fonctionnalités distinctes, déployées le même jour en France — ni intégration publicitaire ni données françaises fiables pour l'instant.</figcaption>
+</figure>
+
+<h2>Ce que les premières données françaises montrent déjà</h2>
+
+<p>Une première étude française a depuis comblé une partie du vide initial. Ahrefs a suivi 963 domaines dans Google Search Console sur les 28 jours précédant le lancement et les 9 jours suivants&nbsp;: la baisse moyenne de CTR ressort à 3,4&nbsp;%, mais grimpe à 23,1&nbsp;% pour les domaines les plus exposés aux AI Overviews, et à 20,4&nbsp;% pour le secteur de la santé, le plus touché. Neuf jours de recul, c'est court&nbsp;: la tendance reste à confirmer sur une période plus longue. En parallèle, l'ACPM a signalé une baisse de trafic des sites d'information français par rapport à septembre 2025, mais la cause fait débat&nbsp;: le directeur de Google France affirme n'observer aucune baisse significative sur les requêtes d'actualité, et plusieurs analystes évoquent aussi une mise à jour anti-spam survenue à la même période. Une étude américaine antérieure, sur un marché au déploiement plus ancien, observait une chute du CTR de la position 1 pouvant atteindre 58&nbsp;% fin 2025&nbsp;: un ordre de grandeur à ne pas transposer tel quel en France.</p>
+
+<h2>Ce qui ne change pas dans l'urgence</h2>
+
+<p>Ni les AI Overviews ni AI Mode n'intègrent de publicité en France pour l'instant&nbsp;: la pression concurrentielle immédiate reste sur l'organique, pas sur le payant. Fin octobre 2026, Google a étendu la publicité dans AI Mode à dix autres marchés (Australie, Canada, Inde, Kenya, Malaisie, Nouvelle-Zélande, Nigeria, Pakistan, Philippines, Singapour) — la France n'en fait pas partie, mais la bascule pourrait ne pas être loin derrière. Face à un changement aussi récent, les fondamentaux restent le point d'appui le plus solide&nbsp;: une structure claire, des données factuelles vérifiables, une autorité établie — les mêmes critères qui comptent pour le SEO classique comme pour la visibilité dans les réponses génératives. Revoir toute sa stratégie de contenu sur la base d'un déploiement de quelques mois serait aller plus vite que les données ne le permettent.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Qu'est-ce qui distingue Google AI Mode des AI Overviews ?</summary>
+    <p>AI Overviews reste intégré en haut des résultats de recherche classiques, pour une partie des requêtes. AI Mode est un onglet de recherche à part, pensé pour des échanges conversationnels en plusieurs étapes plutôt qu'une requête unique — les deux fonctionnalités coexistent et ont été déployées en France le même jour.</p>
+  </details>
+  <details>
+    <summary>Pourquoi la France a-t-elle reçu AI Overviews et AI Mode si tard par rapport au reste de l'Europe ?</summary>
+    <p>Les AI Overviews avaient déjà été déployés dans neuf autres pays européens dès mars 2025. Le retard français est largement attribué aux tensions autour de la loi sur les droits voisins de la presse, qui a retardé les négociations entre Google et les éditeurs français avant le déploiement.</p>
+  </details>
+  <details>
+    <summary>Faut-il déjà changer sa stratégie SEO à cause du déploiement d'AI Mode en France ?</summary>
+    <p>Pas dans l'urgence. Les premières données françaises (étude Ahrefs, 9 jours de recul) montrent un effet réel mais encore récent à confirmer ; les fondamentaux (structure claire, autorité, données factuelles citables) restent valables pour le SEO classique comme pour la visibilité dans ces réponses génératives.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de savoir où vous en êtes dans ces réponses génératives ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Demander un audit GEO</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, et l'article <a href="/ai-overviews-google-trafic-seo">L'impact réel des AI Overviews de Google sur votre trafic SEO</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/ai-overviews-google-trafic-seo">Impact des AI Overviews →</a>
+      <a href="/guide-complet-geo-ranker-llm">Guide GEO complet →</a>
+      <a href="/auditer-visibilite-chatgpt-perplexity">Auditer sa visibilité IA →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
