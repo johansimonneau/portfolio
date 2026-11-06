@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enhanced Conversions sur Google Ads : comment ça marche, et les erreurs qui cassent le signal | Blog — Johan Simonneau</title>
+<meta name="description" content="Les conversions améliorées (Enhanced Conversions) récupèrent du signal de conversion perdu aux restrictions cookies. Mécanique réelle, les deux modes Web et Leads, et les erreurs de configuration les plus fréquentes.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/google-ads-enhanced-conversions-tracking">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Enhanced Conversions sur Google Ads : comment ça marche, et les erreurs qui cassent le signal">
+<meta property="og:description" content="Les conversions améliorées (Enhanced Conversions) récupèrent du signal de conversion perdu aux restrictions cookies. Mécanique réelle, les deux modes Web et Leads, et les erreurs de configuration les plus fréquentes.">
+<meta property="og:url" content="https://www.johansimonneau.fr/google-ads-enhanced-conversions-tracking">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-google-ads-enhanced-conversions-tracking-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-google-ads-enhanced-conversions-tracking-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Enhanced Conversions sur Google Ads : comment ça marche, et les erreurs qui cassent le signal", "item": "https://www.johansimonneau.fr/google-ads-enhanced-conversions-tracking" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Enhanced Conversions sur Google Ads : comment ça marche, et les erreurs qui cassent le signal",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-google-ads-enhanced-conversions-tracking-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-12-08",
+      "dateModified": "2026-12-08",
+      "description": "Les conversions améliorées (Enhanced Conversions) récupèrent du signal de conversion perdu aux restrictions cookies. Mécanique réelle, les deux modes Web et Leads, et les erreurs de configuration les plus fréquentes.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/google-ads-enhanced-conversions-tracking"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Les Enhanced Conversions envoient-elles des données personnelles en clair à Google ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Les identifiants (email, téléphone, nom, adresse) sont hachés en SHA256 côté site avant tout envoi, de façon irréversible. Google indique ne recevoir que les empreintes hachées, jamais la donnée brute, et supprimer les hachages qui ne trouvent pas de correspondance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre Enhanced Conversions for Web et for Leads ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La version Web hache la donnée au moment même d'une conversion sur le site via gtag ou Google Tag Manager. La version Leads sert aux conversions hors ligne : la donnée du formulaire est hachée et stockée, puis rattachée au clic publicitaire d'origine lors de l'import différé de la conversion offline, une fois le lead devenu client."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi mes Enhanced Conversions ne remontent-elles aucune donnée malgré une configuration apparente ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La cause la plus fréquente est l'oubli d'activer l'option au niveau de chaque action de conversion dans l'interface Google Ads, en plus du tag technique. Viennent ensuite le mauvais mappage des variables dans Google Tag Manager, une configuration de Consent Mode qui bloque le signal, et des champs mal formatés (email mal saisi, téléphone incomplet)."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Enhanced Conversions Google Ads</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Enhanced Conversions sur Google Ads : comment ça marche, et les erreurs qui cassent le signal</h1>
+      <p class="sub-hook">Beaucoup de comptes ont activé les conversions améliorées sans vérifier qu'elles remontent vraiment de la donnée. La mécanique est simple sur le papier, mais trois ou quatre erreurs de configuration suffisent à la rendre inopérante en silence.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>8 décembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-google-ads-enhanced-conversions-tracking-hero.png" alt="Illustration du fonctionnement des Enhanced Conversions Google Ads : hachage côté site puis correspondance côté Google" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Les Enhanced Conversions (conversions améliorées) existent depuis plusieurs années dans Google Ads, mais leur adoption reste inégale&nbsp;: beaucoup de comptes ont coché l'option sans vérifier ensuite, via le rapport de diagnostic, que la donnée remonte réellement. Le principe est documenté par Google de façon précise&nbsp;: il vaut mieux le comprendre avant de l'activer que de cocher une case et espérer.</p>
+
+<h2>Le principe&nbsp;: hacher une donnée que vous possédez déjà</h2>
+
+<p>Le mécanisme complète le tag de conversion existant&nbsp;: au moment d'une conversion, le site capture un identifiant de première partie — email, téléphone, nom, adresse — le transforme en empreinte irréversible via l'algorithme SHA256, puis envoie cette empreinte à Google en même temps que le signal de conversion habituel. Google rapproche cette empreinte de ses propres données hachées côté utilisateurs connectés, pour rattacher des conversions qui auraient été perdues à cause des restrictions sur les cookies tiers, des bloqueurs de publicité, ou d'un parcours multi-appareils. Aucune donnée brute n'est transmise&nbsp;: seule l'empreinte circule, et Google indique supprimer les empreintes qui ne trouvent pas de correspondance.</p>
+
+<h2>Deux modes, pour deux types de conversion</h2>
+
+<p>La version <strong>Enhanced Conversions for Web</strong> s'installe via gtag ou Google Tag Manager et hache la donnée au moment précis d'une conversion en ligne — un achat, une inscription, une soumission de formulaire. La version <strong>Enhanced Conversions for Leads</strong> répond à un besoin différent&nbsp;: les cycles de vente B2B où le lead capté sur le site ne devient client que des semaines plus tard, dans un CRM. Dans ce cas, l'identifiant du formulaire est haché et conservé, puis rattaché au clic publicitaire d'origine lors de l'import différé de la conversion offline. C'est la version la plus pertinente pour un cycle de vente long, et la plus souvent mal configurée faute de lien propre entre le CRM et Google Ads.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-google-ads-enhanced-conversions-tracking-resource.png" alt="Schéma des deux modes Enhanced Conversions : for Web au moment de la conversion en ligne, for Leads via import différé depuis le CRM" width="900" height="340" loading="lazy">
+  <figcaption>Deux mécaniques distinctes selon que la conversion se fait en ligne ou passe par un cycle de vente avec CRM.</figcaption>
+</figure>
+
+<h2>Le consentement n'est pas une option annexe</h2>
+
+<p>Google recommande fortement l'activation du Consent Mode pour les Enhanced Conversions, sans toujours l'imposer comme condition technique stricte selon les supports consultés — la vraie contrainte dure reste l'obligation générale du Consent Mode v2 dans l'Espace économique européen depuis mars 2024 pour toute mesure Google Ads, Enhanced Conversions comprises. En pratique, une configuration de consentement mal réglée est l'une des causes les plus fréquentes d'un signal qui ne remonte pas, sans qu'aucun message d'erreur explicite ne le signale dans l'interface.</p>
+
+<h2>Le gain mesuré&nbsp;: réel, mais pas un chiffre unique à retenir</h2>
+
+<p>Google communique sur des gains de mesure liés à l'activation des Enhanced Conversions, mais les ordres de grandeur varient selon les supports officiels eux-mêmes et selon le type de campagne&nbsp;: les effets rapportés sur YouTube sont généralement présentés comme plus importants que sur Search. Des études de cas ponctuelles, publiées par Google ou par des annonceurs, affichent des gains encore plus marqués sur des comptes spécifiques. Aucun de ces chiffres ne constitue une garantie transposable à un compte donné&nbsp;: le vrai indicateur à suivre est le taux de correspondance (match rate) visible dans le rapport de diagnostic propre à chaque compte, pas une statistique moyenne publiée ailleurs.</p>
+
+<h2>Les erreurs qui cassent le signal en silence</h2>
+
+<p>Cinq causes reviennent le plus souvent, par ordre de fréquence observée&nbsp;: l'option « Activer les conversions améliorées » non cochée au niveau de chaque action de conversion individuelle dans l'interface Google Ads — l'erreur la plus courante, malgré un tag technique par ailleurs correctement posé&nbsp;; un mauvais mappage des variables dans Google Tag Manager, qui laisse les champs hachés vides&nbsp;; une configuration de consentement qui bloque le signal avant même qu'il parte&nbsp;; des données mal formatées (email mal saisi, numéro de téléphone incomplet) qui abaissent le taux de correspondance sans le faire tomber à zéro&nbsp;; et, côté Leads spécifiquement, un tag de liaison de conversion absent qui empêche de rattacher l'import offline au clic d'origine. Le rapport de diagnostic intégré à Google Ads reste l'outil officiel pour objectiver lequel de ces points touche un compte donné, plutôt que de deviner.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Les Enhanced Conversions envoient-elles des données personnelles en clair à Google ?</summary>
+    <p>Non. Les identifiants (email, téléphone, nom, adresse) sont hachés en SHA256 côté site avant tout envoi, de façon irréversible. Google indique ne recevoir que les empreintes hachées, jamais la donnée brute, et supprimer les hachages qui ne trouvent pas de correspondance.</p>
+  </details>
+  <details>
+    <summary>Quelle est la différence entre Enhanced Conversions for Web et for Leads ?</summary>
+    <p>La version Web hache la donnée au moment même d'une conversion sur le site via gtag ou Google Tag Manager. La version Leads sert aux conversions hors ligne : la donnée du formulaire est hachée et stockée, puis rattachée au clic publicitaire d'origine lors de l'import différé de la conversion offline, une fois le lead devenu client.</p>
+  </details>
+  <details>
+    <summary>Pourquoi mes Enhanced Conversions ne remontent-elles aucune donnée malgré une configuration apparente ?</summary>
+    <p>La cause la plus fréquente est l'oubli d'activer l'option au niveau de chaque action de conversion dans l'interface Google Ads, en plus du tag technique. Viennent ensuite le mauvais mappage des variables dans Google Tag Manager, une configuration de Consent Mode qui bloque le signal, et des champs mal formatés (email mal saisi, téléphone incomplet).</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de vérifier si vos Enhanced Conversions remontent vraiment de la donnée ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer mon tracking Google Ads</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/analytics">Analytics</a>, et l'article <a href="/consent-mode-v2-erreurs-configuration">Consent Mode v2 : ce qui casse vraiment vos données si mal configuré</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/analytics">Analytics →</a>
+      <a href="/consent-mode-v2-erreurs-configuration">Consent Mode v2 →</a>
+      <a href="/server-side-tracking-conversion-api">Conversion API →</a>
+      <a href="/sea">SEA →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
