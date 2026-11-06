@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zero-click searches : pourquoi aucun chiffre unique ne dit la vérité | Blog — Johan Simonneau</title>
+<meta name="description" content="17 %, 26 %, 59 %, 68 % : les études sur les recherches sans clic se contredisent ouvertement. La raison tient à la définition utilisée, pas à une évolution réelle. Ce qui est solide, et ce qui ne l'est pas.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/zero-click-search-vrai-chiffre">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zero-click searches : pourquoi aucun chiffre unique ne dit la vérité">
+<meta property="og:description" content="17 %, 26 %, 59 %, 68 % : les études sur les recherches sans clic se contredisent ouvertement. La raison tient à la définition utilisée, pas à une évolution réelle. Ce qui est solide, et ce qui ne l'est pas.">
+<meta property="og:url" content="https://www.johansimonneau.fr/zero-click-search-vrai-chiffre">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-zero-click-search-vrai-chiffre-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-zero-click-search-vrai-chiffre-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Zero-click searches : pourquoi aucun chiffre unique ne dit la vérité", "item": "https://www.johansimonneau.fr/zero-click-search-vrai-chiffre" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Zero-click searches : pourquoi aucun chiffre unique ne dit la vérité",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-zero-click-search-vrai-chiffre-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-12-12",
+      "dateModified": "2026-12-12",
+      "description": "17 %, 26 %, 59 %, 68 % : les études sur les recherches sans clic se contredisent ouvertement. La raison tient à la définition utilisée, pas à une évolution réelle. Ce qui est solide, et ce qui ne l'est pas.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/zero-click-search-vrai-chiffre"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quel est le vrai taux de recherches sans clic sur Google ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'y en a pas un seul. Les études sérieuses donnent des résultats allant d'environ 17 % à près de 60 %, selon qu'elles comptent comme un clic une visite vers une propriété Google (Maps, Images) ou qu'elles exigent en plus l'absence de reformulation de la requête. Toute statistique isolée sans précision de méthode doit être prise avec prudence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les AI Overviews ont-ils prouvé qu'ils font baisser le trafic organique ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les données disponibles sont corrélationnelles, pas une vraie étude longitudinale avant/après sur un même ensemble de requêtes suivi dans le temps. Plusieurs analyses indépendantes observent un taux de clic organique sensiblement plus faible quand un AI Overview apparaît sur une requête, comparé à une requête similaire sans AI Overview au même moment — un signal cohérent, mais qui ne prouve pas à lui seul une tendance continue dans le temps."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il abandonner le SEO à cause des recherches sans clic ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. L'exposition au zero-click varie fortement selon le type de requête : les requêtes informationnelles simples sont les plus touchées, les requêtes transactionnelles, de marque et de longue traîne restent nettement plus génératrices de clics. Le diagnostic doit se faire au niveau du type de contenu, pas sur la base d'un chiffre global anxiogène."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Zero-click searches</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Zero-click searches : pourquoi aucun chiffre unique ne dit la vérité</h1>
+      <p class="sub-hook">Chaque étude sur les recherches sans clic avance un pourcentage différent, parfois publié par la même source à quelques mois d'écart. Le problème n'est pas que les chercheurs se trompent : c'est qu'ils ne mesurent pas tous la même chose.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>12 décembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-zero-click-search-vrai-chiffre-hero.png" alt="Illustration de l'écart entre les différentes définitions du taux de recherche sans clic" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Peu de statistiques marketing sont citées avec autant d'assurance, et aussi peu de constance, que le taux de « zero-click search » — la part des recherches qui se terminent sans qu'aucun site ne soit visité. Selon l'étude consultée, ce chiffre varie de moins de 20&nbsp;% à plus de deux tiers des recherches. Ce grand écart n'est pas une preuve d'incompétence méthodologique&nbsp;: c'est la conséquence directe d'une définition qui change d'une étude à l'autre, rarement précisée dans les articles qui relaient ces chiffres.</p>
+
+<h2>Deux définitions très différentes, souvent confondues</h2>
+
+<p>Semrush, dans une étude de 2022 portant sur près de 610&nbsp;000 requêtes et 20&nbsp;000&nbsp;panélistes américains, mesurait une recherche comme « zero-click » seulement si l'utilisateur ne cliquait sur aucun résultat <em>et</em> ne reformulait pas sa requête&nbsp;: avec cette définition stricte, le taux ressortait à environ 25,6&nbsp;% sur desktop et 17,3&nbsp;% sur mobile. SparkToro, avec sa méthodologie bâtie sur des données de panels de navigation (Datos), retient une définition plus large&nbsp;: toute session qui se termine sans clic vers un site, y compris les propriétés de Google lui-même (Maps, Images, Shopping)&nbsp;— avec cette définition, le taux grimpe à environ 59&nbsp;% aux États-Unis et 60&nbsp;% en Europe en 2024. Ce sont deux mesures légitimes, de deux phénomènes différents.</p>
+
+<h2>Même une seule source peut se contredire d'une publication à l'autre</h2>
+
+<p>Une actualisation 2026 attribuée à la même famille de sources (SparkToro/Datos) a produit des chiffres difficiles à concilier entre eux&nbsp;: certaines reprises citent une baisse à environ 22&nbsp;%, d'autres un taux de 68&nbsp;% pour la même période, tous deux présentés comme venant de « l'étude SparkToro 2026 ». L'écart suggère un changement de définition ou de panel entre les publications, plutôt qu'une évolution réelle du comportement des utilisateurs en quelques mois. SparkToro elle-même a reconnu avoir changé de fournisseur de panels au fil du temps, ce qui fragilise toute comparaison d'une année sur l'autre au sein de sa propre série de données. Google, de son côté, a publiquement qualifié la méthodologie SparkToro de trompeuse.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-zero-click-search-vrai-chiffre-resource.png" alt="Comparaison des taux de zero-click selon la définition utilisée : 17-26% avec une définition stricte, 59-68% avec une définition large incluant les propriétés Google" width="900" height="340" loading="lazy">
+  <figcaption>La définition retenue change radicalement le chiffre final — d'où l'absence de consensus entre les études.</figcaption>
+</figure>
+
+<h2>L'effet des AI Overviews&nbsp;: réel, mais mesuré par comparaison, pas par suivi dans le temps</h2>
+
+<p>Plusieurs analyses indépendantes observent qu'une requête affichant un AI Overview génère nettement moins de clics organiques qu'une requête comparable sans AI Overview, au même moment&nbsp;: une étude du Pew Research Center sur près de 900&nbsp;utilisateurs américains a mesuré environ 8&nbsp;% de clics organiques quand un AI Overview apparaît, contre environ 15&nbsp;% sans — Google a contesté la représentativité de l'échantillon. D'autres analyses, menées par des outils SEO, rapportent des baisses de clics comparables, parfois de l'ordre de moitié. Ce sont des comparaisons « avec vs sans » prises à un instant donné, pas un suivi longitudinal de requêtes identiques sur plusieurs années&nbsp;: le lien de cause à effet est cohérent entre plusieurs sources indépendantes, mais la rigueur d'un avant/après véritable manque encore à ce stade.</p>
+
+<h2>Ce qui circule sans source traçable</h2>
+
+<p>Des chiffres ronds comme « 60&nbsp;% des recherches sont zero-click », présentés comme un fait stable, viennent en réalité d'une mesure datée et d'une méthodologie précise, déjà contredite par les publications plus récentes de la même source. D'autres pourcentages, comme un taux de 83&nbsp;% spécifiquement attribué aux requêtes avec AI Overview, circulent sur des blogs agrégateurs sans qu'aucune étude primaire ne soit identifiable derrière. La règle la plus sûre&nbsp;: tout chiffre qui ne renvoie pas vers Semrush, SparkToro ou Pew Research directement, avec leur méthode et leur date, doit être traité comme non vérifié.</p>
+
+<h2>Ce qu'il est raisonnable de dire à un client</h2>
+
+<p>La formulation honnête n'est pas un pourcentage unique, mais une fourchette assumée&nbsp;: une part importante et probablement en hausse des recherches, estimée selon la méthode entre un cinquième et deux tiers environ, se termine sans clic vers un site. Le signal le plus solide reste relatif, pas absolu&nbsp;: quand un AI Overview apparaît sur une requête, le clic organique chute sensiblement par rapport à la même requête sans AI Overview. L'exposition réelle dépend surtout du type de contenu&nbsp;: une requête informationnelle simple est bien plus exposée qu'une requête transactionnelle, de marque, ou de longue traîne. Le diagnostic utile se fait requête par requête, pas sur la base d'un chiffre global anxiogène.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Quel est le vrai taux de recherches sans clic sur Google ?</summary>
+    <p>Il n'y en a pas un seul. Les études sérieuses donnent des résultats allant d'environ 17 % à près de 60 %, selon qu'elles comptent comme un clic une visite vers une propriété Google (Maps, Images) ou qu'elles exigent en plus l'absence de reformulation de la requête. Toute statistique isolée sans précision de méthode doit être prise avec prudence.</p>
+  </details>
+  <details>
+    <summary>Les AI Overviews ont-ils prouvé qu'ils font baisser le trafic organique ?</summary>
+    <p>Les données disponibles sont corrélationnelles, pas une vraie étude longitudinale avant/après sur un même ensemble de requêtes suivi dans le temps. Plusieurs analyses indépendantes observent un taux de clic organique sensiblement plus faible quand un AI Overview apparaît sur une requête, comparé à une requête similaire sans AI Overview au même moment — un signal cohérent, mais qui ne prouve pas à lui seul une tendance continue dans le temps.</p>
+  </details>
+  <details>
+    <summary>Faut-il abandonner le SEO à cause des recherches sans clic ?</summary>
+    <p>Non. L'exposition au zero-click varie fortement selon le type de requête : les requêtes informationnelles simples sont les plus touchées, les requêtes transactionnelles, de marque et de longue traîne restent nettement plus génératrices de clics. Le diagnostic doit se faire au niveau du type de contenu, pas sur la base d'un chiffre global anxiogène.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de savoir quelles de vos pages sont vraiment exposées au zero-click ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Diagnostiquer mon exposition SEO</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/seo">SEO</a>, et l'article <a href="/ai-overviews-google-trafic-seo">L'impact réel des AI Overviews de Google sur votre trafic SEO</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/seo">SEO →</a>
+      <a href="/ai-overviews-google-trafic-seo">Impact des AI Overviews →</a>
+      <a href="/eeat-mythes-realite-google">E-E-A-T →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
