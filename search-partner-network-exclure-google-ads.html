@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Partner Network : faut-il l'exclure de vos campagnes Google Ads ? | Blog — Johan Simonneau</title>
+<meta name="description" content="Activé par défaut sur Search, longtemps impossible à exclure sur Performance Max : le Search Partner Network reste un angle mort de beaucoup de comptes Google Ads. Ce qui est réellement contrôlable en 2026, et ce qui ne l'est pas encore.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/search-partner-network-exclure-google-ads">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Search Partner Network : faut-il l'exclure de vos campagnes Google Ads ?">
+<meta property="og:description" content="Activé par défaut sur Search, longtemps impossible à exclure sur Performance Max : le Search Partner Network reste un angle mort de beaucoup de comptes Google Ads. Ce qui est réellement contrôlable en 2026, et ce qui ne l'est pas encore.">
+<meta property="og:url" content="https://www.johansimonneau.fr/search-partner-network-exclure-google-ads">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-search-partner-network-exclure-google-ads-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-search-partner-network-exclure-google-ads-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Search Partner Network : faut-il l'exclure de vos campagnes Google Ads ?", "item": "https://www.johansimonneau.fr/search-partner-network-exclure-google-ads" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Search Partner Network : faut-il l'exclure de vos campagnes Google Ads ?",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-search-partner-network-exclure-google-ads-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-11-06",
+      "dateModified": "2026-11-06",
+      "description": "Activé par défaut sur Search, longtemps impossible à exclure sur Performance Max : le Search Partner Network reste un angle mort de beaucoup de comptes Google Ads. Ce qui est réellement contrôlable en 2026, et ce qui ne l'est pas encore.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/search-partner-network-exclure-google-ads"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Le Search Partner Network est-il activé par défaut sur Google Ads ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, sur les campagnes Search classiques, il est activé par défaut, avec un réglage d'exclusion disponible au niveau de chaque campagne dans les paramètres. Sur Performance Max, le contrôle a longtemps été inexistant ; un réglage spécifique est en test limité (alpha) chez certains annonceurs depuis 2026, sans date de généralisation annoncée."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il systématiquement exclure le Search Partner Network ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'existe pas de données comparatives fiables et publiques sur la qualité du trafic Search Partner par rapport à la recherche Google directe. La décision doit donc se baser sur la performance observée dans son propre compte (rapport par réseau, quand disponible) plutôt que sur une règle générale valable pour tous les comptes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on exclure certains partenaires précis plutôt que tout le réseau ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google ne publie pas la liste nominative des sites du Search Partner Network, ce qui empêche une exclusion site par site comme on peut le faire sur le Display. Le contrôle reste binaire : inclure ou exclure l'ensemble du réseau au niveau de la campagne."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Search Partner Network</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Search Partner Network : faut-il l'exclure de vos campagnes Google Ads ?</h1>
+      <p class="sub-hook">Beaucoup d'annonceurs savent qu'il existe, peu savent vraiment ce qu'il couvre ni s'ils peuvent le désactiver selon le type de campagne. Le contrôle disponible n'est pas le même sur Search et sur Performance Max — et ça fait une vraie différence.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>6 novembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-search-partner-network-exclure-google-ads-hero.png" alt="Illustration du Search Partner Network de Google Ads et de son contrôle selon le type de campagne" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Le Search Partner Network diffuse les annonces Google Ads sur un ensemble de sites et plateformes partenaires qui proposent leur propre fonction de recherche, en plus de Google Search lui-même. La plupart des annonceurs savent que la case existe dans les paramètres de campagne. Beaucoup moins savent qu'elle ne se contrôle pas de la même façon selon le type de campagne utilisé.</p>
+
+<h2>Sur Search classique&nbsp;: un contrôle simple, qui existe depuis longtemps</h2>
+
+<p>Sur une campagne Search traditionnelle, le Search Partner Network est activé par défaut, mais reste désactivable d'un clic dans les paramètres de la campagne, séparément du Réseau Display. C'est documenté et stable&nbsp;: aucune ambiguïté sur ce point pour ce type de campagne.</p>
+
+<h2>Sur Performance Max&nbsp;: longtemps aucun contrôle, un test en cours</h2>
+
+<p>La situation a longtemps été différente sur Performance Max&nbsp;: aucune option n'existait pour exclure spécifiquement le Search Partner Network, l'algorithme répartissant le budget sur l'ensemble des inventaires sans distinction accessible à l'annonceur. Google teste désormais, en version alpha limitée à certains comptes, un réglage séparant les cases Search Partner et Display — sans calendrier de généralisation annoncé à ce stade. Pour la grande majorité des annonceurs PMax, le contrôle reste donc encore indisponible aujourd'hui.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-search-partner-network-exclure-google-ads-resource.png" alt="Search Partner Network : contrôle disponible sur les campagnes Search classiques, test alpha en cours sur Performance Max" width="900" height="340" loading="lazy">
+  <figcaption>Un contrôle simple et ancien sur Search, un contrôle en test seulement sur Performance Max.</figcaption>
+</figure>
+
+<h2>Ce qu'on ne peut pas vérifier facilement</h2>
+
+<p>Il n'existe pas de comparaison publique fiable sur la qualité du trafic issu du Search Partner Network par rapport à une recherche Google directe&nbsp;: pas de méthodologie indépendante, pas d'étude tierce consolidée. Ce qui est vérifiable, en revanche, c'est la performance observée dans son propre compte quand un rapport de répartition par réseau est disponible pour le type de campagne concerné — c'est cette donnée interne, et non une règle générale, qui doit guider la décision d'exclure ou non.</p>
+
+<h2>La limite qui ne change pas&nbsp;: pas de liste nominative</h2>
+
+<p>Contrairement au Réseau Display, où chaque site peut être exclu individuellement, Google ne publie pas la liste des sites partenaires du Search Partner Network. Le contrôle reste binaire&nbsp;: on inclut ou on exclut l'ensemble du réseau au niveau de la campagne, sans granularité site par site possible.</p>
+
+<h2>Comment décider en pratique</h2>
+
+<p>Sur une campagne Search où le réglage est disponible, comparer le volume et le coût par conversion entre Google Search et Search Partners sur une période suffisante avant de trancher&nbsp;: une sous-performance nette et confirmée justifie l'exclusion, un volume marginal sans écart de performance ne la justifie pas forcément. Sur Performance Max, en l'absence de contrôle généralisé, la vigilance porte surtout sur le suivi des conversions et la qualité des leads, pas sur un réglage qui n'est pas encore accessible à la plupart des comptes.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Le Search Partner Network est-il activé par défaut sur Google Ads ?</summary>
+    <p>Oui, sur les campagnes Search classiques, il est activé par défaut, avec un réglage d'exclusion disponible au niveau de chaque campagne dans les paramètres. Sur Performance Max, le contrôle a longtemps été inexistant ; un réglage spécifique est en test limité (alpha) chez certains annonceurs depuis 2026, sans date de généralisation annoncée.</p>
+  </details>
+  <details>
+    <summary>Faut-il systématiquement exclure le Search Partner Network ?</summary>
+    <p>Il n'existe pas de données comparatives fiables et publiques sur la qualité du trafic Search Partner par rapport à la recherche Google directe. La décision doit donc se baser sur la performance observée dans son propre compte (rapport par réseau, quand disponible) plutôt que sur une règle générale valable pour tous les comptes.</p>
+  </details>
+  <details>
+    <summary>Peut-on exclure certains partenaires précis plutôt que tout le réseau ?</summary>
+    <p>Google ne publie pas la liste nominative des sites du Search Partner Network, ce qui empêche une exclusion site par site comme on peut le faire sur le Display. Le contrôle reste binaire : inclure ou exclure l'ensemble du réseau au niveau de la campagne.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un audit complet de la diffusion réelle de vos campagnes Google Ads ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer mes campagnes Google Ads</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/sea">SEA</a>, et l'article <a href="/performance-max-boite-noire-publicitaire">Reprendre la main sur la boîte noire de Performance Max</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/sea">SEA →</a>
+      <a href="/performance-max-boite-noire-publicitaire">Performance Max →</a>
+      <a href="/smart-bidding-google-ads-controle">Smart Bidding →</a>
+      <a href="/google-ads-demand-gen-display-disparait">Google Ads Demand Gen →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
