@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pourquoi Google n'indexe jamais certaines de vos pages | Blog — Johan Simonneau</title>
+<meta name="description" content="« Découverte - actuellement non indexée » et « Explorée - actuellement non indexée » ne veulent pas dire la même chose dans Search Console. Les causes officiellement documentées, et les leviers d'action réels pour chaque statut.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/pages-non-indexees-google-causes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pourquoi Google n'indexe jamais certaines de vos pages">
+<meta property="og:description" content="« Découverte - actuellement non indexée » et « Explorée - actuellement non indexée » ne veulent pas dire la même chose dans Search Console. Les causes officiellement documentées, et les leviers d'action réels pour chaque statut.">
+<meta property="og:url" content="https://www.johansimonneau.fr/pages-non-indexees-google-causes">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-pages-non-indexees-google-causes-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-pages-non-indexees-google-causes-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Pourquoi Google n'indexe jamais certaines de vos pages", "item": "https://www.johansimonneau.fr/pages-non-indexees-google-causes" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Pourquoi Google n'indexe jamais certaines de vos pages",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-pages-non-indexees-google-causes-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-11-07",
+      "dateModified": "2026-11-07",
+      "description": "« Découverte - actuellement non indexée » et « Explorée - actuellement non indexée » ne veulent pas dire la même chose dans Search Console. Les causes officiellement documentées, et les leviers d'action réels pour chaque statut.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/pages-non-indexees-google-causes"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre « Découverte - actuellement non indexée » et « Explorée - actuellement non indexée » ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dans le premier cas, Google connaît l'URL mais n'a pas encore pris le temps de l'explorer — souvent un signal de priorité de crawl trop basse. Dans le second, Google a exploré la page mais a choisi de ne pas l'indexer, le plus souvent parce qu'il l'a jugée de qualité insuffisante ou redondante avec une autre page déjà indexée."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel pourcentage de pages web ne sont jamais indexées par Google ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'existe pas de statistique fiable et largement reconnue sur ce point : les études qui circulent sur le sujet donnent des pourcentages très différents et contestés, parfois sur la même source. Mieux vaut diagnostiquer son propre site dans Search Console que de se fier à un chiffre global non vérifiable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Soumettre une page à l'indexation dans Search Console garantit-il qu'elle sera indexée ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. La demande d'indexation accélère éventuellement l'exploration, mais ne force pas l'indexation si Google juge la page de qualité insuffisante ou redondante. Soumettre la même page sans en corriger le problème de fond n'améliore généralement rien."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Pages non indexées</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Pourquoi Google n'indexe jamais certaines de vos pages</h1>
+      <p class="sub-hook">Deux statuts Search Console se ressemblent à l'œil nu et se traitent complètement différemment : l'un signale une page que Google n'a pas encore eu le temps de regarder, l'autre une page qu'il a regardée et jugée insuffisante.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>7 novembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-pages-non-indexees-google-causes-hero.png" alt="Illustration des statuts d'indexation Google Search Console pour des pages non indexées" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Un rapport d'indexation Search Console qui affiche des centaines de pages « non indexées » déclenche presque toujours la même réaction&nbsp;: la panique, suivie d'une demande d'indexation en masse. C'est souvent la mauvaise réaction, parce que « non indexée » recouvre plusieurs statuts très différents, dont certains n'appellent aucune action corrective.</p>
+
+<h2>« Découverte - actuellement non indexée »&nbsp;: Google sait, mais n'a pas encore regardé</h2>
+
+<p>Ce statut signifie que Google connaît l'existence de l'URL — via un lien, un sitemap ou une autre source — mais n'a pas encore pris le temps de l'explorer. C'est le signal le plus souvent lié à un budget de crawl insuffisamment orienté vers cette page&nbsp;: un site très volumineux, une page profondément enterrée dans l'arborescence, ou un maillage interne trop faible vers elle.</p>
+
+<h2>« Explorée - actuellement non indexée »&nbsp;: Google a regardé, et a dit non</h2>
+
+<p>Ce second statut est plus sérieux&nbsp;: Google a exploré la page, mais a choisi de ne pas l'ajouter à son index. Les causes les plus fréquentes documentées sont une qualité de contenu jugée insuffisante, une forte redondance avec une autre page déjà indexée (contenu dupliqué ou trop proche), ou une balise canonique qui pointe vers une autre URL. Confondre ce statut avec le précédent conduit à la mauvaise action&nbsp;: soumettre à nouveau une page que Google a déjà vue et écartée ne change rien si le problème de fond n'est pas corrigé.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-pages-non-indexees-google-causes-resource.png" alt="Deux statuts d'indexation différents : découverte non indexée (budget de crawl) et explorée non indexée (qualité ou duplication)" width="900" height="340" loading="lazy">
+  <figcaption>Deux statuts, deux diagnostics différents — et deux leviers d'action qui n'ont rien en commun.</figcaption>
+</figure>
+
+<h2>Le chiffre qu'il ne faut pas citer</h2>
+
+<p>Des pourcentages précis de « pages jamais indexées sur le web » circulent régulièrement dans des articles SEO, parfois attribués à une même étude mais rapportés avec des valeurs contradictoires selon la source qui la cite. Aucun de ces chiffres ne résiste à une vérification sérieuse de méthodologie. Le seul diagnostic fiable reste propre à chaque site&nbsp;: le rapport de couverture d'indexation de sa propre Search Console, pas une statistique globale impossible à vérifier.</p>
+
+<h2>Ce que Google documente comme leviers d'action</h2>
+
+<p>Pour une page « découverte, non indexée »&nbsp;: renforcer le maillage interne vers elle depuis des pages déjà bien explorées, vérifier qu'elle figure dans le sitemap XML, et s'assurer que le budget de crawl global du site n'est pas gaspillé sur des pages à faible valeur (pagination infinie, filtres à facettes générant des URLs en masse). Pour une page « explorée, non indexée »&nbsp;: retravailler la qualité et l'unicité du contenu, vérifier qu'aucune balise canonique ne pointe ailleurs par erreur, et évaluer honnêtement si la page apporte une valeur suffisamment distincte pour mériter sa propre place dans l'index.</p>
+
+<h2>Le bon ordre pour diagnostiquer avant d'agir</h2>
+
+<p>Avant toute action, trier les pages concernées par statut précis dans Search Console plutôt que de les traiter comme un bloc unique. Une page cruciale mais seulement « découverte, non indexée » se corrige souvent avec un simple renforcement de maillage interne. Une page « explorée, non indexée » ressemblant à dix autres pages similaires du site pose une vraie question de fond&nbsp;: mérite-t-elle d'exister séparément, ou faudrait-il la fusionner avec une page existante déjà indexée.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Quelle est la différence entre « Découverte - actuellement non indexée » et « Explorée - actuellement non indexée » ?</summary>
+    <p>Dans le premier cas, Google connaît l'URL mais n'a pas encore pris le temps de l'explorer — souvent un signal de priorité de crawl trop basse. Dans le second, Google a exploré la page mais a choisi de ne pas l'indexer, le plus souvent parce qu'il l'a jugée de qualité insuffisante ou redondante avec une autre page déjà indexée.</p>
+  </details>
+  <details>
+    <summary>Quel pourcentage de pages web ne sont jamais indexées par Google ?</summary>
+    <p>Il n'existe pas de statistique fiable et largement reconnue sur ce point : les études qui circulent sur le sujet donnent des pourcentages très différents et contestés, parfois sur la même source. Mieux vaut diagnostiquer son propre site dans Search Console que de se fier à un chiffre global non vérifiable.</p>
+  </details>
+  <details>
+    <summary>Soumettre une page à l'indexation dans Search Console garantit-il qu'elle sera indexée ?</summary>
+    <p>Non. La demande d'indexation accélère éventuellement l'exploration, mais ne force pas l'indexation si Google juge la page de qualité insuffisante ou redondante. Soumettre la même page sans en corriger le problème de fond n'améliore généralement rien.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un diagnostic complet de l'indexation de votre site ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Diagnostiquer mon SEO</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/seo">SEO</a>, et l'article <a href="/cocons-semantiques-methode-seo">Structurer un site qui se positionne avec les cocons sémantiques</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/seo">SEO →</a>
+      <a href="/cocons-semantiques-methode-seo">Cocons sémantiques →</a>
+      <a href="/netlinking-2026-google-ia">Netlinking 2026 →</a>
+      <a href="/programmatic-seo-limites-automatisation">Programmatic SEO →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
