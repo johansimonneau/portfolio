@@ -882,4 +882,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://www.johansimonneau.fr/featured-snippets-position-zero-2026</loc>
+    <lastmod>2026-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
