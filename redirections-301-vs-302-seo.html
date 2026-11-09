@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redirections 301 vs 302 : laquelle choisir, et l'erreur qui fait perdre le jus SEO | Blog — Johan Simonneau</title>
+<meta name="description" content="Google traite les redirections 301 et 302 différemment pour l'indexation, mais la question du transfert de « jus SEO » reste mal comprise. Ce que dit la documentation officielle, et l'erreur la plus fréquente.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/redirections-301-vs-302-seo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redirections 301 vs 302 : laquelle choisir, et l'erreur qui fait perdre le jus SEO">
+<meta property="og:description" content="Google traite les redirections 301 et 302 différemment pour l'indexation, mais la question du transfert de « jus SEO » reste mal comprise. Ce que dit la documentation officielle, et l'erreur la plus fréquente.">
+<meta property="og:url" content="https://www.johansimonneau.fr/redirections-301-vs-302-seo">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-redirections-301-vs-302-seo-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-redirections-301-vs-302-seo-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Redirections 301 vs 302 : laquelle choisir, et l'erreur qui fait perdre le jus SEO", "item": "https://www.johansimonneau.fr/redirections-301-vs-302-seo" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Redirections 301 vs 302 : laquelle choisir, et l'erreur qui fait perdre le jus SEO",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-redirections-301-vs-302-seo-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-12-18",
+      "dateModified": "2026-12-18",
+      "description": "Google traite les redirections 301 et 302 différemment pour l'indexation, mais la question du transfert de « jus SEO » reste mal comprise. Ce que dit la documentation officielle, et l'erreur la plus fréquente.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/redirections-301-vs-302-seo"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Une redirection 302 fait-elle perdre le référencement d'une page ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas directement. Google indique qu'une redirection temporaire conserve la page source dans les résultats de recherche, au lieu de basculer l'indexation vers la destination comme le fait une redirection permanente. Le risque n'est pas une perte de référencement instantanée, mais une ambiguïté prolongée sur quelle URL doit être indexée si le 302 reste en place trop longtemps."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Un 301 fait-il perdre une partie du PageRank transmis à la nouvelle page ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google a affirmé publiquement, dans sa documentation sur le changement d'adresse d'un site, qu'un 301 ou une autre redirection permanente ne provoque pas de perte de PageRank. Au-delà de cette déclaration, la documentation officielle sur les redirections elle-même ne détaille pas de mécanique de transfert de valeur de lien, ce qui laisse certains points plus techniques sans réponse officielle précise."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est l'erreur la plus fréquente sur les redirections en migration de site ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Laisser une redirection temporaire (302) en place pour un changement qui est en réalité permanent. Google explique traiter une redirection qui persiste durablement un peu comme une redirection permanente, mais ce basculement implicite retarde la mise à jour de l'index par rapport à un 301 posé dès le départ, et prive l'URL Inspection de Search Console d'un signal clair pendant cette période."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Redirections 301 vs 302</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Redirections 301 vs 302 : laquelle choisir, et l'erreur qui fait perdre le jus SEO</h1>
+      <p class="sub-hook">« Est-ce qu'un 302 perd du jus SEO par rapport à un 301 ? » C'est une des questions techniques les plus posées en référencement, et la réponse officielle de Google est plus nuancée que ce qu'en disent la plupart des articles qui circulent.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>18 décembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-redirections-301-vs-302-seo-hero.png" alt="Illustration de la différence de traitement entre une redirection 301 permanente et une redirection 302 temporaire pour l'indexation Google" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>« 301 ou 302 ? » revient dans presque tous les audits techniques, dès qu'une page change d'adresse. La réponse courte — permanent, utilisez un 301&nbsp;; temporaire, utilisez un 302 — est correcte, mais elle cache une question plus disputée&nbsp;: ce que chaque code fait réellement à l'indexation, et s'il existe une perte de valeur de lien entre les deux. Les deux points méritent d'être démêlés séparément, parce qu'ils ne reposent pas sur le même niveau de certitude.</p>
+
+<h2>Ce que Google dit officiellement sur l'indexation</h2>
+
+<p>La documentation de Google Search Central classe les redirections en deux familles&nbsp;: permanentes (301 et 308) et temporaires (302, 303, 307). Pour les redirections permanentes, Google indique explicitement que son système d'indexation utilise la redirection comme signal que l'URL cible doit devenir l'URL canonique&nbsp;: la page de destination remplace la source dans l'index. Pour les redirections temporaires, la documentation précise à l'inverse que Google conserve la page source dans les résultats de recherche, plutôt que de basculer vers la destination. C'est la distinction la plus solide et la plus officielle entre les deux codes&nbsp;: elle ne porte pas sur la popularité d'une page, mais sur laquelle des deux URLs reste indexée.</p>
+
+<h2>La question du « jus SEO » : ce qui est confirmé, ce qui ne l'est pas</h2>
+
+<p>Sur le transfert de valeur de lien (le fameux « jus SEO »), Google a fait une déclaration publique assez nette dans sa documentation sur le changement d'adresse d'un site&nbsp;: un 301, ou une autre redirection permanente, ne provoque pas de perte de PageRank. Cette phrase répond directement à la crainte la plus commune. Ce qui reste flou, en revanche, c'est la mécanique précise pour un 302&nbsp;: la documentation sur les redirections elle-même ne détaille pas, noir sur blanc, de règle de transfert de valeur de lien différenciée entre les deux codes. Des commentaires spécialisés avancent des lectures contraires de ce silence — certains concluent qu'un 302 transfère la valeur presque comme un 301, d'autres qu'aucune garantie officielle n'existe sur ce point précis. En l'absence d'un texte Google qui tranche explicitement cette sous-question, la position la plus honnête est de ne pas trancher à sa place.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-redirections-301-vs-302-seo-resource.png" alt="Schéma comparant le traitement d'indexation d'une redirection 301 permanente, qui bascule l'URL canonique, et d'une redirection 302 temporaire, qui conserve la page source indexée" width="900" height="340" loading="lazy">
+  <figcaption>La différence confirmée par Google porte sur l'indexation, pas sur un barème de valeur de lien.</figcaption>
+</figure>
+
+<h2>L'erreur la plus fréquente : un 302 qui devient permanent sans jamais changer de code</h2>
+
+<p>Le piège le plus courant en migration ou en refonte n'est pas de choisir le mauvais code au départ&nbsp;: c'est de poser un 302 par réflexe (souvent le code par défaut d'un outil ou d'un CMS) pour un changement qui, dans les faits, est définitif, puis d'oublier de le corriger. Google indique qu'une redirection temporaire laissée en place durablement finit par être traitée un peu comme une redirection permanente — mais ce basculement est implicite, non documenté dans un délai précis, et retarde la mise à jour de l'index par rapport à un 301 posé dès le départ. Pendant cette période d'ambiguïté, l'outil d'inspection d'URL de Search Console reste le moyen le plus fiable de vérifier comment Google traite réellement une redirection donnée, plutôt que de se fier uniquement au code HTTP envoyé par le serveur.</p>
+
+<h2>La règle pratique qui tient, indépendamment du débat sur le jus SEO</h2>
+
+<p>Au-delà de la question disputée du transfert de valeur, une règle reste simple à appliquer&nbsp;: si le changement d'URL est définitif (refonte, fusion de pages, changement de nom de domaine), poser un 301 dès le premier jour évite l'ambiguïté d'indexation et la période de flou qui suit un 302 mal utilisé. Réserver le 302 aux cas réellement temporaires — une page en maintenance, un test A/B, une bascule momentanée — garde le signal clair pour Google sans attendre qu'il réinterprète la situation de lui-même.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Une redirection 302 fait-elle perdre le référencement d'une page ?</summary>
+    <p>Pas directement. Google indique qu'une redirection temporaire conserve la page source dans les résultats de recherche, au lieu de basculer l'indexation vers la destination comme le fait une redirection permanente. Le risque n'est pas une perte de référencement instantanée, mais une ambiguïté prolongée sur quelle URL doit être indexée si le 302 reste en place trop longtemps.</p>
+  </details>
+  <details>
+    <summary>Un 301 fait-il perdre une partie du PageRank transmis à la nouvelle page ?</summary>
+    <p>Google a affirmé publiquement, dans sa documentation sur le changement d'adresse d'un site, qu'un 301 ou une autre redirection permanente ne provoque pas de perte de PageRank. Au-delà de cette déclaration, la documentation officielle sur les redirections elle-même ne détaille pas de mécanique de transfert de valeur de lien, ce qui laisse certains points plus techniques sans réponse officielle précise.</p>
+  </details>
+  <details>
+    <summary>Quelle est l'erreur la plus fréquente sur les redirections en migration de site ?</summary>
+    <p>Laisser une redirection temporaire (302) en place pour un changement qui est en réalité permanent. Google explique traiter une redirection qui persiste durablement un peu comme une redirection permanente, mais ce basculement implicite retarde la mise à jour de l'index par rapport à un 301 posé dès le départ, et prive l'URL Inspection de Search Console d'un signal clair pendant cette période.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Une migration ou une refonte en préparation ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer mon plan de redirections</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/seo">SEO</a>, et l'article <a href="/pages-non-indexees-google-causes">Pourquoi Google n'indexe jamais certaines de vos pages</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/seo">SEO →</a>
+      <a href="/pages-non-indexees-google-causes">Pages non indexées →</a>
+      <a href="/google-core-updates-2026-calendrier">Core updates 2026 →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
