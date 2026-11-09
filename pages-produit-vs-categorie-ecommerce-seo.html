@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pages produit vs pages catégorie en e-commerce : comment les optimiser différemment | Blog — Johan Simonneau</title>
+<meta name="description" content="Beaucoup de sites e-commerce investissent le plus de soin sur leurs pages produit, alors que les pages catégorie génèrent souvent l'essentiel du trafic organique. Comment répartir l'effort SEO entre les deux, sans copier la même méthode.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/pages-produit-vs-categorie-ecommerce-seo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pages produit vs pages catégorie en e-commerce : comment les optimiser différemment">
+<meta property="og:description" content="Beaucoup de sites e-commerce investissent le plus de soin sur leurs pages produit, alors que les pages catégorie génèrent souvent l'essentiel du trafic organique. Comment répartir l'effort SEO entre les deux, sans copier la même méthode.">
+<meta property="og:url" content="https://www.johansimonneau.fr/pages-produit-vs-categorie-ecommerce-seo">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-pages-produit-vs-categorie-ecommerce-seo-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-pages-produit-vs-categorie-ecommerce-seo-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Pages produit vs pages catégorie en e-commerce : comment les optimiser différemment", "item": "https://www.johansimonneau.fr/pages-produit-vs-categorie-ecommerce-seo" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Pages produit vs pages catégorie en e-commerce : comment les optimiser différemment",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-pages-produit-vs-categorie-ecommerce-seo-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-12-25",
+      "dateModified": "2026-12-25",
+      "description": "Beaucoup de sites e-commerce investissent le plus de soin sur leurs pages produit, alors que les pages catégorie génèrent souvent l'essentiel du trafic organique. Comment répartir l'effort SEO entre les deux, sans copier la même méthode.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/pages-produit-vs-categorie-ecommerce-seo"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Les pages catégorie génèrent-elles vraiment plus de trafic que les pages produit ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est ce que suggère une analyse Semrush portant sur environ 10 000 domaines e-commerce, citée par plusieurs agences en 2025 : les pages catégorie y attiraient en moyenne davantage de trafic organique par page que les pages produit, pour un investissement éditorial généralement plus faible. Cette donnée provient d'une source secondaire et mérite d'être vérifiée sur son propre site plutôt que généralisée sans nuance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il ajouter du contenu éditorial sur une page catégorie ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Généralement oui, surtout pour les requêtes de comparaison large (« meilleur couteau de cuisine », par exemple) où une page catégorie peut répondre avec une courte introduction qui situe l'offre, avant la liste de produits. Une page produit, elle, cible une intention plus précise et n'a pas besoin du même développement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que faire d'une page produit quand l'article est en rupture définitive ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une redirection 301 vers la page catégorie la plus pertinente, plutôt que vers la page d'accueil, préserve une partie du capital de liens accumulé et oriente l'utilisateur vers une alternative cohérente avec son intention d'origine."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Pages produit vs catégorie</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Pages produit vs pages catégorie en e-commerce : comment les optimiser différemment</h1>
+      <p class="sub-hook">La plupart des sites e-commerce mettent tout leur soin éditorial sur leurs fiches produit, alors que ce sont souvent leurs pages catégorie qui portent l'essentiel du trafic organique. Les deux ne répondent pas à la même intention de recherche, et ne se traitent pas de la même façon.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>25 décembre 2026</span>
+        <span>·</span>
+        <span>8 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-pages-produit-vs-categorie-ecommerce-seo-hero.png" alt="Illustration comparant une page produit e-commerce ciblant une intention d'achat précise et une page catégorie ciblant une intention de comparaison" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Un réflexe courant en e-commerce consiste à concentrer tout l'effort SEO sur les fiches produit&nbsp;: elles seules, après tout, portent le call-to-action d'achat. Le problème, c'est que les requêtes qui amènent du trafic organique sont rarement des requêtes de ce niveau de précision. « Meilleur couteau de cuisine japonais » ou « chaussures de running trail femme » sont des requêtes de catégorie, pas des requêtes de produit&nbsp;: elles exigent une page qui compare une offre, pas une fiche qui en décrit une seule.</p>
+
+<h2>Deux intentions de recherche différentes</h2>
+
+<p>Une page produit cible des requêtes transactionnelles précises&nbsp;: un nom de modèle, une référence, une marque associée à un type de produit identifié. Une page catégorie cible des requêtes de recherche ou de comparaison, plus larges, formulées en amont de la décision finale. Confondre les deux conduit à deux erreurs symétriques&nbsp;: une page produit trop générale qui ne convertit sur rien de précis, ou une page catégorie trop pauvre, réduite à une simple grille de produits sans aucun texte qui situe l'offre pour Google comme pour le visiteur.</p>
+
+<h2>Ce qu'une analyse à grande échelle suggère</h2>
+
+<p>Une analyse Semrush portant sur environ 10&nbsp;000 domaines e-commerce, réalisée en 2025 et citée par plusieurs agences SEO depuis, avance que les pages catégorie y généraient en moyenne nettement plus de trafic organique par page que les pages produit, pour un investissement éditorial généralement inférieur. Cette donnée provient d'une source secondaire — nous n'avons pas eu accès au rapport Semrush original — et le ratio exact varie selon les relais qui la citent&nbsp;: à prendre comme une tendance plausible et largement reprise, pas comme un chiffre à citer au point près sans vérification sur votre propre secteur.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-pages-produit-vs-categorie-ecommerce-seo-resource.png" alt="Comparaison du trafic organique moyen par page entre pages catégorie et pages produit en e-commerce selon une analyse Semrush 2025" width="900" height="340" loading="lazy">
+  <figcaption>Les pages catégorie concentrent souvent l'essentiel du trafic organique, malgré un investissement éditorial historiquement plus faible.</figcaption>
+</figure>
+
+<h2>Ce qui fait une bonne page catégorie</h2>
+
+<p>Une page catégorie qui fonctionne bien pour le SEO associe une courte introduction éditoriale (quelques phrases qui situent l'offre et répondent à l'intention de comparaison), une architecture de filtres cohérente qui ne génère pas d'URL dupliquées indexables, et un maillage clair vers les produits phares de la catégorie. L'erreur la plus fréquente est l'absence totale de texte&nbsp;: une grille de produits seule donne à Google très peu de matière pour comprendre le sujet exact de la page, au-delà des titres de produits eux-mêmes.</p>
+
+<h2>Ce qui fait une bonne page produit</h2>
+
+<p>À l'inverse, une page produit n'a pas besoin d'un texte long&nbsp;: elle doit répondre précisément à une intention d'achat déjà presque arrêtée. Une description unique — pas copiée du fabricant, ce qui crée du contenu dupliqué entre tous les sites qui vendent le même article —, des données structurées de type Product (prix, disponibilité, avis) et des visuels de qualité comptent davantage que la longueur. L'objectif n'est pas de faire concurrence à la page catégorie sur une requête large, mais de convertir sur une requête déjà précise.</p>
+
+<h2>Le cas des produits discontinués</h2>
+
+<p>Quand un produit n'est plus commercialisé et ne sera pas remplacé à l'identique, supprimer la page sans redirection fait perdre tout le capital de liens et d'historique accumulé. La pratique recommandée est une redirection 301 vers la page catégorie la plus pertinente, plutôt que vers la page d'accueil&nbsp;: elle conserve une partie du signal et oriente l'utilisateur vers une alternative cohérente avec son intention initiale, au lieu de le laisser face à une page générique sans rapport avec sa recherche.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Les pages catégorie génèrent-elles vraiment plus de trafic que les pages produit ?</summary>
+    <p>C'est ce que suggère une analyse Semrush portant sur environ 10 000 domaines e-commerce, citée par plusieurs agences en 2025 : les pages catégorie y attiraient en moyenne davantage de trafic organique par page que les pages produit, pour un investissement éditorial généralement plus faible. Cette donnée provient d'une source secondaire et mérite d'être vérifiée sur son propre site plutôt que généralisée sans nuance.</p>
+  </details>
+  <details>
+    <summary>Faut-il ajouter du contenu éditorial sur une page catégorie ?</summary>
+    <p>Généralement oui, surtout pour les requêtes de comparaison large (« meilleur couteau de cuisine », par exemple) où une page catégorie peut répondre avec une courte introduction qui situe l'offre, avant la liste de produits. Une page produit, elle, cible une intention plus précise et n'a pas besoin du même développement.</p>
+  </details>
+  <details>
+    <summary>Que faire d'une page produit quand l'article est en rupture définitive ?</summary>
+    <p>Une redirection 301 vers la page catégorie la plus pertinente, plutôt que vers la page d'accueil, préserve une partie du capital de liens accumulé et oriente l'utilisateur vers une alternative cohérente avec son intention d'origine.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un audit SEO qui distingue vraiment pages produit et pages catégorie ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer mon catalogue e-commerce</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/seo">SEO</a>, et l'article <a href="/cocons-semantiques-methode-seo">Structurer un site qui se positionne avec les cocons sémantiques</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/seo">SEO →</a>
+      <a href="/cocons-semantiques-methode-seo">Cocons sémantiques →</a>
+      <a href="/google-shopping-flux-produit-optimise">Flux produit Google Shopping →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
