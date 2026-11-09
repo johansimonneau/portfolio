@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEO et SEO peuvent-ils diverger ? Un site qui perd en visibilité IA sans perdre son classement Google | Blog — Johan Simonneau</title>
+<meta name="description" content="Des cas documentés montrent une visibilité IA qui chute sans changement de classement Google, et inversement. Les mécanismes identifiés : reshuffle de modèle, artefact de mesure, ou vraie divergence.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/geo-vs-seo-divergence-visibilite-ia">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GEO et SEO peuvent-ils diverger ? Un site qui perd en visibilité IA sans perdre son classement Google">
+<meta property="og:description" content="Des cas documentés montrent une visibilité IA qui chute sans changement de classement Google, et inversement. Les mécanismes identifiés : reshuffle de modèle, artefact de mesure, ou vraie divergence.">
+<meta property="og:url" content="https://www.johansimonneau.fr/geo-vs-seo-divergence-visibilite-ia">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-geo-vs-seo-divergence-visibilite-ia-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-geo-vs-seo-divergence-visibilite-ia-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "GEO et SEO peuvent-ils diverger ? Un site qui perd en visibilité IA sans perdre son classement Google", "item": "https://www.johansimonneau.fr/geo-vs-seo-divergence-visibilite-ia" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "GEO et SEO peuvent-ils diverger ? Un site qui perd en visibilité IA sans perdre son classement Google",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-geo-vs-seo-divergence-visibilite-ia-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2027-01-05",
+      "dateModified": "2027-01-05",
+      "description": "Des cas documentés montrent une visibilité IA qui chute sans changement de classement Google, et inversement. Les mécanismes identifiés : reshuffle de modèle, artefact de mesure, ou vraie divergence.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/geo-vs-seo-divergence-visibilite-ia"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Un site peut-il vraiment perdre en visibilité dans les IA génératives sans que son classement Google ne bouge ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, des cas documentés par des outils de suivi existent. L'un des plus cités rapporte le taux de citation d'une marque dans les AI Overviews passant de 96 % à 3,7 % en une semaine, sans aucun changement sur le site concerné — ce que l'auteur attribue à un changement du modèle utilisé par Google pour générer les AI Overviews, pas à une évolution du classement classique."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les classements Google et les citations dans les réponses IA se recoupent-ils largement ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas systématiquement, selon plusieurs outils de suivi spécialisés qui publient des chiffres de chevauchement : l'un rapporte que 67 % des URLs citées par ChatGPT n'apparaissent jamais dans les AI Overviews pour la même requête, un autre évoque un chevauchement d'environ 45 % entre classement classique et visibilité IA. Ces chiffres viennent d'éditeurs d'outils commerciaux, pas d'études indépendantes, et doivent être traités comme des ordres de grandeur, pas des constantes universelles."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "La divergence SEO/GEO va-t-elle toujours dans le sens d'une perte de visibilité IA, jamais l'inverse ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Le consultant SEO Glenn Gabe documente aussi le cas inverse : un site avec peu ou pas de visibilité dans Google peut connaître une forte visibilité dans ChatGPT, notamment via des classements solides sur Bing, le moteur qui alimente certaines fonctions de recherche de ChatGPT. La divergence peut jouer dans les deux sens, selon le mécanisme en cause."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">GEO vs SEO : divergence</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>GEO et SEO peuvent-ils diverger ? Un site qui perd en visibilité IA sans perdre son classement Google</h1>
+      <p class="sub-hook">Un site peut-il garder exactement le même classement Google tout en voyant sa présence dans les réponses de ChatGPT ou des AI Overviews s'effondrer ? Des cas réels documentés répondent oui — mais pas toujours pour les raisons qu'on imagine.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>5 janvier 2027</span>
+        <span>·</span>
+        <span>8 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-geo-vs-seo-divergence-visibilite-ia-hero.png" alt="Illustration d'une courbe de classement Google stable face à une courbe de citations IA qui chute brutalement" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>L'hypothèse selon laquelle « bien classé sur Google = bien cité par les IA » reste une simplification commode, mais plusieurs cas documentés par des outils de suivi spécialisés montrent qu'elle ne tient pas toujours. Comprendre les mécanismes en cause évite de chercher une cause SEO à un problème qui n'en est pas un, ou inversement.</p>
+
+<h2>Un cas documenté&nbsp;: une chute de 96&nbsp;% à 3,7&nbsp;% en une semaine</h2>
+
+<p>Un cas rapporté par l'outil de suivi Pepper décrit une marque dont le taux de citation dans les AI Overviews de Google est passé de 96&nbsp;% à 3,7&nbsp;% en une seule semaine, sans qu'aucun changement n'ait été apporté au site concerné. L'explication avancée par l'auteur n'est pas un problème de classement&nbsp;: c'est un changement du modèle que Google utilise en coulisses pour générer les AI Overviews. Le classement classique du site n'a pas bougé&nbsp;; seule la façon dont le système génératif sélectionne et cite les sources a changé.</p>
+
+<h2>Le cas inverse existe aussi&nbsp;: visible en IA, invisible sur Google</h2>
+
+<p>Le consultant SEO Glenn Gabe (GSQi), référence reconnue dans l'industrie, documente des cas allant dans l'autre sens&nbsp;: un site avec une visibilité quasi nulle sur Google peut connaître une forte présence dans les réponses de ChatGPT, souvent via de bons classements sur Bing&nbsp;— moteur qui alimente certaines fonctions de recherche utilisées par ChatGPT. La divergence n'est donc pas à sens unique&nbsp;: un acteur peut être fort en GEO et faible en SEO classique, ou l'inverse, selon le moteur qui alimente réellement la réponse générative concernée.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-geo-vs-seo-divergence-visibilite-ia-resource.png" alt="Trois mécanismes de divergence entre SEO et GEO : changement de modèle IA, artefact de mesure, et vraie divergence de visibilité" width="900" height="340" loading="lazy">
+  <figcaption>Trois mécanismes distincts peuvent produire une même divergence apparente entre classement et visibilité IA.</figcaption>
+</figure>
+
+<h2>Un contre-exemple instructif&nbsp;: quand les deux chutent ensemble</h2>
+
+<p>Le cas de Grokipedia, documenté par les outils de suivi Peec AI et ALM Corp, montre à l'inverse une baisse simultanée du classement Google et des citations dans les AI Overviews, l'AI Mode et ChatGPT, survenue au même moment. Ce cas rappelle que la divergence SEO/GEO n'est pas la norme&nbsp;: dans beaucoup de situations, les deux signaux restent corrélés, parce qu'ils s'appuient en partie sur des signaux de qualité et d'autorité communs.</p>
+
+<h2>Un artefact de mesure à ne pas confondre avec une vraie divergence</h2>
+
+<p>Une analyse de Search Engine Land sur les AI Overviews en France relève un autre phénomène&nbsp;: certains sites avec des clics et des impressions stables dans Search Console voient malgré tout des variations de position apparente, ce que Glenn Gabe attribue possiblement à la façon dont Search Console comptabilise les citations à l'intérieur d'un AI Overview repliable. Avant de conclure à une vraie divergence SEO/GEO, il faut donc écarter l'hypothèse d'un simple artefact de la méthode de mesure.</p>
+
+<h2>Ce que ça implique pour le suivi d'un site</h2>
+
+<p>Le classement Google classique et la présence dans les réponses génératives méritent un suivi distinct, avec des outils adaptés à chacun&nbsp;: Search Console pour le premier, un outil de suivi de citations IA pour le second. Les chiffres de chevauchement publiés par certains éditeurs d'outils (parfois annoncés autour de 45 à 67&nbsp;% selon la source) restent des estimations commerciales, pas des constantes scientifiquement établies&nbsp;— ils donnent un ordre de grandeur utile, pas une vérité universelle à citer sans précaution. Un site qui chute dans un seul des deux suivis, pas dans l'autre, mérite une investigation séparée plutôt qu'une correction SEO automatique qui pourrait ne traiter ni la vraie cause ni le vrai symptôme.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Un site peut-il vraiment perdre en visibilité dans les IA génératives sans que son classement Google ne bouge ?</summary>
+    <p>Oui, des cas documentés par des outils de suivi existent. L'un des plus cités rapporte le taux de citation d'une marque dans les AI Overviews passant de 96 % à 3,7 % en une semaine, sans aucun changement sur le site concerné — ce que l'auteur attribue à un changement du modèle utilisé par Google pour générer les AI Overviews, pas à une évolution du classement classique.</p>
+  </details>
+  <details>
+    <summary>Les classements Google et les citations dans les réponses IA se recoupent-ils largement ?</summary>
+    <p>Pas systématiquement, selon plusieurs outils de suivi spécialisés qui publient des chiffres de chevauchement : l'un rapporte que 67 % des URLs citées par ChatGPT n'apparaissent jamais dans les AI Overviews pour la même requête, un autre évoque un chevauchement d'environ 45 % entre classement classique et visibilité IA. Ces chiffres viennent d'éditeurs d'outils commerciaux, pas d'études indépendantes, et doivent être traités comme des ordres de grandeur, pas des constantes universelles.</p>
+  </details>
+  <details>
+    <summary>La divergence SEO/GEO va-t-elle toujours dans le sens d'une perte de visibilité IA, jamais l'inverse ?</summary>
+    <p>Non. Le consultant SEO Glenn Gabe documente aussi le cas inverse : un site avec peu ou pas de visibilité dans Google peut connaître une forte visibilité dans ChatGPT, notamment via des classements solides sur Bing, le moteur qui alimente certaines fonctions de recherche de ChatGPT. La divergence peut jouer dans les deux sens, selon le mécanisme en cause.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un suivi distinct de votre visibilité SEO et de votre visibilité IA ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer ma double visibilité</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, et l'article <a href="/seo-geo-ce-qui-change-vraiment">Ce qui change vraiment entre le SEO et le GEO (et ce qui ne change pas)</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/seo-geo-ce-qui-change-vraiment">SEO vs GEO →</a>
+      <a href="/mesurer-roi-geo-kpis-trafic-organique">Mesurer le ROI du GEO →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
