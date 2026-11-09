@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crawl budget : comment savoir si Google explore mal votre site, et pourquoi ça compte | Blog — Johan Simonneau</title>
+<meta name="description" content="Le crawl budget ne concerne pas tous les sites de la même façon selon Google. Les seuils officiels, les signaux à vérifier dans Search Console, et ce qui gaspille vraiment ce budget.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/crawl-budget-diagnostic-gros-site">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Crawl budget : comment savoir si Google explore mal votre site, et pourquoi ça compte">
+<meta property="og:description" content="Le crawl budget ne concerne pas tous les sites de la même façon selon Google. Les seuils officiels, les signaux à vérifier dans Search Console, et ce qui gaspille vraiment ce budget.">
+<meta property="og:url" content="https://www.johansimonneau.fr/crawl-budget-diagnostic-gros-site">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-crawl-budget-diagnostic-gros-site-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-crawl-budget-diagnostic-gros-site-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Crawl budget : comment savoir si Google explore mal votre site, et pourquoi ça compte", "item": "https://www.johansimonneau.fr/crawl-budget-diagnostic-gros-site" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Crawl budget : comment savoir si Google explore mal votre site, et pourquoi ça compte",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-crawl-budget-diagnostic-gros-site-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-12-27",
+      "dateModified": "2026-12-27",
+      "description": "Le crawl budget ne concerne pas tous les sites de la même façon selon Google. Les seuils officiels, les signaux à vérifier dans Search Console, et ce qui gaspille vraiment ce budget.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/crawl-budget-diagnostic-gros-site"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Le crawl budget concerne-t-il tous les sites ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Google précise que son guide sur le crawl budget s'adresse surtout aux sites de plus d'un million de pages uniques qui changent environ chaque semaine, ou de plus de 10 000 pages qui changent quotidiennement. Pour un site plus petit, Google recommande simplement de garder un sitemap à jour et de surveiller le rapport d'indexation des pages."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bloquer des pages via robots.txt libère-t-il du crawl budget pour le reste du site ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Généralement non, selon Google. L'entreprise indique que ses robots ne réallouent pas automatiquement ce budget à d'autres pages, sauf si le site est déjà en train d'atteindre sa limite de capacité de crawl."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le statut « Découverte - actuellement non indexée » dans Search Console signifie-t-il un problème de crawl budget ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est l'un des signaux que Google cite explicitement comme pouvant justifier de s'intéresser au crawl budget, surtout si ce statut concerne un grand nombre d'URL. Il indique que Google connaît l'existence de ces pages mais n'a pas jugé prioritaire de les crawler jusqu'ici."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Crawl budget</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Crawl budget : comment savoir si Google explore mal votre site, et pourquoi ça compte</h1>
+      <p class="sub-hook">Le crawl budget est un sujet souvent mal calibré : beaucoup de petits sites s'en inquiètent sans raison, tandis que de vrais problèmes passent inaperçus sur des sites qui devraient s'en préoccuper. Ce que Google en dit officiellement, et comment savoir si ça vous concerne vraiment.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>27 décembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-crawl-budget-diagnostic-gros-site-hero.png" alt="Illustration du crawl budget : capacité de crawl et demande de crawl selon Google, avec un site qui gaspille son budget sur des pages dupliquées" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Peu de sujets techniques SEO génèrent autant d'inquiétude disproportionnée que le crawl budget. Des sites de quelques centaines de pages s'en soucient parfois plus que de leur contenu, alors que Google est explicite sur le public concerné&nbsp;: son guide sur la gestion du crawl budget s'adresse « principalement » aux sites de plus d'un million de pages uniques qui changent environ chaque semaine, ou de plus de 10&nbsp;000 pages qui changent quotidiennement. Google précise lui-même que ces seuils restent des estimations approximatives, pas des règles strictes.</p>
+
+<h2>Ce que Google appelle vraiment « crawl budget »</h2>
+
+<p>Google le définit comme « l'ensemble des URL que Google peut et veut explorer ». Deux facteurs distincts s'y combinent&nbsp;: la <strong>capacité de crawl</strong> (ce que Google peut techniquement explorer sans surcharger le serveur) et la <strong>demande de crawl</strong> (ce que Google a envie d'explorer, selon la popularité et la fraîcheur perçues du contenu). Chaque nom d'hôte est traité comme un site à part, avec son propre budget — un sous-domaine n'hérite pas automatiquement du budget du domaine principal.</p>
+
+<h2>Les signaux qui justifient de s'y intéresser</h2>
+
+<p>Au-delà des seuils de taille, Google cite un troisième signal, indépendant de la taille du site&nbsp;: un grand nombre d'URL classées « Découverte&nbsp;— actuellement non indexée » dans le rapport d'indexation des pages de Search Console. Ce statut signifie que Google connaît l'existence de ces pages mais n'a pas jugé prioritaire de les explorer. Pour la grande majorité des sites plus petits, Google recommande simplement de maintenir un sitemap à jour et de surveiller ce rapport, sans aller plus loin dans l'optimisation du crawl.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-crawl-budget-diagnostic-gros-site-resource.png" alt="Les deux composantes du crawl budget selon Google : capacité de crawl (ce que Google peut explorer) et demande de crawl (ce que Google veut explorer)" width="900" height="340" loading="lazy">
+  <figcaption>Capacité et demande de crawl : les deux facteurs qui déterminent le budget, selon la documentation Google.</figcaption>
+</figure>
+
+<h2>Ce qui améliore ou dégrade la capacité de crawl</h2>
+
+<p>La capacité de crawl dépend directement de la santé technique du site&nbsp;: des temps de réponse stables ou en amélioration l'augmentent, tandis que des réponses lentes, des erreurs serveur (5xx) ou des signaux de limitation de débit (429) la réduisent. Cette capacité est aussi partagée entre tous les robots de Google&nbsp;: une forte demande d'un robot peut réduire ce qui reste disponible pour les autres.</p>
+
+<h2>Ce qui gaspille vraiment le budget, selon Google</h2>
+
+<p>La documentation liste des erreurs précises à corriger en priorité&nbsp;: utiliser <strong>noindex</strong> pour retirer des pages — Google les redemande quand même avant de les abandonner, ce qui consomme du crawl pour rien. Utiliser le <strong>robots.txt</strong> en espérant libérer du budget pour d'autres pages&nbsp;— Google indique que cette réallocation ne se produit généralement pas, sauf si le site atteint déjà sa limite de capacité. Laisser des pages supprimées renvoyer autre chose qu'un code 404 ou 410, ce qui les maintient plus longtemps dans la file de crawl. Laisser des <strong>soft 404</strong> en place, qui continuent d'être explorés inutilement. Tolérer du <strong>contenu dupliqué</strong> — y compris le défilement infini ou des versions triées différemment de la même liste de produits. Les <strong>chaînes de redirection</strong> longues, et les sitemaps qui ne sont pas tenus à jour avec un champ <code>lastmod</code> correct.</p>
+
+<h2>Le réflexe simple avant tout diagnostic avancé</h2>
+
+<p>Avant tout outil tiers ou analyse de logs serveur, la première étape reste de recouper le rapport d'indexation des pages de Search Console avec la taille réelle du site&nbsp;: un volume important d'URL « Découverte — non indexée » sur un site de taille moyenne est un signal à prendre au sérieux, même sous les seuils que Google cite pour les très gros sites. Pour un site de quelques centaines ou milliers de pages, en revanche, un sitemap propre et un maillage interne cohérent suffisent généralement — le crawl budget n'est tout simplement pas le facteur limitant.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Le crawl budget concerne-t-il tous les sites ?</summary>
+    <p>Non. Google précise que son guide sur le crawl budget s'adresse surtout aux sites de plus d'un million de pages uniques qui changent environ chaque semaine, ou de plus de 10 000 pages qui changent quotidiennement. Pour un site plus petit, Google recommande simplement de garder un sitemap à jour et de surveiller le rapport d'indexation des pages.</p>
+  </details>
+  <details>
+    <summary>Bloquer des pages via robots.txt libère-t-il du crawl budget pour le reste du site ?</summary>
+    <p>Généralement non, selon Google. L'entreprise indique que ses robots ne réallouent pas automatiquement ce budget à d'autres pages, sauf si le site est déjà en train d'atteindre sa limite de capacité de crawl.</p>
+  </details>
+  <details>
+    <summary>Le statut « Découverte - actuellement non indexée » dans Search Console signifie-t-il un problème de crawl budget ?</summary>
+    <p>C'est l'un des signaux que Google cite explicitement comme pouvant justifier de s'intéresser au crawl budget, surtout si ce statut concerne un grand nombre d'URL. Il indique que Google connaît l'existence de ces pages mais n'a pas jugé prioritaire de les crawler jusqu'ici.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de savoir si votre site a vraiment un problème de crawl, ou juste un maillage à revoir ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Diagnostiquer mon indexation</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/seo">SEO</a>, et l'article <a href="/pages-non-indexees-google-causes">Pourquoi Google n'indexe jamais certaines de vos pages</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/seo">SEO →</a>
+      <a href="/pages-non-indexees-google-causes">Pages non indexées →</a>
+      <a href="/programmatic-seo-limites-automatisation">Programmatic SEO →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
