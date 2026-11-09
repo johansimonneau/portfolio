@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEO local : les IA génératives recommandent-elles vraiment des commerces de proximité ? | Blog — Johan Simonneau</title>
+<meta name="description" content="ChatGPT et Perplexity recommandent beaucoup moins de commerces locaux que le 3-pack local de Google, selon plusieurs études 2026. Ce que ça change pour une PME, et ce qui reste à vérifier.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/geo-local-ia-recommandent-commerces-proximite">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GEO local : les IA génératives recommandent-elles vraiment des commerces de proximité ?">
+<meta property="og:description" content="ChatGPT et Perplexity recommandent beaucoup moins de commerces locaux que le 3-pack local de Google, selon plusieurs études 2026. Ce que ça change pour une PME, et ce qui reste à vérifier.">
+<meta property="og:url" content="https://www.johansimonneau.fr/geo-local-ia-recommandent-commerces-proximite">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-geo-local-ia-recommandent-commerces-proximite-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-geo-local-ia-recommandent-commerces-proximite-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "GEO local : les IA génératives recommandent-elles vraiment des commerces de proximité ?", "item": "https://www.johansimonneau.fr/geo-local-ia-recommandent-commerces-proximite" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "GEO local : les IA génératives recommandent-elles vraiment des commerces de proximité ?",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-geo-local-ia-recommandent-commerces-proximite-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2027-01-06",
+      "dateModified": "2027-01-06",
+      "description": "ChatGPT et Perplexity recommandent beaucoup moins de commerces locaux que le 3-pack local de Google, selon plusieurs études 2026. Ce que ça change pour une PME, et ce qui reste à vérifier.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/geo-local-ia-recommandent-commerces-proximite"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "ChatGPT et Perplexity recommandent-ils des commerces locaux aussi souvent que Google ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, selon plusieurs études 2026. Un indice de visibilité locale publié par SOCi en 2026 situe le taux de recommandation effective des établissements à 1,2 % sur ChatGPT et 7,4 % sur Perplexity, contre 35,9 % de visibilité dans le 3-pack local de Google — des ordres de grandeur très différents, même si les méthodologies de ces études restent des analyses d'éditeurs, pas des publications académiques."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Un Google Business Profile complet garantit-il d'être recommandé par les IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Les études disponibles s'accordent sur le fait qu'un profil complet et exact est une condition nécessaire mais pas suffisante. Plusieurs sources notent aussi que l'exactitude des informations d'un établissement reprise par les IA reste imparfaite, autour de 68 % selon l'indice SOCi 2026 pour ChatGPT et Perplexity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les avis clients comptent-ils dans les recommandations locales par IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les analyses disponibles pointent dans ce sens sans le démontrer de façon rigoureuse : un test portant sur des recherches de dentistes et de plombiers a observé que l'ordre des recommandations suivait d'assez près les notes et le nombre d'avis des établissements, mais il s'agit d'un échantillon limité, pas d'une preuve statistique généralisable."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">GEO local</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>GEO local : les IA génératives recommandent-elles vraiment des commerces de proximité ?</h1>
+      <p class="sub-hook">Un artisan ou un commerce de quartier se demande légitimement si ChatGPT ou Perplexity vont un jour le recommander comme le fait Google avec son 3-pack local. Les études 2026 disponibles donnent une réponse claire sur la tendance, même si leurs chiffres précis restent à prendre avec précaution.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>6 janvier 2027</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-geo-local-ia-recommandent-commerces-proximite-hero.png" alt="Illustration comparant la visibilité d'un commerce local dans le 3-pack Google et dans les recommandations de ChatGPT et Perplexity" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Un restaurateur ou un plombier qui investit dans sa fiche Google Business Profile se demande de plus en plus si ce travail compte aussi pour ChatGPT ou Perplexity. La question est légitime&nbsp;: plusieurs études publiées en 2026 s'y sont penchées directement, et leurs conclusions, bien qu'issues d'analyses d'éditeurs plutôt que de recherche académique, dessinent un tableau cohérent sur la tendance de fond.</p>
+
+<h2>Un écart net entre Google et les IA génératives</h2>
+
+<p>L'indice de visibilité locale 2026 publié par SOCi rapporte que les plateformes IA ne recommandent qu'une faible part des établissements qu'elles pourraient citer&nbsp;: environ 1,2&nbsp;% sur ChatGPT et 7,4&nbsp;% sur Perplexity, contre 35,9&nbsp;% de taux de visibilité dans le 3-pack local de Google pour les mêmes types de recherches. L'écart est large, et cohérent avec l'idée que les moteurs conversationnels généralistes n'ont pas encore atteint la maturité du système de recherche locale de Google, construit depuis des années autour de Maps et des avis.</p>
+
+<h2>La qualité des données reste un problème distinct</h2>
+
+<p>Au-delà du taux de recommandation, un deuxième problème apparaît dans ces mêmes études&nbsp;: l'exactitude des informations reprises. Le même indice SOCi 2026 situe la précision des profils d'établissements repris par les IA à environ 68&nbsp;% sur ChatGPT et Perplexity, contre une précision nettement meilleure sur Gemini — un résultat cohérent avec le fait que Gemini puise directement dans les données de Google Maps, alors que ChatGPT et Perplexity recomposent l'information à partir de sources plus hétérogènes.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-geo-local-ia-recommandent-commerces-proximite-resource.png" alt="Taux de recommandation d'un commerce local : environ 1,2% sur ChatGPT, 7,4% sur Perplexity, contre 35,9% de visibilité dans le 3-pack local de Google selon l'indice SOCi 2026" width="900" height="340" loading="lazy">
+  <figcaption>Un écart net entre la maturité du 3-pack local Google et les recommandations locales des IA génératives, selon l'indice SOCi 2026.</figcaption>
+</figure>
+
+<h2>D'où viennent les sources citées par les IA pour le local</h2>
+
+<p>Les études disponibles divergent nettement sur la part exacte que représente Google Business Profile dans les citations locales des IA — une estimation de BrightLocal pour 2026 l'évalue à 28,5&nbsp;%, tandis qu'une autre analyse, moins rigoureuse sur sa méthode, avance plutôt 42&nbsp;% pour Google Business Profile, 28&nbsp;% pour les annuaires et 17&nbsp;% pour le site propre de l'entreprise. Ces deux estimations ne se recoupent pas vraiment, ce qui invite à retenir le principe plutôt que le chiffre&nbsp;: Google Business Profile reste une source significative, sans être la seule, et Perplexity en particulier s'appuie aussi beaucoup sur des contenus tiers comme Reddit ou les plateformes d'avis.</p>
+
+<h2>Ce que ça change concrètement pour une PME locale</h2>
+
+<p>Les études convergent sur un point pratique&nbsp;: un profil Google Business complet, exact et à jour reste la base incontournable, même s'il ne garantit rien seul. Un test réalisé sur des recherches de dentistes et de plombiers a observé que l'ordre des recommandations suivait d'assez près les notes et le volume d'avis des établissements — un signal cohérent avec l'intuition, même s'il s'agit d'un échantillon limité et non d'une démonstration statistique solide. Pour une PME locale, l'enseignement raisonnable est de continuer à soigner sa fiche, ses avis et sa présence sur les plateformes tierces pertinentes pour son secteur, sans attendre des IA génératives le même niveau de visibilité que Google aujourd'hui.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>ChatGPT et Perplexity recommandent-ils des commerces locaux aussi souvent que Google ?</summary>
+    <p>Non, selon plusieurs études 2026. Un indice de visibilité locale publié par SOCi en 2026 situe le taux de recommandation effective des établissements à 1,2 % sur ChatGPT et 7,4 % sur Perplexity, contre 35,9 % de visibilité dans le 3-pack local de Google — des ordres de grandeur très différents, même si les méthodologies de ces études restent des analyses d'éditeurs, pas des publications académiques.</p>
+  </details>
+  <details>
+    <summary>Un Google Business Profile complet garantit-il d'être recommandé par les IA ?</summary>
+    <p>Non. Les études disponibles s'accordent sur le fait qu'un profil complet et exact est une condition nécessaire mais pas suffisante. Plusieurs sources notent aussi que l'exactitude des informations d'un établissement reprise par les IA reste imparfaite, autour de 68 % selon l'indice SOCi 2026 pour ChatGPT et Perplexity.</p>
+  </details>
+  <details>
+    <summary>Les avis clients comptent-ils dans les recommandations locales par IA ?</summary>
+    <p>Les analyses disponibles pointent dans ce sens sans le démontrer de façon rigoureuse : un test portant sur des recherches de dentistes et de plombiers a observé que l'ordre des recommandations suivait d'assez près les notes et le nombre d'avis des établissements, mais il s'agit d'un échantillon limité, pas d'une preuve statistique généralisable.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un diagnostic de votre visibilité locale, Google comme IA génératives ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Diagnostiquer ma visibilité locale</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, et l'article <a href="/google-business-profile-seo-local-pme">Google Business Profile : le levier local que les PME sous-exploitent</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/google-business-profile-seo-local-pme">Google Business Profile →</a>
+      <a href="/seo-local-saisonnier-savoie">SEO local saisonnier →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
