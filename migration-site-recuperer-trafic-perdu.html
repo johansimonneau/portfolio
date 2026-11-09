@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comment récupérer le trafic perdu après une migration de site : la checklist | Blog — Johan Simonneau</title>
+<meta name="description" content="Une migration de site fait presque toujours chuter le trafic temporairement. Ce que dit la documentation officielle de Google pour limiter la casse, et la checklist pour ne rien oublier.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/migration-site-recuperer-trafic-perdu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Comment récupérer le trafic perdu après une migration de site : la checklist">
+<meta property="og:description" content="Une migration de site fait presque toujours chuter le trafic temporairement. Ce que dit la documentation officielle de Google pour limiter la casse, et la checklist pour ne rien oublier.">
+<meta property="og:url" content="https://www.johansimonneau.fr/migration-site-recuperer-trafic-perdu">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-migration-site-recuperer-trafic-perdu-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-migration-site-recuperer-trafic-perdu-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Comment récupérer le trafic perdu après une migration de site : la checklist", "item": "https://www.johansimonneau.fr/migration-site-recuperer-trafic-perdu" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Comment récupérer le trafic perdu après une migration de site : la checklist",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-migration-site-recuperer-trafic-perdu-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-12-19",
+      "dateModified": "2026-12-19",
+      "description": "Une migration de site fait presque toujours chuter le trafic temporairement. Ce que dit la documentation officielle de Google pour limiter la casse, et la checklist pour ne rien oublier.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/migration-site-recuperer-trafic-perdu"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Combien de temps faut-il pour que le trafic revienne après une migration de site ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google ne donne aucun délai fixe. Sa documentation indique qu'un site petit à moyen peut voir la majorité de ses pages basculer en quelques semaines, et qu'un grand site prend plus de temps. Googlebot doit visiter chaque ancienne et nouvelle URL au moins une fois, sans fréquence de crawl garantie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il garder les redirections indéfiniment après une migration ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google recommande de les garder au minimum un an pour que les signaux soient transférés et que les anciens liens soient recrawlés, et suggère de les conserver indéfiniment du point de vue de l'utilisateur. Supprimer les redirections trop tôt est l'une des causes les plus fréquentes de trafic qui ne revient jamais."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de redirections en chaîne Google accepte-t-il ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Googlebot peut suivre jusqu'à 10 sauts, mais Google recommande de rediriger directement vers la destination finale et, si ce n'est pas possible, de limiter la chaîne à 3 redirections dans l'idéal et moins de 5 au maximum."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Migration de site</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Comment récupérer le trafic perdu après une migration de site : la checklist</h1>
+      <p class="sub-hook">Changement de nom de domaine, passage en HTTPS, refonte complète&nbsp;: une migration fait presque toujours chuter le trafic pendant quelques semaines. La documentation officielle de Google dit précisément comment limiter la casse — et ce qui, une fois oublié, transforme une baisse temporaire en perte définitive.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>19 décembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-migration-site-recuperer-trafic-perdu-hero.png" alt="Illustration d'une migration de site avec basculement des URLs de l'ancien vers le nouveau domaine" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Une migration de site — nouveau nom de domaine, passage en HTTPS, refonte de l'arborescence — s'accompagne presque toujours d'une baisse de trafic temporaire, même quand tout est fait correctement. La documentation officielle « How to move a site » de Google Search Central décrit précisément comment limiter cette baisse. Le problème n'est presque jamais la migration elle-même&nbsp;: c'est un détail de cette documentation qui a été ignoré, ou abandonné trop tôt.</p>
+
+<h2>Ce que Google demande avant même de commencer</h2>
+
+<p>La documentation est explicite&nbsp;: « vérifiez bien toutes les variantes de l'ancien et du nouveau site ». Concrètement, cela veut dire valider dans Search Console l'ancien domaine ET le nouveau, dans toutes leurs variantes — avec et sans www, en HTTP et en HTTPS si les deux existent. Pour une migration de domaine utilisant l'outil de changement d'adresse, Google demande de soumettre une demande pour chaque variante vérifiée de l'ancien domaine, même celles qui ne sont plus utilisées activement. Oublier une variante revient à laisser une partie du trafic sans redirection suivie.</p>
+
+<h2>Les redirections : la durée compte plus que la technique</h2>
+
+<p>Sur la mécanique des redirections, deux points de la documentation sont souvent mal appliqués. D'abord la longueur des chaînes&nbsp;: Googlebot peut suivre jusqu'à 10&nbsp;sauts, mais Google recommande de rediriger directement vers la destination finale, et si ce n'est pas possible, de garder la chaîne à « 3&nbsp;redirections dans l'idéal, moins de 5&nbsp;» — chaque saut supplémentaire ajoute aussi de la latence pour l'utilisateur. Ensuite la durée&nbsp;: Google recommande de garder les redirections serveur « généralement au moins 1&nbsp;an », le temps que les signaux soient transférés et que les liens vers les anciennes URLs soient recrawlés, et suggère même de les conserver indéfiniment du point de vue de l'utilisateur. Supprimer les redirections après quelques mois, parce que « la migration est terminée », est l'erreur la plus coûteuse et la plus fréquente&nbsp;: tout le travail de transfert de signal s'effondre d'un coup.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-migration-site-recuperer-trafic-perdu-resource.png" alt="Checklist de migration de site : vérification Search Console, redirections 301 directes, durée de conservation, suivi du trafic" width="900" height="340" loading="lazy">
+  <figcaption>Les points de la documentation officielle Google les plus souvent oubliés — et les plus coûteux à oublier.</figcaption>
+</figure>
+
+<h2>Combien de temps avant que le trafic revienne vraiment</h2>
+
+<p>Google ne donne aucune date précise, et c'est volontaire&nbsp;: la documentation indique qu'« un site petit à moyen peut prendre quelques semaines pour que la plupart des pages basculent, les sites plus grands prennent plus de temps ». Googlebot doit visiter chaque ancienne et chaque nouvelle URL au moins une fois, sans fréquence de crawl garantie — ce qui explique pourquoi deux sites de taille comparable peuvent récupérer leur trafic à des vitesses différentes. La documentation précise aussi qu'après une migration, Google explore temporairement le nouveau site plus intensément que d'habitude&nbsp;: la capacité serveur doit pouvoir absorber ce pic, sous peine de ralentir encore le processus.</p>
+
+<h2>La checklist, dans l'ordre</h2>
+
+<p>Avant la migration&nbsp;: lister l'intégralité des URLs du site actuel (une recommandation attribuée à John&nbsp;Mueller lors d'échanges publics sur le sujet), vérifier toutes les variantes de domaine dans Search Console, préparer une redirection 301 un-pour-un pour chaque URL plutôt qu'une redirection générique vers la page d'accueil. Pendant la migration&nbsp;: activer les redirections dès le basculement, soumettre l'outil de changement d'adresse si le domaine change, vérifier manuellement un échantillon de redirections sur mobile et desktop. Après la migration&nbsp;: surveiller la couverture d'index dans Search Console semaine par semaine, conserver les redirections au moins un an sans exception, et ne jamais interpréter une baisse des 2 à 3 premières semaines comme un échec — c'est la phase que la documentation elle-même anticipe.</p>
+
+<h2>Ce qui transforme une baisse normale en perte définitive</h2>
+
+<p>Dans la quasi-totalité des migrations qui ne récupèrent jamais leur trafic, la cause n'est pas une erreur technique complexe&nbsp;: c'est une redirection supprimée trop tôt, une variante de domaine jamais vérifiée, ou une chaîne de redirections si longue qu'elle finit par ne plus être suivie correctement. La documentation Google donne déjà la réponse à chacun de ces trois points — il s'agit surtout de ne pas s'en écarter une fois le projet terminé et l'attention retombée.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Combien de temps faut-il pour que le trafic revienne après une migration de site ?</summary>
+    <p>Google ne donne aucun délai fixe. Sa documentation indique qu'un site petit à moyen peut voir la majorité de ses pages basculer en quelques semaines, et qu'un grand site prend plus de temps. Googlebot doit visiter chaque ancienne et nouvelle URL au moins une fois, sans fréquence de crawl garantie.</p>
+  </details>
+  <details>
+    <summary>Faut-il garder les redirections indéfiniment après une migration ?</summary>
+    <p>Google recommande de les garder au minimum un an pour que les signaux soient transférés et que les anciens liens soient recrawlés, et suggère de les conserver indéfiniment du point de vue de l'utilisateur. Supprimer les redirections trop tôt est l'une des causes les plus fréquentes de trafic qui ne revient jamais.</p>
+  </details>
+  <details>
+    <summary>Combien de redirections en chaîne Google accepte-t-il ?</summary>
+    <p>Googlebot peut suivre jusqu'à 10 sauts, mais Google recommande de rediriger directement vers la destination finale et, si ce n'est pas possible, de limiter la chaîne à 3 redirections dans l'idéal et moins de 5 au maximum.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Une migration de site à sécuriser avant de la lancer ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer ma migration SEO</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/seo">SEO</a>, et l'article <a href="/pages-non-indexees-google-causes">Pourquoi Google n'indexe jamais certaines de vos pages</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/seo">SEO →</a>
+      <a href="/pages-non-indexees-google-causes">Pages non indexées →</a>
+      <a href="/google-core-updates-2026-calendrier">Core updates 2026 →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
