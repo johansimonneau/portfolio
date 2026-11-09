@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Part de voix dans les réponses IA : comment la mesurer sans outil dédié | Blog — Johan Simonneau</title>
+<meta name="description" content="Aucun organisme ne standardise encore la part de voix dans les réponses IA. La méthode manuelle que les praticiens utilisent en attendant — et ses limites à connaître avant de s'y fier.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/part-de-voix-reponses-ia-mesurer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Part de voix dans les réponses IA : comment la mesurer sans outil dédié">
+<meta property="og:description" content="Aucun organisme ne standardise encore la part de voix dans les réponses IA. La méthode manuelle que les praticiens utilisent en attendant — et ses limites à connaître avant de s'y fier.">
+<meta property="og:url" content="https://www.johansimonneau.fr/part-de-voix-reponses-ia-mesurer">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-part-de-voix-reponses-ia-mesurer-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-part-de-voix-reponses-ia-mesurer-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Part de voix dans les réponses IA : comment la mesurer sans outil dédié", "item": "https://www.johansimonneau.fr/part-de-voix-reponses-ia-mesurer" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Part de voix dans les réponses IA : comment la mesurer sans outil dédié",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-part-de-voix-reponses-ia-mesurer-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2027-01-03",
+      "dateModified": "2027-01-03",
+      "description": "Aucun organisme ne standardise encore la part de voix dans les réponses IA. La méthode manuelle que les praticiens utilisent en attendant — et ses limites à connaître avant de s'y fier.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/part-de-voix-reponses-ia-mesurer"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment calculer sa part de voix dans les réponses IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La méthode manuelle consiste à poser un panel fixe de prompts représentatifs de sa catégorie à un ou plusieurs modèles, puis à compter combien de fois sa marque est mentionnée ou citée par rapport au total des mentions de toutes les marques présentes dans les réponses. Le résultat est un pourcentage, mais il reste approximatif."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de prompts faut-il tester pour un résultat fiable ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'existe pas de nombre officiellement validé. Les praticiens recommandent un panel large et stable, de l'ordre de plusieurs dizaines de prompts testés régulièrement, plutôt qu'une mesure ponctuelle sur quelques requêtes — les réponses des modèles varient d'une génération à l'autre, même pour un prompt identique."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "La part de voix IA se mesure-t-elle de la même façon sur tous les modèles ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Une marque peut être dominante sur un modèle et absente sur un autre. La mesure doit donc couvrir plusieurs moteurs (ChatGPT, Perplexity, Google AI Mode, Gemini...) séparément plutôt qu'une moyenne unique, sous peine de masquer des écarts importants."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Part de voix IA</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Part de voix dans les réponses IA : comment la mesurer sans outil dédié</h1>
+      <p class="sub-hook">Contrairement à la part de voix publicitaire classique, qu'aucun organisme ne standardise officiellement non plus mais que les plateformes mesurent au moins elles-mêmes, la part de voix dans les réponses des IA génératives n'a ni définition officielle ni méthode validée. Voici la méthode manuelle que les praticiens du GEO utilisent en attendant mieux — et ses angles morts.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>3 janvier 2027</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-part-de-voix-reponses-ia-mesurer-hero.png" alt="Illustration de la mesure de part de voix d'une marque à travers un panel de prompts testés sur plusieurs IA génératives" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Avant toute chose, une clarification nécessaire&nbsp;: il n'existe aujourd'hui aucune définition officielle, aucun organisme de mesure et aucune méthodologie standardisée pour la part de voix d'une marque dans les réponses des IA génératives. Ce que les praticiens du GEO appellent « part de voix IA » est une métrique construite par le secteur lui-même, essentiellement par des éditeurs d'outils qui la vendent comme fonctionnalité. La méthode décrite ici est la version manuelle, reproductible sans outil payant — avec ses limites assumées.</p>
+
+<h2>La définition de travail la plus répandue</h2>
+
+<p>La définition qui revient le plus souvent dans les ressources du secteur est simple&nbsp;: la part de voix IA d'une marque est la proportion de ses propres mentions par rapport au total des mentions de toutes les marques présentes, sur un ensemble fixe de prompts. Un exemple de calcul souvent cité dans les guides pratiques&nbsp;: si une marque et trois concurrents totalisent 40&nbsp;mentions sur un panel de prompts, et que 14 de ces mentions concernent cette marque, sa part de voix ressort à 35&nbsp;%. Certaines ressources distinguent aussi la « part de citation » — le pourcentage de réponses qui citent effectivement le domaine d'une marque comme source — de la simple mention du nom sans lien. Les deux mesurent des choses différentes et ne doivent pas être confondues.</p>
+
+<h2>La méthode manuelle, étape par étape</h2>
+
+<p>Première étape&nbsp;: construire un panel de prompts fixe et représentatif des questions que se posent réellement les clients potentiels dans sa catégorie — pas des requêtes contenant déjà le nom de la marque, qui biaiseraient artificiellement le résultat. Deuxième étape&nbsp;: poser ce même panel, à intervalles réguliers, sur chaque moteur IA pertinent séparément (ChatGPT, Perplexity, Google AI Mode, Gemini). Troisième étape&nbsp;: noter pour chaque réponse si la marque est mentionnée, si elle est citée comme source, et quelles marques concurrentes apparaissent. Quatrième étape&nbsp;: calculer le ratio mentions propres / mentions totales, par moteur et non en moyenne globale.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-part-de-voix-reponses-ia-mesurer-resource.png" alt="Méthode manuelle de mesure de la part de voix IA : panel de prompts fixe, test répété sur plusieurs moteurs, comptage des mentions par marque" width="900" height="340" loading="lazy">
+  <figcaption>Une méthode reproductible sans outil dédié — à condition d'accepter ses limites de précision.</figcaption>
+</figure>
+
+<h2>Pourquoi une seule mesure ne suffit jamais</h2>
+
+<p>Les réponses d'un modèle génératif varient d'un passage à l'autre, même pour un prompt rigoureusement identique — contrairement à un classement Google qui reste stable entre deux rafraîchissements de page pour un même utilisateur. Les ressources du secteur recommandent donc de traiter la part de voix IA comme une tendance mesurée sur de nombreux passages répétés, pas comme une valeur figée issue d'un seul test. Un panel trop petit (quelques prompts) ou mesuré une seule fois donne un chiffre qui peut varier fortement sans que rien n'ait réellement changé pour la marque.</p>
+
+<h2>L'angle mort qu'aucune méthode manuelle ne résout vraiment</h2>
+
+<p>Même bien exécutée, cette méthode reste un échantillonnage approximatif d'un système opaque&nbsp;: on ne sait pas pourquoi un modèle mentionne une marque plutôt qu'une autre dans un cas donné, seulement qu'il le fait ou non à un instant précis. Les écarts observés entre deux éditeurs d'outils GEO mesurant la même marque peuvent être significatifs, simplement parce que leurs panels de prompts et leurs définitions de « mention » diffèrent. Ce flou méthodologique doit être assumé&nbsp;: la part de voix IA, mesurée à la main ou via un outil, reste une mesure directionnelle utile pour suivre une tendance dans le temps, pas un indicateur de précision comparable à une part de marché Google Ads.</p>
+
+<h2>Ce qu'il est raisonnable d'en faire</h2>
+
+<p>Utiliser cette méthode pour suivre l'évolution de sa propre marque dans le temps, sur un panel de prompts qu'on garde identique d'une mesure à l'autre, a plus de valeur que de comparer son chiffre brut à celui d'un concurrent mesuré par une méthode différente. C'est un outil de suivi relatif, pas un classement absolu — et il doit être présenté comme tel à un client ou à une direction, sous peine de donner une fausse impression de précision à un chiffre qui n'en a pas.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Comment calculer sa part de voix dans les réponses IA ?</summary>
+    <p>La méthode manuelle consiste à poser un panel fixe de prompts représentatifs de sa catégorie à un ou plusieurs modèles, puis à compter combien de fois sa marque est mentionnée ou citée par rapport au total des mentions de toutes les marques présentes dans les réponses. Le résultat est un pourcentage, mais il reste approximatif.</p>
+  </details>
+  <details>
+    <summary>Combien de prompts faut-il tester pour un résultat fiable ?</summary>
+    <p>Il n'existe pas de nombre officiellement validé. Les praticiens recommandent un panel large et stable, de l'ordre de plusieurs dizaines de prompts testés régulièrement, plutôt qu'une mesure ponctuelle sur quelques requêtes — les réponses des modèles varient d'une génération à l'autre, même pour un prompt identique.</p>
+  </details>
+  <details>
+    <summary>La part de voix IA se mesure-t-elle de la même façon sur tous les modèles ?</summary>
+    <p>Non. Une marque peut être dominante sur un modèle et absente sur un autre. La mesure doit donc couvrir plusieurs moteurs (ChatGPT, Perplexity, Google AI Mode, Gemini...) séparément plutôt qu'une moyenne unique, sous peine de masquer des écarts importants.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un suivi structuré de votre présence dans les réponses IA ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Mettre en place un suivi GEO</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, et l'article <a href="/mesurer-roi-geo-kpis-trafic-organique">Mesurer le ROI du GEO</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/mesurer-roi-geo-kpis-trafic-organique">Mesurer le ROI du GEO →</a>
+      <a href="/audit-visibilite-ia">Audit de visibilité IA →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
