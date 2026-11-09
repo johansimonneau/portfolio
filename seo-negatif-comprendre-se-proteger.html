@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO négatif : ce que c'est vraiment, et ce qu'on peut faire contre | Blog — Johan Simonneau</title>
+<meta name="description" content="Faux liens toxiques, contenu scrapé, avis frauduleux : le SEO négatif existe, mais Google affirme que la plupart des attaques par liens n'ont aucun effet depuis Penguin 4.0. Ce qui marche vraiment contre vous, et ce qui ne marche plus.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/seo-negatif-comprendre-se-proteger">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SEO négatif : ce que c'est vraiment, et ce qu'on peut faire contre">
+<meta property="og:description" content="Faux liens toxiques, contenu scrapé, avis frauduleux : le SEO négatif existe, mais Google affirme que la plupart des attaques par liens n'ont aucun effet depuis Penguin 4.0. Ce qui marche vraiment contre vous, et ce qui ne marche plus.">
+<meta property="og:url" content="https://www.johansimonneau.fr/seo-negatif-comprendre-se-proteger">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-seo-negatif-comprendre-se-proteger-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-seo-negatif-comprendre-se-proteger-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "SEO négatif : ce que c'est vraiment, et ce qu'on peut faire contre", "item": "https://www.johansimonneau.fr/seo-negatif-comprendre-se-proteger" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "SEO négatif : ce que c'est vraiment, et ce qu'on peut faire contre",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-seo-negatif-comprendre-se-proteger-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-12-28",
+      "dateModified": "2026-12-28",
+      "description": "Faux liens toxiques, contenu scrapé, avis frauduleux : le SEO négatif existe, mais Google affirme que la plupart des attaques par liens n'ont aucun effet depuis Penguin 4.0. Ce qui marche vraiment contre vous, et ce qui ne marche plus.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/seo-negatif-comprendre-se-proteger"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Un concurrent peut-il faire baisser mon classement en créant de faux liens toxiques vers mon site ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Selon Google, c'est devenu très difficile depuis la mise à jour Penguin 4.0 (2016) : les liens manifestement toxiques sont désormais ignorés automatiquement par l'algorithme plutôt que sanctionnés, ce qui retire une grande partie de l'intérêt de cette tactique. John Mueller a même qualifié ce type d'attaque de « mythe » dans plusieurs échanges publics. Les sources spécialisées restent toutefois partagées sur le fait que le risque soit totalement nul dans tous les cas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il utiliser l'outil de désaveu de liens de Google par précaution ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google qualifie lui-même cet outil de fonctionnalité avancée à utiliser avec prudence, et indique que la plupart des sites n'en ont jamais besoin. Désavouer des liens sans certitude peut retirer des liens qui, en réalité, aidaient le site, puisque l'algorithme sait déjà ignorer la plupart des liens toxiques de lui-même."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles formes de SEO négatif fonctionnent encore réellement ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les attaques qui modifient ce qui existe réellement sur ou autour du site restent efficaces : piratage du site, scraping et republication massive de son contenu ailleurs, fausses demandes de retrait de liens légitimes auprès de webmasters, ou avis frauduleux. Ce sont des manipulations de contenu ou de réputation, pas de simples manipulations de liens — et Google indique surveiller activement les pics suspects de faux avis."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">SEO négatif</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>SEO négatif : ce que c'est vraiment, et ce qu'on peut faire contre</h1>
+      <p class="sub-hook">« Est-ce qu'un concurrent peut saboter mon référencement avec de faux liens ? » La peur du SEO négatif reste vivace, mais la réponse de Google à cette question précise est plus rassurante que ce que beaucoup de propriétaires de site croient encore.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>28 décembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-seo-negatif-comprendre-se-proteger-hero.png" alt="Illustration du SEO négatif : attaques par liens toxiques largement neutralisées par Google depuis Penguin 4.0, contre des attaques de contenu et de réputation qui restent efficaces" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Le SEO négatif désigne toute tentative délibérée de nuire au classement d'un site concurrent, plutôt que d'améliorer le sien. L'image qui vient le plus souvent à l'esprit est celle de milliers de liens toxiques achetés pour faire passer un site pour du spam aux yeux de Google. C'est historiquement la forme la plus connue de SEO négatif — et c'est précisément celle que Google affirme avoir rendue largement inefficace.</p>
+
+<h2>Pourquoi l'attaque par liens a perdu l'essentiel de son effet</h2>
+
+<p>Avant 2016, un afflux soudain de liens de mauvaise qualité pouvait réellement déclencher une pénalité algorithmique sur un site, ce qui en faisait une arme crédible contre un concurrent. La mise à jour Penguin&nbsp;4.0, intégrée en continu à l'algorithme de Google depuis cette date, a changé la mécanique en profondeur&nbsp;: plutôt que de pénaliser un site pour des liens suspects, l'algorithme les ignore directement, sans effet sur le classement dans un sens ou dans l'autre. John&nbsp;Mueller a été jusqu'à qualifier l'idée que des liens toxiques achetés par un tiers puissent couler un site concurrent de « mythe » entretenu par certains outils SEO qui vendent des audits de liens toxiques. Cette neutralisation réduit fortement l'intérêt d'une attaque par liens, sans pour autant garantir, selon plusieurs analyses spécialisées, qu'aucun scénario résiduel ne puisse jamais faire effet.</p>
+
+<h2>L'outil de désaveu : une protection à manier avec précaution, pas un réflexe</h2>
+
+<p>Face à l'inquiétude des propriétaires de site, Google met à disposition un outil de désaveu de liens — mais le présente lui-même comme une fonctionnalité avancée, à utiliser avec prudence, en précisant explicitement que la plupart des sites n'en ont jamais besoin. La raison est directement liée au point précédent&nbsp;: l'algorithme sachant déjà ignorer la plupart des liens toxiques de lui-même, désavouer des liens sans certitude revient à prendre le risque de retirer accidentellement des liens qui, eux, aidaient réellement le référencement du site.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-seo-negatif-comprendre-se-proteger-resource.png" alt="Schéma distinguant les attaques par liens toxiques, largement neutralisées depuis Penguin 4.0, des attaques de contenu et de réputation qui restent efficaces contre un site" width="900" height="340" loading="lazy">
+  <figcaption>Le risque s'est déplacé des liens vers le contenu et la réputation du site.</figcaption>
+</figure>
+
+<h2>Ce qui fonctionne réellement aujourd'hui contre un site</h2>
+
+<p>La neutralisation des attaques par liens n'a pas mis fin au SEO négatif&nbsp;: elle a simplement déplacé les méthodes qui restent efficaces vers des manipulations de contenu ou de réputation, plus difficiles à automatiser pour l'algorithme. Le piratage d'un site pour y injecter du contenu malveillant ou des redirections cachées reste une menace réelle et documentée. Le scraping — la copie et republication massive d'un contenu original ailleurs sur le web, parfois avant même sa publication officielle — peut créer une confusion sur la source d'origine. Les fausses demandes de retrait de liens légitimes, envoyées à des webmasters en se faisant passer pour le propriétaire du site cible, visent à faire perdre de vrais liens utiles. Et les faux avis négatifs massifs, en particulier sur une fiche Google Business Profile, restent une tactique qui touche la réputation plus que l'algorithme lui-même&nbsp;: Google a indiqué surveiller les pics suspects de ce type de signalement pour les retirer.</p>
+
+<h2>Ce qu'il est raisonnable de surveiller concrètement</h2>
+
+<p>Plutôt que de guetter une attaque par liens devenue peu probable, la vigilance la plus utile aujourd'hui porte sur des signaux concrets&nbsp;: une sécurisation solide du site contre le piratage (mises à jour, accès, scan régulier), une veille sur la republication non autorisée de son propre contenu, et un suivi actif des avis clients pour repérer rapidement un afflux anormal et le signaler. C'est un déplacement de priorité qui reflète directement où se trouve le risque réel en 2026, plutôt qu'une menace de liens largement désamorcée depuis dix ans.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Un concurrent peut-il faire baisser mon classement en créant de faux liens toxiques vers mon site ?</summary>
+    <p>Selon Google, c'est devenu très difficile depuis la mise à jour Penguin 4.0 (2016) : les liens manifestement toxiques sont désormais ignorés automatiquement par l'algorithme plutôt que sanctionnés, ce qui retire une grande partie de l'intérêt de cette tactique. John Mueller a même qualifié ce type d'attaque de « mythe » dans plusieurs échanges publics. Les sources spécialisées restent toutefois partagées sur le fait que le risque soit totalement nul dans tous les cas.</p>
+  </details>
+  <details>
+    <summary>Faut-il utiliser l'outil de désaveu de liens de Google par précaution ?</summary>
+    <p>Google qualifie lui-même cet outil de fonctionnalité avancée à utiliser avec prudence, et indique que la plupart des sites n'en ont jamais besoin. Désavouer des liens sans certitude peut retirer des liens qui, en réalité, aidaient le site, puisque l'algorithme sait déjà ignorer la plupart des liens toxiques de lui-même.</p>
+  </details>
+  <details>
+    <summary>Quelles formes de SEO négatif fonctionnent encore réellement ?</summary>
+    <p>Les attaques qui modifient ce qui existe réellement sur ou autour du site restent efficaces : piratage du site, scraping et republication massive de son contenu ailleurs, fausses demandes de retrait de liens légitimes auprès de webmasters, ou avis frauduleux. Ce sont des manipulations de contenu ou de réputation, pas de simples manipulations de liens — et Google indique surveiller activement les pics suspects de faux avis.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Une inquiétude sur un signal suspect touchant votre référencement ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Faire auditer la situation</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/seo">SEO</a>, et l'article <a href="/pages-non-indexees-google-causes">Pourquoi Google n'indexe jamais certaines de vos pages</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/seo">SEO →</a>
+      <a href="/pages-non-indexees-google-causes">Pages non indexées →</a>
+      <a href="/google-core-updates-2026-calendrier">Core updates 2026 →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
