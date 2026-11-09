@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search intent : comment l'identifier avant d'écrire, pour éviter de rater sa cible | Blog — Johan Simonneau</title>
+<meta name="description" content="La taxonomie informationnelle/navigationnelle/transactionnelle vient d'un papier de recherche de 2002, pas d'une invention marketing. Comment l'utiliser concrètement avant de rédiger un contenu.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/search-intent-identifier-avant-ecrire">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Search intent : comment l'identifier avant d'écrire, pour éviter de rater sa cible">
+<meta property="og:description" content="La taxonomie informationnelle/navigationnelle/transactionnelle vient d'un papier de recherche de 2002, pas d'une invention marketing. Comment l'utiliser concrètement avant de rédiger un contenu.">
+<meta property="og:url" content="https://www.johansimonneau.fr/search-intent-identifier-avant-ecrire">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-search-intent-identifier-avant-ecrire-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-search-intent-identifier-avant-ecrire-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Search intent : comment l'identifier avant d'écrire, pour éviter de rater sa cible", "item": "https://www.johansimonneau.fr/search-intent-identifier-avant-ecrire" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Search intent : comment l'identifier avant d'écrire, pour éviter de rater sa cible",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-search-intent-identifier-avant-ecrire-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-12-26",
+      "dateModified": "2026-12-26",
+      "description": "La taxonomie informationnelle/navigationnelle/transactionnelle vient d'un papier de recherche de 2002, pas d'une invention marketing. Comment l'utiliser concrètement avant de rédiger un contenu.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/search-intent-identifier-avant-ecrire"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "D'où vient la classification informationnel / navigationnel / transactionnel ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "D'un papier de recherche publié par Andrei Broder en 2002, \"A Taxonomy of Web Search\". Broder y distinguait les requêtes navigationnelles (atteindre un site précis déjà identifié), informationnelles (trouver une information statique) et transactionnelles (accomplir une action web, comme un achat ou un téléchargement). Le terme \"commercial\" ou \"commercial investigation\", souvent ajouté comme quatrième catégorie, est une extension postérieure de l'industrie SEO, pas un terme du papier original."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Google documente-t-il explicitement l'importance du search intent pour le classement ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas sous ce terme précis dans sa documentation publique. Mais Google indique, dans son guide sur le contenu utile, que le contenu principal d'une page doit directement répondre à l'intention première de cette page — ce qui revient, en pratique, à exiger un alignement entre ce que propose la page et ce que cherche réellement l'utilisateur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on se fier uniquement au volume de recherche d'un mot-clé sans regarder son intention ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Un mot-clé à fort volume mais à intention mal identifiée produit un contenu qui ne correspond pas à ce que les utilisateurs recherchent réellement, même s'il attire du trafic : taux de rebond élevé, temps de lecture faible, et absence de conversion. L'intention doit se vérifier avant d'écrire, en observant directement les résultats déjà en place sur la requête visée."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Search intent</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Search intent : comment l'identifier avant d'écrire, pour éviter de rater sa cible</h1>
+      <p class="sub-hook">Un contenu bien écrit sur un mot-clé à fort volume peut quand même ne jamais convertir ni même se positionner durablement, pour une seule raison : il ne correspond pas à ce que les utilisateurs cherchent réellement derrière cette requête.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>26 décembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-search-intent-identifier-avant-ecrire-hero.png" alt="Illustration des quatre types d'intention de recherche : informationnelle, navigationnelle, transactionnelle et commerciale" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>« Search intent » est devenu un terme marketing tellement répété qu'on en oublie parfois qu'il vient d'un vrai travail de recherche, avec une définition précise. Comprendre son origine aide à l'utiliser correctement&nbsp;: non pas comme une case à cocher dans un brief SEO, mais comme la question centrale à trancher avant d'écrire une seule ligne.</p>
+
+<h2>Une origine académique, pas une invention marketing</h2>
+
+<p>La classification à l'origine du search intent vient d'un papier de recherche publié en 2002 par Andrei Broder, alors chercheur chez IBM Research&nbsp;: « A Taxonomy of Web Search ». Broder y distinguait trois types de requêtes&nbsp;: navigationnelles (l'utilisateur veut atteindre un site précis qu'il connaît déjà ou suppose exister), informationnelles (l'utilisateur veut une information, sur une page relativement statique), et transactionnelles (l'utilisateur veut accomplir une action web ultérieure, comme un achat ou un téléchargement). Son enquête estimait alors la répartition à environ 24,5&nbsp;% de requêtes navigationnelles, 39 à 48&nbsp;% d'informationnelles, et 22 à 36&nbsp;% de transactionnelles&nbsp;— des proportions qui ont nécessairement évolué depuis, l'enquête de Broder datant d'avant l'essor du e-commerce et du mobile.</p>
+
+<h2>La quatrième catégorie, ajoutée par l'industrie SEO</h2>
+
+<p>Le terme « commercial » ou « commercial investigation », aujourd'hui présenté comme une quatrième catégorie à part entière dans la plupart des guides SEO, ne figure pas dans le papier original de Broder, qui parlait de requêtes « transactionnelles » au sens large d'une activité médiée par le web, pas nécessairement d'un achat. Cette distinction entre intention transactionnelle (prêt à acheter) et intention commerciale (encore en comparaison, pas encore prêt) est une extension pragmatique ajoutée plus tard par l'industrie du référencement, utile en pratique mais à ne pas confondre avec la taxonomie de recherche d'origine.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-search-intent-identifier-avant-ecrire-resource.png" alt="Les quatre intentions de recherche et le type de contenu qui y répond : page informative, page d'accueil de marque, page de comparaison, page produit" width="900" height="340" loading="lazy">
+  <figcaption>Chaque intention appelle un format de contenu différent — le mauvais format ne corrige pas une bonne information.</figcaption>
+</figure>
+
+<h2>Ce que Google en dit, sans employer le terme</h2>
+
+<p>La documentation officielle de Google sur le contenu utile n'emploie pas littéralement l'expression « search intent », mais pose une exigence qui revient au même&nbsp;: le contenu principal d'une page doit directement répondre à l'intention première de cette page. Autrement dit, une page conçue pour répondre à une question doit effectivement y répondre de façon directe, sans la noyer sous du contenu tangentiel pensé pour le volume de mots plutôt que pour la réponse elle-même.</p>
+
+<h2>Comment la vérifier avant d'écrire, concrètement</h2>
+
+<p>La méthode la plus fiable reste d'observer directement les résultats déjà en place sur la requête visée&nbsp;: si la première page de résultats est dominée par des comparatifs, l'intention est probablement commerciale&nbsp;; si elle est dominée par des fiches produit, l'intention est probablement transactionnelle&nbsp;; si elle est dominée par des articles explicatifs ou des définitions, l'intention est informationnelle. Les fonctionnalités de la SERP donnent aussi un indice&nbsp;: la présence d'un carrousel shopping signale une intention d'achat, celle d'un featured snippet signale une intention informationnelle précise. Écrire un article de blog pour une requête dont les résultats sont majoritairement des pages produit revient à ignorer ce signal, quelle que soit la qualité rédactionnelle du contenu produit.</p>
+
+<h2>Le vrai risque d'un mauvais alignement</h2>
+
+<p>Un contenu qui ignore l'intention réelle d'une requête peut malgré tout attirer du trafic, au moins temporairement, si le volume de recherche est élevé. Le problème se révèle ensuite dans les métriques d'engagement&nbsp;: taux de rebond élevé, temps de lecture faible, absence de clic vers une conversion&nbsp;— des signaux que Google peut indirectement capter via le comportement agrégé des utilisateurs, et qui finissent par peser sur la stabilité du classement dans la durée.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>D'où vient la classification informationnel / navigationnel / transactionnel ?</summary>
+    <p>D'un papier de recherche publié par Andrei Broder en 2002, "A Taxonomy of Web Search". Broder y distinguait les requêtes navigationnelles (atteindre un site précis déjà identifié), informationnelles (trouver une information statique) et transactionnelles (accomplir une action web, comme un achat ou un téléchargement). Le terme "commercial" ou "commercial investigation", souvent ajouté comme quatrième catégorie, est une extension postérieure de l'industrie SEO, pas un terme du papier original.</p>
+  </details>
+  <details>
+    <summary>Google documente-t-il explicitement l'importance du search intent pour le classement ?</summary>
+    <p>Pas sous ce terme précis dans sa documentation publique. Mais Google indique, dans son guide sur le contenu utile, que le contenu principal d'une page doit directement répondre à l'intention première de cette page — ce qui revient, en pratique, à exiger un alignement entre ce que propose la page et ce que cherche réellement l'utilisateur.</p>
+  </details>
+  <details>
+    <summary>Peut-on se fier uniquement au volume de recherche d'un mot-clé sans regarder son intention ?</summary>
+    <p>Non. Un mot-clé à fort volume mais à intention mal identifiée produit un contenu qui ne correspond pas à ce que les utilisateurs recherchent réellement, même s'il attire du trafic : taux de rebond élevé, temps de lecture faible, et absence de conversion. L'intention doit se vérifier avant d'écrire, en observant directement les résultats déjà en place sur la requête visée.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'une stratégie de contenu alignée sur la vraie intention de vos requêtes cibles ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer ma stratégie de contenu</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/seo">SEO</a>, et l'article <a href="/topical-authority-clusters-contenu-methode">Topical authority : la méthode pour construire une autorité thématique qui tient la route</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/seo">SEO →</a>
+      <a href="/topical-authority-clusters-contenu-methode">Topical authority →</a>
+      <a href="/programmatic-seo-limites-automatisation">Programmatic SEO →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
