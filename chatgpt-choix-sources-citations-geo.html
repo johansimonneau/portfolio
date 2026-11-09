@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comment ChatGPT choisit les sources qu'il cite : ce que les études montrent | Blog — Johan Simonneau</title>
+<meta name="description" content="ChatGPT ne cite qu'environ la moitié des pages qu'il consulte. Une étude Ahrefs sur 1,4 million de prompts éclaire ce qui fait la différence entre une page citée et une page ignorée.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/chatgpt-choix-sources-citations-geo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Comment ChatGPT choisit les sources qu'il cite : ce que les études montrent">
+<meta property="og:description" content="ChatGPT ne cite qu'environ la moitié des pages qu'il consulte. Une étude Ahrefs sur 1,4 million de prompts éclaire ce qui fait la différence entre une page citée et une page ignorée.">
+<meta property="og:url" content="https://www.johansimonneau.fr/chatgpt-choix-sources-citations-geo">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-chatgpt-choix-sources-citations-geo-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-chatgpt-choix-sources-citations-geo-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Comment ChatGPT choisit les sources qu'il cite : ce que les études montrent", "item": "https://www.johansimonneau.fr/chatgpt-choix-sources-citations-geo" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Comment ChatGPT choisit les sources qu'il cite : ce que les études montrent",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-chatgpt-choix-sources-citations-geo-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-12-29",
+      "dateModified": "2026-12-29",
+      "description": "ChatGPT ne cite qu'environ la moitié des pages qu'il consulte. Une étude Ahrefs sur 1,4 million de prompts éclaire ce qui fait la différence entre une page citée et une page ignorée.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/chatgpt-choix-sources-citations-geo"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "ChatGPT cite-t-il toutes les pages qu'il consulte lors d'une recherche web ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Selon l'étude Ahrefs portant sur 1,4 million de prompts (avril 2026), environ une page sur deux parmi celles que ChatGPT récupère lors d'une recherche web finit par être citée dans la réponse. La récupération et la citation sont deux étapes distinctes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi Reddit est-il peu cité par ChatGPT malgré sa popularité ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'étude Ahrefs mesure un taux de citation de seulement 1,93 % pour Reddit, malgré une présence fréquente dans les pages récupérées. L'écart suggère que la fréquence de récupération et la probabilité de citation réelle obéissent à des logiques différentes, propres à chaque type de source."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il se fier à une seule étude pour optimiser son contenu pour ChatGPT ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. L'étude Ahrefs est observationnelle, menée par un acteur du secteur SEO, et sa méthodologie a été discutée publiquement. Ses résultats donnent des tendances utiles, pas des règles garanties — d'autant que le comportement des modèles évolue à chaque mise à jour."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Citations ChatGPT</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Comment ChatGPT choisit les sources qu'il cite : ce que les études montrent</h1>
+      <p class="sub-hook">Apparaître dans les résultats que ChatGPT consulte ne garantit pas d'être cité dans sa réponse. Une étude Ahrefs sur 1,4 million de prompts, publiée en avril 2026, isole ce qui distingue une page retenue d'une page écartée.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>29 décembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-chatgpt-choix-sources-citations-geo-hero.png" alt="Illustration du mécanisme en deux étapes de ChatGPT : récupération des pages puis sélection des sources citées" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Quand ChatGPT effectue une recherche web pour répondre à une question, deux décisions distinctes se jouent l'une après l'autre&nbsp;: quelles pages consulter, puis lesquelles citer réellement dans la réponse. La confusion entre ces deux étapes explique une bonne partie des idées fausses qui circulent sur le GEO. Une étude d'Ahrefs publiée en avril&nbsp;2026, portant sur l'analyse de 1,4&nbsp;million de prompts, est à ce jour la tentative la plus large pour documenter empiriquement ce qui se passe entre les deux.</p>
+
+<h2>Récupérer une page n'est pas la citer</h2>
+
+<p>Le chiffre le plus cité de l'étude Ahrefs résume bien le problème&nbsp;: environ une page sur deux parmi celles que ChatGPT récupère lors d'une recherche web finit réellement citée dans la réponse donnée à l'utilisateur. Apparaître dans les résultats que le modèle consulte en coulisses — ce qu'on peut suivre via les logs serveur — ne dit donc presque rien sur la probabilité d'être effectivement mentionné. C'est la distinction la plus importante à retenir avant de tirer des conclusions sur sa propre visibilité GEO à partir des seuls logs de crawl.</p>
+
+<h2>Ce qui corrèle avec la citation, selon l'étude</h2>
+
+<p>L'étude met en évidence un lien entre la citation et la proximité sémantique entre le contenu de la page et le prompt&nbsp;: les pages citées obtiennent un score de similarité sémantique moyen de 0,602 avec la requête d'origine, contre 0,484 pour les pages non citées. Elle observe aussi que les pages dont l'URL contient un slug clair et descriptif sont citées plus souvent que celles dont l'URL est peu lisible. Ahrefs avance une explication plausible&nbsp;: avant d'ouvrir une page, le modèle semble évaluer chaque résultat à partir de son titre, de son extrait et de son URL — une page dont ces trois éléments collent précisément à l'intention de la requête aurait plus de chances d'être retenue.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-chatgpt-choix-sources-citations-geo-resource.png" alt="Schéma en deux étapes : récupération des pages par ChatGPT puis sélection des sources effectivement citées, avec des taux de citation très différents selon le type de source" width="900" height="340" loading="lazy">
+  <figcaption>Récupération et citation obéissent à des logiques différentes — avec des écarts marqués selon le type de source.</figcaption>
+</figure>
+
+<h2>Le cas Reddit, révélateur du mécanisme</h2>
+
+<p>L'étude isole un cas particulièrement parlant&nbsp;: Reddit, malgré une présence très fréquente parmi les pages récupérées par ChatGPT, n'est cité qu'à hauteur de 1,93&nbsp;% — un taux nettement plus bas que celui des pages de sites davantage structurés comme des sources de référence. Ce chiffre a d'ailleurs été repris et discuté dans la presse spécialisée. L'écart illustre bien que la popularité d'une source dans les retrievals ne se traduit pas automatiquement en citations&nbsp;: un forum peut être consulté massivement sans être jugé citable par le modèle, probablement parce que le format de la discussion s'aligne mal avec le type de réponse synthétique que ChatGPT cherche à produire.</p>
+
+<h2>Les limites à garder en tête</h2>
+
+<p>Cette étude reste la plus large connue sur le sujet, mais elle a des limites qu'il faut signaler honnêtement&nbsp;: elle est menée par un acteur commercial du secteur SEO, elle est observationnelle (elle documente des corrélations, pas des mécanismes internes prouvés), et sa méthodologie — notamment le fait de travailler sur un jeu de prompts construit par Ahrefs plutôt que sur des requêtes réelles d'utilisateurs — a été critiquée publiquement par certains observateurs. Le comportement des modèles change aussi à chaque mise à jour, ce qui rend toute conclusion datée par nature. Ces chiffres sont des indices solides sur une tendance, pas des règles d'optimisation garanties.</p>
+
+<h2>Ce qu'on peut raisonnablement en tirer</h2>
+
+<p>Deux leviers ressortent avec un degré de confiance correct&nbsp;: écrire des titres et des URLs qui reflètent précisément l'intention de recherche visée, plutôt que des formulations génériques, et structurer le contenu pour qu'il réponde directement et clairement à la sous-question qu'un modèle cherche à combler — pas seulement au sujet général de la page. Le reste (fréquence de publication, longueur, format) n'a pas de corrélation démontrée dans cette étude et ne devrait pas être traité comme un facteur confirmé.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>ChatGPT cite-t-il toutes les pages qu'il consulte lors d'une recherche web ?</summary>
+    <p>Non. Selon l'étude Ahrefs portant sur 1,4 million de prompts (avril 2026), environ une page sur deux parmi celles que ChatGPT récupère lors d'une recherche web finit par être citée dans la réponse. La récupération et la citation sont deux étapes distinctes.</p>
+  </details>
+  <details>
+    <summary>Pourquoi Reddit est-il peu cité par ChatGPT malgré sa popularité ?</summary>
+    <p>L'étude Ahrefs mesure un taux de citation de seulement 1,93 % pour Reddit, malgré une présence fréquente dans les pages récupérées. L'écart suggère que la fréquence de récupération et la probabilité de citation réelle obéissent à des logiques différentes, propres à chaque type de source.</p>
+  </details>
+  <details>
+    <summary>Faut-il se fier à une seule étude pour optimiser son contenu pour ChatGPT ?</summary>
+    <p>Non. L'étude Ahrefs est observationnelle, menée par un acteur du secteur SEO, et sa méthodologie a été discutée publiquement. Ses résultats donnent des tendances utiles, pas des règles garanties — d'autant que le comportement des modèles évolue à chaque mise à jour.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de savoir où vous en êtes sur votre visibilité dans les réponses IA ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer ma visibilité GEO</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, et l'article <a href="/auditer-visibilite-chatgpt-perplexity">Comment auditer sa visibilité dans ChatGPT et Perplexity</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/schema-markup-citations-ia-etudes">Schema markup et citations IA →</a>
+      <a href="/auditer-visibilite-chatgpt-perplexity">Auditer sa visibilité ChatGPT/Perplexity →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
