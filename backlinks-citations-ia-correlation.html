@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backlinks et citations IA : les deux logiques se recoupent-elles vraiment ? | Blog — Johan Simonneau</title>
+<meta name="description" content="Une étude trouve les backlinks faiblement corrélés aux citations IA, une autre les classe en facteur numéro un. Ce que plusieurs analyses contradictoires de 2025-2026 révèlent sur le vrai rôle des liens entrants en GEO.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/backlinks-citations-ia-correlation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Backlinks et citations IA : les deux logiques se recoupent-elles vraiment ?">
+<meta property="og:description" content="Une étude trouve les backlinks faiblement corrélés aux citations IA, une autre les classe en facteur numéro un. Ce que plusieurs analyses contradictoires de 2025-2026 révèlent sur le vrai rôle des liens entrants en GEO.">
+<meta property="og:url" content="https://www.johansimonneau.fr/backlinks-citations-ia-correlation">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-backlinks-citations-ia-correlation-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-backlinks-citations-ia-correlation-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Backlinks et citations IA : les deux logiques se recoupent-elles vraiment ?", "item": "https://www.johansimonneau.fr/backlinks-citations-ia-correlation" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Backlinks et citations IA : les deux logiques se recoupent-elles vraiment ?",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-backlinks-citations-ia-correlation-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2027-01-04",
+      "dateModified": "2027-01-04",
+      "description": "Une étude trouve les backlinks faiblement corrélés aux citations IA, une autre les classe en facteur numéro un. Ce que plusieurs analyses contradictoires de 2025-2026 révèlent sur le vrai rôle des liens entrants en GEO.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/backlinks-citations-ia-correlation"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Les backlinks aident-ils vraiment à être cité par ChatGPT ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les études disponibles ne s'accordent pas sur l'ampleur de l'effet. Une étude Ahrefs sur 75 000 marques mesure une corrélation faible (0,218). Une étude SE Ranking sur 129 000 domaines place au contraire les backlinks en tête des facteurs corrélés aux citations ChatGPT. La direction est positive dans les deux cas, mais l'intensité de l'effet reste disputée."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qui corrèle le plus fortement avec les citations IA, selon les études disponibles ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les mentions de marque non liées (citées sans lien hypertexte) apparaissent comme un facteur plus fortement corrélé que les backlinks dans plusieurs études, dont celle d'Ahrefs qui mesure un coefficient de 0,664 pour les mentions de marque contre 0,218 pour les backlinks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il arrêter une stratégie de netlinking à cause de ces résultats ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Même les études les plus prudentes sur l'effet des backlinks ne trouvent jamais de corrélation négative, seulement un effet plus modeste que prévu face à d'autres leviers. Le netlinking garde une valeur établie pour le SEO classique, et reste positif, bien que non déterminant à lui seul, pour les citations IA."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Backlinks et citations IA</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Backlinks et citations IA : les deux logiques se recoupent-elles vraiment ?</h1>
+      <p class="sub-hook">Une étude mesure une corrélation faible entre backlinks et citations IA. Une autre, sur un échantillon tout aussi large, place les backlinks en tête des facteurs. Les deux ne peuvent pas avoir également raison en tous points — voici ce qu'on peut en retenir sans trancher artificiellement.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>4 janvier 2027</span>
+        <span>·</span>
+        <span>8 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-backlinks-citations-ia-correlation-hero.png" alt="Illustration de deux études contradictoires mesurant la corrélation entre backlinks et citations des IA génératives" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Le netlinking est l'un des piliers les plus anciens du SEO. Sa valeur pour les citations des IA génératives est en revanche loin d'être tranchée&nbsp;: plusieurs études publiées entre fin 2025 et mi-2026, menées sur des échantillons comparables en taille, arrivent à des conclusions difficiles à réconcilier. Plutôt que de choisir l'étude qui confirme une intuition préexistante, le plus honnête est d'exposer le désaccord et d'en tirer ce qui reste solide malgré tout.</p>
+
+<h2>Le camp de la corrélation faible</h2>
+
+<p>Une étude Ahrefs portant sur 75&nbsp;000 marques, menée fin 2025, a mesuré un coefficient de corrélation de seulement 0,218 entre le nombre de backlinks d'un domaine et sa présence dans les citations de Google AI Overviews — une corrélation faible selon les standards statistiques habituels. Une étude de Machine Relations Research publiée en juillet 2026, portant également sur 75&nbsp;000 marques, a mesuré exactement le même coefficient de 0,218, ce qui renforce la crédibilité du chiffre malgré la source différente. Une méta-analyse de Zyppy datée de mai 2026, qui synthétise 54 expériences, brevets et études de cas sur ChatGPT, Gemini et Perplexity, va plus loin&nbsp;: elle place les backlinks parmi les facteurs les moins déterminants, les traitant comme un seuil minimal d'existence plutôt qu'un levier de classement actif.</p>
+
+<h2>Le camp de la corrélation forte</h2>
+
+<p>À l'inverse, une étude SE Ranking portant sur 129&nbsp;000 domaines a trouvé que les backlinks arrivaient en tête des facteurs corrélés aux citations de ChatGPT, devant tous les autres signaux mesurés. Cette même étude a observé que les sites disposant de plus de 350&nbsp;000 domaines référents obtenaient en moyenne 8,4 citations, contre seulement 1,6 à 1,8 pour les sites en dessous de 2&nbsp;500 domaines référents — un écart net. Les auteurs de l'étude précisent eux-mêmes qu'il s'agit d'une corrélation observée, pas d'une formule de calcul confirmée. Une analyse de Link.Build portant sur des requêtes du premier au troisième trimestre 2025 rapporte également une association positive marquée entre backlinks de qualité, thématiquement pertinents, et probabilité d'être cité par une IA générative.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-backlinks-citations-ia-correlation-resource.png" alt="Tableau comparatif de plusieurs études 2025-2026 sur la corrélation entre backlinks et citations IA, aux conclusions contradictoires" width="900" height="340" loading="lazy">
+  <figcaption>Même taille d'échantillon, même sujet, conclusions opposées : les études sur backlinks et citations IA ne s'accordent pas.</figcaption>
+</figure>
+
+<h2>Pourquoi les résultats divergent autant</h2>
+
+<p>Les méthodologies ne mesurent pas rigoureusement la même chose&nbsp;: certaines étudient Google AI Overviews, d'autres ChatGPT, Gemini ou Perplexity — des systèmes dont on a vu par ailleurs qu'ils ne partagent pas le même mécanisme de sélection de sources. D'autres encore combinent plusieurs plateformes sans toujours distinguer leur poids respectif. Les périodes de mesure diffèrent aussi, sur un sujet où les algorithmes évoluent en continu. Ce n'est donc pas qu'une étude a raison et l'autre tort&nbsp;: elles mesurent des phénomènes voisins mais pas identiques, avec des méthodes différentes.</p>
+
+<h2>Un signal qui dépasse les backlinks eux-mêmes</h2>
+
+<p>Un point convergent mérite d'être retenu malgré les désaccords&nbsp;: dans l'étude Ahrefs, les mentions de marque non liées (citées sans lien hypertexte) affichaient une corrélation nettement plus forte (0,664) que les backlinks seuls (0,218). Une étude Muck Rack de mai 2026, portant sur plus de 25&nbsp;millions de liens analysés à travers ChatGPT, Claude et Gemini, est allée dans le même sens en constatant que l'essentiel des citations provenait de la couverture médiatique obtenue (earned media), pas du nombre brut de liens entrants. Plusieurs méthodologies différentes pointent donc, indépendamment du désaccord sur les backlinks eux-mêmes, vers l'idée que la réputation et la reconnaissance d'une marque comptent au moins autant que son profil de liens.</p>
+
+<h2>Ce qu'on peut raisonnablement en conclure</h2>
+
+<p>Aucune étude ne trouve de corrélation négative entre backlinks et citations IA&nbsp;: le désaccord porte sur l'intensité de l'effet, jamais sur sa direction. Le netlinking garde donc une valeur légitime, y compris dans une optique GEO, mais il serait imprudent d'en faire le levier prioritaire sur la seule base d'une étude qui le classe en tête, quand une autre de taille comparable le place parmi les facteurs les plus faibles. Les signaux les plus constants à travers les études — mentions de marque, couverture éditoriale obtenue — semblent un pari plus sûr qu'un netlinking massif et peu sélectif.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Les backlinks aident-ils vraiment à être cité par ChatGPT ?</summary>
+    <p>Les études disponibles ne s'accordent pas sur l'ampleur de l'effet. Une étude Ahrefs sur 75 000 marques mesure une corrélation faible (0,218). Une étude SE Ranking sur 129 000 domaines place au contraire les backlinks en tête des facteurs corrélés aux citations ChatGPT. La direction est positive dans les deux cas, mais l'intensité de l'effet reste disputée.</p>
+  </details>
+  <details>
+    <summary>Qu'est-ce qui corrèle le plus fortement avec les citations IA, selon les études disponibles ?</summary>
+    <p>Les mentions de marque non liées (citées sans lien hypertexte) apparaissent comme un facteur plus fortement corrélé que les backlinks dans plusieurs études, dont celle d'Ahrefs qui mesure un coefficient de 0,664 pour les mentions de marque contre 0,218 pour les backlinks.</p>
+  </details>
+  <details>
+    <summary>Faut-il arrêter une stratégie de netlinking à cause de ces résultats ?</summary>
+    <p>Non. Même les études les plus prudentes sur l'effet des backlinks ne trouvent jamais de corrélation négative, seulement un effet plus modeste que prévu face à d'autres leviers. Le netlinking garde une valeur établie pour le SEO classique, et reste positif, bien que non déterminant à lui seul, pour les citations IA.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'une stratégie de notoriété qui compte vraiment pour le GEO ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Travailler ma visibilité GEO</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, et l'article <a href="/netlinking-2026-google-ia">Ce qui compte encore en netlinking, pour Google comme pour les IA</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/netlinking-2026-google-ia">Netlinking Google et IA →</a>
+      <a href="/schema-markup-citations-ia-etudes">Schema markup et citations IA →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
