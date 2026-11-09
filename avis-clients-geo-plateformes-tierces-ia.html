@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avis clients et GEO : les plateformes tierces comptent-elles plus que votre propre site aux yeux des IA ? | Blog — Johan Simonneau</title>
+<meta name="description" content="Trustpilot, G2, Reddit : plusieurs études sur des centaines de milliers de réponses IA montrent que les plateformes d'avis tierces sont citées plus souvent qu'un site de marque. Ce que ça signifie concrètement pour votre présence en ligne.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/avis-clients-geo-plateformes-tierces-ia">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Avis clients et GEO : les plateformes tierces comptent-elles plus que votre propre site aux yeux des IA ?">
+<meta property="og:description" content="Trustpilot, G2, Reddit : plusieurs études sur des centaines de milliers de réponses IA montrent que les plateformes d'avis tierces sont citées plus souvent qu'un site de marque. Ce que ça signifie concrètement pour votre présence en ligne.">
+<meta property="og:url" content="https://www.johansimonneau.fr/avis-clients-geo-plateformes-tierces-ia">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-avis-clients-geo-plateformes-tierces-ia-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-avis-clients-geo-plateformes-tierces-ia-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Avis clients et GEO : les plateformes tierces comptent-elles plus que votre propre site aux yeux des IA ?", "item": "https://www.johansimonneau.fr/avis-clients-geo-plateformes-tierces-ia" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Avis clients et GEO : les plateformes tierces comptent-elles plus que votre propre site aux yeux des IA ?",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-avis-clients-geo-plateformes-tierces-ia-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2027-01-07",
+      "dateModified": "2027-01-07",
+      "description": "Trustpilot, G2, Reddit : plusieurs études sur des centaines de milliers de réponses IA montrent que les plateformes d'avis tierces sont citées plus souvent qu'un site de marque. Ce que ça signifie concrètement pour votre présence en ligne.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/avis-clients-geo-plateformes-tierces-ia"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Les IA génératives citent-elles vraiment plus souvent les avis tiers que le site de la marque elle-même ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Plusieurs études indépendantes le suggèrent, avec des chiffres qui varient fortement selon la méthode. Une analyse de Supaintent portant sur plus de 167 000 réponses IA a trouvé des sites d'avis dans 15,5 % des réponses ChatGPT et 13,6 % des réponses Perplexity, avec G2 comme plateforme la plus citée sur chaque moteur testé. Un autre jeu de données, GEORadar, trouve des proportions beaucoup plus faibles pour Trustpilot. Les chiffres ne sont pas directement comparables entre études."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi Reddit revient-il aussi souvent dans ces études de citations IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une analyse de citations ChatGPT aux États-Unis a trouvé Reddit présent dans environ 12 % des citations, derrière Wikipédia. L'explication avancée dans plusieurs sources est que Reddit offre des témoignages d'usage réel, des comparatifs et des critiques formulées par des tiers — un type de contenu qu'un site de marque, par nature, ne peut pas produire lui-même sur lui-même."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il abandonner son propre site pour se concentrer sur les plateformes d'avis ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rien dans ces études ne va dans ce sens. Elles montrent une présence fréquente des plateformes tierces dans les réponses IA, pas une inutilité du site de marque. Une étude de G2 (qui a un intérêt commercial direct dans ce résultat) rapporte même qu'une citation provenant d'un site d'avis logiciel ressort comme le signal de confiance le plus fort pour des acheteurs qui jugent une réponse de chatbot — un signal complémentaire, pas un substitut."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Avis clients et GEO</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Avis clients et GEO : les plateformes tierces comptent-elles plus que votre propre site aux yeux des IA ?</h1>
+      <p class="sub-hook">Plusieurs études portant sur des centaines de milliers de réponses de ChatGPT, Perplexity et Google AI Mode arrivent à la même observation générale, avec des chiffres très différents selon la méthode : les plateformes d'avis tierces reviennent souvent dans les réponses, parfois plus qu'un site de marque.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>7 janvier 2027</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-avis-clients-geo-plateformes-tierces-ia-hero.png" alt="Illustration de la présence des plateformes d'avis tierces comme Trustpilot, G2 et Reddit dans les réponses des IA génératives, en complément du site de marque" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Demandez à ChatGPT ou à Perplexity ce qu'il pense d'un logiciel ou d'une marque, et il y a de bonnes chances que la réponse s'appuie sur ce que disent des tiers — avis clients, forums, comparatifs — plutôt que sur le site de la marque elle-même. Plusieurs études publiées en 2026 ont tenté de quantifier ce phénomène sur de larges volumes de réponses réelles. Les chiffres qu'elles obtiennent divergent fortement, mais la direction générale — oui, les plateformes tierces comptent beaucoup — revient dans presque toutes.</p>
+
+<h2>Des volumes d'études larges, mais des résultats très différents entre eux</h2>
+
+<p>L'étude la plus citée dans ce domaine vient de Seer Interactive, qui a analysé environ 800&nbsp;000 réponses IA couvrant ChatGPT, Google AI Mode, Gemini et Perplexity&nbsp;: Trustpilot y apparaît comme le site d'avis le plus cité, plus de deux fois plus souvent que le deuxième. ChatGPT aurait même, selon cette étude, traité l'absence de profil Trustpilot comme un signal de moindre fiabilité. Une autre étude, menée par Supaintent sur 167&nbsp;514 réponses collectées entre août et novembre 2026, aboutit à un classement différent&nbsp;: les sites d'avis y apparaissent dans 15,5&nbsp;% des réponses ChatGPT, 13,6&nbsp;% des réponses Perplexity, 9,6&nbsp;% de Google AI Mode et 6,4&nbsp;% de Gemini — avec G2, cette fois, en tête de chaque moteur plutôt que Trustpilot. Un troisième jeu de données, GEORadar, portant sur environ 1,18&nbsp;million de réponses sourcées, trouve Trustpilot dans seulement 0,27&nbsp;% des cas, et situe Reddit beaucoup plus haut, à 6,17&nbsp;%. Ces écarts tiennent probablement aux périmètres de requêtes testées, aux moteurs inclus et aux méthodes de comptage — ils ne sont pas directement comparables entre eux, et aucun chiffre unique ne peut être présenté comme « le » taux de citation des avis tiers.</p>
+
+<h2>Reddit, un cas à part qui recoupe et dépasse les sites d'avis</h2>
+
+<p>Une analyse spécifique des citations ChatGPT aux États-Unis place Wikipédia en tête avec environ 13,15&nbsp;% des citations totales, suivi de près par Reddit à environ 11,97&nbsp;%. L'explication qualitative avancée dans plusieurs sources tient à la nature du contenu&nbsp;: Reddit regroupe des témoignages d'usage réel, des comparatifs spontanés et des critiques formulées par des utilisateurs tiers — exactement le type de contenu qu'un site de marque ne peut, par construction, pas produire sur lui-même de façon crédible.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-avis-clients-geo-plateformes-tierces-ia-resource.png" alt="Comparatif des taux de citation de Trustpilot, G2 et Reddit dans les réponses IA selon plusieurs études indépendantes aux méthodes différentes" width="900" height="340" loading="lazy">
+  <figcaption>Des méthodes différentes, des classements différents — mais une présence tierce systématiquement significative.</figcaption>
+</figure>
+
+<h2>Ce que ça signifie pour une marque, au-delà des pourcentages</h2>
+
+<p>Une analyse distincte, portant sur des domaines présents simultanément sur plusieurs plateformes d'avis (Trustpilot, G2, Capterra), rapporte une moyenne de 4,6 à 6,3 citations dans ChatGPT, contre 1,8 pour les domaines absents de ces plateformes. C'est une corrélation, pas une preuve de causalité directe établie par la source elle-même — mais elle va dans le même sens que les études de volume&nbsp;: une présence active et à jour sur les plateformes d'avis pertinentes pour son secteur semble associée à une citation plus fréquente, indépendamment du soin apporté à son propre site.</p>
+
+<h2>Un signal de confiance documenté, pas un remplacement du site</h2>
+
+<p>Une étude publiée par G2 — qui a un intérêt commercial direct à ce résultat, ce qui justifie une lecture prudente — rapporte qu'une citation provenant d'un site d'avis logiciel ressort comme le signal de confiance le plus fort pour des acheteurs qui évaluent la fiabilité d'une réponse de chatbot. Aucune des études consultées ne suggère en revanche qu'un site de marque devienne inutile&nbsp;: elles documentent une présence fréquente des plateformes tierces dans les réponses IA, ce qui en fait un levier à travailler en complément du site, pas à sa place.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Les IA génératives citent-elles vraiment plus souvent les avis tiers que le site de la marque elle-même ?</summary>
+    <p>Plusieurs études indépendantes le suggèrent, avec des chiffres qui varient fortement selon la méthode. Une analyse de Supaintent portant sur plus de 167 000 réponses IA a trouvé des sites d'avis dans 15,5 % des réponses ChatGPT et 13,6 % des réponses Perplexity, avec G2 comme plateforme la plus citée sur chaque moteur testé. Un autre jeu de données, GEORadar, trouve des proportions beaucoup plus faibles pour Trustpilot. Les chiffres ne sont pas directement comparables entre études.</p>
+  </details>
+  <details>
+    <summary>Pourquoi Reddit revient-il aussi souvent dans ces études de citations IA ?</summary>
+    <p>Une analyse de citations ChatGPT aux États-Unis a trouvé Reddit présent dans environ 12 % des citations, derrière Wikipédia. L'explication avancée dans plusieurs sources est que Reddit offre des témoignages d'usage réel, des comparatifs et des critiques formulées par des tiers — un type de contenu qu'un site de marque, par nature, ne peut pas produire lui-même sur lui-même.</p>
+  </details>
+  <details>
+    <summary>Faut-il abandonner son propre site pour se concentrer sur les plateformes d'avis ?</summary>
+    <p>Rien dans ces études ne va dans ce sens. Elles montrent une présence fréquente des plateformes tierces dans les réponses IA, pas une inutilité du site de marque. Une étude de G2 (qui a un intérêt commercial direct dans ce résultat) rapporte même qu'une citation provenant d'un site d'avis logiciel ressort comme le signal de confiance le plus fort pour des acheteurs qui jugent une réponse de chatbot — un signal complémentaire, pas un substitut.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de savoir où votre marque est réellement citée par les IA ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer ma présence dans les réponses IA</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, et l'article <a href="/trust-signals-cro-reassurance-achat">Trust signals : ce qui rassure vraiment un visiteur avant l'achat</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/trust-signals-cro-reassurance-achat">Trust signals →</a>
+      <a href="/reddit-visibilite-ia-chatgpt-mythe-realite">Reddit et visibilité dans ChatGPT →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
