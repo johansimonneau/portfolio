@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compte à rebours, stock limité : où s'arrête le CRO légal en e-commerce | Blog — Johan Simonneau</title>
+<meta name="description" content="Un compte à rebours qui ne correspond à aucune vraie échéance est une pratique commerciale trompeuse en droit français et européen, pas juste une question d'éthique marketing. La ligne précise entre urgence réelle et dark pattern.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/urgence-artificielle-preuve-sociale-cro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Compte à rebours, stock limité : où s'arrête le CRO légal en e-commerce">
+<meta property="og:description" content="Un compte à rebours qui ne correspond à aucune vraie échéance est une pratique commerciale trompeuse en droit français et européen, pas juste une question d'éthique marketing. La ligne précise entre urgence réelle et dark pattern.">
+<meta property="og:url" content="https://www.johansimonneau.fr/urgence-artificielle-preuve-sociale-cro">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-urgence-artificielle-preuve-sociale-cro-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-urgence-artificielle-preuve-sociale-cro-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Compte à rebours, stock limité : où s'arrête le CRO légal en e-commerce", "item": "https://www.johansimonneau.fr/urgence-artificielle-preuve-sociale-cro" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Compte à rebours, stock limité : où s'arrête le CRO légal en e-commerce",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-urgence-artificielle-preuve-sociale-cro-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-11-09",
+      "dateModified": "2026-11-09",
+      "description": "Un compte à rebours qui ne correspond à aucune vraie échéance est une pratique commerciale trompeuse en droit français et européen, pas juste une question d'éthique marketing. La ligne précise entre urgence réelle et dark pattern.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/urgence-artificielle-preuve-sociale-cro"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Un compte à rebours sur une page produit est-il illégal ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas en soi. Ce qui est sanctionné en droit français (article L.121-4 du Code de la consommation) et européen (directive sur les pratiques commerciales déloyales), c'est un compte à rebours qui ne correspond à aucune échéance réelle, ou qui se réinitialise aux mêmes conditions. Un compte à rebours lié à une vraie date de fin de promotion n'est pas concerné."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Afficher un nombre de visiteurs ou d'acheteurs fictif est-il risqué juridiquement ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, de la même famille de pratiques trompeuses que le faux compte à rebours : une allégation de fait inexacte sur la demande ou l'intérêt réel pour un produit relève du même cadre légal que la fausse urgence d'achat, qu'elle porte sur le temps ou sur le stock disponible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "La Commission européenne a-t-elle déjà sanctionné ce type de pratique ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un contrôle coordonné mené en janvier 2023 par la Commission européenne et les autorités de 23 États membres a examiné 399 sites e-commerce : 148 présentaient au moins un dark pattern, et 42 utilisaient spécifiquement de faux comptes à rebours assortis d'une échéance non réelle."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Urgence artificielle et CRO</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Compte à rebours, stock limité : où s'arrête le CRO légal en e-commerce</h1>
+      <p class="sub-hook">Un compte à rebours qui ne correspond à aucune échéance réelle n'est pas qu'une question de bonnes pratiques marketing : c'est une pratique commerciale trompeuse, sanctionnée comme telle en droit français et européen. La ligne entre urgence légitime et dark pattern est plus nette qu'on ne le pense.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>9 novembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-urgence-artificielle-preuve-sociale-cro-hero.png" alt="Illustration de la différence entre un compte à rebours lié à une vraie échéance et un faux compte à rebours trompeur" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Compte à rebours, bandeau « il ne reste que 2 exemplaires », bannière « 14 personnes consultent cette offre »&nbsp;: ces mécaniques d'urgence et de preuve sociale sont omniprésentes en e-commerce. Beaucoup de contenus qui en parlent les traitent comme une question de goût ou d'éthique marketing. C'est en partie inexact&nbsp;: une partie de ces pratiques est directement encadrée par le droit de la consommation, français et européen, avec des sanctions prévues.</p>
+
+<h2>Ce que dit précisément la loi</h2>
+
+<p>La directive européenne sur les pratiques commerciales déloyales liste explicitement, dans son annexe&nbsp;I, le fait d'affirmer faussement qu'un produit n'est disponible que pour une durée très limitée afin de pousser le consommateur à une décision immédiate, sans lui laisser le temps de comparer. En droit français, l'article&nbsp;L.121-4 du Code de la consommation reprend cette logique et qualifie la « fausse urgence à l'achat » de pratique réputée trompeuse de plein droit&nbsp;: il n'est pas nécessaire de prouver une intention de tromper, la pratique elle-même suffit à caractériser l'infraction. Les sanctions prévues à l'article&nbsp;L.132-2 vont jusqu'à deux&nbsp;ans d'emprisonnement et 300&nbsp;000&nbsp;€ d'amende pour une personne physique, 1,5&nbsp;million d'euros pour une société, avec une aggravation spécifique pour les pratiques en ligne depuis la loi du 10&nbsp;mai&nbsp;2024.</p>
+
+<h2>Un contrôle européen qui a objectivé le problème</h2>
+
+<p>En janvier&nbsp;2023, la Commission européenne et les autorités de protection des consommateurs de 23&nbsp;États membres ont mené un contrôle coordonné sur 399&nbsp;sites e-commerce&nbsp;: 148&nbsp;présentaient au moins un dark pattern, et 42&nbsp;utilisaient spécifiquement un faux compte à rebours assorti d'une échéance qui ne correspondait à rien de réel. Ce n'est pas une estimation marketing&nbsp;: c'est un contrôle officiel, mené par les régulateurs eux-mêmes, qui objective l'ampleur de la pratique à l'échelle européenne.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-urgence-artificielle-preuve-sociale-cro-resource.png" alt="La ligne légale : un compte à rebours lié à une vraie échéance est autorisé, un compte à rebours fictif ou qui se réinitialise constitue une pratique trompeuse" width="900" height="340" loading="lazy">
+  <figcaption>La donnée affichée doit correspondre à un fait réel et vérifiable — c'est toute la différence.</figcaption>
+</figure>
+
+<h2>La ligne de conformité, en pratique</h2>
+
+<p>Aucun test juridique nommé ne sépare « urgence acceptable » et « dark pattern » en dehors du cadre général des pratiques trompeuses&nbsp;: le principe reste le même, qu'il s'agisse d'un délai ou d'un stock. Un compte à rebours qui reflète une vraie date de fin de promotion, un vrai niveau de stock réellement limité, est conforme&nbsp;: la donnée correspond à un fait vérifiable. Un compte à rebours fabriqué, qui se réinitialise aux mêmes conditions à chaque visite, ou un chiffre de stock qui ne reflète pas l'inventaire réel, constitue une infraction — indépendamment du fait que la tactique ait ou non effectivement déclenché la vente. C'est l'allégation fausse elle-même qui est sanctionnée, pas son efficacité commerciale.</p>
+
+<h2>Même logique pour la preuve sociale</h2>
+
+<p>Les bandeaux « X personnes regardent cette offre » ou les compteurs d'achats récents relèvent de la même famille de pratiques&nbsp;: une allégation de fait sur un comportement réel de consommateurs. Un chiffre authentique, basé sur une donnée de trafic ou de vente réelle, constitue une preuve sociale légitime et généralement efficace. Un chiffre généré artificiellement pour créer une impression de popularité inexistante retombe sous le même cadre légal que le faux compte à rebours&nbsp;: une allégation de fait inexacte destinée à influencer une décision d'achat.</p>
+
+<h2>Pourquoi la version honnête reste la plus solide, même sans la contrainte légale</h2>
+
+<p>Au-delà du risque juridique, la distinction a un intérêt pratique direct&nbsp;: un signal authentique (avis clients réels, compteur de ventes réel) construit une confiance qui tient dans le temps. Un signal fabriqué, une fois repéré — et les visiteurs le repèrent, notamment quand un compte à rebours se réinitialise à l'identique après rechargement de la page — détruit la confiance accumulée, pas seulement sur cette page, mais sur l'ensemble du site. Le choix entre urgence réelle et urgence fabriquée n'est donc pas qu'une question de conformité&nbsp;: c'est aussi un choix qui détermine si le CRO construit une relation durable avec le visiteur, ou l'épuise au premier soupçon de manipulation.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Un compte à rebours sur une page produit est-il illégal ?</summary>
+    <p>Pas en soi. Ce qui est sanctionné en droit français (article L.121-4 du Code de la consommation) et européen (directive sur les pratiques commerciales déloyales), c'est un compte à rebours qui ne correspond à aucune échéance réelle, ou qui se réinitialise aux mêmes conditions. Un compte à rebours lié à une vraie date de fin de promotion n'est pas concerné.</p>
+  </details>
+  <details>
+    <summary>Afficher un nombre de visiteurs ou d'acheteurs fictif est-il risqué juridiquement ?</summary>
+    <p>Oui, de la même famille de pratiques trompeuses que le faux compte à rebours : une allégation de fait inexacte sur la demande ou l'intérêt réel pour un produit relève du même cadre légal que la fausse urgence d'achat, qu'elle porte sur le temps ou sur le stock disponible.</p>
+  </details>
+  <details>
+    <summary>La Commission européenne a-t-elle déjà sanctionné ce type de pratique ?</summary>
+    <p>Un contrôle coordonné mené en janvier 2023 par la Commission européenne et les autorités de 23 États membres a examiné 399 sites e-commerce : 148 présentaient au moins un dark pattern, et 42 utilisaient spécifiquement de faux comptes à rebours assortis d'une échéance non réelle.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un audit CRO qui reste dans les clous sur le plan légal ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer mon tunnel de conversion</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/cro">CRO</a>, et l'article <a href="/trust-signals-cro-reassurance-achat">Trust signals : ce qui rassure vraiment un visiteur avant l'achat</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/cro">CRO →</a>
+      <a href="/trust-signals-cro-reassurance-achat">Trust signals →</a>
+      <a href="/popups-exit-intent-erreurs-cro">Popups et exit-intent →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
