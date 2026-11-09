@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SEO pour les images : alt text, compression, et visibilité dans Google Images | Blog — Johan Simonneau</title>
+<meta name="description" content="L'alt text est-il un facteur de classement ? Google lui-même s'est contredit sur le sujet au fil des années. Ce qui est confirmé, ce qui ne l'est pas, et ce qui compte vraiment pour le SEO image.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/seo-images-alt-text-compression">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SEO pour les images : alt text, compression, et visibilité dans Google Images">
+<meta property="og:description" content="L'alt text est-il un facteur de classement ? Google lui-même s'est contredit sur le sujet au fil des années. Ce qui est confirmé, ce qui ne l'est pas, et ce qui compte vraiment pour le SEO image.">
+<meta property="og:url" content="https://www.johansimonneau.fr/seo-images-alt-text-compression">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-seo-images-alt-text-compression-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-seo-images-alt-text-compression-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "SEO pour les images : alt text, compression, et visibilité dans Google Images", "item": "https://www.johansimonneau.fr/seo-images-alt-text-compression" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "SEO pour les images : alt text, compression, et visibilité dans Google Images",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-seo-images-alt-text-compression-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-12-24",
+      "dateModified": "2026-12-24",
+      "description": "L'alt text est-il un facteur de classement ? Google lui-même s'est contredit sur le sujet au fil des années. Ce qui est confirmé, ce qui ne l'est pas, et ce qui compte vraiment pour le SEO image.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/seo-images-alt-text-compression"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "L'alt text est-il un facteur de classement Google ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas pour la recherche web générale, selon John Mueller de Google en 2020, qui a dit qu'il n'y avait pas vraiment à s'en soucier pour le classement global. L'alt text compte en revanche directement pour la visibilité dans Google Images, où il reste, selon la documentation officielle, l'attribut de métadonnées le plus important pour une image."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il mettre un alt text sur toutes les images ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Pour les images purement décoratives, la bonne pratique est un attribut alt vide (alt=\"\"), pas un texte forcé. Pour une image utilisée comme lien, Google traite l'alt text de façon similaire à l'ancre d'un lien texte."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "La compression d'image a-t-elle un impact SEO direct ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Indirect mais réel : Google indique que les images sont souvent le plus gros contributeur au poids total d'une page, ce qui peut la ralentir. Une page lente dégrade les Core Web Vitals, qui eux comptent comme signal d'expérience de page — l'effet passe par la vitesse, pas par un bonus SEO propre à la compression."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">SEO image</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>SEO pour les images : alt text, compression, et visibilité dans Google Images</h1>
+      <p class="sub-hook">« L'alt text est important pour le SEO », « l'alt text n'est pas une balle magique » : les deux phrases viennent de porte-parole officiels de Google, à deux ans d'intervalle. Ce n'est pas une contradiction gratuite — c'est que la question elle-même est mal posée.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>24 décembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-seo-images-alt-text-compression-hero.png" alt="Illustration du SEO image : alt text, compression et visibilité dans Google Images" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Peu de sujets SEO génèrent autant de déclarations officielles contradictoires que l'alt text. En 2020, John&nbsp;Mueller, de l'équipe Search de Google, affirme en Office Hours que pour la recherche en général, « on n'a pas vraiment besoin de s'en soucier ». En 2021, Martin&nbsp;Splitt, développeur chez Google, écrit sur les réseaux sociaux&nbsp;: « oui, l'alt text est important pour le SEO aussi ! ». Plus tard la même année, Mueller précise&nbsp;: « l'alt text n'est pas une balle magique SEO ». Ces trois citations sont toutes authentiques. Elles ne se contredisent pas vraiment une fois qu'on distingue de quel SEO on parle.</p>
+
+<h2>Deux visibilités différentes, deux rôles différents</h2>
+
+<p>La documentation officielle de Google sur le SEO image tranche la question à sa manière&nbsp;: elle appelle l'alt text « l'attribut le plus important pour fournir des métadonnées sur une image » — mais dans le contexte précis de la recherche d'images, pas du classement de la page dans les résultats web classiques. C'est la clé pour réconcilier les citations ci-dessus&nbsp;: l'alt text n'aide pas une page à mieux se classer sur une requête texte, mais il reste le signal principal qui permet à une image d'apparaître dans Google&nbsp;Images et d'y être comprise, en complément des algorithmes de vision par ordinateur. Deux objectifs différents, deux poids différents.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-seo-images-alt-text-compression-resource.png" alt="Alt text : signal principal pour Google Images, signal accessoire pour le classement web classique" width="900" height="340" loading="lazy">
+  <figcaption>Le rôle de l'alt text dépend entièrement du canal qu'on cherche à optimiser.</figcaption>
+</figure>
+
+<h2>Ce que Google dit explicitement éviter</h2>
+
+<p>La documentation officielle est claire sur un point qui, lui, ne fait débat chez personne&nbsp;: éviter le bourrage de mots-clés dans l'alt text. Un texte alternatif doit être « utile, riche en information », pas une liste de mots-clés accumulés dans l'espoir de capter plus de requêtes. Pour une image qui sert de lien, Google précise que l'alt text est traité « de façon similaire à l'ancre d'un lien texte » — un argument de plus pour écrire une description précise plutôt qu'un mot-clé répété. Pour une image purement décorative, sans valeur informative, la pratique recommandée reste un attribut alt vide, pas un texte forcé qui n'ajoute rien.</p>
+
+<h2>La vraie raison pour laquelle le poids des images compte</h2>
+
+<p>La documentation Google reconnaît que « les images sont souvent le plus gros contributeur au poids total d'une page, ce qui peut la rendre lente et coûteuse à charger » — sans donner de seuil de compression précis. L'effet sur le SEO n'est donc pas direct&nbsp;: il passe par la vitesse de chargement et les Core Web Vitals, qui eux sont un signal d'expérience de page reconnu par Google. Compresser ses images (formats modernes comme WebP, dimensions adaptées à l'affichage réel, lazy loading pour les images hors écran) reste donc une priorité — mais pour la même raison que n'importe quelle autre optimisation de vitesse, pas parce que la compression serait elle-même récompensée.</p>
+
+<h2>Ce qui est réellement requis pour les rich results</h2>
+
+<p>Pour qu'une image obtienne un badge ou un résultat enrichi dans Google&nbsp;Images (recette, produit, etc.), la documentation est stricte&nbsp;: l'attribut image des données structurées est « un champ requis » — son absence ou une erreur de balisage rend simplement le contenu inéligible à l'enrichissement. C'est l'un des rares points du SEO image où la règle est binaire plutôt que graduelle&nbsp;: soit la donnée structurée est correcte et complète, soit l'image n'apparaît jamais sous cette forme enrichie.</p>
+
+<h2>La check-list qui tient compte de cette nuance</h2>
+
+<p>Alt text descriptif et sans bourrage sur chaque image porteuse de sens, attribut vide sur le purement décoratif, formats compressés et dimensions adaptées pour protéger la vitesse de page, données structurées complètes si un rich result est visé&nbsp;: aucune de ces actions n'est un levier de classement caché, mais réunies, elles couvrent les deux vrais canaux où une image peut apporter du trafic — Google&nbsp;Images d'un côté, l'expérience de page de l'autre.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>L'alt text est-il un facteur de classement Google ?</summary>
+    <p>Pas pour la recherche web générale, selon John Mueller de Google en 2020, qui a dit qu'il n'y avait pas vraiment à s'en soucier pour le classement global. L'alt text compte en revanche directement pour la visibilité dans Google Images, où il reste, selon la documentation officielle, l'attribut de métadonnées le plus important pour une image.</p>
+  </details>
+  <details>
+    <summary>Faut-il mettre un alt text sur toutes les images ?</summary>
+    <p>Non. Pour les images purement décoratives, la bonne pratique est un attribut alt vide (alt=""), pas un texte forcé. Pour une image utilisée comme lien, Google traite l'alt text de façon similaire à l'ancre d'un lien texte.</p>
+  </details>
+  <details>
+    <summary>La compression d'image a-t-elle un impact SEO direct ?</summary>
+    <p>Indirect mais réel : Google indique que les images sont souvent le plus gros contributeur au poids total d'une page, ce qui peut la ralentir. Une page lente dégrade les Core Web Vitals, qui eux comptent comme signal d'expérience de page — l'effet passe par la vitesse, pas par un bonus SEO propre à la compression.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un audit SEO qui couvre aussi vos images ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Demander un audit SEO</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/seo">SEO</a>, et l'article <a href="/core-web-vitals-inp-seuils-2026">INP et Core Web Vitals : le seuil qui compte vraiment en 2026</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/seo">SEO →</a>
+      <a href="/vitesse-mobile-conversion-seuil-cro">Vitesse mobile et conversion →</a>
+      <a href="/core-web-vitals-inp-seuils-2026">Core Web Vitals →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
