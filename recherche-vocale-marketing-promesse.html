@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La recherche vocale devait représenter 50 % des requêtes : que s'est-il passé ? | Blog — Johan Simonneau</title>
+<meta name="description" content="La prédiction la plus citée du SEO n'a jamais été confirmée, et sa source a même été déformée en chemin. Ce qui est réellement arrivé à la recherche vocale, et ce qui compte vraiment en 2026 avec l'IA conversationnelle.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/recherche-vocale-marketing-promesse">
+<meta property="og:type" content="article">
+<meta property="og:title" content="La recherche vocale devait représenter 50 % des requêtes : que s'est-il passé ?">
+<meta property="og:description" content="La prédiction la plus citée du SEO n'a jamais été confirmée, et sa source a même été déformée en chemin. Ce qui est réellement arrivé à la recherche vocale, et ce qui compte vraiment en 2026 avec l'IA conversationnelle.">
+<meta property="og:url" content="https://www.johansimonneau.fr/recherche-vocale-marketing-promesse">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-recherche-vocale-marketing-promesse-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-recherche-vocale-marketing-promesse-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "La recherche vocale devait représenter 50 % des requêtes : que s'est-il passé ?", "item": "https://www.johansimonneau.fr/recherche-vocale-marketing-promesse" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "La recherche vocale devait représenter 50 % des requêtes : que s'est-il passé ?",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-recherche-vocale-marketing-promesse-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-11-09",
+      "dateModified": "2026-11-09",
+      "description": "La prédiction la plus citée du SEO n'a jamais été confirmée, et sa source a même été déformée en chemin. Ce qui est réellement arrivé à la recherche vocale, et ce qui compte vraiment en 2026 avec l'IA conversationnelle.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/recherche-vocale-marketing-promesse"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "D'où vient vraiment la prédiction « 50 % des recherches seront vocales en 2020 » ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas de comScore, contrairement à ce qui est largement répété. Elle remonte à une déclaration d'Andrew Ng, alors chef scientifique des données chez Baidu, qui évoquait en 2014 une part combinée image et voix à cinq ans, pas une part vocale seule à horizon 2020. Le rapport Internet Trends de Mary Meeker en 2016 a popularisé une version déformée et simplifiée de cette citation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Existe-t-il aujourd'hui un chiffre fiable sur la part de recherches faites à la voix ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, pas de source primaire fiable et à jour. La plupart des chiffres qui circulent sont recyclés d'un blog à l'autre sans méthode traçable, et certains se contredisent frontalement dans un même article récent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Les conseils SEO pour la recherche vocale (longue traîne, FAQ, featured snippets) sont-ils devenus inutiles ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, mais la justification d'origine était la mauvaise : ces pratiques restent valables pour le SEO sémantique général et pour la visibilité dans les réponses des moteurs conversationnels, pas spécifiquement parce qu'un utilisateur parle plutôt que de taper."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Recherche vocale</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>La recherche vocale devait représenter 50 % des requêtes : que s'est-il passé ?</h1>
+      <p class="sub-hook">La prédiction a circulé pendant des années dans tous les articles SEO sur la recherche vocale. Elle n'a jamais été confirmée — et elle n'a même jamais été dite par qui on lui attribue. Voici ce qui s'est réellement passé, et ce qui compte vraiment aujourd'hui.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>9 novembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-recherche-vocale-marketing-promesse-hero.png" alt="Illustration de la prédiction de recherche vocale à 50% jamais confirmée, face à l'essor réel de l'IA conversationnelle" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>« 50&nbsp;% des recherches seront vocales en 2020. » Cette phrase a structuré une quantité impressionnante de contenu SEO entre 2018 et 2020. Elle n'a jamais été confirmée par aucune mesure publique. Pire&nbsp;: elle n'est même pas fidèle à sa source d'origine. Comprendre ce qui s'est réellement passé éclaire utilement la façon dont le marketing digital fabrique et recycle ses propres mythes.</p>
+
+<h2>Une citation déformée en deux étapes</h2>
+
+<p>La prédiction est largement attribuée à comScore. Elle n'en vient pas&nbsp;: interrogé directement sur le sujet, comScore a confirmé n'avoir jamais publié une telle statistique. L'origine remonte à une déclaration d'Andrew&nbsp;Ng, alors chef scientifique des données chez Baidu, qui affirmait en septembre&nbsp;2014, dans Fast Company&nbsp;: « dans cinq ans, au moins 50&nbsp;% de toutes les recherches passeront par l'image ou la voix » — une part combinée, pas une part vocale seule, et un horizon qui pointait vers 2019, pas 2020. Le rapport Internet Trends de Mary&nbsp;Meeker, en 2016, a popularisé une version simplifiée de cette citation, qui s'est ensuite propagée sous la forme « 50&nbsp;% vocal en 2020 » dans d'innombrables articles SEO.</p>
+
+<h2>2020 n'a jamais confirmé ce chiffre, et certains l'avaient déjà anticipé</h2>
+
+<p>Aucune mesure publique n'a validé cette prédiction à l'échéance annoncée. Des articles publiés dès 2019, chez Econsultancy et Adviso notamment, avançaient explicitement que 2020 ne serait pas « l'année de la recherche vocale », à contre-courant du discours dominant de l'époque. Le chiffre s'est simplement éteint sans qu'aucune rétractation officielle ne soit nécessaire&nbsp;: il n'avait jamais été confirmé par qui que ce soit en premier lieu.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-recherche-vocale-marketing-promesse-resource.png" alt="De la citation originale d'Andrew Ng en 2014 à la version déformée relayée par le marketing SEO jusqu'en 2020" width="900" height="340" loading="lazy">
+  <figcaption>Une citation sur image et voix combinées, déformée en une prédiction vocale isolée, jamais confirmée.</figcaption>
+</figure>
+
+<h2>Le cycle se répète encore aujourd'hui</h2>
+
+<p>Aucune donnée primaire récente et méthodologiquement solide ne mesure clairement « la part de recherches faites à la voix ». Les chiffres qui circulent viennent surtout de blogs qui se recopient entre eux, sans source traçable. Un article publié en 2025 illustre bien le problème&nbsp;: il recycle encore une projection de type « 50&nbsp;% en 2025 », tout en citant dans le même texte une mesure réelle d'environ 20&nbsp;% d'usage — deux chiffres qui se contredisent frontalement, sans que l'auteur semble s'en apercevoir. Le mécanisme qui a produit le mythe original continue de tourner.</p>
+
+<h2>Ce qui est réellement nouveau&nbsp;: l'IA conversationnelle, pas l'enceinte connectée</h2>
+
+<p>Un changement bien réel s'est produit entre 2024 et 2026, mais ce n'est pas celui qu'annonçait la vieille hype&nbsp;: les enceintes connectées traitaient surtout des commandes (musique, minuteur, domotique), pas des recherches ouvertes. L'essor des modes vocaux conversationnels — le mode voix de ChatGPT, Gemini Live de Google — introduit quelque chose de différent&nbsp;: des échanges vocaux capables de recherche web en direct et de raisonnement multi-étapes, bien au-delà d'une commande simple. C'est un phénomène distinct, mesurable par l'adoption massive de ces assistants conversationnels, qui mérite une attention réelle — sous l'angle de la visibilité dans les réponses IA, pas sous celui de la « recherche vocale » au sens de 2018.</p>
+
+<h2>Les vieux conseils restent valables, mais pour une mauvaise raison d'origine</h2>
+
+<p>Les mots-clés en longue traîne conversationnelle, le balisage FAQ, l'optimisation pour les featured snippets&nbsp;: ces pratiques, recommandées depuis des années au nom de la recherche vocale, restent de bonnes pratiques aujourd'hui. Mais elles ne le sont pas à cause de la voix spécifiquement&nbsp;: Google ne dispose pas d'un index séparé pour les requêtes parlées, et un contenu clair qui répond directement à une question fonctionne aussi bien à l'écrit qu'à l'oral, et constitue par ailleurs une base plausible pour une citation dans une réponse générée par IA. La justification d'origine était la mauvaise&nbsp;; la pratique a simplement survécu pour d'autres raisons, plus solides.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>D'où vient vraiment la prédiction « 50 % des recherches seront vocales en 2020 » ?</summary>
+    <p>Pas de comScore, contrairement à ce qui est largement répété. Elle remonte à une déclaration d'Andrew Ng, alors chef scientifique des données chez Baidu, qui évoquait en 2014 une part combinée image et voix à cinq ans, pas une part vocale seule à horizon 2020. Le rapport Internet Trends de Mary Meeker en 2016 a popularisé une version déformée et simplifiée de cette citation.</p>
+  </details>
+  <details>
+    <summary>Existe-t-il aujourd'hui un chiffre fiable sur la part de recherches faites à la voix ?</summary>
+    <p>Non, pas de source primaire fiable et à jour. La plupart des chiffres qui circulent sont recyclés d'un blog à l'autre sans méthode traçable, et certains se contredisent frontalement dans un même article récent.</p>
+  </details>
+  <details>
+    <summary>Les conseils SEO pour la recherche vocale (longue traîne, FAQ, featured snippets) sont-ils devenus inutiles ?</summary>
+    <p>Non, mais la justification d'origine était la mauvaise : ces pratiques restent valables pour le SEO sémantique général et pour la visibilité dans les réponses des moteurs conversationnels, pas spécifiquement parce qu'un utilisateur parle plutôt que de taper.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un diagnostic SEO basé sur des données vérifiées, pas sur du folklore ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Demander un audit SEO</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, et l'article <a href="/guide-complet-geo-ranker-llm">Le guide complet GEO pour ranker numéro 1 dans les LLMs</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/guide-complet-geo-ranker-llm">Guide GEO complet →</a>
+      <a href="/zero-click-search-vrai-chiffre">Zero-click searches →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
