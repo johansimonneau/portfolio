@@ -954,4 +954,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://www.johansimonneau.fr/geo-video-youtube-source-ia</loc>
+    <lastmod>2027-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
