@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEO pour l'e-commerce : apparaître dans les recommandations produit de ChatGPT et Perplexity | Blog — Johan Simonneau</title>
+<meta name="description" content="ChatGPT et Perplexity ne piochent pas vos produits au même endroit : flux marchand Bing, protocole d'achat agentique OpenAI, programme marchand Perplexity. Ce qu'il faut structurer pour exister dans leurs recommandations.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/geo-ecommerce-recommandations-produit-ia">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GEO pour l'e-commerce : apparaître dans les recommandations produit de ChatGPT et Perplexity">
+<meta property="og:description" content="ChatGPT et Perplexity ne piochent pas vos produits au même endroit : flux marchand Bing, protocole d'achat agentique OpenAI, programme marchand Perplexity. Ce qu'il faut structurer pour exister dans leurs recommandations.">
+<meta property="og:url" content="https://www.johansimonneau.fr/geo-ecommerce-recommandations-produit-ia">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-geo-ecommerce-recommandations-produit-ia-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-geo-ecommerce-recommandations-produit-ia-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "GEO pour l'e-commerce : apparaître dans les recommandations produit de ChatGPT et Perplexity", "item": "https://www.johansimonneau.fr/geo-ecommerce-recommandations-produit-ia" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "GEO pour l'e-commerce : apparaître dans les recommandations produit de ChatGPT et Perplexity",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-geo-ecommerce-recommandations-produit-ia-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2027-01-02",
+      "dateModified": "2027-01-02",
+      "description": "ChatGPT et Perplexity ne piochent pas vos produits au même endroit : flux marchand Bing, protocole d'achat agentique OpenAI, programme marchand Perplexity. Ce qu'il faut structurer pour exister dans leurs recommandations.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/geo-ecommerce-recommandations-produit-ia"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Suffit-il d'avoir un flux Google Shopping bien optimisé pour apparaître dans ChatGPT ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, pas de façon garantie. Plusieurs analyses indépendantes indiquent que les recommandations produit de ChatGPT s'appuient en partie sur des flux marchands soumis au Bing Merchant Center de Microsoft, distincts de Google Shopping, ainsi que sur des mécanismes propres à OpenAI comme l'Agentic Commerce Protocol. Un site absent de ces circuits peut rester invisible même avec un excellent flux Google Shopping."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Perplexity fonctionne-t-il de la même façon que ChatGPT pour les recommandations produit ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas tout à fait. Perplexity propose un programme marchand permettant de soumettre un catalogue structuré incluant prix, avis et disponibilité, mais s'appuie aussi fortement sur le crawl du web et les données structurées publiées directement sur les pages produit (Product, Offer, Review, AggregateRating), en complément des signaux tiers comme les avis clients."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelles données structurées sont les plus citées comme utiles pour le GEO e-commerce ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les balisages Schema.org Product, Offer, Review et AggregateRating reviennent dans la majorité des guides spécialisés, accompagnés des identifiants GTIN ou MPN qui permettent de rattacher un produit à une base de données reconnue. Plusieurs sources insistent aussi sur la cohérence stricte entre le prix affiché dans le flux et celui affiché sur la page produit, au format de devise ISO 4217."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">GEO e-commerce</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>GEO pour l'e-commerce : apparaître dans les recommandations produit de ChatGPT et Perplexity</h1>
+      <p class="sub-hook">Un flux Google Shopping impeccable ne garantit pas qu'un produit apparaisse quand un client demande une recommandation à ChatGPT ou à Perplexity. Les deux assistants ne piochent pas leurs données au même endroit — ni selon la même logique.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>2 janvier 2027</span>
+        <span>·</span>
+        <span>8 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-geo-ecommerce-recommandations-produit-ia-hero.png" alt="Illustration des différents circuits de données produit utilisés par ChatGPT et Perplexity pour leurs recommandations shopping" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Quand un client type « quel aspirateur robot sous 300&nbsp;€ » dans ChatGPT au lieu de Google, la question qui compte pour un e-commerçant n'est plus seulement « mon flux Shopping est-il bon ? » mais « d'où vient réellement ce que l'assistant répond ? ». Les sources disponibles sur le sujet, essentiellement des guides et agences spécialisées en GEO plutôt que de la documentation officielle complète, dessinent un paysage encore mouvant, mais avec des points d'ancrage assez cohérents entre eux.</p>
+
+<h2>ChatGPT : plusieurs circuits de données qui coexistent</h2>
+
+<p>Plusieurs analyses rapportent que les produits affichés dans les réponses shopping de ChatGPT recoupent fortement les résultats organiques de Google Shopping — un recoupement élevé est avancé par certaines études, sans qu'on puisse confirmer la méthode exacte avec certitude depuis ces seules sources secondaires. D'autres guides affirment que ChatGPT s'appuie en réalité sur les flux soumis au Bing Merchant Center de Microsoft&nbsp;: un site absent de ce circuit resterait invisible pour ce canal précis, quel que soit le soin apporté à son flux Google. OpenAI a par ailleurs mis en place un circuit propre, l'Agentic Commerce Protocol, qui permet une syndication plus directe du catalogue — Shopify propose une intégration de ce type via ses « Agentic Storefronts ». Ces pistes ne s'excluent pas forcément entre elles&nbsp;: elles suggèrent plusieurs portes d'entrée possibles plutôt qu'un canal unique et documenté par OpenAI lui-même de façon exhaustive.</p>
+
+<h2>Perplexity : un programme marchand, et une dépendance plus forte au web ouvert</h2>
+
+<p>Perplexity propose de son côté un programme marchand permettant de soumettre directement un catalogue structuré, incluant prix, avis et disponibilité. Mais plusieurs sources spécialisées décrivent aussi un moteur qui s'appuie davantage sur le crawl classique du web et les signaux de données structurées publiées sur les pages produit elles-mêmes, en complément des avis tiers. Cette double dépendance — programme marchand dédié et exploration classique du site — distingue Perplexity d'un système qui reposerait uniquement sur un flux soumis.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-geo-ecommerce-recommandations-produit-ia-resource.png" alt="Schéma des circuits de données produit : flux Bing Merchant Center et Agentic Commerce Protocol pour ChatGPT, programme marchand et crawl de données structurées pour Perplexity" width="900" height="340" loading="lazy">
+  <figcaption>Deux assistants, deux combinaisons différentes de sources de données produit.</figcaption>
+</figure>
+
+<h2>Le socle commun : des données structurées propres, cohérentes avec la page produit</h2>
+
+<p>Au-delà des circuits propres à chaque plateforme, un socle technique revient dans la quasi-totalité des guides consultés&nbsp;: un balisage Schema.org complet sur chaque page produit (Product, Offer, Review, AggregateRating), des identifiants GTIN ou MPN qui permettent de rattacher le produit à des bases de données reconnues au-delà du site lui-même, et surtout une cohérence stricte entre le prix affiché dans un flux et celui affiché sur la page&nbsp;: un guide signale qu'un écart de prix ou un mauvais format de devise (la norme ISO&nbsp;4217 est citée) peut suffire à faire rejeter un produit par ChatGPT. C'est un socle d'hygiène technique qui profite à plusieurs canaux à la fois, indépendamment du flou qui persiste sur le détail exact de chaque algorithme.</p>
+
+<h2>Ce qu'il faut garder en tête avant d'investir du temps</h2>
+
+<p>La prudence s'impose sur un point&nbsp;: la quasi-totalité des informations disponibles sur ce sujet vient d'agences et d'outils qui vendent des services d'optimisation GEO, pas de documentation officielle exhaustive d'OpenAI ou de Perplexity. Les règles précises évoluent vite, et certaines affirmations circulant sur des mécanismes internes (comme des paramètres techniques repérés dans le code de ChatGPT) n'ont pas pu être vérifiées de façon indépendante dans le cadre de cet article. La priorité raisonnable reste de sécuriser le socle de données structurées, vérifiable et stable, plutôt que de courir après chaque signal non confirmé.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Suffit-il d'avoir un flux Google Shopping bien optimisé pour apparaître dans ChatGPT ?</summary>
+    <p>Non, pas de façon garantie. Plusieurs analyses indépendantes indiquent que les recommandations produit de ChatGPT s'appuient en partie sur des flux marchands soumis au Bing Merchant Center de Microsoft, distincts de Google Shopping, ainsi que sur des mécanismes propres à OpenAI comme l'Agentic Commerce Protocol. Un site absent de ces circuits peut rester invisible même avec un excellent flux Google Shopping.</p>
+  </details>
+  <details>
+    <summary>Perplexity fonctionne-t-il de la même façon que ChatGPT pour les recommandations produit ?</summary>
+    <p>Pas tout à fait. Perplexity propose un programme marchand permettant de soumettre un catalogue structuré incluant prix, avis et disponibilité, mais s'appuie aussi fortement sur le crawl du web et les données structurées publiées directement sur les pages produit (Product, Offer, Review, AggregateRating), en complément des signaux tiers comme les avis clients.</p>
+  </details>
+  <details>
+    <summary>Quelles données structurées sont les plus citées comme utiles pour le GEO e-commerce ?</summary>
+    <p>Les balisages Schema.org Product, Offer, Review et AggregateRating reviennent dans la majorité des guides spécialisés, accompagnés des identifiants GTIN ou MPN qui permettent de rattacher un produit à une base de données reconnue. Plusieurs sources insistent aussi sur la cohérence stricte entre le prix affiché dans le flux et celui affiché sur la page produit, au format de devise ISO 4217.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie de structurer votre catalogue produit pour les assistants IA autant que pour Google ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer mon GEO e-commerce</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, et l'article <a href="/agentic-commerce-achat-ia-chatgpt-perplexity">Achat direct dans ChatGPT, Perplexity, Google AI Mode</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/agentic-commerce-achat-ia-chatgpt-perplexity">Agentic commerce →</a>
+      <a href="/mesurer-roi-geo-kpis-trafic-organique">Mesurer le ROI du GEO →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
