@@ -1,8 +1,7 @@
 {
   "permissions": {
     "allow": [
-      "mcp__Notion__notion-update-page",
-      "mcp__Notion__notion-fetch",
+      "mcp__Notion__*",
       "mcp__github__create_pull_request",
       "mcp__github__merge_pull_request",
       "mcp__github__pull_request_read",
