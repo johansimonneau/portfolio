@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cannibalisation SEO : comment la détecter et la corriger quand deux pages se font concurrence | Blog — Johan Simonneau</title>
+<meta name="description" content="Deux pages qui se battent pour la même requête ne se partagent pas le trafic : elles le diluent toutes les deux. La méthode pour détecter une cannibalisation SEO dans Search Console, et les trois façons de la corriger.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/cannibalisation-seo-detecter-corriger">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cannibalisation SEO : comment la détecter et la corriger quand deux pages se font concurrence">
+<meta property="og:description" content="Deux pages qui se battent pour la même requête ne se partagent pas le trafic : elles le diluent toutes les deux. La méthode pour détecter une cannibalisation SEO dans Search Console, et les trois façons de la corriger.">
+<meta property="og:url" content="https://www.johansimonneau.fr/cannibalisation-seo-detecter-corriger">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-cannibalisation-seo-detecter-corriger-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-cannibalisation-seo-detecter-corriger-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Cannibalisation SEO : comment la détecter et la corriger quand deux pages se font concurrence", "item": "https://www.johansimonneau.fr/cannibalisation-seo-detecter-corriger" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Cannibalisation SEO : comment la détecter et la corriger quand deux pages se font concurrence",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-cannibalisation-seo-detecter-corriger-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-11-10",
+      "dateModified": "2026-11-10",
+      "description": "Deux pages qui se battent pour la même requête ne se partagent pas le trafic : elles le diluent toutes les deux. La méthode pour détecter une cannibalisation SEO dans Search Console, et les trois façons de la corriger.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/cannibalisation-seo-detecter-corriger"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "La cannibalisation SEO est-elle une pénalité Google ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Google n'a jamais publié de politique nommant la « cannibalisation » comme une infraction sanctionnée. Le coût n'est pas une pénalité mais une dilution : le signal de pertinence et les liens entrants se répartissent entre plusieurs pages au lieu de renforcer une seule, et Google limite par ailleurs le nombre de résultats qu'il affiche pour un même domaine sur une requête donnée."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment savoir si deux pages de mon site se cannibalisent ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dans Search Console, ouvrez le rapport Performances, filtrez sur une requête précise, puis ajoutez la dimension Pages : si plusieurs URL de votre site apparaissent avec un nombre d'impressions comparable sur la même requête, c'est le signal à vérifier en premier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il toujours fusionner les pages qui se cannibalisent ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. La fusion n'est qu'une des trois options. Si les deux pages répondent en réalité à des intentions différentes malgré un mot-clé commun, la bonne correction est souvent de clarifier l'angle de chacune plutôt que de les regrouper, pour éviter de perdre un contenu qui a sa propre valeur."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Cannibalisation SEO</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Cannibalisation SEO : comment la détecter et la corriger quand deux pages se font concurrence</h1>
+      <p class="sub-hook">Deux pages qui se positionnent sur la même requête ne se partagent pas le trafic entre elles : la plupart du temps, elles le perdent toutes les deux. Voici comment repérer une cannibalisation réelle dans Search Console, et les trois corrections qui s'appliquent selon le cas.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>10 novembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-cannibalisation-seo-detecter-corriger-hero.png" alt="Illustration de deux pages d'un même site qui se concurrencent sur la même requête Google, diluant leur signal au lieu de se renforcer" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>La cannibalisation SEO n'est pas une sanction que Google applique : c'est un symptôme que Google ne corrige pas à votre place. Quand deux pages d'un même site visent la même requête, le moteur ne sait pas laquelle privilégier, et le résultat est presque toujours plus faible que si une seule page concentrait tout le signal. Le problème est fréquent sur les sites qui grossissent sans plan de contenu clair — et il reste étonnamment simple à repérer une fois qu'on sait où regarder.</p>
+
+<h2>Ce que Google dit vraiment sur le sujet</h2>
+
+<p>Il n'existe pas de documentation Google qui nomme la « cannibalisation » comme une politique ou une pénalité spécifique. Le sujet a surtout été abordé publiquement, au fil des années, par les porte-parole de l'équipe Search de Google en réponse à des questions de webmasters, sans jamais donner lieu à une page officielle dédiée. Ce que Google documente réellement, c'est la consolidation des URL dupliquées&nbsp;: sa recommandation, dans ce cas précis, est d'utiliser une balise canonique pour indiquer quelle version doit concentrer les signaux de classement quand plusieurs URL très proches doivent rester en ligne. La cannibalisation, elle, concerne des pages au contenu différent mais qui ciblent la même requête&nbsp;: la logique de consolidation s'applique, mais la solution n'est pas toujours la même balise.</p>
+
+<h2>Le repérer dans Search Console, sans outil tiers</h2>
+
+<p>La méthode la plus directe ne demande aucun outil payant&nbsp;: dans le rapport Performances de Search Console, filtrez sur une requête précise, puis ajoutez la dimension Pages à côté de Requêtes. Si plusieurs URL du site apparaissent avec un nombre d'impressions comparable sur la même requête, souvent avec des positions moyennes qui oscillent d'une semaine à l'autre, c'est le signal classique&nbsp;: Google teste plusieurs pages du site sans se fixer, parce qu'aucune ne s'impose clairement comme la réponse évidente.</p>
+
+<figure class="sub-figure">
+  <img src="assets/img/blog-cannibalisation-seo-detecter-corriger-resource.png" alt="Schéma du rapport Search Console filtré par requête montrant deux URL du même site se partageant les impressions et alternant en position" width="900" height="340" loading="lazy">
+  <figcaption>Deux URL qui alternent en position sur la même requête, plutôt qu'une seule qui progresse : le signal à surveiller.</figcaption>
+</figure>
+
+<h2>Trois corrections, pas une seule</h2>
+
+<p>La fusion complète des deux pages en une seule ressource plus solide est la correction la plus citée, et la bonne quand les deux contenus répondent en réalité à la même intention sans réelle différence de fond. Mais ce n'est pas la seule option. Si l'une des deux pages est clairement obsolète ou plus faible, une redirection 301 vers l'autre transfère son éventuel capital de liens sans dupliquer l'effort. Et si les deux pages ont, malgré un mot-clé commun, une intention réellement distincte — une page pilier généraliste et un article plus pointu sur un sous-sujet, par exemple — la meilleure correction n'est pas de fusionner, mais de retravailler les titres, les intitulés et le maillage interne pour que chaque page cible sans ambiguïté un angle différent de la requête.</p>
+
+<h2>Pourquoi la causalité se vérifie avant d'agir</h2>
+
+<p>Deux pages qui apparaissent toutes les deux sur une requête ne sont pas automatiquement en cannibalisation&nbsp;: Google peut légitimement afficher deux pages d'un même site quand elles répondent chacune à une facette différente d'une requête large. Avant de fusionner ou de rediriger quoi que ce soit, il faut lire les deux pages avec l'œil de l'utilisateur qui a tapé cette requête&nbsp;: si l'une répond clairement mieux que l'autre, la correction est simple. Si les deux répondent à des besoins réellement différents, le problème n'est peut-être pas une cannibalisation mais un signal mal exploité — et la pire décision serait de supprimer un contenu qui a sa propre valeur pour résoudre un problème qui n'en est pas un.</p>
+
+<h2>Prévenir plutôt que corriger après coup</h2>
+
+<p>Le vrai levier de fond reste en amont&nbsp;: une architecture de contenu qui attribue clairement une requête principale à une seule page avant de la publier évite la plupart des cas de cannibalisation qui apparaissent ensuite par accumulation. C'est le même principe qui sous-tend une structuration en cocons sémantiques ou en clusters thématiques&nbsp;: chaque page a un rôle défini dans la hiérarchie, et les nouvelles pages viennent compléter un sujet plutôt que le répéter.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>La cannibalisation SEO est-elle une pénalité Google ?</summary>
+    <p>Non. Google n'a jamais publié de politique nommant la « cannibalisation » comme une infraction sanctionnée. Le coût n'est pas une pénalité mais une dilution : le signal de pertinence et les liens entrants se répartissent entre plusieurs pages au lieu de renforcer une seule, et Google limite par ailleurs le nombre de résultats qu'il affiche pour un même domaine sur une requête donnée.</p>
+  </details>
+  <details>
+    <summary>Comment savoir si deux pages de mon site se cannibalisent ?</summary>
+    <p>Dans Search Console, ouvrez le rapport Performances, filtrez sur une requête précise, puis ajoutez la dimension Pages : si plusieurs URL de votre site apparaissent avec un nombre d'impressions comparable sur la même requête, c'est le signal à vérifier en premier.</p>
+  </details>
+  <details>
+    <summary>Faut-il toujours fusionner les pages qui se cannibalisent ?</summary>
+    <p>Non. La fusion n'est qu'une des trois options. Si les deux pages répondent en réalité à des intentions différentes malgré un mot-clé commun, la bonne correction est souvent de clarifier l'angle de chacune plutôt que de les regrouper, pour éviter de perdre un contenu qui a sa propre valeur.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Envie d'un audit qui identifie précisément vos pages en concurrence ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer mon architecture de contenu</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/seo">SEO</a>, et l'article <a href="/cocons-semantiques-methode-seo">Structurer un site qui se positionne avec les cocons sémantiques</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/seo">SEO →</a>
+      <a href="/cocons-semantiques-methode-seo">Cocons sémantiques →</a>
+      <a href="/topical-authority-clusters-contenu-methode">Topical authority →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.png" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
