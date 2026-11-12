@@ -76,7 +76,7 @@ gtag('consent', 'default', {
     {
       "@type": "TechArticle",
       "headline": "Connecter Google Ads en MCP à Claude ou ChatGPT",
-      "dateModified": "2026-10-28",
+      "dateModified": "2026-11-12",
       "author": {
         "@type": "Person",
         "@id": "https://www.johansimonneau.fr/#person",
@@ -113,7 +113,7 @@ gtag('consent', 'default', {
           "name": "Faut-il un jeton développeur Google Ads pour l'utiliser ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Oui pour un accès en production, un jeton développeur (developer token) est nécessaire en plus de l'authentification par identifiants applicatifs par défaut."
+            "text": "Non, plus depuis le 9 septembre 2026 : Google a supprimé le jeton développeur (developer token). Le niveau d'accès à l'API est désormais déterminé par le projet Google Cloud propriétaire du client OAuth ou du compte de service, avec une vérification ou une demande d'accès en production (Explorer, Basic ou Standard) sur la page officielle des niveaux d'accès."
           }
         },
         {
@@ -265,7 +265,7 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
 <p>Un déploiement sur Google Cloud Run est aussi documenté officiellement, pour un usage partagé par une équipe plutôt qu'en local.</p>
 
 <h2>Authentification</h2>
-<p>Identifiants applicatifs par défaut de Google (Application Default Credentials), ou fichier <code>google-ads.yaml</code> du client API Google Ads. Un jeton développeur (developer token) est nécessaire pour un accès en production.</p>
+<p>Identifiants applicatifs par défaut de Google (Application Default Credentials), issus d'un fichier JSON de client OAuth 2.0 ou d'un compte de service du projet Google Cloud. Google a supprimé le jeton développeur (<code>GOOGLE_ADS_DEVELOPER_TOKEN</code>) le 9 septembre 2026&nbsp;: c'est désormais le projet Google Cloud propriétaire du client OAuth ou du compte de service qui détermine le niveau d'accès à l'API. L'activation de l'API donne un accès Test (comptes de test uniquement)&nbsp;; un accès en production (Explorer, Basic ou Standard) doit être vérifié ou demandé sur la page officielle des niveaux d'accès de l'API Google Ads, sans quoi les appels en production échouent avec l'erreur <code>CLOUD_PROJECT_NOT_APPROVED_FOR_PRODUCTION</code>.</p>
 
 <h2>Documentation officielle</h2>
 <p><a href="https://github.com/googleads/google-ads-mcp" target="_blank" rel="noopener">github.com/googleads/google-ads-mcp</a></p>
@@ -278,7 +278,7 @@ height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
   </details>
   <details>
     <summary>Faut-il un jeton développeur Google Ads pour l'utiliser ?</summary>
-    <p>Oui pour un accès en production, un jeton développeur (developer token) est nécessaire en plus de l'authentification par identifiants applicatifs par défaut.</p>
+    <p>Non, plus depuis le 9 septembre 2026&nbsp;: Google a supprimé le jeton développeur (developer token). Le niveau d'accès à l'API est désormais déterminé par le projet Google Cloud propriétaire de votre client OAuth ou de votre compte de service, avec une vérification ou une demande d'accès en production (Explorer, Basic ou Standard) sur la page officielle des niveaux d'accès.</p>
   </details>
   <details>
     <summary>Peut-on l'héberger ailleurs qu'en local ?</summary>
