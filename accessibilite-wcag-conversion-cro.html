@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accessibilité web et conversion : ce que WCAG 2.2 change vraiment | Blog — Johan Simonneau</title>
+<meta name="description" content="WCAG 2.2 est devenue recommandation W3C le 5 octobre 2023, avec 9 nouveaux critères de succès. Ce qui est démontré sur le lien entre accessibilité et taux de conversion, et ce qui relève du mythe marketing.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/accessibilite-wcag-conversion-cro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Accessibilité web et conversion : ce que WCAG 2.2 change vraiment">
+<meta property="og:description" content="WCAG 2.2 est devenue recommandation W3C le 5 octobre 2023, avec 9 nouveaux critères de succès. Ce qui est démontré sur le lien entre accessibilité et taux de conversion, et ce qui relève du mythe marketing.">
+<meta property="og:url" content="https://www.johansimonneau.fr/accessibilite-wcag-conversion-cro">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-accessibilite-wcag-conversion-cro-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-accessibilite-wcag-conversion-cro-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Accessibilité web et conversion : ce que WCAG 2.2 change vraiment", "item": "https://www.johansimonneau.fr/accessibilite-wcag-conversion-cro" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Accessibilité web et conversion : ce que WCAG 2.2 change vraiment",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-accessibilite-wcag-conversion-cro-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2027-01-15",
+      "dateModified": "2027-01-15",
+      "description": "WCAG 2.2 est devenue recommandation W3C le 5 octobre 2023, avec 9 nouveaux critères de succès. Ce qui est démontré sur le lien entre accessibilité et taux de conversion, et ce qui relève du mythe marketing.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/accessibilite-wcag-conversion-cro"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "WCAG 2.2 est-elle obligatoire légalement ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WCAG est un standard technique du W3C, pas une loi. Son caractère obligatoire dépend des réglementations locales qui s'y réfèrent (comme le RGAA en France ou l'European Accessibility Act), lesquelles peuvent viser une version et un niveau de conformité spécifiques (A, AA ou AAA). Il faut vérifier la réglementation applicable à son secteur plutôt que supposer qu'une version de WCAG s'impose automatiquement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "L'accessibilité web améliore-t-elle prouvé le taux de conversion ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'existe pas d'étude causale rigoureuse isolant l'accessibilité comme seule variable expliquant une hausse de conversion generalisée. Ce qui est documenté, ce sont des mécanismes de recouvrement directs : un contraste suffisant, une navigation clavier complète et des formulaires bien structurés servent autant un utilisateur en situation de handicap qu'un utilisateur valide dans un contexte dégradé (plein soleil, connexion lente, fatigue). Présenter un chiffre de hausse de conversion générique attribué à l'accessibilité sans source vérifiable relève du mythe marketing, pas du fait démontré."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel est le critère de succès WCAG 2.2 qui a le plus d'impact direct sur un tunnel de conversion ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Plusieurs des 9 nouveaux critères ciblent directement des interactions de formulaire et de navigation : la taille minimale des cibles tactiles, l'aide contextuelle cohérente d'une page à l'autre, et la saisie facilitée des données d'authentification. Ce sont justement les points de friction les plus documentés en CRO classique, même en dehors de toute considération d'accessibilité."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Accessibilité et CRO</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Accessibilité web et conversion : ce que WCAG 2.2 change vraiment</h1>
+      <p class="sub-hook">WCAG 2.2 est devenue recommandation officielle du W3C le 5 octobre 2023, avec 9 nouveaux critères de succès par rapport à WCAG 2.1. L'accessibilité est souvent vendue comme un levier de conversion universel. Ce qui est réellement démontré sur ce lien, et ce qui relève de l'argument marketing non sourcé.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>15 janvier 2027</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-accessibilite-wcag-conversion-cro-hero.webp" alt="WCAG 2.2 devenue recommandation W3C le 5 octobre 2023, avec 9 nouveaux critères de succès par rapport à WCAG 2.1" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>L'accessibilité web revient régulièrement dans les argumentaires CRO sous une forme simplifiée&nbsp;: « rendre votre site accessible augmente vos conversions ». L'affirmation n'est pas fausse dans son principe, mais elle est rarement sourcée correctement, et elle mélange souvent deux choses distinctes&nbsp;: un standard technique précis (WCAG) et un bénéfice business qui dépend fortement du contexte. WCAG&nbsp;2.2 est devenue recommandation officielle du W3C le 5&nbsp;octobre&nbsp;2023. Elle ajoute 9&nbsp;nouveaux critères de succès par rapport à WCAG&nbsp;2.1, et retire un critère obsolète (4.1.1&nbsp;Parsing), pour un total de 86&nbsp;critères. Une révision mineure, purement éditoriale et sans nouveau critère, a suivi le 12&nbsp;décembre&nbsp;2024.</p>
+
+<h2>Ce que WCAG 2.2 ajoute concrètement</h2>
+
+<p>Plusieurs des 9&nbsp;nouveaux critères touchent directement des points d'interaction que le CRO classique traite déjà comme des irritants de conversion, indépendamment de toute considération d'accessibilité&nbsp;: la taille minimale des cibles tactiles (éviter les boutons trop petits ou trop rapprochés sur mobile), une aide contextuelle cohérente d'une page à l'autre d'un même parcours, et une saisie facilitée des données d'authentification (ne pas forcer un exercice cognitif ou mémoriel inutile pour se connecter ou s'inscrire). Ce chevauchement n'est pas un hasard&nbsp;: une bonne partie de ce que WCAG formalise pour les utilisateurs en situation de handicap correspond à des frictions qui pénalisent aussi un utilisateur valide dans un contexte dégradé — plein soleil sur un écran de smartphone, connexion lente, fatigue en fin de journée, usage à une seule main.</p>
+
+<h2>Ce qui est démontré, et ce qui ne l'est pas</h2>
+
+<p>C'est précisément là que l'argumentaire marketing dérape souvent&nbsp;: il n'existe pas d'étude causale rigoureuse qui isolerait l'accessibilité comme seule variable responsable d'une hausse de conversion généralisée, transposable d'un site à l'autre. Les chiffres spectaculaires qui circulent sans source précise (« +30&nbsp;% de conversion grâce à l'accessibilité ») doivent être traités comme non vérifiables tant qu'ils ne sont pas rattachés à une étude nommée et datée, avec sa méthodologie. Ce qui est en revanche solidement documenté, ce sont les mécanismes eux-mêmes&nbsp;: un contraste de texte suffisant, une navigation clavier complète, des champs de formulaire correctement étiquetés et des messages d'erreur explicites servent objectivement plus d'utilisateurs que leur seule cible initiale. L'honnêteté intellectuelle impose de s'arrêter à ce niveau de preuve, pas d'extrapoler un pourcentage de conversion universel à partir d'un mécanisme réel mais non chiffré de façon généralisable.</p>
+
+<h2>Pourquoi le cadre réglementaire change la donne, indépendamment du CRO</h2>
+
+<p>Au-delà de l'argument conversion, l'accessibilité a un statut que peu d'autres sujets CRO partagent&nbsp;: elle peut devenir une obligation légale selon le secteur et la juridiction (RGAA en France, European Accessibility Act, Section&nbsp;508 aux États-Unis, pour ne citer que les plus connus), avec des conséquences qui dépassent largement le taux de conversion. Un site qui doit se mettre en conformité n'a donc pas besoin d'un chiffre business pour justifier le chantier — la question à se poser est d'abord réglementaire, puis seulement ensuite, en bonus réel mais non quantifiable précisément, bénéfique à l'expérience de navigation dans son ensemble.</p>
+
+<h2>Ce qu'il faut réellement auditer en priorité</h2>
+
+<p>Pour une équipe qui veut traiter le sujet sérieusement sans attendre une refonte complète, les nouveaux critères de WCAG&nbsp;2.2 donnent une liste de vérification concrète et priorisable&nbsp;: taille et espacement des zones cliquables sur mobile, cohérence des libellés d'aide à travers les pages d'un même tunnel, et simplicité des étapes d'authentification ou de double authentification. Ce sont des correctifs techniques précis, pas des promesses de croissance — leur valeur se mesure en frictions supprimées, pas en pourcentage de conversion inventé pour l'occasion.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>WCAG 2.2 est-elle obligatoire légalement ?</summary>
+    <p>WCAG est un standard technique du W3C, pas une loi. Son caractère obligatoire dépend des réglementations locales qui s'y réfèrent (comme le RGAA en France ou l'European Accessibility Act), lesquelles peuvent viser une version et un niveau de conformité spécifiques (A, AA ou AAA). Il faut vérifier la réglementation applicable à son secteur plutôt que supposer qu'une version de WCAG s'impose automatiquement.</p>
+  </details>
+  <details>
+    <summary>L'accessibilité web améliore-t-elle prouvé le taux de conversion ?</summary>
+    <p>Il n'existe pas d'étude causale rigoureuse isolant l'accessibilité comme seule variable expliquant une hausse de conversion generalisée. Ce qui est documenté, ce sont des mécanismes de recouvrement directs : un contraste suffisant, une navigation clavier complète et des formulaires bien structurés servent autant un utilisateur en situation de handicap qu'un utilisateur valide dans un contexte dégradé (plein soleil, connexion lente, fatigue). Présenter un chiffre de hausse de conversion générique attribué à l'accessibilité sans source vérifiable relève du mythe marketing, pas du fait démontré.</p>
+  </details>
+  <details>
+    <summary>Quel est le critère de succès WCAG 2.2 qui a le plus d'impact direct sur un tunnel de conversion ?</summary>
+    <p>Plusieurs des 9 nouveaux critères ciblent directement des interactions de formulaire et de navigation : la taille minimale des cibles tactiles, l'aide contextuelle cohérente d'une page à l'autre, et la saisie facilitée des données d'authentification. Ce sont justement les points de friction les plus documentés en CRO classique, même en dehors de toute considération d'accessibilité.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Un tunnel de conversion à auditer sans promesse marketing invérifiable ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer mon tunnel de conversion</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/cro">CRO</a>, et l'article <a href="/vitesse-mobile-conversion-seuil-cro">vitesse mobile et seuil de conversion</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/cro">CRO →</a>
+      <a href="/formulaire-b2b-nombre-champs-conversion">Formulaires B2B →</a>
+      <a href="/trust-signals-cro-reassurance-achat">Trust signals →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.webp" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+      <p class="footer-cities">Consultant marketing &amp; growth à <a href="/consultant-marketing-digital-chambery">Chambéry</a>, <a href="/consultant-marketing-digital-aix-les-bains">Aix-les-Bains</a>, <a href="/consultant-marketing-digital-lyon">Lyon</a>, <a href="/consultant-marketing-digital-annecy">Annecy</a>, <a href="/consultant-marketing-digital-grenoble">Grenoble</a>, <a href="/consultant-marketing-digital-geneve">Genève</a> et <a href="/consultant-marketing-digital-paris">Paris</a>.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="utm-tracking.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
