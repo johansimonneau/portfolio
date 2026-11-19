@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UTM mal construits : la checklist pour ne plus polluer vos rapports GA4 | Blog — Johan Simonneau</title>
+<meta name="description" content="utm_source=google et utm_source=Google sont deux valeurs distinctes pour GA4, selon la documentation officielle de Google. La checklist pour construire des UTM qui ne cassent pas vos rapports d'acquisition.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/utm-parameters-checklist-ga4-rapports">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UTM mal construits : la checklist pour ne plus polluer vos rapports GA4">
+<meta property="og:description" content="utm_source=google et utm_source=Google sont deux valeurs distinctes pour GA4, selon la documentation officielle de Google. La checklist pour construire des UTM qui ne cassent pas vos rapports d'acquisition.">
+<meta property="og:url" content="https://www.johansimonneau.fr/utm-parameters-checklist-ga4-rapports">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-utm-parameters-checklist-ga4-rapports-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-utm-parameters-checklist-ga4-rapports-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "UTM mal construits : la checklist pour ne plus polluer vos rapports GA4", "item": "https://www.johansimonneau.fr/utm-parameters-checklist-ga4-rapports" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "UTM mal construits : la checklist pour ne plus polluer vos rapports GA4",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-utm-parameters-checklist-ga4-rapports-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2027-01-19",
+      "dateModified": "2027-01-19",
+      "description": "utm_source=google et utm_source=Google sont deux valeurs distinctes pour GA4, selon la documentation officielle de Google. La checklist pour construire des UTM qui ne cassent pas vos rapports d'acquisition.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/utm-parameters-checklist-ga4-rapports"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "utm_source=google et utm_source=Google donnent-ils vraiment deux lignes différentes dans GA4 ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. La documentation officielle de Google sur les URL builders précise explicitement que les valeurs des paramètres UTM sont sensibles à la casse (case sensitive), et donne cet exemple précis : utm_source=google est différent de utm_source=Google. Dans les rapports GA4, ces deux valeurs apparaissent comme deux sources distinctes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quels paramètres UTM Google recommande-t-il d'utiliser systématiquement ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La documentation Google indique que vous devriez toujours utiliser utm_source, utm_medium et utm_campaign quand vous ajoutez des paramètres à une URL. utm_term et utm_content restent optionnels, utiles pour distinguer des mots-clés ou des variantes créatives au sein d'une même campagne."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il construire ses UTM à la main ou utiliser un générateur ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un générateur ne protège pas automatiquement contre les incohérences de casse ou de nommage si plusieurs personnes ou outils construisent des liens indépendamment. La vraie protection est une convention de nommage documentée et partagée (toujours en minuscules, valeurs figées pour utm_medium) associée à un générateur ou un tableau partagé qui l'applique, pas l'outil seul."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">UTM et rapports GA4</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>UTM mal construits : la checklist pour ne plus polluer vos rapports GA4</h1>
+      <p class="sub-hook">La documentation officielle de Google le dit noir sur blanc : les valeurs des paramètres UTM sont sensibles à la casse. utm_source=google et utm_source=Google ne sont pas la même source pour GA4. Un problème de nommage, pas de tracking, mais qui fausse silencieusement vos rapports d'acquisition.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>19 janvier 2027</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-utm-parameters-checklist-ga4-rapports-hero.webp" alt="utm_source=google versus utm_source=Google : deux valeurs distinctes qui produisent deux lignes séparées dans les rapports d'acquisition GA4" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Un rapport d'acquisition GA4 qui affiche dix lignes différentes pour ce qui devrait être trois canaux ne révèle presque jamais un problème de tracking. Il révèle un problème de nommage des paramètres UTM, en amont, au moment où les liens ont été construits — par des personnes différentes, à des dates différentes, sans convention partagée. Le point de départ de cet article est une précision que la documentation officielle de Google formule sans ambiguïté&nbsp;: les valeurs des paramètres UTM sont <strong>sensibles à la casse</strong>. L'exemple donné directement par Google dans son article d'aide sur les générateurs d'URL est <code>utm_source=google</code> comparé à <code>utm_source=Google</code> — deux valeurs strictement différentes du point de vue du système, bien qu'identiques à l'œil humain.</p>
+
+<h2>Ce que dit précisément la documentation Google</h2>
+
+<p>L'article d'aide officiel («&nbsp;URL builders&nbsp;: Collect campaign data with custom URLs&nbsp;») pose trois règles simples, mais qui ne sont presque jamais appliquées de façon systématique sur la durée&nbsp;: toujours utiliser au minimum les trois paramètres <code>utm_source</code>, <code>utm_medium</code> et <code>utm_campaign</code> quand on ajoute des paramètres à une URL&nbsp;; les valeurs sont sensibles à la casse&nbsp;; et les données remontent dans le rapport d'acquisition sous l'onglet correspondant. Rien d'exotique dans ces règles — c'est leur application sur la durée, par plusieurs personnes et plusieurs outils (plateformes publicitaires, outils d'emailing, générateurs de liens tiers), qui échoue silencieusement.</p>
+
+<h2>Pourquoi ça casse silencieusement, et pas d'un coup</h2>
+
+<p>Le problème ne se manifeste jamais comme une erreur visible. GA4 n'affiche aucun avertissement quand il reçoit <code>utm_source=Google</code> au lieu de <code>utm_source=google</code>&nbsp;: il crée simplement une nouvelle ligne de source distincte, sans la fusionner avec l'existante. Sur un mois, l'effet est marginal. Sur un an, avec plusieurs campagnes, plusieurs intervenants (agence, interne, freelance) et plusieurs outils de création de liens, le rapport d'acquisition finit fragmenté en dizaines de variantes d'un même canal réel — faussant au passage tout calcul de performance par source qui ne regrouperait pas manuellement ces variantes a posteriori.</p>
+
+<h2>La checklist à appliquer avant de publier un lien</h2>
+
+<p>Quatre règles suffisent à éliminer la quasi-totalité des cas de fragmentation&nbsp;: toujours écrire les valeurs UTM en minuscules, sans exception, y compris si l'outil de création de campagne propose une valeur par défaut avec une majuscule&nbsp;; figer une liste fermée de valeurs autorisées pour <code>utm_medium</code> (par exemple <code>cpc</code>, <code>email</code>, <code>social</code>, <code>referral</code> — jamais de variante libre comme <code>Email</code> ou <code>mail</code>)&nbsp;; documenter la convention de nommage dans un fichier partagé accessible à toute personne qui crée des liens, agence comprise&nbsp;; et vérifier périodiquement le rapport d'acquisition pour repérer une variante naissante avant qu'elle ne s'accumule sur plusieurs mois.</p>
+
+<h2>Pourquoi un générateur d'UTM seul ne suffit pas</h2>
+
+<p>Un générateur d'UTM, qu'il s'agisse de celui de Google ou d'un outil tiers, construit une URL correctement formée, mais ne connaît pas la convention de nommage propre à une organisation&nbsp;: il acceptera aussi bien <code>Email</code> que <code>email</code> si on les lui soumet. La vraie protection n'est donc pas l'outil, mais la discipline en amont&nbsp;: une liste de valeurs autorisées, documentée et consultée par défaut avant toute création de lien, quel que soit l'outil utilisé pour le générer.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>utm_source=google et utm_source=Google donnent-ils vraiment deux lignes différentes dans GA4 ?</summary>
+    <p>Oui. La documentation officielle de Google sur les URL builders précise explicitement que les valeurs des paramètres UTM sont sensibles à la casse (case sensitive), et donne cet exemple précis : utm_source=google est différent de utm_source=Google. Dans les rapports GA4, ces deux valeurs apparaissent comme deux sources distinctes.</p>
+  </details>
+  <details>
+    <summary>Quels paramètres UTM Google recommande-t-il d'utiliser systématiquement ?</summary>
+    <p>La documentation Google indique que vous devriez toujours utiliser utm_source, utm_medium et utm_campaign quand vous ajoutez des paramètres à une URL. utm_term et utm_content restent optionnels, utiles pour distinguer des mots-clés ou des variantes créatives au sein d'une même campagne.</p>
+  </details>
+  <details>
+    <summary>Faut-il construire ses UTM à la main ou utiliser un générateur ?</summary>
+    <p>Un générateur ne protège pas automatiquement contre les incohérences de casse ou de nommage si plusieurs personnes ou outils construisent des liens indépendamment. La vraie protection est une convention de nommage documentée et partagée (toujours en minuscules, valeurs figées pour utm_medium) associée à un générateur ou un tableau partagé qui l'applique, pas l'outil seul.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Un rapport d'acquisition GA4 fragmenté en trop de variantes ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Nettoyer mon tracking GA4</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/analytics">Analytics</a>, et l'article <a href="/ga4-erreurs-configuration-courantes">5 erreurs de configuration GA4 qui faussent vos données</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/analytics">Analytics →</a>
+      <a href="/ga4-erreurs-configuration-courantes">Erreurs de config GA4 →</a>
+      <a href="/attribution-multi-touch-dernier-clic">Attribution multi-touch →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.webp" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+      <p class="footer-cities">Consultant marketing &amp; growth à <a href="/consultant-marketing-digital-chambery">Chambéry</a>, <a href="/consultant-marketing-digital-aix-les-bains">Aix-les-Bains</a>, <a href="/consultant-marketing-digital-lyon">Lyon</a>, <a href="/consultant-marketing-digital-annecy">Annecy</a>, <a href="/consultant-marketing-digital-grenoble">Grenoble</a>, <a href="/consultant-marketing-digital-geneve">Genève</a> et <a href="/consultant-marketing-digital-paris">Paris</a>.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="utm-tracking.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
