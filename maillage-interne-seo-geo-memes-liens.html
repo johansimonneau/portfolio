@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maillage interne : les mêmes liens servent-ils le SEO et le GEO ? | Blog — Johan Simonneau</title>
+<meta name="description" content="Le maillage interne distribue l'autorité pour Google et aide un LLM à cadrer un sujet pour les IA génératives — mais pas de la même façon. Ce qui change entre les deux logiques, et comment structurer un seul maillage qui serve les deux.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/maillage-interne-seo-geo-memes-liens">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maillage interne : les mêmes liens servent-ils le SEO et le GEO ?">
+<meta property="og:description" content="Le maillage interne distribue l'autorité pour Google et aide un LLM à cadrer un sujet pour les IA génératives — mais pas de la même façon. Ce qui change entre les deux logiques, et comment structurer un seul maillage qui serve les deux.">
+<meta property="og:url" content="https://www.johansimonneau.fr/maillage-interne-seo-geo-memes-liens">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-maillage-interne-seo-geo-memes-liens-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-maillage-interne-seo-geo-memes-liens-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Maillage interne : les mêmes liens servent-ils le SEO et le GEO ?", "item": "https://www.johansimonneau.fr/maillage-interne-seo-geo-memes-liens" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Maillage interne : les mêmes liens servent-ils le SEO et le GEO ?",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-maillage-interne-seo-geo-memes-liens-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2027-02-11",
+      "dateModified": "2027-02-11",
+      "description": "Le maillage interne distribue l'autorité pour Google et aide un LLM à cadrer un sujet pour les IA génératives — mais pas de la même façon. Ce qui change entre les deux logiques, et comment structurer un seul maillage qui serve les deux.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/maillage-interne-seo-geo-memes-liens"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Un bon maillage interne SEO est-il automatiquement bon pour le GEO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pas automatiquement. Un maillage SEO optimisé pour distribuer l'autorité (ancres variées, liens vers les pages à fort potentiel de classement) peut très bien ne pas aider un LLM à construire une compréhension cohérente du sujet, si les liens ne suivent pas une logique thématique claire et explicite dans le texte environnant."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qui change concrètement dans la rédaction des ancres pour le GEO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pour le SEO classique, la variation des ancres (éviter de répéter toujours le même texte de lien) protège contre les signaux de sur-optimisation. Pour le GEO, l'ancre et la phrase qui l'entoure doivent surtout expliciter clairement la relation entre les deux pages, parce que c'est ce contexte textuel, plus que la structure du lien en elle-même, qu'un LLM utilise pour cadrer le sujet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il construire deux maillages internes séparés, un pour le SEO et un pour le GEO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, un maillage unique bien pensé peut servir les deux logiques, à condition de respecter les deux contraintes en même temps : une architecture de liens cohérente et hiérarchisée pour l'autorité (SEO), et un contexte textuel explicite autour de chaque lien pour la clarté sémantique (GEO). Les deux exigences se recoupent largement plus qu'elles ne s'opposent."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Maillage interne SEO et GEO</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Maillage interne : les mêmes liens servent-ils le SEO et le GEO ?</h1>
+      <p class="sub-hook">Un lien interne distribue de l'autorité pour Google, et donne du contexte à un modèle de langage qui essaie de comprendre comment vos pages se rapportent entre elles. Ce sont deux fonctions réelles, mais elles ne se satisfont pas toujours des mêmes choix de structure et de rédaction.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>11 février 2027</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-maillage-interne-seo-geo-memes-liens-hero.webp" alt="Maillage interne : comparaison entre la logique SEO (distribution du PageRank interne) et la logique GEO (cadrage sémantique pour un LLM)" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Le maillage interne a longtemps eu une seule fonction à optimiser&nbsp;: distribuer l'autorité de classement d'une page vers une autre, selon une logique proche du PageRank historique de Google. Avec l'essor des IA génératives comme source de trafic, une deuxième fonction s'est ajoutée au même ensemble de liens&nbsp;: aider un LLM qui lit vos pages à comprendre comment elles se rattachent les unes aux autres sur un même sujet. La question qui se pose logiquement&nbsp;: un maillage pensé pour la première fonction sert-il automatiquement la seconde&nbsp;?</p>
+
+<h2>Ce que le maillage fait pour le SEO classique</h2>
+
+<p>Pour le SEO, un lien interne a deux rôles bien documentés&nbsp;: il signale à Google qu'une page existe et mérite d'être explorée (découverte et crawl), et il transmet une partie de l'autorité accumulée par la page source vers la page cible, pondérée notamment par le nombre total de liens sortants de la page source. La pratique courante consiste à varier le texte d'ancre pour éviter un signal de sur-optimisation, à prioriser les liens vers les pages à fort potentiel de classement depuis les pages qui ont elles-mêmes le plus d'autorité, et à structurer l'ensemble en cocons ou clusters thématiques pour renforcer l'autorité sur un sujet donné.</p>
+
+<h2>Ce que le même lien fait, ou ne fait pas, pour un LLM</h2>
+
+<p>Un modèle de langage qui traite une page pour construire sa compréhension d'un sujet ne calcule pas une distribution d'autorité comparable au PageRank&nbsp;: il lit le texte environnant le lien pour comprendre pourquoi cette page y renvoie une autre, et quelle relation sémantique existe entre les deux. Un lien techniquement bien placé dans l'architecture du site, mais noyé dans une ancre générique (« en savoir plus », « cliquez ici ») ou posé sans phrase explicative, apporte beaucoup à la distribution d'autorité SEO et presque rien à la compréhension contextuelle qu'un LLM peut en tirer. C'est l'inverse d'un lien dont l'ancre et la phrase qui l'entoure explicitent clairement le rapport entre les deux pages&nbsp;: celui-ci sert bien les deux logiques à la fois.</p>
+
+<h2>Là où les deux logiques divergent le plus</h2>
+
+<p>La divergence la plus nette porte sur la variation des ancres. En SEO classique, répéter systématiquement la même ancre exacte vers une page cible est un signal de sur-optimisation à éviter&nbsp;; la pratique recommandée est donc de varier les formulations. Pour la clarté sémantique qu'un LLM peut extraire, en revanche, la cohérence du vocabulaire utilisé pour désigner un même concept à travers les pages aide à construire une association stable plutôt qu'à la diluer dans des synonymes. Il n'y a pas de contradiction insurmontable&nbsp;: la solution consiste à varier la formulation de la phrase autour du lien tout en gardant un vocabulaire cohérent sur le concept central lui-même, plutôt que de multiplier des synonymes qui affaiblissent la clarté du sujet traité.</p>
+
+<h2>Comment structurer un maillage qui serve les deux objectifs</h2>
+
+<p>Trois principes permettent de faire converger les deux logiques plutôt que de les opposer&nbsp;: d'abord, garder une architecture hiérarchisée et thématique (cocons sémantiques) qui sert déjà la distribution d'autorité SEO et donne, par construction, un regroupement cohérent de pages liées pour un LLM&nbsp;; ensuite, écrire systématiquement une phrase de contexte autour de chaque lien important plutôt qu'une ancre isolée, ce qui sert la compréhension du LLM sans nuire au signal SEO (une ancre descriptive reste une bonne pratique SEO aussi)&nbsp;; enfin, éviter de considérer le maillage comme terminé une fois l'architecture posée — un lien ajouté sans explication contextuelle reste une occasion manquée pour le GEO, même s'il coche la case SEO.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Un bon maillage interne SEO est-il automatiquement bon pour le GEO ?</summary>
+    <p>Pas automatiquement. Un maillage SEO optimisé pour distribuer l'autorité (ancres variées, liens vers les pages à fort potentiel de classement) peut très bien ne pas aider un LLM à construire une compréhension cohérente du sujet, si les liens ne suivent pas une logique thématique claire et explicite dans le texte environnant.</p>
+  </details>
+  <details>
+    <summary>Qu'est-ce qui change concrètement dans la rédaction des ancres pour le GEO ?</summary>
+    <p>Pour le SEO classique, la variation des ancres (éviter de répéter toujours le même texte de lien) protège contre les signaux de sur-optimisation. Pour le GEO, l'ancre et la phrase qui l'entoure doivent surtout expliciter clairement la relation entre les deux pages, parce que c'est ce contexte textuel, plus que la structure du lien en elle-même, qu'un LLM utilise pour cadrer le sujet.</p>
+  </details>
+  <details>
+    <summary>Faut-il construire deux maillages internes séparés, un pour le SEO et un pour le GEO ?</summary>
+    <p>Non, un maillage unique bien pensé peut servir les deux logiques, à condition de respecter les deux contraintes en même temps : une architecture de liens cohérente et hiérarchisée pour l'autorité (SEO), et un contexte textuel explicite autour de chaque lien pour la clarté sémantique (GEO). Les deux exigences se recoupent largement plus qu'elles ne s'opposent.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Un maillage interne à repenser pour servir SEO et GEO à la fois ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer mon maillage interne</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, et l'article <a href="/maillage-interne-methode-structurer-liens">maillage interne : la méthode pour structurer les liens internes d'un site qui grossit</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/maillage-interne-methode-structurer-liens">Maillage interne SEO →</a>
+      <a href="/cocons-semantiques-methode-seo">Cocons sémantiques →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.webp" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+      <p class="footer-cities">Consultant marketing &amp; growth à <a href="/consultant-marketing-digital-chambery">Chambéry</a>, <a href="/consultant-marketing-digital-aix-les-bains">Aix-les-Bains</a>, <a href="/consultant-marketing-digital-lyon">Lyon</a>, <a href="/consultant-marketing-digital-annecy">Annecy</a>, <a href="/consultant-marketing-digital-grenoble">Grenoble</a>, <a href="/consultant-marketing-digital-geneve">Genève</a> et <a href="/consultant-marketing-digital-paris">Paris</a>.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="utm-tracking.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
