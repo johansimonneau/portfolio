@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cohort analysis : la méthode pour savoir si votre croissance est saine | Blog — Johan Simonneau</title>
+<meta name="description" content="Des utilisateurs actifs en hausse constante peuvent masquer une rétention par cohorte qui se dégrade mois après mois. La méthode de la cohort analysis pour distinguer une vraie croissance d'une croissance gonflée par l'acquisition.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/cohort-analysis-croissance-saine-methode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cohort analysis : la méthode pour savoir si votre croissance est saine">
+<meta property="og:description" content="Des utilisateurs actifs en hausse constante peuvent masquer une rétention par cohorte qui se dégrade mois après mois. La méthode de la cohort analysis pour distinguer une vraie croissance d'une croissance gonflée par l'acquisition.">
+<meta property="og:url" content="https://www.johansimonneau.fr/cohort-analysis-croissance-saine-methode">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-cohort-analysis-croissance-saine-methode-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-cohort-analysis-croissance-saine-methode-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Cohort analysis : la méthode pour savoir si votre croissance est saine", "item": "https://www.johansimonneau.fr/cohort-analysis-croissance-saine-methode" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Cohort analysis : la méthode pour savoir si votre croissance est saine",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-cohort-analysis-croissance-saine-methode-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-11-21",
+      "dateModified": "2026-11-21",
+      "description": "Des utilisateurs actifs en hausse constante peuvent masquer une rétention par cohorte qui se dégrade mois après mois. La méthode de la cohort analysis pour distinguer une vraie croissance d'une croissance gonflée par l'acquisition.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/cohort-analysis-croissance-saine-methode"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'une cohorte, exactement ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une cohorte regroupe les utilisateurs qui partagent un même événement de départ, le plus souvent la semaine ou le mois de leur première inscription ou premier achat. On suit ensuite ce groupe dans le temps, indépendamment des utilisateurs arrivés avant ou après, pour isoler son comportement propre de celui de l'ensemble des utilisateurs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi un nombre d'utilisateurs actifs en hausse peut-il cacher un problème ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Parce que le nombre total d'utilisateurs actifs est une somme qui mélange plusieurs cohortes d'âges différents. Une acquisition suffisamment forte peut faire grossir ce total chaque mois même si chaque cohorte individuelle retient de moins en moins bien ses utilisateurs au fil du temps. Le total masque la tendance ; la cohort analysis la révèle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre rétention et rétention nette (NRR) ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La rétention classique (ou logo retention) compte si un utilisateur ou un compte est toujours actif, peu importe le montant dépensé. La rétention nette de revenu (Net Revenue Retention) pondère cette mesure par le revenu : elle peut dépasser 100 % si les comptes existants dépensent plus avec le temps (upsell), même si certains comptes sont partis entre-temps. Les deux définitions ne sont pas comparables entre elles sans préciser laquelle est utilisée."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Cohort analysis</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Cohort analysis : la méthode pour savoir si votre croissance est saine</h1>
+      <p class="sub-hook">Un nombre d'utilisateurs actifs qui monte chaque mois peut cacher un problème de fond : une rétention qui se dégrade cohorte après cohorte, compensée par une acquisition qui tourne de plus en plus vite. La cohort analysis est la méthode qui permet de voir cette différence, que les métriques globales ne montrent jamais.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>21 novembre 2026</span>
+        <span>·</span>
+        <span>7 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-cohort-analysis-croissance-saine-methode-hero.webp" alt="Des utilisateurs actifs en hausse qui peuvent masquer une rétention par cohorte en dégradation, révélée uniquement par la cohort analysis" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Un tableau de bord qui affiche un nombre d'utilisateurs actifs mensuels en hausse constante donne une impression de croissance saine. Cette impression peut être fausse, et c'est précisément le piège que la <strong>cohort analysis</strong> est conçue pour détecter. Une cohorte regroupe les utilisateurs qui partagent un même événement de départ — typiquement la semaine ou le mois de leur première inscription — et les suit dans le temps en tant que groupe, séparément des cohortes arrivées avant ou après. Ce découpage change ce qu'on peut voir&nbsp;: un chiffre agrégé additionne des utilisateurs d'âges différents dans le produit, et masque mécaniquement toute dégradation qui se compenserait par un volume d'acquisition croissant.</p>
+
+<h2>Pourquoi le chiffre global peut mentir sans qu'aucune donnée ne soit fausse</h2>
+
+<p>Prenons un exemple illustratif, volontairement simplifié, pour rendre le mécanisme concret — ce ne sont pas des chiffres réels, mais une démonstration du principe. Une entreprise acquiert 1000 nouveaux utilisateurs par mois. En janvier, la cohorte de janvier retient 40&nbsp;% de ses utilisateurs à 3&nbsp;mois. En avril, la cohorte d'avril — plus nombreuse parce que l'acquisition a été renforcée entre-temps — ne retient plus que 25&nbsp;% à 3&nbsp;mois. Le nombre total d'utilisateurs actifs peut malgré tout continuer de monter d'un mois sur l'autre, simplement parce que le volume de nouveaux arrivants compense la moins bonne rétention de chaque cohorte individuelle. Du point de vue du tableau de bord global, tout va bien. Du point de vue de chaque cohorte, le produit retient de moins en moins bien ses utilisateurs — un signal d'alerte sur la valeur réelle livrée, que l'acquisition est en train de maquiller.</p>
+
+<h2>La courbe de rétention, et pourquoi sa forme compte plus que son point de départ</h2>
+
+<p>Visualisée par cohorte, la rétention se représente comme une courbe qui part toujours de 100&nbsp;% au jour ou au mois de départ, et qui décroît ensuite. Ce qui distingue un produit sain d'un produit qui fuit n'est pas la vitesse de la chute initiale — presque tous les produits perdent une partie significative de leurs nouveaux utilisateurs dans les premières semaines — mais la forme de la queue de la courbe&nbsp;: une courbe qui finit par s'aplatir (le « plateau de rétention ») signale un noyau d'utilisateurs qui a trouvé une valeur durable dans le produit. Une courbe qui continue de décliner sans jamais se stabiliser signale l'absence de ce noyau, quel que soit le volume d'acquisition par ailleurs.</p>
+
+<h2>Les définitions à fixer avant de comparer deux courbes entre elles</h2>
+
+<p>Une courbe de rétention dépend entièrement de trois choix de définition qui doivent être explicites et constants pour que deux courbes soient comparables&nbsp;: la façon dont la cohorte est constituée (date d'inscription, premier achat, autre événement), ce qui compte comme « retenu » (une connexion, une action spécifique, un paiement), et l'intervalle de temps retenu (rétention à J+1, à 7&nbsp;jours, à 30&nbsp;jours). Deux équipes qui annoncent chacune « 60&nbsp;% de rétention » sans préciser ces trois paramètres peuvent parler de deux réalités complètement différentes. La variante utilisée en SaaS B2B, la rétention nette de revenu (Net Revenue Retention), ajoute une nuance supplémentaire&nbsp;: elle pondère par le revenu plutôt que par le nombre de comptes, ce qui lui permet de dépasser 100&nbsp;% si l'upsell sur les comptes existants compense le churn — une lecture très différente d'une rétention logo classique, et qu'il ne faut jamais comparer directement à elle sans le préciser.</p>
+
+<h2>Comment l'utiliser concrètement pour arbitrer entre acquisition et rétention</h2>
+
+<p>En pratique, la cohort analysis sert surtout à répondre à une question d'arbitrage budgétaire&nbsp;: faut-il investir le prochain euro en acquisition, ou en rétention&nbsp;? Si les courbes de rétention des cohortes récentes se dégradent par rapport aux cohortes plus anciennes, continuer à pousser l'acquisition revient à remplir un seau de plus en plus percé — la priorité devrait aller à comprendre pourquoi les nouvelles cohortes décrochent (onboarding, adéquation produit-marché, qualité du trafic acquis) avant d'augmenter davantage le volume. Si au contraire les courbes récentes s'améliorent ou se maintiennent, l'acquisition peut être poussée avec une base de rétention qui justifie l'investissement supplémentaire.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Qu'est-ce qu'une cohorte, exactement ?</summary>
+    <p>Une cohorte regroupe les utilisateurs qui partagent un même événement de départ, le plus souvent la semaine ou le mois de leur première inscription ou premier achat. On suit ensuite ce groupe dans le temps, indépendamment des utilisateurs arrivés avant ou après, pour isoler son comportement propre de celui de l'ensemble des utilisateurs.</p>
+  </details>
+  <details>
+    <summary>Pourquoi un nombre d'utilisateurs actifs en hausse peut-il cacher un problème ?</summary>
+    <p>Parce que le nombre total d'utilisateurs actifs est une somme qui mélange plusieurs cohortes d'âges différents. Une acquisition suffisamment forte peut faire grossir ce total chaque mois même si chaque cohorte individuelle retient de moins en moins bien ses utilisateurs au fil du temps. Le total masque la tendance ; la cohort analysis la révèle.</p>
+  </details>
+  <details>
+    <summary>Quelle différence entre rétention et rétention nette (NRR) ?</summary>
+    <p>La rétention classique (ou logo retention) compte si un utilisateur ou un compte est toujours actif, peu importe le montant dépensé. La rétention nette de revenu (Net Revenue Retention) pondère cette mesure par le revenu : elle peut dépasser 100 % si les comptes existants dépensent plus avec le temps (upsell), même si certains comptes sont partis entre-temps. Les deux définitions ne sont pas comparables entre elles sans préciser laquelle est utilisée.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Une croissance qui mérite d'être vérifiée cohorte par cohorte ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Analyser mes cohortes</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/analytics">Analytics</a>, et l'article <a href="/cac-ltv-piloter-rentabilite-acquisition">CAC et LTV : la méthode pour savoir si votre acquisition est vraiment rentable</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/analytics">Analytics →</a>
+      <a href="/cac-ltv-piloter-rentabilite-acquisition">CAC et LTV →</a>
+      <a href="/growth-loops-vs-funnel-marketing">Growth loops vs funnel →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.webp" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+      <p class="footer-cities">Consultant marketing &amp; growth à <a href="/consultant-marketing-digital-chambery">Chambéry</a>, <a href="/consultant-marketing-digital-aix-les-bains">Aix-les-Bains</a>, <a href="/consultant-marketing-digital-lyon">Lyon</a>, <a href="/consultant-marketing-digital-annecy">Annecy</a>, <a href="/consultant-marketing-digital-grenoble">Grenoble</a>, <a href="/consultant-marketing-digital-geneve">Genève</a> et <a href="/consultant-marketing-digital-paris">Paris</a>.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="utm-tracking.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
