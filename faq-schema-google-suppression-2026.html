@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ rich results : Google a supprimé la fonctionnalité, le balisage FAQPage sert-il encore ? | Blog — Johan Simonneau</title>
+<meta name="description" content="Google a retiré le rich result FAQ de ses résultats de recherche le 7 mai 2026, puis supprimé sa documentation le 15 juin 2026. Ce que ça change concrètement pour le balisage FAQPage, et ce qui reste incertain sur son effet pour les IA génératives.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/faq-schema-google-suppression-2026">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FAQ rich results : Google a supprimé la fonctionnalité, le balisage FAQPage sert-il encore ?">
+<meta property="og:description" content="Google a retiré le rich result FAQ de ses résultats de recherche le 7 mai 2026, puis supprimé sa documentation le 15 juin 2026. Ce que ça change concrètement pour le balisage FAQPage, et ce qui reste incertain sur son effet pour les IA génératives.">
+<meta property="og:url" content="https://www.johansimonneau.fr/faq-schema-google-suppression-2026">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-faq-schema-google-suppression-2026-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-faq-schema-google-suppression-2026-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "FAQ rich results : Google a supprimé la fonctionnalité, le balisage FAQPage sert-il encore ?", "item": "https://www.johansimonneau.fr/faq-schema-google-suppression-2026" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "FAQ rich results : Google a supprimé la fonctionnalité, le balisage FAQPage sert-il encore ?",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-faq-schema-google-suppression-2026-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "description": "Google a retiré le rich result FAQ de ses résultats de recherche le 7 mai 2026, puis supprimé sa documentation le 15 juin 2026. Ce que ça change concrètement pour le balisage FAQPage, et ce qui reste incertain sur son effet pour les IA génératives.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/faq-schema-google-suppression-2026"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quand Google a-t-il supprimé le rich result FAQ ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Selon le changelog officiel de Google Search Central, une entrée publiée le 8 mai 2026 annonce la dépréciation de la fonctionnalité, avec effet au 7 mai 2026 : le rich result FAQ n'apparaît plus dans les résultats de recherche Google depuis cette date. Google a ensuite retiré la documentation correspondante le 15 juin 2026."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il retirer le balisage FAQPage de ses pages ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Google n'a publié aucune instruction demandant de retirer ce balisage : la documentation a été supprimée, pas remplacée par une consigne de nettoyage. FAQPage reste un type Schema.org valide. La question n'est donc pas de savoir s'il faut le retirer, mais s'il sert encore un objectif précis une fois l'effet sur les résultats Google disparu."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Le balisage FAQPage aide-t-il à être cité par ChatGPT, Claude ou Perplexity ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est contesté et non vérifiable à ce stade avec une source primaire : certains éditeurs d'outils SEO affirment que les moteurs conversationnels exploitent ce balisage comme bloc de réponse prêt à citer, tandis qu'une étude indépendante n'a mesuré aucune amélioration constatée des citations IA liée spécifiquement à ce balisage. Aucun éditeur d'IA (OpenAI, Anthropic, Perplexity) n'a confirmé publiquement l'un ou l'autre."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">FAQ rich results : la suppression Google</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>FAQ rich results : Google a supprimé la fonctionnalité, le balisage FAQPage sert-il encore ?</h1>
+      <p class="sub-hook">Google a retiré l'affichage enrichi FAQ de ses résultats de recherche au printemps 2026, puis effacé la documentation qui l'accompagnait. Le balisage Schema.org, lui, n'a pas disparu. Ce qui reste à savoir, c'est s'il sert encore un objectif concret.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>23 novembre 2026</span>
+        <span>·</span>
+        <span>5 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-faq-schema-google-suppression-2026-hero.webp" alt="FAQ rich results : chronologie de la suppression par Google en 2026, du retrait des résultats de recherche à la suppression de la documentation" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Pendant des années, le balisage structuré <code>FAQPage</code> a eu un effet visible et mesurable&nbsp;: les questions-réponses qu'il décrivait pouvaient s'afficher directement sous un résultat Google, sous forme de liste dépliable, gagnant un espace disproportionné sur la page de résultats sans avoir besoin de la première position. Cet effet a disparu en 2026, de façon officielle et documentée par Google lui-même. Ce qui n'a pas disparu, en revanche, c'est le balisage — ni, surtout, la question de savoir à quoi il sert désormais.</p>
+
+<h2>Ce que le changelog de Google dit exactement</h2>
+
+<p>Le changelog officiel de Google Search Central (<a href="https://developers.google.com/search/updates" target="_blank" rel="noopener">developers.google.com/search/updates</a>) contient une entrée publiée le 8 mai 2026, classée sous la section « May 2026 », intitulée « Deprecating the FAQ rich result feature ». Le texte explicatif de Google y est direct&nbsp;: « This feature will no longer appear in Google Search starting May 7, 2026 » — la fonctionnalité n'apparaîtra plus dans Google Search à partir du 7 mai 2026, soit la veille de la publication de l'annonce elle-même.</p>
+
+<p>Un deuxième jalon suit un mois plus tard&nbsp;: une entrée du 15 juin 2026, « Removing documentation for the FAQ rich result feature », retire la page de documentation dédiée. Le texte explicatif associé renvoie explicitement à l'annonce de mai&nbsp;: « The FAQ rich result feature is no longer shown in Google Search results, as announced in the changelog entry in May 2026. » Autrement dit, Google a d'abord coupé l'affichage, puis — un mois et demi plus tard — supprimé la documentation qui expliquait comment l'obtenir.</p>
+
+<h2>Ce que Google n'a pas dit</h2>
+
+<p>Nulle part dans ces deux entrées Google ne demande de retirer le balisage <code>FAQPage</code> existant des pages qui le portent. La suppression porte sur la fonctionnalité d'affichage et sur sa documentation, pas sur une consigne de nettoyage du marquage structuré lui-même. <code>FAQPage</code> reste, à ce jour, un type valide du vocabulaire Schema.org, indépendant de ce que Google choisit ou non d'en faire dans ses résultats.</p>
+
+<p>Cette nuance change la question à se poser. Ce n'est plus « dois-je retirer ce balisage ? » — rien n'y oblige techniquement — mais « sert-il encore un objectif qui justifie de continuer à le maintenir et à le tenir à jour sur chaque nouvelle page » ?</p>
+
+<h2>L'argument des citations IA, et pourquoi il reste à prouver</h2>
+
+<p>Face à la disparition de l'effet Google, plusieurs éditeurs d'outils SEO ont avancé un nouvel argument&nbsp;: les moteurs conversationnels (ChatGPT, Claude, Perplexity) exploiteraient le balisage <code>FAQPage</code> comme un bloc de réponse prêt à citer, rendant le marquage toujours utile, mais pour un canal différent. Cet argument circule largement dans la littérature SEO/GEO, mais il repose presque exclusivement sur des affirmations d'éditeurs d'outils, pas sur une confirmation publique d'OpenAI, Anthropic ou Perplexity sur leur méthode d'extraction de citations.</p>
+
+<p>À l'inverse, au moins une étude indépendante portant sur un échantillon de pages n'a mesuré aucune amélioration constatée des citations IA attribuable spécifiquement à la présence de ce balisage. Les deux positions existent dans la littérature disponible, sans qu'aucune des deux ne soit confirmée par une source primaire côté éditeurs d'IA. Il serait donc trompeur de présenter l'un ou l'autre camp comme un fait établi&nbsp;: à ce stade, c'est une question ouverte, pas une réponse qu'on peut sourcer avec certitude.</p>
+
+<h2>Ce qu'il reste raisonnable de faire</h2>
+
+<p>Trois décisions pratiques découlent de ces seuls faits vérifiés. D'abord, ne pas retirer en urgence un balisage <code>FAQPage</code> déjà en place&nbsp;: rien n'indique qu'il nuit, et le retirer ferait perdre un marquage structuré propre sans bénéfice démontré. Ensuite, ne plus investir de temps de rédaction supplémentaire dans la seule perspective de décrocher un rich result Google qui n'existe plus&nbsp;: cet objectif-là est caduc, point final. Enfin, traiter la question « est-ce que ça aide les citations IA » comme non tranchée plutôt que comme acquise dans un sens ou dans l'autre, et ne pas fonder une stratégie de contenu entière sur une affirmation qu'aucune source primaire ne confirme encore.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Quand Google a-t-il supprimé le rich result FAQ ?</summary>
+    <p>Selon le changelog officiel de Google Search Central, une entrée publiée le 8 mai 2026 annonce la dépréciation de la fonctionnalité, avec effet au 7 mai 2026 : le rich result FAQ n'apparaît plus dans les résultats de recherche Google depuis cette date. Google a ensuite retiré la documentation correspondante le 15 juin 2026.</p>
+  </details>
+  <details>
+    <summary>Faut-il retirer le balisage FAQPage de ses pages ?</summary>
+    <p>Google n'a publié aucune instruction demandant de retirer ce balisage : la documentation a été supprimée, pas remplacée par une consigne de nettoyage. FAQPage reste un type Schema.org valide. La question n'est donc pas de savoir s'il faut le retirer, mais s'il sert encore un objectif précis une fois l'effet sur les résultats Google disparu.</p>
+  </details>
+  <details>
+    <summary>Le balisage FAQPage aide-t-il à être cité par ChatGPT, Claude ou Perplexity ?</summary>
+    <p>C'est contesté et non vérifiable à ce stade avec une source primaire : certains éditeurs d'outils SEO affirment que les moteurs conversationnels exploitent ce balisage comme bloc de réponse prêt à citer, tandis qu'une étude indépendante n'a mesuré aucune amélioration constatée des citations IA liée spécifiquement à ce balisage. Aucun éditeur d'IA (OpenAI, Anthropic, Perplexity) n'a confirmé publiquement l'un ou l'autre.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Une stratégie de contenu à ajuster après la suppression des rich results FAQ ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Faire le point sur mon SEO/GEO</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, et l'article <a href="/maillage-interne-seo-geo-memes-liens">maillage interne : les mêmes liens servent-ils le SEO et le GEO ?</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/seo-geo-ce-qui-change-vraiment">SEO/GEO : ce qui change vraiment →</a>
+      <a href="/guide-complet-geo-ranker-llm">Guide GEO : ranker dans les LLM →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.webp" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+      <p class="footer-cities">Consultant marketing &amp; growth à <a href="/consultant-marketing-digital-chambery">Chambéry</a>, <a href="/consultant-marketing-digital-aix-les-bains">Aix-les-Bains</a>, <a href="/consultant-marketing-digital-lyon">Lyon</a>, <a href="/consultant-marketing-digital-annecy">Annecy</a>, <a href="/consultant-marketing-digital-grenoble">Grenoble</a>, <a href="/consultant-marketing-digital-geneve">Genève</a> et <a href="/consultant-marketing-digital-paris">Paris</a>.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="utm-tracking.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
