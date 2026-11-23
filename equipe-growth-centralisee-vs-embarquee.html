@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Équipe growth centralisée ou embarquée : ce que la structure change vraiment | Blog — Johan Simonneau</title>
+<meta name="description" content="Centraliser l'équipe growth ou la répartir dans chaque équipe produit : ce choix structurel pèse plus sur les résultats que la plupart des process ou outils qu'on ajoute par-dessus. Ce qui change selon le modèle choisi, et comment trancher.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/equipe-growth-centralisee-vs-embarquee">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Équipe growth centralisée ou embarquée : ce que la structure change vraiment">
+<meta property="og:description" content="Centraliser l'équipe growth ou la répartir dans chaque équipe produit : ce choix structurel pèse plus sur les résultats que la plupart des process ou outils qu'on ajoute par-dessus. Ce qui change selon le modèle choisi, et comment trancher.">
+<meta property="og:url" content="https://www.johansimonneau.fr/equipe-growth-centralisee-vs-embarquee">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-equipe-growth-centralisee-vs-embarquee-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-equipe-growth-centralisee-vs-embarquee-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Équipe growth centralisée ou embarquée : ce que la structure change vraiment", "item": "https://www.johansimonneau.fr/equipe-growth-centralisee-vs-embarquee" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Équipe growth centralisée ou embarquée : ce que la structure change vraiment",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-equipe-growth-centralisee-vs-embarquee-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "description": "Centraliser l'équipe growth ou la répartir dans chaque équipe produit : ce choix structurel pèse plus sur les résultats que la plupart des process ou outils qu'on ajoute par-dessus. Ce qui change selon le modèle choisi, et comment trancher.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/equipe-growth-centralisee-vs-embarquee"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'une équipe growth centralisée ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une équipe growth centralisée regroupe les compétences d'acquisition, d'activation et de rétention dans une seule équipe transverse, qui intervient sur l'ensemble des produits ou segments de l'entreprise plutôt que d'être rattachée à un seul d'entre eux. Elle priorise ses projets selon un calcul d'impact global, pas selon la roadmap d'une seule équipe produit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'une équipe growth embarquée (embedded) ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dans le modèle embarqué, chaque équipe produit intègre directement ses propres profils growth (souvent un PM growth, un data analyst et un ou deux développeurs), qui travaillent exclusivement sur le périmètre de ce produit, avec le même rythme de sprint que le reste de l'équipe."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel modèle choisir quand l'entreprise est encore petite ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En dessous d'une poignée de produits ou de segments distincts, le modèle embarqué n'a généralement pas assez de volume pour justifier des rôles dédiés dans chaque équipe : une petite équipe centralisée, qui intervient partout, reste la structure la plus réaliste jusqu'à ce que la taille et le nombre de produits imposent une répartition."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Équipe growth : centralisée ou embarquée</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Équipe growth centralisée ou embarquée : ce que la structure change vraiment</h1>
+      <p class="sub-hook">Avant de choisir un framework d'expérimentation ou un outil d'analytics, il y a une décision plus structurante qui conditionne tout le reste : où se trouve l'équipe growth dans l'organigramme, et avec qui elle partage ses priorités au quotidien.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>23 novembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-equipe-growth-centralisee-vs-embarquee-hero.webp" alt="Équipe growth centralisée face à une équipe growth embarquée dans chaque produit : comparaison des deux modèles d'organisation" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>La plupart des articles sur le growth parlent de méthode&nbsp;: quelle métrique suivre, quel framework d'expérimentation adopter, comment prioriser un backlog de tests. Ils passent souvent sous silence une question plus en amont, et plus difficile à changer une fois tranchée&nbsp;: où se trouve l'équipe growth dans l'organisation, et de qui dépendent ses priorités. Ce choix structurel conditionne directement ce que l'équipe growth peut réellement faire, bien plus que n'importe quel outil ou process ajouté par-dessus.</p>
+
+<h2>Le modèle centralisé</h2>
+
+<p>Dans une structure centralisée, l'équipe growth est une entité transverse unique, qui intervient sur l'ensemble des produits ou segments de l'entreprise. Elle priorise ses projets selon un calcul d'impact global — quel test, sur quel produit, a le potentiel de revenu ou de rétention le plus élevé cette semaine — plutôt que selon la roadmap d'une seule équipe. L'avantage principal est la mutualisation&nbsp;: une seule équipe développe une expertise profonde en expérimentation, en tracking et en analyse statistique, qu'elle applique ensuite partout où l'impact est le plus fort. L'inconvénient qui revient le plus souvent dans les retours d'expérience de praticiens est la dépendance&nbsp;: chaque équipe produit qui veut tester quelque chose doit passer par l'équipe growth, ce qui crée une file d'attente et un goulot d'étranglement dès que plusieurs produits réclament son attention en même temps.</p>
+
+<h2>Le modèle embarqué (embedded)</h2>
+
+<p>Dans le modèle embarqué, chaque équipe produit intègre directement ses propres profils growth — souvent un product manager growth, un data analyst et un ou deux développeurs — qui travaillent exclusivement sur le périmètre de ce produit, au même rythme de sprint que le reste de l'équipe. L'avantage principal est la vitesse d'exécution&nbsp;: aucune file d'attente à gérer, l'équipe growth connaît le produit en profondeur et peut tester en continu sans dépendre d'une priorisation externe. L'inconvénient principal est la duplication et la fragmentation&nbsp;: chaque équipe réinvente ses propres méthodes de tracking et d'analyse, ce qui complique la comparaison d'impact entre produits et peut faire perdre des apprentissages qui auraient été utiles ailleurs dans l'entreprise.</p>
+
+<h2>Le modèle hybride, le plus fréquent en pratique</h2>
+
+<p>Dans les retours d'expérience de praticiens growth, le modèle qui revient le plus souvent une fois l'entreprise suffisamment grande n'est ni purement centralisé ni purement embarqué, mais un hybride&nbsp;: une petite équipe centrale définit les standards de mesure, maintient l'infrastructure de tracking commune et porte les projets transverses (ceux qui touchent plusieurs produits à la fois), tandis que des profils growth embarqués dans chaque équipe produit exécutent les tests spécifiques à leur périmètre en s'appuyant sur cette infrastructure partagée. Ce modèle demande davantage de coordination au démarrage, mais évite le goulot d'étranglement du modèle purement centralisé sans tomber dans la fragmentation totale du modèle purement embarqué.</p>
+
+<h2>Comment trancher selon la taille de l'organisation</h2>
+
+<p>En dessous d'une poignée de produits ou de segments distincts, le modèle embarqué n'a généralement pas assez de volume de travail pour justifier des rôles growth dédiés dans chaque équipe&nbsp;: une petite équipe centralisée, qui intervient partout selon l'impact, reste la structure la plus réaliste. Le basculement vers un modèle hybride ou embarqué se justifie quand le nombre de produits ou de segments devient suffisant pour que la file d'attente d'une équipe centrale unique commence à freiner concrètement la cadence de test de chaque produit — un signal plus fiable pour trancher que n'importe quel seuil arbitraire d'effectif.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>Qu'est-ce qu'une équipe growth centralisée ?</summary>
+    <p>Une équipe growth centralisée regroupe les compétences d'acquisition, d'activation et de rétention dans une seule équipe transverse, qui intervient sur l'ensemble des produits ou segments de l'entreprise plutôt que d'être rattachée à un seul d'entre eux. Elle priorise ses projets selon un calcul d'impact global, pas selon la roadmap d'une seule équipe produit.</p>
+  </details>
+  <details>
+    <summary>Qu'est-ce qu'une équipe growth embarquée (embedded) ?</summary>
+    <p>Dans le modèle embarqué, chaque équipe produit intègre directement ses propres profils growth (souvent un PM growth, un data analyst et un ou deux développeurs), qui travaillent exclusivement sur le périmètre de ce produit, avec le même rythme de sprint que le reste de l'équipe.</p>
+  </details>
+  <details>
+    <summary>Quel modèle choisir quand l'entreprise est encore petite ?</summary>
+    <p>En dessous d'une poignée de produits ou de segments distincts, le modèle embarqué n'a généralement pas assez de volume pour justifier des rôles dédiés dans chaque équipe : une petite équipe centralisée, qui intervient partout, reste la structure la plus réaliste jusqu'à ce que la taille et le nombre de produits imposent une répartition.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Une structure growth à repenser pour débloquer la cadence de test ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">En discuter</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir l'article <a href="/north-star-metric-piege-vanite">North Star Metric : la métrique unique qui peut aussi vous égarer</a>, et <a href="/growth-loops-vs-funnel-marketing">growth loops vs funnel marketing</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/north-star-metric-piege-vanite">North Star Metric →</a>
+      <a href="/growth-loops-vs-funnel-marketing">Growth loops vs funnel →</a>
+      <a href="/cohort-analysis-croissance-saine-methode">Cohort analysis →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.webp" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+      <p class="footer-cities">Consultant marketing &amp; growth à <a href="/consultant-marketing-digital-chambery">Chambéry</a>, <a href="/consultant-marketing-digital-aix-les-bains">Aix-les-Bains</a>, <a href="/consultant-marketing-digital-lyon">Lyon</a>, <a href="/consultant-marketing-digital-annecy">Annecy</a>, <a href="/consultant-marketing-digital-grenoble">Grenoble</a>, <a href="/consultant-marketing-digital-geneve">Genève</a> et <a href="/consultant-marketing-digital-paris">Paris</a>.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="utm-tracking.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
