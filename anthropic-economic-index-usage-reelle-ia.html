@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthropic Economic Index : ce que l'usage réel de Claude dit sur l'IA au travail | Blog — Johan Simonneau</title>
+<meta name="description" content="Plutôt que des sondages sur l'adoption de l'IA, Anthropic publie depuis 2025 un index basé sur des données d'usage réelles et anonymisées de Claude. Ce que ses trois éditions successives montrent, et surtout ce qu'elles ne permettent pas de conclure.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/anthropic-economic-index-usage-reelle-ia">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Anthropic Economic Index : ce que l'usage réel de Claude dit sur l'IA au travail">
+<meta property="og:description" content="Plutôt que des sondages sur l'adoption de l'IA, Anthropic publie depuis 2025 un index basé sur des données d'usage réelles et anonymisées de Claude. Ce que ses trois éditions successives montrent, et surtout ce qu'elles ne permettent pas de conclure.">
+<meta property="og:url" content="https://www.johansimonneau.fr/anthropic-economic-index-usage-reelle-ia">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-anthropic-economic-index-usage-reelle-ia-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-anthropic-economic-index-usage-reelle-ia-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Anthropic Economic Index : ce que l'usage réel de Claude dit sur l'IA au travail", "item": "https://www.johansimonneau.fr/anthropic-economic-index-usage-reelle-ia" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Anthropic Economic Index : ce que l'usage réel de Claude dit sur l'IA au travail",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-anthropic-economic-index-usage-reelle-ia-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-11-26",
+      "dateModified": "2026-11-26",
+      "description": "Plutôt que des sondages sur l'adoption de l'IA, Anthropic publie depuis 2025 un index basé sur des données d'usage réelles et anonymisées de Claude. Ce que ses trois éditions successives montrent, et surtout ce qu'elles ne permettent pas de conclure.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/anthropic-economic-index-usage-reelle-ia"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "L'Anthropic Economic Index repose-t-il sur un sondage ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, pas dans ses fondations. Anthropic précise explicitement dans le rapport original que l'index ne repose pas sur des sondages d'opinion ni sur des tentatives de prévision, mais sur l'analyse directe de données d'usage réelles et anonymisées (environ un million de conversations pour la première édition). Une Economic Index Survey a été lancée en avril 2026 en complément, mais elle s'ajoute aux données d'usage, elle ne les remplace pas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que montre la première édition (2025) de l'index ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'usage était concentré sur des tâches de développement logiciel et de rédaction technique, classées selon une taxonomie de tâches professionnelles (Clio). Le rapport distingue aussi deux modes d'usage : l'augmentation (57 % des conversations), où l'utilisateur reste dans la boucle, et l'automatisation (43 %), où la tâche est largement déléguée."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ces données permettent-elles de dire si l'IA remplace des emplois ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non, et Anthropic ne prétend pas répondre à cette question avec ces rapports. L'index mesure des patterns d'usage observés sur sa propre plateforme Claude — pas l'emploi, pas la productivité réelle des entreprises, et pas l'impact macroéconomique. C'est une donnée d'usage de premier rang, utile pour comprendre comment l'IA est effectivement utilisée, mais elle ne couvre ni les autres plateformes IA ni les effets économiques en aval."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Anthropic Economic Index</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Anthropic Economic Index : ce que l'usage réel de Claude dit sur l'IA au travail</h1>
+      <p class="sub-hook">La plupart des chiffres sur « l'adoption de l'IA au travail » viennent de sondages déclaratifs. Anthropic a choisi une autre approche depuis 2025 : publier directement des patterns observés dans des millions de conversations Claude, anonymisées et classées par tâche.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>26 novembre 2026</span>
+        <span>·</span>
+        <span>6 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-anthropic-economic-index-usage-reelle-ia-hero.webp" alt="Anthropic Economic Index : trois éditions successives basées sur des données d'usage réelles de Claude, pas des sondages" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Face à l'avalanche de statistiques sur « l'adoption de l'IA en entreprise » — souvent des pourcentages issus de sondages déclaratifs aux méthodologies inégales — Anthropic a pris, depuis mai 2025, une direction différente avec son Anthropic Economic Index&nbsp;: analyser directement des patterns d'usage réels et anonymisés observés sur sa propre plateforme Claude. Trois éditions se sont succédé depuis, chacune affinant la méthode. Ce que ces rapports montrent est instructif — ce qu'ils ne permettent pas de conclure l'est tout autant.</p>
+
+<h2>Le rapport original (mai 2025) : une photographie par tâche</h2>
+
+<p>La première édition s'appuie sur environ un million de conversations Claude.ai (comptes gratuits et Pro), classées selon une taxonomie de tâches professionnelles appelée Clio. Le constat principal&nbsp;: l'usage se concentre nettement sur le développement logiciel et la rédaction technique. Le rapport introduit aussi une distinction devenue centrale dans les éditions suivantes&nbsp;: l'augmentation, où l'utilisateur garde la main sur la tâche et s'appuie sur Claude comme assistant (57 % des conversations), contre l'automatisation, où la tâche est largement déléguée (43 %). Anthropic précise explicitement dans ce rapport ne pas s'appuyer sur des sondages d'opinion ni sur des tentatives de prévision — une position méthodologique affichée comme un choix délibéré face aux approches basées sur la déclaration.</p>
+
+<h2>Le rapport « primitives » (janvier 2026) : cinq dimensions de mesure</h2>
+
+<p>La deuxième édition introduit des « primitives » — des mesures simples construites en demandant à Claude lui-même d'évaluer certaines dimensions de conversations anonymisées (Claude.ai et API first-party). Cinq dimensions sont retenues&nbsp;: la complexité de la tâche, le niveau de compétence requis, l'intention, le degré d'autonomie laissé à l'IA, et le taux de succès perçu. La complexité est mesurée par le nombre d'années de scolarité que Claude estime nécessaires pour comprendre les données d'entrée d'une conversation — une métrique indirecte, mais reproductible. Sur cette mesure, ce sont les tâches les plus complexes qui bénéficient du plus grand gain de vitesse apporté par l'IA. L'augmentation reste légèrement majoritaire sur Claude.ai (un peu plus de la moitié des conversations), tandis que l'automatisation domine nettement sur le trafic API first-party — un écart qui reflète une différence d'usage entre interface conversationnelle grand public et intégration technique.</p>
+
+<h2>Le rapport de juin 2026 : granularité horaire et premier sondage complémentaire</h2>
+
+<p>La troisième édition change de pipeline de données&nbsp;: un échantillonnage à taux plus élevé permet d'observer des patterns d'usage à l'échelle de l'heure, et un nouveau classificateur qualifie automatiquement le résultat de chaque conversation. Fait notable, ce rapport intègre pour la première fois des résultats préliminaires d'une Economic Index Survey, un sondage déclaratif lancé en avril 2026 — mais en complément des données d'usage, pas en remplacement. La période d'échantillonnage couvre la période de déclaration fiscale américaine, et le rapport documente un pic net de conversations liées à la fiscalité autour de la date limite — un exemple concret de ce que la granularité horaire permet de voir. Le rapport note aussi que construire un site web laisse beaucoup plus de marge de jugement à Claude que traduire un document, une observation qui illustre la variabilité du degré d'autonomie selon le type de tâche.</p>
+
+<h2>Ce que ces données ne permettent pas de conclure</h2>
+
+<p>Trois limites méthodologiques méritent d'être posées clairement, et Anthropic les reconnaît elle-même implicitement par la portée qu'elle donne à ses rapports. D'abord, ces données mesurent l'usage sur une seule plateforme (Claude) et ne disent rien de l'usage sur ChatGPT, Gemini ou les autres outils IA&nbsp;— une tendance observée sur Claude n'est pas automatiquement généralisable à « l'IA » dans son ensemble. Ensuite, ces rapports sont des données d'usage, pas des données d'emploi ou de productivité&nbsp;: observer qu'une tâche est largement automatisée dans des conversations Claude ne dit rien sur son impact réel en termes d'emplois supprimés, créés ou transformés dans l'économie. Enfin, ce sont des rapports publiés par l'entreprise qui fournit l'outil mesuré — un signal de transparence réel (la méthode et les chiffres bruts sont documentés), mais qui n'équivaut pas à une étude indépendante tierce.</p>
+
+<h2>Pourquoi c'est pertinent pour une équipe marketing</h2>
+
+<p>Face à la profusion de statistiques d'adoption IA invérifiables qui circulent dans la presse spécialisée marketing, disposer d'une source qui documente sa méthodologie précisément — taille d'échantillon, taxonomie de classification, limites explicites — donne un point de repère solide, même partiel. La bonne pratique consiste à citer ces chiffres pour ce qu'ils sont (des patterns d'usage observés sur Claude, à une période donnée) plutôt que de les généraliser silencieusement à « l'adoption de l'IA » en général — une confusion fréquente dans les contenus marketing qui citent ce type de rapport.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>L'Anthropic Economic Index repose-t-il sur un sondage ?</summary>
+    <p>Non, pas dans ses fondations. Anthropic précise explicitement dans le rapport original que l'index ne repose pas sur des sondages d'opinion ni sur des tentatives de prévision, mais sur l'analyse directe de données d'usage réelles et anonymisées (environ un million de conversations pour la première édition). Une Economic Index Survey a été lancée en avril 2026 en complément, mais elle s'ajoute aux données d'usage, elle ne les remplace pas.</p>
+  </details>
+  <details>
+    <summary>Que montre la première édition (2025) de l'index ?</summary>
+    <p>L'usage était concentré sur des tâches de développement logiciel et de rédaction technique, classées selon une taxonomie de tâches professionnelles (Clio). Le rapport distingue aussi deux modes d'usage : l'augmentation (57 % des conversations), où l'utilisateur reste dans la boucle, et l'automatisation (43 %), où la tâche est largement déléguée.</p>
+  </details>
+  <details>
+    <summary>Ces données permettent-elles de dire si l'IA remplace des emplois ?</summary>
+    <p>Non, et Anthropic ne prétend pas répondre à cette question avec ces rapports. L'index mesure des patterns d'usage observés sur sa propre plateforme Claude — pas l'emploi, pas la productivité réelle des entreprises, et pas l'impact macroéconomique. C'est une donnée d'usage de premier rang, utile pour comprendre comment l'IA est effectivement utilisée, mais elle ne couvre ni les autres plateformes IA ni les effets économiques en aval.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Besoin d'y voir clair sur l'impact réel de l'IA dans votre stratégie marketing ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">En discuter</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir l'article <a href="/pme-france-ia-chiffres-adoption-methodologie">IA dans les PME françaises : pourquoi les chiffres d'adoption se contredisent autant</a>, et <a href="/mythes-growth-hacking-ia">7 mythes sur le growth hacking IA qui coûtent cher aux équipes marketing</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/pme-france-ia-chiffres-adoption-methodologie">IA dans les PME françaises →</a>
+      <a href="/mythes-growth-hacking-ia">7 mythes sur le growth hacking IA →</a>
+      <a href="/barometre-ia-growth-marketing">Baromètre IA →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.webp" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+      <p class="footer-cities">Consultant marketing &amp; growth à <a href="/consultant-marketing-digital-chambery">Chambéry</a>, <a href="/consultant-marketing-digital-aix-les-bains">Aix-les-Bains</a>, <a href="/consultant-marketing-digital-lyon">Lyon</a>, <a href="/consultant-marketing-digital-annecy">Annecy</a>, <a href="/consultant-marketing-digital-grenoble">Grenoble</a>, <a href="/consultant-marketing-digital-geneve">Genève</a> et <a href="/consultant-marketing-digital-paris">Paris</a>.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="utm-tracking.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
