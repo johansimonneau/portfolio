@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Consent Mode : refus par défaut tant que l'utilisateur n'a pas choisi -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  'analytics_storage': 'denied',
+  'ad_storage': 'denied',
+  'ad_user_data': 'denied',
+  'ad_personalization': 'denied'
+});
+(function() {
+  var consent = localStorage.getItem('cookie_consent');
+  if (consent === 'accepted') {
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+})();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Les crawlers IA exécutent-ils le JavaScript ? Ce que montrent les études de crawl | Blog — Johan Simonneau</title>
+<meta name="description" content="GPTBot, ClaudeBot, PerplexityBot : aucun d'eux ne documente officiellement sa gestion du JavaScript. Ce que les études de crawl indépendantes mesurent concrètement, et ce qui reste non confirmé par les éditeurs eux-mêmes.">
+
+<link rel="canonical" href="https://www.johansimonneau.fr/crawlers-ia-javascript-rendu-spa">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Les crawlers IA exécutent-ils le JavaScript ? Ce que montrent les études de crawl">
+<meta property="og:description" content="GPTBot, ClaudeBot, PerplexityBot : aucun d'eux ne documente officiellement sa gestion du JavaScript. Ce que les études de crawl indépendantes mesurent concrètement, et ce qui reste non confirmé par les éditeurs eux-mêmes.">
+<meta property="og:url" content="https://www.johansimonneau.fr/crawlers-ia-javascript-rendu-spa">
+<meta property="og:image" content="https://www.johansimonneau.fr/assets/img/blog-crawlers-ia-javascript-rendu-spa-hero.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.johansimonneau.fr/assets/img/blog-crawlers-ia-javascript-rendu-spa-hero.png">
+
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<link rel="preload" href="assets/fonts/inter-variable-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="subpage.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.johansimonneau.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.johansimonneau.fr/blog" },
+        { "@type": "ListItem", "position": 3, "name": "Les crawlers IA exécutent-ils le JavaScript ? Ce que montrent les études de crawl", "item": "https://www.johansimonneau.fr/crawlers-ia-javascript-rendu-spa" }
+      ]
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Les crawlers IA exécutent-ils le JavaScript ? Ce que montrent les études de crawl",
+      "image": "https://www.johansimonneau.fr/assets/img/blog-crawlers-ia-javascript-rendu-spa-hero.png",
+      "author": {
+        "@type": "Person",
+        "name": "Johan Simonneau",
+        "url": "https://www.johansimonneau.fr"
+      },
+      "datePublished": "2026-11-28",
+      "dateModified": "2026-11-28",
+      "description": "GPTBot, ClaudeBot, PerplexityBot : aucun d'eux ne documente officiellement sa gestion du JavaScript. Ce que les études de crawl indépendantes mesurent concrètement, et ce qui reste non confirmé par les éditeurs eux-mêmes.",
+      "mainEntityOfPage": "https://www.johansimonneau.fr/crawlers-ia-javascript-rendu-spa"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "OpenAI, Anthropic et Perplexity documentent-ils si leurs crawlers exécutent le JavaScript ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Les pages officielles décrivant GPTBot, ClaudeBot et PerplexityBot ne précisent pas leur comportement vis-à-vis du JavaScript. Ce silence documentaire n'est ni une confirmation ni un démenti : l'information disponible vient uniquement d'études de crawl indépendantes, pas des éditeurs eux-mêmes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que montrent les études de crawl indépendantes sur le JavaScript et les crawlers IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Une étude de Vercel sur le trafic de crawl (« The rise of the AI crawler ») rapporte qu'aucun des grands crawlers IA observés, dont GPTBot et ClaudeBot, n'exécute le JavaScript. Une analyse de l'agence Tripledart, portant sur ses propres logs serveur, rapporte que GPTBot a récupéré des fichiers JavaScript dans 11,50 % de ses requêtes et ClaudeBot dans 23,84 %, sans qu'aucune ligne n'ait été exécutée dans les deux cas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il renoncer au rendu côté client pour être visible dans les réponses IA ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les données disponibles pointent vers le rendu côté serveur (SSR) ou la génération statique pour le contenu qu'on veut voir cité par les IA génératives, par cohérence avec ce que les études de crawl mesurent — mais aucun éditeur d'IA ne l'a confirmé officiellement comme une exigence technique de sa part."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTBVL88D"
+height="0" width="0" class="gtm-noscript-frame"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a class="skip-link" href="#main">Aller au contenu</a>
+
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo">
+      <img src="assets/img/logo-js.png" alt="Johan Simonneau" width="36" height="36" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li class="has-megamenu">
+          <button class="services-trigger" id="servicesTrigger" aria-expanded="false" aria-controls="servicesMenu">
+            Services
+            <svg class="services-trigger-caret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+
+          <div class="services-menu" id="servicesMenu">
+            <div class="services-menu-inner">
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Acquisition</p>
+                <a href="/sea" class="services-menu-item">
+                  <span class="services-menu-item-title">SEA</span>
+                  <span class="services-menu-item-desc">Google Ads Search, Shopping, Display, YouTube.</span>
+                </a>
+                <a href="/sma" class="services-menu-item">
+                  <span class="services-menu-item-title">SMA</span>
+                  <span class="services-menu-item-desc">Meta Ads, TikTok Ads, LinkedIn Ads, UGC.</span>
+                </a>
+                <a href="/mobile-marketing" class="services-menu-item">
+                  <span class="services-menu-item-title">Mobile Marketing</span>
+                  <span class="services-menu-item-desc">ASO, Apple Search Ads, tracking mobile.</span>
+                </a>
+              </div>
+
+              <div class="services-menu-col">
+                <p class="services-menu-heading">Visibilité &amp; performance</p>
+                <a href="/seo" class="services-menu-item">
+                  <span class="services-menu-item-title">SEO</span>
+                  <span class="services-menu-item-desc">Audit technique, cocons sémantiques, netlinking.</span>
+                </a>
+                <a href="/geo" class="services-menu-item">
+                  <span class="services-menu-item-title">GEO</span>
+                  <span class="services-menu-item-desc">Visibilité dans les réponses ChatGPT, Claude, Perplexity.</span>
+                </a>
+                <a href="/analytics" class="services-menu-item">
+                  <span class="services-menu-item-title">Analytics</span>
+                  <span class="services-menu-item-desc">GA4, GTM, Conversion API, tableaux de bord.</span>
+                </a>
+                <a href="/cro" class="services-menu-item">
+                  <span class="services-menu-item-title">CRO</span>
+                  <span class="services-menu-item-desc">A/B testing, optimisation de funnel et de pages.</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="services-menu-footer">
+              <p>Une question sur l'un de ces leviers&nbsp;?</p>
+              <a href="/#contact" class="btn btn-primary services-menu-cta">Contactez-moi</a>
+            </div>
+          </div>
+        </li>
+        <li><a href="/ressources">Ressources</a></li>
+        <li><a href="/barometre-ia-growth-marketing" class="nav-baro-link">Baromètre IA</a></li>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="sub-breadcrumb" aria-label="Fil d'Ariane">
+  <div class="container">
+    <ol>
+      <li><a href="/">Accueil</a></li>
+      <li class="sep">/</li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="sep">/</li>
+      <li aria-current="page">Crawlers IA et JavaScript</li>
+    </ol>
+  </div>
+</nav>
+
+<main id="main">
+
+  <section class="sub-header">
+    <div class="container sub-header-inner">
+      <a href="/blog" class="sub-pillar-tag">Blog</a>
+      <h1>Les crawlers IA exécutent-ils le JavaScript ? Ce que montrent les études de crawl</h1>
+      <p class="sub-hook">La question revient sans cesse pour les sites construits en SPA : GPTBot, ClaudeBot et PerplexityBot voient-ils le contenu rendu côté client ? Les éditeurs eux-mêmes restent silencieux sur le sujet — seules des études de crawl indépendantes apportent des éléments concrets.</p>
+      <p class="sub-byline">
+        <span>Johan Simonneau</span>
+        <span>·</span>
+        <span>28 novembre 2026</span>
+        <span>·</span>
+        <span>5 min de lecture</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="sub-cover">
+    <div class="container">
+      <img src="assets/img/blog-crawlers-ia-javascript-rendu-spa-hero.webp" alt="Crawlers IA et JavaScript : ce que mesurent les études de crawl indépendantes sur GPTBot et ClaudeBot" width="1200" height="630" loading="eager">
+    </div>
+  </section>
+
+  <section class="sub-article">
+    <div class="container sub-article-inner">
+
+<p>Pour un site qui s'appuie massivement sur le JavaScript côté client — une single-page application typique — une question concrète se pose dès qu'on s'intéresse au GEO&nbsp;: les crawlers des IA génératives voient-ils le contenu une fois rendu, ou seulement le HTML brut envoyé par le serveur avant exécution du script ? La réponse directe des éditeurs eux-mêmes n'existe tout simplement pas encore.</p>
+
+<h2>Un silence documentaire chez les trois principaux éditeurs</h2>
+
+<p>Les pages officielles décrivant GPTBot (OpenAI), ClaudeBot (Anthropic) et PerplexityBot ne précisent à aucun moment leur comportement vis-à-vis du rendu JavaScript. Ce n'est ni une confirmation qu'ils l'exécutent, ni un démenti&nbsp;: c'est une absence d'information de la part des trois éditeurs sur ce point précis, à la différence de Google qui documente depuis des années le fonctionnement du rendu JavaScript de Googlebot dans sa documentation Search Central.</p>
+
+<h2>Ce que mesure l'étude Vercel sur le trafic de crawl</h2>
+
+<p>Face à ce silence, la source la plus citée est une étude de Vercel sur le trafic de crawl, intitulée « The rise of the AI crawler ». Elle rapporte qu'aucun des grands crawlers IA observés, GPTBot et ClaudeBot nommément inclus, n'exécute le JavaScript lors du passage sur les pages analysées. C'est une mesure empirique de comportement de crawl, publiée par une entreprise nommée et datée — pas une déclaration officielle des éditeurs d'IA concernés, mais une observation technique vérifiable sur le trafic qu'elle a elle-même mesuré.</p>
+
+<h2>Une deuxième mesure, sur des logs serveur réels</h2>
+
+<p>Une analyse distincte, publiée par l'agence Tripledart sur ses propres logs serveur, apporte une mesure chiffrée complémentaire&nbsp;: GPTBot a récupéré des fichiers JavaScript dans 11,50&nbsp;% de ses requêtes observées, et ClaudeBot dans 23,84&nbsp;% des siennes — sans qu'aucune ligne de ces fichiers n'ait, dans les deux cas, été effectivement exécutée. Le fait que les bots récupèrent parfois le fichier JS mais ne l'exécutent jamais, selon cette mesure, est cohérent avec l'étude Vercel&nbsp;: le fichier est parfois téléchargé (peut-être pour l'indexation du code lui-même, ou par comportement de crawl générique), mais son contenu n'influence pas ce qui est lu comme contenu de page.</p>
+
+<h2>Ce qui reste non confirmé, et pourquoi la nuance compte</h2>
+
+<p>Deux limites méritent d'être posées clairement avant d'en tirer une règle absolue. D'abord, ces mesures portent sur des échantillons de trafic observés à un moment donné, par des tiers, pas sur une documentation technique publiée par OpenAI, Anthropic ou Perplexity eux-mêmes&nbsp;: un changement de comportement de leur part ne serait pas annoncé à l'avance, et ces chiffres peuvent devenir obsolètes sans préavis. Ensuite, le comportement du bot de crawl initial (GPTBot, ClaudeBot) ne dit rien avec certitude du comportement des agents de récupération en temps réel qui alimentent une réponse citée pendant une conversation — ces deux catégories de bots peuvent, en théorie, se comporter différemment, même si aucune étude solide ne les a comparées spécifiquement sur ce point à ce jour.</p>
+
+<h2>Ce que ça implique concrètement</h2>
+
+<p>En l'état des données disponibles, la prudence technique recommande de s'assurer que le contenu qu'on veut voir cité par les IA génératives soit présent dans le HTML servi avant toute exécution de JavaScript — via le rendu côté serveur (SSR) ou la génération statique — plutôt que de dépendre d'un rendu côté client pour ce contenu. C'est une recommandation cohérente avec les mesures disponibles, pas une certitude validée par les éditeurs d'IA concernés&nbsp;: elle doit être présentée comme telle, et réévaluée si l'un des trois éditeurs publie un jour sa propre documentation sur le sujet.</p>
+
+<h2>FAQ</h2>
+
+<div class="sub-faq">
+  <details>
+    <summary>OpenAI, Anthropic et Perplexity documentent-ils si leurs crawlers exécutent le JavaScript ?</summary>
+    <p>Non. Les pages officielles décrivant GPTBot, ClaudeBot et PerplexityBot ne précisent pas leur comportement vis-à-vis du JavaScript. Ce silence documentaire n'est ni une confirmation ni un démenti : l'information disponible vient uniquement d'études de crawl indépendantes, pas des éditeurs eux-mêmes.</p>
+  </details>
+  <details>
+    <summary>Que montrent les études de crawl indépendantes sur le JavaScript et les crawlers IA ?</summary>
+    <p>Une étude de Vercel sur le trafic de crawl (« The rise of the AI crawler ») rapporte qu'aucun des grands crawlers IA observés, dont GPTBot et ClaudeBot, n'exécute le JavaScript. Une analyse de l'agence Tripledart, portant sur ses propres logs serveur, rapporte que GPTBot a récupéré des fichiers JavaScript dans 11,50 % de ses requêtes et ClaudeBot dans 23,84 %, sans qu'aucune ligne n'ait été exécutée dans les deux cas.</p>
+  </details>
+  <details>
+    <summary>Faut-il renoncer au rendu côté client pour être visible dans les réponses IA ?</summary>
+    <p>Les données disponibles pointent vers le rendu côté serveur (SSR) ou la génération statique pour le contenu qu'on veut voir cité par les IA génératives, par cohérence avec ce que les études de crawl mesurent — mais aucun éditeur d'IA ne l'a confirmé officiellement comme une exigence technique de sa part.</p>
+  </details>
+</div>
+
+      <div class="sub-cta">
+        <h3>Un site en SPA à auditer pour sa visibilité dans les réponses IA ?</h3>
+        <div class="sub-cta-actions">
+          <a href="#" class="js-mailto btn btn-primary" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">Auditer mon rendu technique</a>
+          <span class="sub-cta-mail"><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></span>
+        </div>
+        <p class="sub-cta-link">Pour aller plus loin, voir la page <a href="/geo">GEO</a>, et l'article <a href="/robots-txt-llms-txt-bloquer-crawlers-ia">robots.txt ou llms.txt : faut-il bloquer les crawlers IA sur son site ?</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sub-pillar-band">
+    <div class="container sub-pillar-band-inner">
+      <p>Pour continuer sur ce sujet.</p>
+      <div class="sub-pillar-band-links">
+      <a href="/geo">GEO →</a>
+      <a href="/robots-txt-llms-txt-bloquer-crawlers-ia">robots.txt ou llms.txt →</a>
+      <a href="/guide-complet-geo-ranker-llm">Guide GEO : ranker dans les LLM →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo">
+        <img src="assets/img/logo-js-white.webp" alt="Johan Simonneau" width="36" height="36" class="logo-img" loading="lazy">
+      </a>
+      <p>Johan Simonneau · Consultant Traffic Management & Acquisition basé à Chambéry.</p>
+      <p>8+ ans d'expertise en acquisition B2B et B2C pour générer du revenu pour votre entreprise.</p>
+      <p class="footer-cities">Consultant marketing &amp; growth à <a href="/consultant-marketing-digital-chambery">Chambéry</a>, <a href="/consultant-marketing-digital-aix-les-bains">Aix-les-Bains</a>, <a href="/consultant-marketing-digital-lyon">Lyon</a>, <a href="/consultant-marketing-digital-annecy">Annecy</a>, <a href="/consultant-marketing-digital-grenoble">Grenoble</a>, <a href="/consultant-marketing-digital-geneve">Genève</a> et <a href="/consultant-marketing-digital-paris">Paris</a>.</p>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Services</p>
+      <ul>
+        <li><a href="/sea">SEA</a></li>
+        <li><a href="/sma">SMA</a></li>
+        <li><a href="/seo">SEO</a></li>
+        <li><a href="/geo">GEO</a></li>
+        <li><a href="/mobile-marketing">Mobile Marketing</a></li>
+        <li><a href="/analytics">Analytics</a></li>
+        <li><a href="/cro">CRO</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <p class="footer-heading">Navigation</p>
+      <ul>
+        <li><a href="/tarifs">Tarifs</a></li>
+        <li><a href="/realisations">Réalisations</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/diagnostic">Diagnostic gratuit</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/sim-lab">SIM Lab</a></li>
+        <li><a href="/comment-je-travaille">Comment je travaille</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <p class="footer-heading">Contact</p>
+      <ul>
+        <li><a href="#" class="js-mailto" data-mailto-u="johansimonneau.pro" data-mailto-d="gmail.com">johansimonneau.pro [at] gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/johansimonneau/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© 2026 Johan Simonneau. Tous droits réservés.</p>
+    <nav class="footer-legal" aria-label="Mentions légales">
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-de-confidentialite">Politique de confidentialité</a>
+      <a href="/cgp">CGP</a>
+      <a href="#" id="cookieManage">Gérer mes cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js" defer></script>
+<script src="cookie-consent.js" defer></script>
+<script src="utm-tracking.js" defer></script>
+<script src="impact-semrush.js" defer></script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
